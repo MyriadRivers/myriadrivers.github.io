@@ -9,7 +9,7 @@ const StyledExpandable = styled.div`
 function Expandable({ heading, summary, children }: { heading: string, summary: string, children: ReactNode }, ref: Ref<HTMLDivElement>) {
     const [expanded, setExpanded] = useState(false);
     return (<StyledExpandable onClick={() => { setExpanded(!expanded) }}>
-        <Heading text={heading} level={1} ref={ref} />
+        <Heading level={3} ref={ref}>{heading}</Heading>
         {expanded ? children : summary}
     </StyledExpandable>);
 }

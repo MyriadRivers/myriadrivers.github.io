@@ -1,4 +1,4 @@
-import Grid from "../../components/Grid";
+import Grid from "../../components/Grid/Grid";
 import { projects } from "../../common";
 import { Outlet } from "react-router-dom";
 

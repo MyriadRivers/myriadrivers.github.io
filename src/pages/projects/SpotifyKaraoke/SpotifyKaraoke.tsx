@@ -16,7 +16,7 @@ function SpotifyKaraoke() {
     return (<StyledPage>
         <Sidebar headings={headings} refs={headingRefs.current} />
         <div>
-            <Heading text={"Spotify Karaoke"} level={1} ref={el => headingRefs.current[0] = el} />
+            <Heading level={2} ref={el => headingRefs.current[0] = el} >Spotify Karaoke</Heading>
             <Expandable heading={"Problem"} summary={"We have a problem Houston."} ref={el => headingRefs.current[1] = el} >
                 Expanded problem is expanded. Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah.
             </Expandable>

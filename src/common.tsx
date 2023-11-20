@@ -25,61 +25,61 @@ const projects = [
         title: "Spotify Karaoke",
         url: "spotify_karaoke",
         image: "orbweaver.png",
-        tags: ["composition", "webdev"]
+        tags: ["webdev"]
     },
     {
         title: "Video Sonification",
         url: "links",
         image: "orbweaver.png",
-        tags: ["composition", "webdev"]
+        tags: ["webdev",]
     },
     {
         title: "Multimodal Music Accessibility",
         url: "links",
         image: "orbweaver.png",
-        tags: ["composition", "webdev"]
+        tags: ["research", "hci"]
     },
     {
         title: "Orb Weaver",
         url: "links",
         image: "orbweaver.png",
-        tags: ["composition", "webdev"]
+        tags: ["webdev", "art"]
     },
     {
         title: "NASA Diminished Reality",
         url: "links",
         image: "orbweaver.png",
-        tags: ["composition", "webdev"]
+        tags: ["research", "hci"]
     },
     {
         title: "Voicemail",
         url: "links",
         image: "orbweaver.png",
-        tags: ["composition", "webdev"]
+        tags: ["art"]
     },
     {
         title: "FOREST Dance Editor",
         url: "links",
         image: "orbweaver.png",
-        tags: ["composition", "webdev"]
+        tags: ["webdev", "research"]
     },
     {
         title: "Synchronized Swimming Auditory Interface",
         url: "links",
         image: "orbweaver.png",
-        tags: ["composition", "webdev"]
+        tags: ["hci"]
     },
     {
         title: "Nyan Cat (Remix)",
         url: "links",
         image: "orbweaver.png",
-        tags: ["composition", "webdev"]
+        tags: ["art"]
     },
     {
         title: "Sync or Sink",
         url: "links",
         image: "orbweaver.png",
-        tags: ["composition", "webdev"]
+        tags: ["art"]
     },
 ]
 
