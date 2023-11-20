@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Ref } from "react"
 
 const StyledSidebar = styled.div`
-    
+    background: teal;
 `
 
 const scrollTo = (element: HTMLElement | null) => {
