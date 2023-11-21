@@ -1,17 +1,43 @@
 import { Link, To } from "react-router-dom";
 import styled from "styled-components";
+import Tag from "./Tag";
 
 const StyledTile = styled.div`
-    background: seagreen;
-    aspect-ratio: 1/1;
+    font-size: 16pt;
     max-width: 100%;
-    border: solid;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    padding: 0px;
+
+    .image {
+        background: palevioletred;
+        aspect-ratio: 1/1;
+    }
+
+    .tileTags {
+        padding: 0px;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 `
 
 function Tile({ title, url, image, tags }: { title: string, url: To, image: string, tags: Array<string> }) {
     return (<Link to={url} >
         <StyledTile>
+            <div className={"image"}>
+                Image
+            </div>
             {title}
+            <div className={"tileTags"}>
+                {tags.map(tag => (
+                    <Tag name={tag} />
+                ))}
+            </div>
         </StyledTile>
     </Link>);
 }

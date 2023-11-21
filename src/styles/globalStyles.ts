@@ -1,25 +1,26 @@
 import { createGlobalStyle } from 'styled-components'
-import NotoSansTTF from "../assets/fonts/NotoSansSC/NotoSansSC-Regular.ttf"
-import NotoSansSVG from "../assets/fonts/NotoSansSC/NotoSansSC-Regular.svg"
-import NotoSansEOT from "../assets/fonts/NotoSansSC/NotoSansSC-Regular.eot"
-import NotoSansWOFF from "../assets/fonts/NotoSansSC/NotoSansSC-Regular.woff"
-import NotoSansWOFF2 from "../assets/fonts/NotoSansSC/NotoSansSC-Regular.woff2"
+import AsketNarrowOtf from "../assets/fonts/AsketNarrowLight/AsketNarrowLight.otf";
+import AsketNarrowEot from "../assets/fonts/AsketNarrowLight/AsketNarrowLight.eot";
+import AsketNarrowSvg from "../assets/fonts/AsketNarrowLight/AsketNarrowLight.svg";
+import AsketNarrowTtf from "../assets/fonts/AsketNarrowLight/AsketNarrowLight.ttf";
+import AsketNarrowWoff from "../assets/fonts/AsketNarrowLight/AsketNarrowLight.woff";
+import AsketNarrowWoff2 from "../assets/fonts/AsketNarrowLight/AsketNarrowLight.woff2";
 
 const GlobalStyle = createGlobalStyle`
     @font-face {
-        font-family: "Noto Sans";
-        src: url(${NotoSansTTF}) format("truetype"),
-             url(${NotoSansSVG}) format("svg"),
-             url(${NotoSansEOT}) format("embedded-opentype"),
-             url(${NotoSansWOFF}) format("woff"),
-             url(${NotoSansWOFF2}) format("woff2");
+        font-family: "Asket Narrow";
+        src: url(${AsketNarrowOtf}) format("otf"),
+             url(${AsketNarrowTtf}) format("truetype"),
+             url(${AsketNarrowSvg}) format("svg"),
+             url(${AsketNarrowEot}) format("embedded-opentype"),
+             url(${AsketNarrowWoff}) format("woff"),
+             url(${AsketNarrowWoff2}) format("woff2");
     }
 
     body {
-        font-family: "Noto Sans";
-        background: pink;
+        font-family: "Asket Narrow";
 
-        margin: 20px;
+        margin: 30px;
     }
 
     a {

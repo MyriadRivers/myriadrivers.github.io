@@ -6,7 +6,6 @@ function Projects() {
     return (
         <div>
             <Grid tiles={projects} />
-            <Outlet />
         </div>
     );
 }

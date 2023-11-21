@@ -5,11 +5,17 @@ import { useState, useEffect } from "react"
 import Tag from "./Tag";
 
 const StyledGrid = styled.div`
-    background: cornflowerblue;
+    .tags {
+        display: flex;
+        gap: 20px;
+
+        padding: 10px;
+    }
 
     .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 15px;
     }
 
     margin: auto;
@@ -50,10 +56,11 @@ function Grid({ tiles }: { tiles: Array<{ title: string, url: To, image: string,
     }
 
     return (<StyledGrid>
-        {allTags.map((tag, index) => (
-            <Tag name={tag} toggleTags={() => toggleTag(tag)} />
-        ))}
-
+        <div className={"tags"}>
+            {allTags.map((tag, index) => (
+                <Tag name={tag} toggleTags={() => toggleTag(tag)} />
+            ))}
+        </div>
         <div className="grid">
             {tiles.map((tile, index) => (
                 // Display only tiles with matching tags, or all tiles if no tags are selected (default)
