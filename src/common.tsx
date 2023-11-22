@@ -1,8 +1,16 @@
 import Projects from "./pages/projects/Projects"
 import Links from "./pages/links/Links"
+import Home from "./pages/home/Home"
+
 import SpotifyKaraoke from "./pages/projects/SpotifyKaraoke/SpotifyKaraoke"
 
+import spotifyKaraokeImg from "./assets/images/spotify_karaoke.png"
+
 const navRoutes = [
+    {
+        path: "home",
+        element: <Home />,
+    },
     {
         path: "projects",
         element: <Projects />,
@@ -24,7 +32,7 @@ const projects = [
     {
         title: "Spotify Karaoke",
         url: "spotify_karaoke",
-        image: "orbweaver.png",
+        image: spotifyKaraokeImg,
         tags: ["webdev"]
     },
     {

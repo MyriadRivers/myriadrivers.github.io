@@ -3,7 +3,9 @@ import { Ref, forwardRef, ReactNode, useState } from "react"
 import Heading from "./Heading";
 
 const StyledExpandable = styled.div`
-    background: forestgreen;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 `
 
 function Expandable({ heading, summary, children }: { heading: string, summary: string, children: ReactNode }, ref: Ref<HTMLDivElement>) {

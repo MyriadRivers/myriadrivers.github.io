@@ -8,12 +8,11 @@ const StyledTile = styled.div`
 
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 
-    padding: 0px;
+    padding: 10px;
 
     .image {
-        background: palevioletred;
         aspect-ratio: 1/1;
     }
 
@@ -29,9 +28,7 @@ const StyledTile = styled.div`
 function Tile({ title, url, image, tags }: { title: string, url: To, image: string, tags: Array<string> }) {
     return (<Link to={url} >
         <StyledTile>
-            <div className={"image"}>
-                Image
-            </div>
+            <img src={image} ></img>
             {title}
             <div className={"tileTags"}>
                 {tags.map(tag => (

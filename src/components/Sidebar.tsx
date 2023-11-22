@@ -2,7 +2,18 @@ import styled from "styled-components";
 import { Ref } from "react"
 
 const StyledSidebar = styled.div`
-    background: teal;
+    font-size: 18pt;
+    text-transform: uppercase;
+    letter-spacing: 2pt;
+    text-align: right;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    outline: solid;
+
+    padding: 20px;
 `
 
 const scrollTo = (element: HTMLElement | null) => {

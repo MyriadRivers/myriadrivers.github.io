@@ -19,8 +19,14 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         font-family: "Asket Narrow";
+        font-size: 16pt;
 
+        padding: 0px;
         margin: 30px;
+
+        -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+        -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+        box-sizing: border-box;
     }
 
     a {
