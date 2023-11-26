@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react"
 import NavOption from "./NavOption";
 
-const StyledNavbar = styled.div`
+const StyledNavbar = styled.div` 
     display: flex;
     gap: 40px;
 `

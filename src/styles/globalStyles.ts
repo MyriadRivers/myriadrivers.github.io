@@ -18,15 +18,28 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
+
         font-family: "Asket Narrow";
         font-size: 16pt;
 
+        margin: 0px;
         padding: 0px;
-        margin: 30px;
 
         -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
         -moz-box-sizing: border-box;    /* Firefox, other Gecko */
         box-sizing: border-box;
+
+        height: 100%;
+    }
+
+    html {
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #root, .App {
+        height: 100%;
     }
 
     a {
