@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Heading from "../Heading";
+import Canvas from "../Canvas";
 
 const StyledNavOption = styled.div<{ $active: boolean }>`
     font-size: 20pt;
@@ -8,12 +9,17 @@ const StyledNavOption = styled.div<{ $active: boolean }>`
 
     outline: ${props => props.$active ? "solid" : ""};
 
-    padding: 5px;
+    /* padding: 5px; */
 `
 
 function NavOption({ text, active }: { text: string, active: boolean }) {
     return (<StyledNavOption $active={active}>
-        {text}
+        { active ? 
+        <Canvas>
+            {text}
+        </Canvas> :
+        text}
+        
     </StyledNavOption>);
 }
 
