@@ -8,7 +8,7 @@ const StyledGrid = styled.div`
 
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     
     .tags {
         display: flex;
@@ -19,9 +19,12 @@ const StyledGrid = styled.div`
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 15px;
+        height: 100%;
+        overflow: auto;
     }
 
     margin: auto;
+    height: 100%;
     width: 100%;
 `
 

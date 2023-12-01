@@ -8,6 +8,7 @@ import pipelineImage from "./spotify_karaoke_pipeline.png"
 import Image from "../../../components/Image";
 
 const StyledPage = styled.div`
+    /* background: orange; */
     display: flex;
     gap: 20px;
     height: 100%;
@@ -34,11 +35,11 @@ function SpotifyKaraoke() {
         <div className={"projectContents"}>
             <ProjectTitle text={"Spotify Karaoke"} subtitle={"Aug–Oct 2023"} link="https://aidn.jp/mikutap/" ref={el => headingRefs.current[0] = el} />
             Spotify Karaoke is a web app that lets you sing along to any song on Spotify with English lyrics.
-            <Expandable heading={"Pipeline"} summary={"We have a problem Houston."} ref={el => headingRefs.current[1] = el} >
+            <Expandable heading={"Pipeline"} summary={"Summary of pipeline."} ref={el => headingRefs.current[1] = el} >
                 <Image src={pipelineImage} caption={"Data pipeline for Spotify Karaoke."} />
                 Expanded problem is expanded. Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah.
             </Expandable>
-            <Expandable heading={"Algorithm"} summary={"We've done a lot of research."} ref={el => headingRefs.current[2] = el} >
+            <Expandable heading={"Algorithm"} summary={"Summary of algorithm."} ref={el => headingRefs.current[2] = el} >
                 Research stuff bleh blah blooh blee bleh blah blooh blee bleh blah blooh blee.
             </Expandable>
         </div>

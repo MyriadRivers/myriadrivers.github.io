@@ -4,6 +4,7 @@ import { useState } from "react"
 import NavOption from "./NavOption";
 
 const StyledNavbar = styled.div` 
+    justify-content: center;
     display: flex;
     gap: 40px;
 `

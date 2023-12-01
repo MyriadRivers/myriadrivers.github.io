@@ -2,17 +2,22 @@ import styled from "styled-components";
 import { useState } from "react"
 
 const StyledTag = styled.div<{ $active: boolean }>`
-    background: ${props => props.$active ? "black" : "none"};
+    background: ${props => props.$active ? "black" : ""};
     color: ${props => props.$active ? "white" : "black"};
 
+    font-family: ${props => props.theme.headerFont};
+    letter-spacing: 1pt;
+
     font-size: 12pt;
-    outline: ${props => props.$active ? "solid" : "solid"};
-    outline-width: 2px;
-    
+    border: solid;
+    border-width: 2px;
+
     text-transform: uppercase;
 
     margin: 0px;
     padding: 5px;
+
+    box-sizing: border-box;
 
     &:hover {
         cursor: pointer;

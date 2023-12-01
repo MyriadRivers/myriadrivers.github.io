@@ -3,22 +3,34 @@ import Heading from "../Heading";
 import Canvas from "../Canvas";
 
 const StyledNavOption = styled.div<{ $active: boolean }>`
-    font-size: 20pt;
+    font-family: ${props => props.theme.headerFont};
+    font-size: 25pt;
     text-transform: uppercase;
     letter-spacing: 6pt;
 
-    outline: ${props => props.$active ? "solid" : ""};
+    /* border: solid; */
+    color: black;
+    box-sizing: border-box;
 
     /* padding: 5px; */
+
+    .text {
+        padding: 5px 10px 5px 10px;
+        margin-right: -5pt;
+    }
 `
 
 function NavOption({ text, active }: { text: string, active: boolean }) {
     return (<StyledNavOption $active={active}>
         { active ? 
         <Canvas>
-            {text}
+            <div className="text">
+                {text}
+            </div>
         </Canvas> :
-        text}
+        <div className="text">
+            {text}
+        </div>}
         
     </StyledNavOption>);
 }

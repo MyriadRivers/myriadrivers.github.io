@@ -1,19 +1,26 @@
 import styled from "styled-components";
 import { Ref } from "react"
+import Canvas from "./Canvas";
 
 const StyledSidebar = styled.div`
-    font-size: 18pt;
-    text-transform: uppercase;
-    letter-spacing: 2pt;
-    text-align: right;
-
+    color: black;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    /* outline: solid; */
+    /* border: solid; */
 
-    outline: solid;
+    .sidebarContent {
+        font-family: ${props => props.theme.headerFont};
+        font-size: 18pt;
+        text-transform: uppercase;
+        letter-spacing: 2pt;
+        text-align: right;
 
-    padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        padding: 20px;
+    }
 `
 
 const scrollTo = (element: HTMLElement | null) => {
@@ -24,9 +31,13 @@ const scrollTo = (element: HTMLElement | null) => {
 
 function Sidebar({ headings, refs }: { headings: Array<string>, refs: Array<HTMLDivElement | null> }) {
     return (<StyledSidebar>
-        {headings.map((heading, index) => (
-            <div onClick={() => scrollTo(refs[index])}>{heading}</div>
-        ))}
+        <Canvas>
+            <div className="sidebarContent">
+                {headings.map((heading, index) => (
+                    <div onClick={() => scrollTo(refs[index])}>{heading}</div>
+                ))}
+            </div>
+        </Canvas>
     </StyledSidebar>);
 }
 
