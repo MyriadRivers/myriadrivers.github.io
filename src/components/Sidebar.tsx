@@ -3,10 +3,7 @@ import { Ref } from "react"
 import Canvas from "./Canvas";
 
 const StyledSidebar = styled.div`
-    color: black;
     display: flex;
-    /* outline: solid; */
-    /* border: solid; */
 
     .sidebarContent {
         font-family: ${props => props.theme.headerFont};
@@ -31,13 +28,11 @@ const scrollTo = (element: HTMLElement | null) => {
 
 function Sidebar({ headings, refs }: { headings: Array<string>, refs: Array<HTMLDivElement | null> }) {
     return (<StyledSidebar>
-        <Canvas>
-            <div className="sidebarContent">
-                {headings.map((heading, index) => (
-                    <div onClick={() => scrollTo(refs[index])}>{heading}</div>
-                ))}
-            </div>
-        </Canvas>
+        <div className="sidebarContent">
+            {headings.map((heading, index) => (
+                <div onClick={() => scrollTo(refs[index])}>{heading}</div>
+            ))}
+        </div>
     </StyledSidebar>);
 }
 

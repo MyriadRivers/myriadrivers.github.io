@@ -8,7 +8,6 @@ import pipelineImage from "./spotify_karaoke_pipeline.png"
 import Image from "../../../components/Image";
 
 const StyledPage = styled.div`
-    /* background: orange; */
     display: flex;
     gap: 20px;
     height: 100%;

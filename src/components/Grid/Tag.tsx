@@ -2,14 +2,15 @@ import styled from "styled-components";
 import { useState } from "react"
 
 const StyledTag = styled.div<{ $active: boolean }>`
-    background: ${props => props.$active ? "black" : ""};
-    color: ${props => props.$active ? "white" : "black"};
+    background: ${props => props.$active ? props.theme.main : ""};
+    color: ${props => props.$active ? props.theme.alt : props.theme.main};
 
     font-family: ${props => props.theme.headerFont};
     letter-spacing: 1pt;
 
     font-size: 12pt;
-    border: solid;
+    border-color: ${props => props.theme.main};
+    border-style: solid;
     border-width: 2px;
 
     text-transform: uppercase;

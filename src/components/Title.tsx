@@ -1,37 +1,31 @@
 import styled from "styled-components";
 import Canvas from "./Canvas";
+import riverImage from "../assets/images/river.png"
 
 const StyledTitle = styled.div`
-    /* outline: solid; */
-    /* border: solid; */
-    color: black;
-    /* background: orange; */
-    
     font-family: ${props => props.theme.headerFont};
-    font-size: 3em;
+    font-size: 40pt;
     letter-spacing: 0.25em;
 
     justify-content: center;
 
-    .chuan {
-        /* font-size: 0.8em; */
-        color: #72b1d2;
-
-        line-height: 1.375em;
+    .river {
+        height: 1.05em;
+        margin-right: 0.25em;
     }
     
     text-transform: uppercase;
     
     display: flex;
-    gap: 10px;
 `
 
 function Title() {
-    return (<Canvas>
-        <StyledTitle>
-            Jason<div className="chuan">川</div>Gao
-        </StyledTitle>
-    </Canvas>);
+    return (
+    <StyledTitle>
+        Jason
+        <img src={riverImage} className={"river"} alt={"川"}/>
+        Gao
+    </StyledTitle>);
 }
 
 export default Title;

@@ -3,7 +3,9 @@ import { Ref, forwardRef, ReactNode } from "react"
 import Canvas from "./Canvas";
 
 const StyledHeading = styled.div<{ $level: number }>`
-    color: black;
+    /* background: ${props => props.theme.main};
+    color: ${props => props.theme.alt}; */
+
     display: flex;
     flex-direction: column;
 
@@ -13,21 +15,17 @@ const StyledHeading = styled.div<{ $level: number }>`
     text-transform: uppercase;
     letter-spacing: 6pt;
 
-    /* outline: solid; */
-    /* border: solid; */
-
-    padding: 15px;
+    padding: 15px 0px;
 `
 
 function Heading({ level, subtitle, children }: { level: number, subtitle?: string, children: ReactNode }, ref: Ref<HTMLDivElement>) {
-    return (<Canvas>
-        <StyledHeading $level={level} ref={ref}>
-            {children}
-            <div className={"subtitle"}>
-                {subtitle}
-            </div>
-        </StyledHeading>
-    </Canvas>);
+    return (
+    <StyledHeading $level={level} ref={ref}>
+        {children}
+        <div className={"subtitle"}>
+            {subtitle}
+        </div>
+    </StyledHeading>);
 }
 
 export default forwardRef(Heading);

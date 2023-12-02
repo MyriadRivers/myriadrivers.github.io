@@ -1,6 +1,9 @@
 const main = {
-    headerFont: "Oswald Light",
-    main: "#d12f4e"
+    headerFont: "Free Sans",
+    bodyFont: "Average",
+    main: "black",
+    alt: "white",
+    accent: "#72b1d2"
 }
 
 export { main };

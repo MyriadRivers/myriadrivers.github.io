@@ -4,8 +4,6 @@ import { Ref, forwardRef } from "react"
 import Canvas from "./Canvas";
 
 const StyledProjectTitle = styled.div`
-    color: black;
-
     .titleContainer {
         font-family: ${props => props.theme.headerFont};
 
@@ -13,10 +11,7 @@ const StyledProjectTitle = styled.div`
         text-transform: uppercase;
         letter-spacing: 6pt;
 
-        /* outline: solid; */
-        /* border: solid; */
-
-        padding: 15px;
+        padding: 15px 0px;
     }
 
     .title {
@@ -29,25 +24,23 @@ const StyledProjectTitle = styled.div`
     }
 
     .link {
-        color: red;
+        color: ${props => props.theme.accent};
     }
 `
 
 function ProjectTitle({ text, subtitle, link }: { text: string, subtitle: string, link: string }, ref: Ref<HTMLDivElement>) {
     return (<StyledProjectTitle>
-        <Canvas>
-            <div className={"titleContainer"}>
-                <div className={"title"}>
-                    {text}
-                    <a className={"link"} href={link}>
-                        *
-                    </a>
-                </div>
-                <div className={"subtitle"}>
-                    {subtitle}
-                </div>
+        <div className={"titleContainer"}>
+            <div className={"title"}>
+                {text}
+                <a className={"link"} href={link}>
+                    ↗
+                </a>
             </div>
-        </Canvas>
+            <div className={"subtitle"}>
+                {subtitle}
+            </div>
+        </div>
     </StyledProjectTitle>);
 }
 

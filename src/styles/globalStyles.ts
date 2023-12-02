@@ -24,6 +24,13 @@ import OswaldLightSvg from "../assets/fonts/OswaldLight/Oswald-Light.svg";
 import OswaldLightWoff from "../assets/fonts/OswaldLight/Oswald-Light.woff";
 import OswaldLightWoff2 from "../assets/fonts/OswaldLight/Oswald-Light.woff2";
 
+import FreeSansTtf from "../assets/fonts/FreeSans/FreeSans.ttf";
+import FreeSansOtf from "../assets/fonts/FreeSans/FreeSans.otf";
+import FreeSansEot from "../assets/fonts/FreeSans/FreeSans.eot";
+import FreeSansSvg from "../assets/fonts/FreeSans/FreeSans.svg";
+import FreeSansWoff from "../assets/fonts/FreeSans/FreeSans.woff";
+import FreeSansWoff2 from "../assets/fonts/FreeSans/FreeSans.woff2";
+
 const GlobalStyle = createGlobalStyle`
     @font-face {
         font-family: "Asket Narrow";
@@ -72,10 +79,20 @@ const GlobalStyle = createGlobalStyle`
              url(${AverageWoff2}) format("woff2");
     }
 
+    @font-face {
+        font-family: "Free Sans";
+        src: url(${FreeSansTtf}) format("truetype"),
+             url(${FreeSansOtf}) format("otf"),
+             url(${FreeSansSvg}) format("svg"),
+             url(${FreeSansEot}) format("embedded-opentype"),
+             url(${FreeSansWoff}) format("woff"),
+             url(${FreeSansWoff2}) format("woff2");
+    }
+
     body {
-        font-family: "Average";
+        font-family: ${props => props.theme.bodyFont};
+        color: ${props => props.theme.main};
         font-size: 16pt;
-        /* color: white; */
 
         margin: 0px;
         padding: 0px;
@@ -90,7 +107,6 @@ const GlobalStyle = createGlobalStyle`
     html {
         height: 100%;
         margin: 0px;
-        /* padding: 20px; */
     }
 
     #root, .App {

@@ -10,14 +10,13 @@ import Title from './components/Title';
 import Canvas from './components/Canvas';
 
 const StyledApp = styled.div`
-  /* background: purple; */
   display: flex;
   flex-direction: column;
   gap: 10px;
 
   height: 100vh; 
   box-sizing: border-box;
-  padding: 20px;
+  padding: 30px;
 
   margin: auto;
 
@@ -28,9 +27,13 @@ const StyledApp = styled.div`
 
   .outletContainer {
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     max-width: 1200px;
     margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 `
 
@@ -43,9 +46,9 @@ function App() {
           <div>
             <Title />
           </div>
-          <Navbar options={navRoutes.map(route => (route.path))} links={navRoutes.map(route => (route.path))} />
           <div className={"centerContainer"}>
             <div className="outletContainer">
+              <Navbar options={navRoutes.map(route => (route.path))} links={navRoutes.map(route => (route.path))} />
               <Outlet />
             </div>
           </div>
