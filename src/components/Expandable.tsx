@@ -1,30 +1,43 @@
 import styled from "styled-components";
 import { Ref, forwardRef, ReactNode, useState } from "react"
 import Heading from "./Heading";
+import exp from "constants";
 
-const StyledExpandable = styled.div`
+const StyledExpandable = styled.div<{$expanded: boolean}>`
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    /* border: ${props => props.$expanded ? "" : "solid"};
+    box-sizing: border-box;
+    padding: 20px; */
 
     .expandableHeader {
         display: flex;
         gap: 20px;
         /* justify-content: space-between; */
+        
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     .arrow {
         color: ${props => props.theme.accent}
     }
+
+    .summary {
+        font-style: italic;
+    }
 `
 
 function Expandable({ heading, summary, children }: { heading: string, summary: string, children: ReactNode }, ref: Ref<HTMLDivElement>) {
     const [expanded, setExpanded] = useState(false);
-    return (<StyledExpandable onClick={() => { setExpanded(!expanded) }}>
-        <div className={"expandableHeader"}>
+    return (<StyledExpandable $expanded={expanded} >
+        <div className={"expandableHeader"} onClick={() => { setExpanded(!expanded) }} >
             <div className={"arrow"}><Heading level={3}>{expanded ? "⋀" : "⋁"}</Heading></div><Heading level={3} ref={ref}>{heading}</Heading>
         </div>
-        {expanded ? children : summary}
+        {expanded ? children : <p className={"summary"}>{summary}…</p>}
     </StyledExpandable>);
 }
 

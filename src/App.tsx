@@ -10,6 +10,8 @@ import Title from './components/Title';
 import Canvas from './components/Canvas';
 
 const StyledApp = styled.div`
+  position: relative;
+  
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -22,12 +24,12 @@ const StyledApp = styled.div`
 
   .centerContainer {
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
   }
 
   .outletContainer {
     height: 100%;
-    overflow: hidden;
+    
     max-width: 1200px;
     margin: auto;
 

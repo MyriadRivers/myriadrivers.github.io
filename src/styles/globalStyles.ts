@@ -117,6 +117,11 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: inherit;
         color: inherit;
     }
+
+    p {
+        margin: 0px 0px;
+        line-height: 24pt;
+    }
 `
 
 export default GlobalStyle

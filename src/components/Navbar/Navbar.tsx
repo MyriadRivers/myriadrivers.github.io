@@ -4,6 +4,8 @@ import { useState } from "react"
 import NavOption from "./NavOption";
 
 const StyledNavbar = styled.div` 
+    position: sticky;
+    top: 0;
     background: ${props => props.theme.main};
     justify-content: space-between;
     display: flex;

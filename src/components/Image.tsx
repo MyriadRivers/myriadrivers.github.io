@@ -7,7 +7,7 @@ const StyledImage = styled.div`
     flex-direction: column;
 
     img {
-        margin: 20px;
+        margin: 20px 0px;
     }
 
     text-align: center;
@@ -17,7 +17,7 @@ const StyledImage = styled.div`
 
 function Image({ src, caption }: { src: string, caption: string }) {
     return (<StyledImage>
-        <img src={src} />
+        <img src={src} alt={caption}/>
         {caption}
     </StyledImage>);
 }

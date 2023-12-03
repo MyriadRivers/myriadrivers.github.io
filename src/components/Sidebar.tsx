@@ -20,17 +20,17 @@ const StyledSidebar = styled.div`
     }
 `
 
-const scrollTo = (element: HTMLElement | null) => {
-    if (element) {
-        element.scrollIntoView();
+function Sidebar({ headings, scrollRef, headingRefs }: { headings: Array<string>, scrollRef: HTMLDivElement | null, headingRefs: Array<HTMLDivElement | null> }) {
+    const scrollTo = (element: HTMLElement | null) => {
+        if (element && scrollRef && headingRefs[0]) {
+            scrollRef.scrollTop = element.offsetTop - headingRefs[0].offsetTop;
+        }
     }
-}
-
-function Sidebar({ headings, refs }: { headings: Array<string>, refs: Array<HTMLDivElement | null> }) {
+    
     return (<StyledSidebar>
         <div className="sidebarContent">
             {headings.map((heading, index) => (
-                <div onClick={() => scrollTo(refs[index])}>{heading}</div>
+                <div onClick={() => scrollTo(headingRefs[index])}>{heading}</div>
             ))}
         </div>
     </StyledSidebar>);
