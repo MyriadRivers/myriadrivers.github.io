@@ -1,9 +1,14 @@
 import styled from "styled-components";
-import { Ref } from "react"
+import { Ref } from "react";
 import Canvas from "./Canvas";
+import breakpoints from "../styles/breakpoints";
 
 const StyledSidebar = styled.div`
     display: flex;
+
+    @media ${breakpoints.mobile} {
+        display: none;
+    }
 
     .sidebarContent {
         font-family: ${props => props.theme.headerFont};
@@ -18,6 +23,13 @@ const StyledSidebar = styled.div`
 
         padding: 20px;
     }
+
+    .sidebarOption {
+        &:hover {
+            cursor: pointer;
+            color: ${props => props.theme.accent};
+        }
+    }
 `
 
 function Sidebar({ headings, scrollRef, headingRefs }: { headings: Array<string>, scrollRef: HTMLDivElement | null, headingRefs: Array<HTMLDivElement | null> }) {
@@ -30,7 +42,7 @@ function Sidebar({ headings, scrollRef, headingRefs }: { headings: Array<string>
     return (<StyledSidebar>
         <div className="sidebarContent">
             {headings.map((heading, index) => (
-                <div onClick={() => scrollTo(headingRefs[index])}>{heading}</div>
+                <div onClick={() => scrollTo(headingRefs[index])} className={"sidebarOption"}>{heading}</div>
             ))}
         </div>
     </StyledSidebar>);

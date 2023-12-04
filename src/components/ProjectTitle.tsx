@@ -29,7 +29,6 @@ const StyledProjectTitle = styled.div`
     }
 
     .mainImage {
-        height: 400px;
     }
 
     .titleLinks {
@@ -69,7 +68,7 @@ function ProjectTitle({ text,
         <p className={"description"}>{description}</p>
         <div className={"titleLinks"}>
         {links.map((link, index) => 
-            <a href={link.url} className={"titleLink"}>{link.text}↗</a>
+            <a href={link.url} className={"titleLink"} target="_blank">{link.text}↗</a>
         )}
         </div>
     </StyledProjectTitle>);

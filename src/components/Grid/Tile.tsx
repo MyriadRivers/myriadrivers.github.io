@@ -12,8 +12,9 @@ const StyledTile = styled.div`
 
     padding: 10px;
 
-    .image {
+    .tileImage {
         aspect-ratio: 1/1;
+        width: 100%;
     }
 
     .tileTags {
@@ -22,21 +23,30 @@ const StyledTile = styled.div`
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
+
+        pointer-events: none;
+    }
+
+    .tileContents {
+        &:hover {
+            color: ${props => props.theme.accent};
+        }
     }
 `
 
 function Tile({ title, url, image, tags }: { title: string, url: To, image: string, tags: Array<string> }) {
-    return (<Link to={url} >
+    return (
         <StyledTile>
-            <img src={image} ></img>
-            {title}
+            <Link to={url} className={"tileContents"}>
+                <img src={image} className={"tileImage"}></img>
+                {title}
+            </Link>
             <div className={"tileTags"}>
                 {tags.map(tag => (
                     <Tag name={tag} />
                 ))}
             </div>
-        </StyledTile>
-    </Link>);
+        </StyledTile>);
 }
 
 export default Tile;

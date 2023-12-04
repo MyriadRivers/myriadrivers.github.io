@@ -15,6 +15,10 @@ const StyledNavOption = styled.div<{ $active: boolean }>`
     .text {
         padding: 5px 10px 5px 10px;
         margin-right: -5pt;
+
+        &:hover {
+            color: ${props => props.$active ? "" : props.theme.accent};
+        }
     }
 `
 
