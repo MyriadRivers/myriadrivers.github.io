@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Heading from "../Heading";
 import Canvas from "../Canvas";
+import breakpoints from "../../styles/breakpoints";
 
 const StyledNavOption = styled.div<{ $active: boolean }>`
     font-family: ${props => props.theme.headerFont};

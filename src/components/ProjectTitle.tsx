@@ -31,9 +31,10 @@ const StyledProjectTitle = styled.div`
     .mainImage {
     }
 
-    .titleLinks {
+    .titleLinksContainer {
         color: ${props => props.theme.accent};
         display: flex;
+        flex-wrap: wrap;
         gap: 20px;
     }
 
@@ -43,18 +44,18 @@ const StyledProjectTitle = styled.div`
     }
 `
 
-function ProjectTitle({ text, 
-                        subtitle, 
-                        image, 
-                        description, 
-                        links 
-                    }: { 
-                        text: string, 
-                        subtitle: string, 
-                        image: string,
-                        description: string, 
-                        links: Array<{text: string, url: string}> 
-                    }, ref: Ref<HTMLDivElement>) {
+function ProjectTitle({ text,
+    subtitle,
+    image,
+    description,
+    links
+}: {
+    text: string,
+    subtitle: string,
+    image: string,
+    description: string,
+    links: Array<{ text: string, url: string }>
+}, ref: Ref<HTMLDivElement>) {
     return (<StyledProjectTitle>
         <div className={"titleContainer"}>
             <div className={"title"} ref={ref}>
@@ -64,12 +65,12 @@ function ProjectTitle({ text,
                 {subtitle}
             </div>
         </div>
-        <img src={image} className={"mainImage"}/>
+        <img src={image} className={"mainImage"} />
         <p className={"description"}>{description}</p>
-        <div className={"titleLinks"}>
-        {links.map((link, index) => 
-            <a href={link.url} className={"titleLink"} target="_blank">{link.text}↗</a>
-        )}
+        <div className={"titleLinksContainer"}>
+            {links.map((link, index) =>
+                <a href={link.url} className={"titleLink"} target="_blank">{link.text}↗</a>
+            )}
         </div>
     </StyledProjectTitle>);
 }
