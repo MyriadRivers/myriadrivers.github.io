@@ -12,9 +12,6 @@ const StyledCanvas = styled.div`
     height: 100%;
     z-index: -1;
   }
-
-  .children {
-  }
 `
 
 interface Point {

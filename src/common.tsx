@@ -3,8 +3,11 @@ import Links from "./pages/links/Links"
 import Home from "./pages/home/Home"
 
 import SpotifyKaraoke from "./pages/projects/SpotifyKaraoke/SpotifyKaraoke"
+import VideoSonification from "./pages/projects/VideoSonification/VideoSonification"
 
 import spotifyKaraokeImg from "./assets/images/spotify_karaoke.png"
+import videoSonificationImg from "./assets/images/video_sonification.png"
+
 
 const navRoutes = [
     {
@@ -25,6 +28,10 @@ const projectRoutes = [
     {
         path: "projects/spotify_karaoke",
         element: <SpotifyKaraoke />,
+    },
+    {
+        path: "projects/video_sonification",
+        element: <VideoSonification />
     }
 ]
 
@@ -37,8 +44,8 @@ const projects = [
     },
     {
         title: "Video Sonification",
-        url: "links",
-        image: "orbweaver.png",
+        url: "video_sonification",
+        image: videoSonificationImg,
         tags: ["webdev",]
     },
     {

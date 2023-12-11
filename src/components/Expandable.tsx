@@ -33,7 +33,7 @@ const StyledExpandable = styled.div<{$expanded: boolean}>`
 `
 
 function Expandable({ heading, summary, children }: { heading: string, summary: string, children: ReactNode }, ref: Ref<HTMLDivElement>) {
-    const [expanded, setExpanded] = useState(false);
+    const [expanded, setExpanded] = useState(true);
     return (<StyledExpandable $expanded={expanded} >
         <div className={"expandableHeader"} onClick={() => { setExpanded(!expanded) }} >
             <div className={"arrow"}><Heading level={3}>{expanded ? "⋀" : "⋁"}</Heading></div><Heading level={3} ref={ref}>{heading}</Heading>

@@ -15,6 +15,7 @@ const StyledTile = styled.div`
     .tileImage {
         aspect-ratio: 1/1;
         width: 100%;
+        outline: 2px solid;
     }
 
     .tileTags {

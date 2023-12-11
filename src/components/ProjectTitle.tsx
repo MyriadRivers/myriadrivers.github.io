@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Heading from "./Heading";
-import { Ref, forwardRef } from "react"
+import { ReactNode, Ref, forwardRef } from "react"
 import Canvas from "./Canvas";
 import Image from "./Image";
 
@@ -28,9 +28,6 @@ const StyledProjectTitle = styled.div`
         letter-spacing: 4pt;
     }
 
-    .mainImage {
-    }
-
     .titleLinks {
         color: ${props => props.theme.accent};
         display: flex;
@@ -45,15 +42,13 @@ const StyledProjectTitle = styled.div`
 
 function ProjectTitle({ text, 
                         subtitle, 
-                        image, 
-                        description, 
-                        links 
+                        links,
+                        children
                     }: { 
                         text: string, 
                         subtitle: string, 
-                        image: string,
-                        description: string, 
-                        links: Array<{text: string, url: string}> 
+                        links: Array<{text: string, url: string}>,
+                        children: ReactNode
                     }, ref: Ref<HTMLDivElement>) {
     return (<StyledProjectTitle>
         <div className={"titleContainer"}>
@@ -64,8 +59,7 @@ function ProjectTitle({ text,
                 {subtitle}
             </div>
         </div>
-        <img src={image} className={"mainImage"}/>
-        <p className={"description"}>{description}</p>
+        {children}
         <div className={"titleLinks"}>
         {links.map((link, index) => 
             <a href={link.url} className={"titleLink"} target="_blank">{link.text}↗</a>

@@ -10,44 +10,7 @@ import pipelineImage from "./spotify_karaoke_pipeline.png";
 import stackImage from "./spotify_karaoke_stack.png";
 import algorithmImage from "./spotify_karaoke_algorithm_table.png";
 import gapImage from "./spotify_karaoke_gap_interpolation.png";
-
-const StyledPage = styled.div`
-    display: flex;
-    gap: 20px;
-    height: 100%;
-
-    .projectContents {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
-        height: 100%;
-        overflow: auto;
-
-        padding-right: 20px;
-        scroll-behavior: smooth;
-    }
-
-    .bottomSpace {
-        min-height: 100px;
-    }
-
-    .references {
-        counter-reset: list-counter;
-
-        li {
-            list-style: none;
-        }
-
-        li:before{
-            content: "[" counter(list-counter) "] ";
-            counter-increment: list-counter;
-        }
-    }
-
-    overflow: hidden;
-`
+import StyledPage from "../../../components/StyledPage";
 
 function SpotifyKaraoke() {
     const headings = ["Description", "Stack", "Pipeline", "Algorithm", "Future"];
@@ -66,12 +29,17 @@ function SpotifyKaraoke() {
             <ProjectTitle 
                 text={"Spotify Karaoke"} 
                 subtitle={"Aug–Dec 2023"} 
-                image={screenshot}
-                description={"Spotify Karaoke is a web app that lets you sing along to any song on Spotify with English lyrics."}
-                links={[{text: "site", url: "https://aidn.jp/mikutap/"}, {text: "Front-End GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke"}, 
-                {text: "API GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke-api"}, {text: "Back-End GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke-generation"}]} 
+                links={[
+                    {text: "site", url: "https://main.d1tjf0r777xvgj.amplifyapp.com/"}, 
+                    {text: "Front-End GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke"}, 
+                    {text: "Back-End GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke-generation"}
+                ]} 
                 ref={el => headingRefs.current[0] = el} 
-            />
+            >
+                <p>
+                    Spotify Karaoke is a web app that lets you sing along to any song on Spotify with English lyrics.
+                </p>
+            </ProjectTitle>
             <Expandable 
                 heading={"Stack"} 
                 summary={"The app is separated into three main components: the front end, the API, and the back end"} 
@@ -87,20 +55,23 @@ function SpotifyKaraoke() {
                     via the API in order to begin generation of the karaoke track and synced lyrics.
                 </p>
                 <p>
-                    <b>Back End:</b> Developed in Python. After getting a request through the API, the back end 
-                    begins generating the vocaless karaoke track and a JSON file containing the word-level time synced lyrics. 
-                    It stores the completed files on an Amazon S3 bucket, which also serves as a cache so that a song requested a second time doesn't have to be
-                    generated again. The back end's data processing pipeline is explained in more detail in the <b>Pipeline</b> section.
-                </p>
-                <p>
-                    <b>API:</b> Developed in TypeScript using Apollo. 
-                    The back end's data processing takes time—such that a front-end request to the API would typically time out before receiving a response.
+                    <b>API:</b> The back end's data processing takes time—such that a front-end request to the API would typically time out before receiving a response.
                     In order to accommodate this, the app uses a GraphQL API which supports long-term subscriptions through the websocket protocol.  
                     When the front end sends a message through the API containing the song data, 
                     it also begins a subscription which listens for a response with the matching song ID. The backend, meanwhile, 
                     is subscribed to song data events. Upon receiving a request, it initiates the processing, 
                     and when completed sends an event containing the karaoke data along with the original song ID to the front end. 
                     The front end subscription verifies the song ID and then displays the generated lyrics and audio track.
+                </p>
+                <p>
+                    <b>Back End:</b> Developed in Python. After getting a request through the API, the back end 
+                    begins generating the instrumental karaoke track and a JSON file containing the word-level time synced lyrics. 
+                    It stores the completed files on an Amazon S3 bucket, which also serves as a cache so that a song requested a second time doesn't have to be
+                    generated again. The back end's data processing pipeline is explained in more detail in the <b>Pipeline</b> section.
+                </p>
+                <p>
+                    The app was originally deployed on the cloud through AWS. The front end was hosted using Amplify, the API using AppSync, and the back 
+                    end Python container using ECS, running on EC2 instances.
                 </p>
             </Expandable>
             <Expandable 

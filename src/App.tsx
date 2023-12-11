@@ -16,7 +16,8 @@ const StyledApp = styled.div`
   flex-direction: column;
   gap: 10px;
 
-  height: 100vh; 
+  height: 100%;
+ 
   box-sizing: border-box;
   padding: 30px;
 
@@ -42,20 +43,18 @@ const StyledApp = styled.div`
 function App() {
   return (
     <ThemeProvider theme={main}>
-      <Canvas effect={5}>
-        <StyledApp>
-          <GlobalStyle />
-          <div>
-            <Title />
+      <StyledApp>
+        <GlobalStyle />
+        <div>
+          <Title />
+        </div>
+        <div className={"centerContainer"}>
+          <div className="outletContainer">
+            <Navbar options={navRoutes.map(route => (route.path))} links={navRoutes.map(route => (route.path))} />
+            <Outlet />
           </div>
-          <div className={"centerContainer"}>
-            <div className="outletContainer">
-              <Navbar options={navRoutes.map(route => (route.path))} links={navRoutes.map(route => (route.path))} />
-              <Outlet />
-            </div>
-          </div>
-        </StyledApp>
-      </Canvas>
+        </div>
+      </StyledApp>
     </ThemeProvider >
   );
 }
