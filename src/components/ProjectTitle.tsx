@@ -31,6 +31,7 @@ const StyledProjectTitle = styled.div`
     .titleLinks {
         color: ${props => props.theme.accent};
         display: flex;
+        flex-wrap: wrap;
         gap: 20px;
     }
 
