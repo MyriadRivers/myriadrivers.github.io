@@ -1,11 +1,16 @@
 import styled from "styled-components";
 import Canvas from "./Canvas";
 import riverImage from "../assets/images/river.png"
+import breakpoints from "../styles/breakpoints";
 
 const StyledTitle = styled.div`
     font-family: ${props => props.theme.headerFont};
-    font-size: 40pt;
+    font-size: 3vw;
     letter-spacing: 0.25em;
+
+    @media ${breakpoints.mobile} {
+        display: none;
+    }
 
     justify-content: center;
 

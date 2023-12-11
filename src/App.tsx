@@ -50,7 +50,7 @@ function App() {
         </div>
         <div className={"centerContainer"}>
           <div className="outletContainer">
-            <Navbar options={navRoutes.map(route => (route.path))} links={navRoutes.map(route => (route.path))} />
+            <Navbar links={navRoutes.map(route => (route.path))}/>
             <Outlet />
           </div>
         </div>
