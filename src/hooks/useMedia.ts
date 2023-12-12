@@ -4,6 +4,8 @@ function useMedia(mq: string) {
     const [matches, setMatches] = useState<boolean>(false);
 
     useEffect(() => {
+        setMatches(window.matchMedia(mq).matches);
+        
         const mediaQuery = () => {
             setMatches(window.matchMedia(mq).matches);
         };
@@ -13,6 +15,7 @@ function useMedia(mq: string) {
         return () => {
             window.removeEventListener("resize", mediaQuery);
         }
+        
     }, [])
 
     return matches;

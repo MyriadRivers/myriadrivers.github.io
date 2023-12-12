@@ -12,7 +12,8 @@ const StyledProjectTitle = styled.div`
     .titleContainer {
         font-family: ${props => props.theme.headerFont};
 
-        font-size: 2em;
+        font-size: calc(min(15pt + 2.5vw, 2em));
+        
         text-transform: uppercase;
         letter-spacing: 6pt;
 
@@ -24,7 +25,7 @@ const StyledProjectTitle = styled.div`
     }
 
     .subtitle {
-        font-size: 16pt;
+        font-size: calc(min(5pt + 2vw, 16pt));
         letter-spacing: 4pt;
     }
 

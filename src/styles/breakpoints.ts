@@ -1,5 +1,5 @@
 const size = {
-    mobile: "768px",
+    mobile: "600px",
 }
 
 const breakpoints = {

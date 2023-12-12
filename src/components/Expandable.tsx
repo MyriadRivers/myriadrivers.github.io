@@ -1,7 +1,9 @@
 import styled from "styled-components";
-import { Ref, forwardRef, ReactNode, useState } from "react"
+import { Ref, forwardRef, ReactNode, useState, useEffect } from "react"
 import Heading from "./Heading";
 import exp from "constants";
+import useMedia from "../hooks/useMedia";
+import breakpoints from "../styles/breakpoints";
 
 const StyledExpandable = styled.div<{$expanded: boolean}>`
     display: flex;
@@ -34,6 +36,17 @@ const StyledExpandable = styled.div<{$expanded: boolean}>`
 
 function Expandable({ heading, summary, children }: { heading: string, summary: string, children: ReactNode }, ref: Ref<HTMLDivElement>) {
     const [expanded, setExpanded] = useState(true);
+    const mobile = useMedia(`${breakpoints.mobile}`);
+
+    useEffect(() => {
+        // Default to collapsed in mobile view for easier scrolling
+        if (mobile) {
+            setExpanded(false);
+        } else {
+            setExpanded(true);
+        }
+    }, [mobile])
+
     return (<StyledExpandable $expanded={expanded} >
         <div className={"expandableHeader"} onClick={() => { setExpanded(!expanded) }} >
             <div className={"arrow"}><Heading level={3}>{expanded ? "⋀" : "⋁"}</Heading></div><Heading level={3} ref={ref}>{heading}</Heading>

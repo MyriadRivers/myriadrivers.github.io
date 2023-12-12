@@ -12,7 +12,7 @@ const StyledSidebar = styled.div`
 
     .sidebarContent {
         font-family: ${props => props.theme.headerFont};
-        font-size: 18pt;
+        font-size: calc(min(18pt, 5pt + 2vw));
         text-transform: uppercase;
         letter-spacing: 2pt;
         text-align: right;

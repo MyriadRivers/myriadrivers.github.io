@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 import { navRoutes } from './common';
 import Title from './components/Title';
 import Canvas from './components/Canvas';
+import breakpoints from './styles/breakpoints';
 
 const StyledApp = styled.div`
   position: relative;
@@ -16,10 +17,14 @@ const StyledApp = styled.div`
   flex-direction: column;
   gap: 10px;
 
+  @media ${breakpoints.mobile} {
+    gap: 0px;
+  }
+
   height: 100%;
  
   box-sizing: border-box;
-  padding: 30px;
+  padding: calc(min(30px, 3vw));
 
   margin: auto;
 
