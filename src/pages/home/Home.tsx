@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import jason from "../../assets/images/jason.png"
 import breakpoints from "../../styles/breakpoints";
+import { useEffect, useRef } from "react";
 
 const StyledHome = styled.div`
     height: 100%;
@@ -11,7 +12,6 @@ const StyledHome = styled.div`
     
     @media ${breakpoints.mobile} {
         flex-direction: column;
-        align-items: center;
     }
 
     .homeText {
@@ -26,21 +26,58 @@ const StyledHome = styled.div`
     }
 
     .jasonImageContainer {
-        height: 100%;
         display: flex;
-
-        @media ${breakpoints.mobile} {
-            overflow: hidden;
-        }
     }
 
     .jasonImage {
-        height: 100%;
+        margin: auto;
     }
 `
 
 function Home() {
-    return (<StyledHome>
+    const homeRef = useRef<HTMLDivElement>(null);
+    const imgRef = useRef<HTMLImageElement>(null);
+    const imgContainerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const resizeImg = () => {
+            if (!imgRef.current || !imgContainerRef.current || !homeRef.current) return;
+
+            if (homeRef.current.scrollHeight > homeRef.current.offsetHeight) {
+                console.log("vertical overflow");
+                imgContainerRef.current.style.height = "100%";
+                imgContainerRef.current.style.overflow = "hidden";
+            } else {
+                console.log("vertical normal");
+                imgContainerRef.current.style.height = "auto";
+            }
+
+            if (homeRef.current.scrollWidth > homeRef.current.offsetWidth) {
+                console.log("horizontal overflow");
+                imgContainerRef.current.style.width = "100%";
+                imgContainerRef.current.style.overflow = "hidden";
+            } else {
+                console.log("horizontal normal");
+                imgContainerRef.current.style.width = "auto";
+            }
+
+            if (imgRef.current.width > imgContainerRef.current.clientWidth) {
+                imgRef.current.style.width = "100%";
+                imgRef.current.style.height = "auto";
+            } else  if (imgRef.current.height > imgContainerRef.current.clientHeight) {
+                imgRef.current.style.width = "auto";
+                imgRef.current.style.height = "100%";
+            }
+        }
+        window.addEventListener("resize", resizeImg);
+        window.dispatchEvent(new Event("resize"));
+
+        return () => {
+            window.removeEventListener("resize", resizeImg);
+        }
+    }, [])
+
+    return (<StyledHome ref={homeRef}>
         <div className={"homeText"}>
             Hey! I'm Jason, a full-stack developer.
             <br />
@@ -50,8 +87,8 @@ function Home() {
             <br />
             Nice to meet you!
         </div>
-        <div className={"jasonImageContainer"}>
-            <img className={"jasonImage"} src={jason} alt={"Self portrait of me!"}/>
+        <div className={"jasonImageContainer"} ref={imgContainerRef}>
+            <img className={"jasonImage"} src={jason} alt={"Self portrait of me!"} ref={imgRef}/>
         </div>
     </StyledHome>);
 }

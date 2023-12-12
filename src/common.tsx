@@ -46,7 +46,13 @@ const projects = [
         title: "Video Sonification",
         url: "video_sonification",
         image: videoSonificationImg,
-        tags: ["webdev",]
+        tags: ["webdev"]
+    },
+    {
+        title: "SewSustainable",
+        url: "sew_sustainable",
+        image: "orbweaver.png",
+        tags: ["hci"]
     },
     {
         title: "Multimodal Music Accessibility",

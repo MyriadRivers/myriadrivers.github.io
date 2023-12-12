@@ -5,11 +5,10 @@ import { useState, useEffect } from "react"
 import Tag from "./Tag";
 
 const StyledGrid = styled.div`
-
     display: flex;
     flex-direction: column;
     gap: 10px;
-    
+
     .tags {
         display: flex;
         gap: 20px;
