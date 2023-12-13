@@ -4,11 +4,22 @@ import Expandable from "../../../components/Expandable";
 import ProjectTitle from "../../../components/ProjectTitle";
 import Image from "../../../components/Image";
 import StyledPage from "../../../components/StyledPage";
+import Video from "../../../components/Video";
 
 import architectureImage from "./architecture.png";
+import embryoVideo from "./embryo_sonified.mp4";
+import bugVideo from "./soldier_bug_sonified.mp4";
+import fractalVideo from "./julia_set_sonified.mp4";
+import styled from "styled-components";
+
+const StyledExamples = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+`
 
 function VideoSonification() {
-    const headings = ["Description", "Stack"];
+    const headings = ["Description", "Stack", "Examples"];
     const headingRefs = useRef<Array<HTMLDivElement | null>>([]);
     const contentsRef = useRef<HTMLDivElement | null>(null);
 
@@ -61,6 +72,20 @@ function VideoSonification() {
                     begins generating the music to accompany the video, using Google's MediaPipe computer vision models along with a rule-based system for detecting and converting
                     salient parts of the video. The music generation system was developed by Richard Savery.
                 </p>
+            </Expandable>
+            <Expandable 
+                heading={"Examples"} 
+                summary={"The app was originally developed to sonify footage of embryo development, but can sonify any video"} 
+                ref={el => headingRefs.current[2] = el} 
+            >
+                <p>
+                    The app was originally developed to sonify footage of embryo development, but can sonify any video.
+                </p>
+                <StyledExamples>
+                    <Video src={embryoVideo} caption="Embryo, source: @ivflondon6502, YouTube"/>
+                    <Video src={bugVideo} caption="Stink Bug, source: Me"/>
+                    <Video src={fractalVideo} caption="Julia Set Fractal, source: Me"/>
+                </StyledExamples>
             </Expandable>
             <div className={"bottomSpace"}></div>
         </div>

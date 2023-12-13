@@ -5,11 +5,13 @@ import { useState, useEffect } from "react"
 import Tag from "./Tag";
 
 const StyledGrid = styled.div`
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 10px;
 
     .tags {
+        position: sticky;
         display: flex;
         gap: 20px;
     }
@@ -18,11 +20,11 @@ const StyledGrid = styled.div`
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 15px;
-        height: 100%;
         overflow: auto;
     }
 
     margin: auto;
+    overflow: hidden;
     height: 100%;
     width: 100%;
 `

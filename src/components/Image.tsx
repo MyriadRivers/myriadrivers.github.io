@@ -15,7 +15,7 @@ const StyledImage = styled.div`
     font-style: italic;
 `
 
-function Image({ src, caption }: { src: string, caption: string }) {
+function Image({ src, caption }: { src: string, caption?: string }) {
     return (<StyledImage>
         <img src={src} alt={caption}/>
         {caption}

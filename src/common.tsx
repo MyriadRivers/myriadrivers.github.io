@@ -7,6 +7,12 @@ import VideoSonification from "./pages/projects/VideoSonification/VideoSonificat
 
 import spotifyKaraokeImg from "./assets/images/spotify_karaoke.png"
 import videoSonificationImg from "./assets/images/video_sonification.png"
+import sewSustainableImg from "./assets/images/sewsustainable.png"
+import multimodalMusicImg from "./assets/images/multimodal_music.png"
+import orbWeaverImg from "./assets/images/orb_weaver.png"
+import nyanCatImg from "./assets/images/nyan_cat.png"
+import syncOrSinkImg from "./assets/images/sync_or_sink.png"
+import SewSustainable from "./pages/projects/SewSustainable/SewSustainable"
 
 
 const navRoutes = [
@@ -32,6 +38,10 @@ const projectRoutes = [
     {
         path: "projects/video_sonification",
         element: <VideoSonification />
+    },
+    {
+        path: "projects/sewsustainable",
+        element: <SewSustainable />
     }
 ]
 
@@ -50,20 +60,20 @@ const projects = [
     },
     {
         title: "SewSustainable",
-        url: "sew_sustainable",
-        image: "orbweaver.png",
+        url: "sewsustainable",
+        image: sewSustainableImg,
         tags: ["hci"]
     },
     {
         title: "Multimodal Music Accessibility",
         url: "links",
-        image: "orbweaver.png",
+        image: multimodalMusicImg,
         tags: ["research", "hci"]
     },
     {
         title: "Orb Weaver",
         url: "links",
-        image: "orbweaver.png",
+        image: orbWeaverImg,
         tags: ["webdev", "art"]
     },
     {
@@ -79,12 +89,6 @@ const projects = [
         tags: ["art"]
     },
     {
-        title: "FOREST Dance Editor",
-        url: "links",
-        image: "orbweaver.png",
-        tags: ["webdev", "research"]
-    },
-    {
         title: "Synchronized Swimming Auditory Interface",
         url: "links",
         image: "orbweaver.png",
@@ -93,13 +97,13 @@ const projects = [
     {
         title: "Nyan Cat (Remix)",
         url: "links",
-        image: "orbweaver.png",
+        image: nyanCatImg,
         tags: ["art"]
     },
     {
         title: "Sync or Sink",
         url: "links",
-        image: "orbweaver.png",
+        image: syncOrSinkImg,
         tags: ["art"]
     },
 ]

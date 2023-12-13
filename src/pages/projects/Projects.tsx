@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 const StyledProjects = styled.div`
     height: 100%;
+    overflow: auto;
 `
 
 function Projects() {
