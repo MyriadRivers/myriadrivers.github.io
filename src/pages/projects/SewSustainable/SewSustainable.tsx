@@ -9,7 +9,7 @@ import mainImg from "./sewsustainable.png";
 import { main } from "../../../styles/themes";
 
 function SewSustainable() {
-    const headings = ["Description", "Problem", "Gamification", "Augmented Reality", "References"];
+    const headings = ["Description", "Problem", "Research", "Design", "References"];
     const headingRefs = useRef<Array<HTMLDivElement | null>>([]);
     const contentsRef = useRef<HTMLDivElement | null>(null);
 
@@ -33,19 +33,32 @@ function SewSustainable() {
                 <Image src={mainImg} />
                 <p>
                     SewSustainable is a hypothetical educational app meant to help people practice more sustainable fashion.
+                    <br/>
+                    <br/>
+                    Team: Jason Gao, Marissa Gardner, Naz Ozturk, Spencer Kim
                 </p>
             </ProjectTitle>
             <Expandable 
                 heading={"Problem"} 
-                summary={"The app is separated into three main components: the front end, the API, and the back end"} 
+                summary={"The fashion industry is a major polluter. Sustainable fashion is about responsibility on both consumer and manufacturing sides"} 
                 ref={el => headingRefs.current[1] = el} 
             >
                 <p>
-                The app is separated into three main components: the front end, the API, and the back end.
+                    The fashion industry is a major contributor to global climate change, as measured in tons of Carbon Dioxide Equivalents (CO2eq) [1].
+                    Besides ecological effects such as massive water consumption and production of harmful microplastics, the industry also employs
+                    hundreds of millions of people worldwide [2], many of whom work in sweatshop conditions. 
+                </p>
+                <p>
+                    Sustainable fashion, as measured by certifications such as the EU Ecolabel and OEKO-TEX Made in Green label [3], should broadly be:
+                    <ol>
+                        <li><b>Environmentally friendly:</b> How are garments sourced and manufactured, and how is waste managed?</li>   
+                        <li><b>Long lasting:</b> Does the garment maintain dimensions and color? Does the garment resist damage from prolonged wear?</li>   
+                        <li><b>Socially responsible:</b> How are workers treated throughout the garment's supply chain?</li>    
+                    </ol> 
                 </p>
             </Expandable>
             <Expandable 
-                heading={"Gamification"} 
+                heading={"Research"} 
                 summary={"The app is separated into three main components: the front end, the API, and the back end"} 
                 ref={el => headingRefs.current[2] = el} 
             >
@@ -54,7 +67,7 @@ function SewSustainable() {
                 </p>
             </Expandable>
             <Expandable 
-                heading={"Augmented Reality"} 
+                heading={"Design"} 
                 summary={"The app is separated into three main components: the front end, the API, and the back end"} 
                 ref={el => headingRefs.current[3] = el} 
             >
