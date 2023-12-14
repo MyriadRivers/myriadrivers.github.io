@@ -209,7 +209,7 @@ function SpotifyKaraoke() {
                     extra 2 syllables to be "free" and thus in the unaligned gap.
                 </p>
                 <p>
-                    Now, for every word in the Spotify gap, we assign a timestamp from a word in the WhisperX gap, matching based on syllable index:
+                    For every word in the Spotify gap, we assign a timestamp from a word in the WhisperX gap, matching based on syllable index:
                     the first syllable of the Spotify gap is assigned the timestamp of the first syllable of the WhisperX gap, the second syllable of the 
                     Spotify gap get's the second WhisperX gap's syllable, and so on.  
                 </p>

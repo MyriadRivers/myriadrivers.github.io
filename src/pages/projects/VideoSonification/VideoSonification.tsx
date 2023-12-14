@@ -80,6 +80,7 @@ function VideoSonification() {
             >
                 <p>
                     The app was originally developed to sonify footage of embryo development, but can sonify any video.
+                    However, the app restricts video duration on uploads, as longer videos take longer to process.
                 </p>
                 <StyledExamples>
                     <Video src={embryoVideo} caption="Embryo, source: @ivflondon6502, YouTube"/>

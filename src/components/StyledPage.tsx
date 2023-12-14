@@ -24,14 +24,19 @@ const StyledPage = styled.div`
 
     .references {
         counter-reset: list-counter;
+        list-style: none;
 
         li {
-            list-style: none;
+            counter-increment: list-counter;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
         }
 
         li:before{
             content: "[" counter(list-counter) "] ";
-            counter-increment: list-counter;
+            align-self: flex-start;
+            margin-right: 20px;
         }
     }
 

@@ -24,7 +24,7 @@ const StyledApp = styled.div`
   height: 100%;
  
   box-sizing: border-box;
-  padding: calc(min(30px, 5vw));
+  padding: calc(min(20px, 3vw));
 
   margin: auto;
 
