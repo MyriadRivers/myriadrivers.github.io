@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
 const StyledImage = styled.div`
-    width: 100%;
     display: flex;
     flex-direction: column;
 
     img {
-        margin: 20px 0px;
+        max-height: 50vh;
+        max-width: 100%;
     }
 
+    overflow: hidden;
+    align-items: center;
     text-align: center;
     font-size: 13pt;
     font-style: italic;
