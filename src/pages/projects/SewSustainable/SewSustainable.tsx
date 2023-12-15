@@ -37,8 +37,8 @@ function SewSustainable() {
                 <Image src={mainImage} />
                 <p>
                     SewSustainable is a hypothetical educational app meant to help people practice more sustainable fashion.
-                    <br/>
-                    <br/>
+                </p>
+                <p>
                     Team: Jason Gao, Marissa Gardner, Naz Ozturk, Spencer Kim
                 </p>
             </ProjectTitle>
@@ -159,7 +159,7 @@ function SewSustainable() {
                     presented similarly to an online shop. 
                 </p>
                 <h3>Garment Selection</h3>
-                <Image src={garmentSelectionImage} caption={`Learners "shop" for clothes, 
+                <Image src={garmentSelectionImage} caption={`""Shop" for clothes, 
                 while also getting detailed information on garment materials and brand sustainability.`} />
                 <p>
                     The freedom to choose and create your own outfit takes a <b>learner-centered</b> approach by 
@@ -181,7 +181,7 @@ function SewSustainable() {
                 <p>
                     After selecting some garments, learners can then mix and match to create their own outfits.
                 </p>
-                <Image src={outfitImage} caption={`Learners can try on their clothes with AR and see them change over time.`} />
+                <Image src={outfitImage} caption={`Try on their clothes with AR and see them change over time.`} />
                 <p>
                     The app leverages augmented reality to show how the garments look on the learner's body, 
                     similar to trying clothes out in the changing room. Being able to create your own outfits and see them
@@ -203,7 +203,7 @@ function SewSustainable() {
                     they aren't satisfied with—whether its the ends of pants being too short, a stain on a shirt, 
                     or a torn seam. 
                 </p>
-                <Image src={upcycleImage} caption={`Learners can learn about different ways to alter or 
+                <Image src={upcycleImage} caption={`Learn about different ways to alter or 
                 mend their clothes, while seeing the results in AR.`} />
                 <p>
                     Learners are the given different options on how to handle these cases—they can mend the clothes,
@@ -221,7 +221,7 @@ function SewSustainable() {
                     Whether the garment has become too damaged to further repair, the learner is out of money, or they
                     simply decide to throw their garment away, eventually it's time to dispose of the clothes.
                 </p>
-                <Image src={disposalImage} caption={`Disposal presents the learner with local community resources. 
+                <Image src={disposalImage} caption={`Garment disposal links local community resources. 
                 An analysis is presented based on all game decisions.`} />
                 <p>
                     In this case, the app again provides the user with different choices based on their preferences, 

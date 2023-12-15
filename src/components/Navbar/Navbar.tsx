@@ -21,6 +21,7 @@ const StyledNavbar = styled.div<{$open: boolean}>`
         position: absolute;
         display: ${props => props.$open ? "" : "none"};
         text-align: right;
+        z-index: 1;
     }
 
     .homeLink {

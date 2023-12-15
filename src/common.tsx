@@ -13,6 +13,7 @@ import orbWeaverImg from "./assets/images/orb_weaver.png"
 import nyanCatImg from "./assets/images/nyan_cat.png"
 import syncOrSinkImg from "./assets/images/sync_or_sink.png"
 import SewSustainable from "./pages/projects/SewSustainable/SewSustainable"
+import MusicAccessibility from "./pages/projects/MusicAccessibility/MusicAccessibility"
 
 
 const navRoutes = [
@@ -42,6 +43,10 @@ const projectRoutes = [
     {
         path: "projects/sewsustainable",
         element: <SewSustainable />
+    },
+    {
+        path: "projects/music_accessibility",
+        element: <MusicAccessibility />
     }
 ]
 
@@ -66,7 +71,7 @@ const projects = [
     },
     {
         title: "Multimodal Music Accessibility",
-        url: "links",
+        url: "music_accessibility",
         image: multimodalMusicImg,
         tags: ["research", "hci"]
     },
@@ -74,7 +79,7 @@ const projects = [
         title: "Orb Weaver",
         url: "links",
         image: orbWeaverImg,
-        tags: ["webdev", "art"]
+        tags: ["webdev", "fun"]
     },
     {
         title: "NASA Diminished Reality",
@@ -86,7 +91,7 @@ const projects = [
         title: "Voicemail",
         url: "links",
         image: "orbweaver.png",
-        tags: ["art"]
+        tags: ["fun"]
     },
     {
         title: "Synchronized Swimming Auditory Interface",
@@ -98,13 +103,13 @@ const projects = [
         title: "Nyan Cat (Remix)",
         url: "links",
         image: nyanCatImg,
-        tags: ["art"]
+        tags: ["fun"]
     },
     {
         title: "Sync or Sink",
         url: "links",
         image: syncOrSinkImg,
-        tags: ["art"]
+        tags: ["fun"]
     },
 ]
 
