@@ -14,6 +14,7 @@ import nyanCatImg from "./assets/images/nyan_cat.png"
 import syncOrSinkImg from "./assets/images/sync_or_sink.png"
 import SewSustainable from "./pages/projects/SewSustainable/SewSustainable"
 import MusicAccessibility from "./pages/projects/MusicAccessibility/MusicAccessibility"
+import OrbWeaver from "./pages/projects/OrbWeaver/OrbWeaver"
 
 
 const navRoutes = [
@@ -47,6 +48,10 @@ const projectRoutes = [
     {
         path: "projects/music_accessibility",
         element: <MusicAccessibility />
+    },
+    {
+        path: "projects/orb_weaver",
+        element: <OrbWeaver />
     }
 ]
 
@@ -77,7 +82,7 @@ const projects = [
     },
     {
         title: "Orb Weaver",
-        url: "links",
+        url: "orb_weaver",
         image: orbWeaverImg,
         tags: ["webdev", "fun"]
     },
