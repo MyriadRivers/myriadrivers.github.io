@@ -249,7 +249,7 @@ function SpotifyKaraoke() {
 
             </Expandable>
             <Expandable 
-                heading={"Future"} 
+                heading={"Future Work"} 
                 summary={"Improvements to the app can include additional karaoke features like pitch shifting, as well as improving the algorithm accuracy"} 
                 ref={el => headingRefs.current[4] = el} 
             >

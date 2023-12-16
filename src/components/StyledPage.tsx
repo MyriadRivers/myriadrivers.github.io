@@ -25,6 +25,7 @@ const StyledPage = styled.div`
     .references {
         counter-reset: list-counter;
         list-style: none;
+        padding-left: 0px;
 
         li {
             counter-increment: list-counter;

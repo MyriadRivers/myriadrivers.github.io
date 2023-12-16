@@ -12,6 +12,7 @@ import FreeSansEot from "../assets/fonts/FreeSans/FreeSans.eot";
 import FreeSansSvg from "../assets/fonts/FreeSans/FreeSans.svg";
 import FreeSansWoff from "../assets/fonts/FreeSans/FreeSans.woff";
 import FreeSansWoff2 from "../assets/fonts/FreeSans/FreeSans.woff2";
+import breakpoints from './breakpoints';
 
 const GlobalStyle = createGlobalStyle`
     @font-face {
@@ -37,6 +38,9 @@ const GlobalStyle = createGlobalStyle`
         font-family: ${props => props.theme.bodyFont};
         color: ${props => props.theme.main};
         font-size: 16pt;
+        @media ${breakpoints.mobile} {
+            font-size: 12pt;
+        }
 
         margin: 0px;
         padding: 0px;

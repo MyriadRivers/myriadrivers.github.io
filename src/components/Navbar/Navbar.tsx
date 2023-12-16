@@ -72,7 +72,10 @@ function Navbar({ links }: { links: Array<string> }) {
                     )
                 })()}
             </div>}
-            <Link to={links[0]} className={"homeLink"}><img src={riverLogo} alt={"Jason Gao"} className={"riverLogo"} /></Link>
+            <Link to={links[0]} className={"homeLink"} onClick={() => {
+                setOpen(false);
+                setActive(0);
+            }}><img src={riverLogo} alt={"Jason Gao"} className={"riverLogo"} /></Link>
         </>
         :
         links.map((link, index) => (

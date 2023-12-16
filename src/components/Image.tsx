@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from "../styles/breakpoints";
 
 const StyledImage = styled.div`
     display: flex;
@@ -13,6 +14,9 @@ const StyledImage = styled.div`
     align-items: center;
     text-align: center;
     font-size: 13pt;
+    @media ${breakpoints.mobile} {
+        font-size: 10pt;
+    }
     font-style: italic;
 `
 

@@ -245,7 +245,7 @@ function SewSustainable() {
                 </p>
             </Expandable>
             <Expandable 
-                heading={"Feedback & Future"} 
+                heading={"Feedback & Future Work"} 
                 summary={"Sources for claims"} 
                 ref={el => headingRefs.current[5] = el} 
             >
