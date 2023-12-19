@@ -82,7 +82,7 @@ function Home() {
             Hey! I'm Jason, a full-stack developer.
             <br />
             <br />
-            I'm interested in Human-Computer Interaction, computational creativity, computer music, and insects.
+            I'm interested in Human-Computer Interaction, computational creativity, computer music, and terrestrial arthropods.
             <br />
             <br />
             Nice to meet you!

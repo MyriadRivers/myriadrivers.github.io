@@ -12,9 +12,14 @@ import multimodalMusicImg from "./assets/images/multimodal_music.png"
 import orbWeaverImg from "./assets/images/orb_weaver.png"
 import nyanCatImg from "./assets/images/nyan_cat.png"
 import syncOrSinkImg from "./assets/images/sync_or_sink.png"
+import diminishedRealityImg from "./assets/images/diminished_reality.png";
+import voicemailImg from "./assets/images/voicemail.jpg";
+import auditoryInterfaceImg from "./assets/images/auditory_interface.png";
+
 import SewSustainable from "./pages/projects/SewSustainable/SewSustainable"
 import MusicAccessibility from "./pages/projects/MusicAccessibility/MusicAccessibility"
 import OrbWeaver from "./pages/projects/OrbWeaver/OrbWeaver"
+import DiminishedReality from "./pages/projects/DiminishedReality/DiminishedReality"
 
 
 const navRoutes = [
@@ -52,7 +57,28 @@ const projectRoutes = [
     {
         path: "projects/orb_weaver",
         element: <OrbWeaver />
+    },
+    {
+        path: "projects/diminished_reality",
+        element: <DiminishedReality />
+    },
+    {
+        path: "projects/voicemail",
+        element: <DiminishedReality />
+    },
+    {
+        path: "projects/auditory_interface",
+        element: <DiminishedReality />
+    },
+    {
+        path: "projects/nyan_cat",
+        element: <DiminishedReality />
+    },
+    {
+        path: "projects/sync_or_sink",
+        element: <DiminishedReality />
     }
+
 ]
 
 const projects = [
@@ -88,31 +114,31 @@ const projects = [
     },
     {
         title: "NASA Diminished Reality",
-        url: "links",
-        image: "orbweaver.png",
+        url: "diminished_reality",
+        image: diminishedRealityImg,
         tags: ["research", "hci"]
     },
     {
         title: "Voicemail",
-        url: "links",
-        image: "orbweaver.png",
+        url: "voicemail",
+        image: voicemailImg,
         tags: ["fun"]
     },
     {
         title: "Synchronized Swimming Auditory Interface",
-        url: "links",
-        image: "orbweaver.png",
+        url: "auditory_interface",
+        image: auditoryInterfaceImg,
         tags: ["hci"]
     },
     {
         title: "Nyan Cat (Remix)",
-        url: "links",
+        url: "nyan_cat",
         image: nyanCatImg,
         tags: ["fun"]
     },
     {
         title: "Sync or Sink",
-        url: "links",
+        url: "sync_or_sink",
         image: syncOrSinkImg,
         tags: ["fun"]
     },

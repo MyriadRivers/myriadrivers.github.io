@@ -30,7 +30,7 @@ function SpotifyKaraoke() {
                 text={"Spotify Karaoke"} 
                 subtitle={"Aug–Dec 2023"} 
                 links={[
-                    {text: "site", url: "https://main.d1tjf0r777xvgj.amplifyapp.com/"}, 
+                    {text: "Try it!", url: "https://main.d1tjf0r777xvgj.amplifyapp.com/"}, 
                     {text: "Front-End GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke"}, 
                     {text: "Back-End GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke-generation"}
                 ]} 

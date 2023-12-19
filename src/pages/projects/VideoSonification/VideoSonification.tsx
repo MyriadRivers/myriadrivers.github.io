@@ -10,13 +10,7 @@ import architectureImage from "./architecture.png";
 import embryoVideo from "./embryo_sonified.mp4";
 import bugVideo from "./soldier_bug_sonified.mp4";
 import fractalVideo from "./julia_set_sonified.mp4";
-import styled from "styled-components";
-
-const StyledExamples = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 15px;
-`
+import MediaGrid from "../../../components/MediaGrid";
 
 function VideoSonification() {
     const headings = ["Description", "Stack", "Examples"];
@@ -82,11 +76,11 @@ function VideoSonification() {
                     The app was originally developed to sonify footage of embryo development, but can sonify any video.
                     However, the app restricts video duration on uploads, as longer videos take longer to process.
                 </p>
-                <StyledExamples>
+                <MediaGrid>
                     <Video src={embryoVideo} caption="Embryo, source: @ivflondon6502, YouTube"/>
                     <Video src={bugVideo} caption="Stink Bug, source: Me"/>
                     <Video src={fractalVideo} caption="Julia Set Fractal, source: Me"/>
-                </StyledExamples>
+                </MediaGrid>
             </Expandable>
             <div className={"bottomSpace"}></div>
         </div>
