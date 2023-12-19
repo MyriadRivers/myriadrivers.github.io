@@ -34,6 +34,7 @@ function SpotifyKaraoke() {
                     {text: "Front-End GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke"}, 
                     {text: "Back-End GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke-generation"}
                 ]} 
+                tags={["webdev"]}
                 ref={el => headingRefs.current[0] = el} 
             >
                 <p>

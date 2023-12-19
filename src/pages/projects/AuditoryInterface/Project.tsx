@@ -25,6 +25,7 @@ function Project() {
                 links={[
                     {text: "site", url: "www.example.com"},
                 ]} 
+                tags={["hci"]}
                 ref={el => headingRefs.current[0] = el} 
             >
                 <p>

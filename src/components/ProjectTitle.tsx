@@ -3,6 +3,7 @@ import Heading from "./Heading";
 import { ReactNode, Ref, forwardRef } from "react"
 import Canvas from "./Canvas";
 import Image from "./Image";
+import Tag from "./Grid/Tag";
 
 const StyledProjectTitle = styled.div`
     display: flex;
@@ -40,16 +41,28 @@ const StyledProjectTitle = styled.div`
         border: solid;
         padding: 5px;
     }
+
+    .tags {
+        padding: 0px;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        pointer-events: none;
+    }
 `
 
 function ProjectTitle({ text, 
                         subtitle, 
                         links,
+                        tags,
                         children
                     }: { 
                         text: string, 
                         subtitle: string, 
                         links: Array<{text: string, url: string}>,
+                        tags: Array<string>,
                         children: ReactNode
                     }, ref: Ref<HTMLDivElement>) {
     return (<StyledProjectTitle>
@@ -60,6 +73,11 @@ function ProjectTitle({ text,
             <div className={"subtitle"}>
                 {subtitle}
             </div>
+        </div>
+        <div className={"tags"}>
+            {tags.map(tag => (
+                <Tag name={tag} />
+            ))}
         </div>
         {children}
         {links.length > 0 && <div className={"titleLinks"}>

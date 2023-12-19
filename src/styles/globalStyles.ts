@@ -14,6 +14,12 @@ import FreeSansWoff from "../assets/fonts/FreeSans/FreeSans.woff";
 import FreeSansWoff2 from "../assets/fonts/FreeSans/FreeSans.woff2";
 import breakpoints from './breakpoints';
 
+import SFProEOT from "../assets/fonts/SFPro/SFPro-Regular.eot";
+import SFProSVG from "../assets/fonts/SFPro/SFPro-Regular.svg";
+import SFProTTF from "../assets/fonts/SFPro/SFPro-Regular.ttf";
+import SFProWOFF from "../assets/fonts/SFPro/SFPro-Regular.woff";
+import SFProWOFF2 from "../assets/fonts/SFPro/SFPro-Regular.woff2";
+
 const GlobalStyle = createGlobalStyle`
     @font-face {
         font-family: "Average";
@@ -32,6 +38,15 @@ const GlobalStyle = createGlobalStyle`
              url(${FreeSansEot}) format("embedded-opentype"),
              url(${FreeSansWoff}) format("woff"),
              url(${FreeSansWoff2}) format("woff2");
+    }
+
+    @font-face {
+        font-family: "SF Pro";
+        src: url(${SFProTTF}) format('truetype'),
+            url(${SFProSVG}) format('svg'),
+            url(${SFProEOT}) format('embedded-opentype'),
+            url(${SFProWOFF}) format('woff'),
+            url(${SFProWOFF2}) format('woff2');
     }
 
     body {

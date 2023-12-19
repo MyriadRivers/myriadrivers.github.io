@@ -20,6 +20,7 @@ import SewSustainable from "./pages/projects/SewSustainable/SewSustainable"
 import MusicAccessibility from "./pages/projects/MusicAccessibility/MusicAccessibility"
 import OrbWeaver from "./pages/projects/OrbWeaver/OrbWeaver"
 import DiminishedReality from "./pages/projects/DiminishedReality/DiminishedReality"
+import Voicemail from "./pages/projects/Voicemail/Voicemail"
 
 
 const navRoutes = [
@@ -64,7 +65,7 @@ const projectRoutes = [
     },
     {
         path: "projects/voicemail",
-        element: <DiminishedReality />
+        element: <Voicemail />
     },
     {
         path: "projects/auditory_interface",

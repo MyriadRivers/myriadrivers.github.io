@@ -30,7 +30,8 @@ function DiminishedReality() {
             <ProjectTitle 
                 text={"NASA Diminished Reality"} 
                 subtitle={"Jun 2021–May 2022"} 
-                links={[]} 
+                links={[]}
+                tags={["research", "hci"]}
                 ref={el => headingRefs.current[0] = el} 
             >
                 <Image src={mainImage} />

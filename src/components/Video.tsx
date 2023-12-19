@@ -4,6 +4,7 @@ import breakpoints from "../styles/breakpoints";
 const StyledVideo = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 10px;
 
     video {
         max-height: 50vh;

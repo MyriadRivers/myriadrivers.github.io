@@ -31,6 +31,7 @@ function OrbWeaver() {
                     {text: "Try it!", url: "https://myriadrivers.github.io/orb-weaver/"},
                     {text: "GitHub", url: "https://github.com/MyriadRivers/orb-weaver"},
                 ]} 
+                tags={["webdev", "fun"]}
                 ref={el => headingRefs.current[0] = el} 
             >
                 <Image src={mainImage} />

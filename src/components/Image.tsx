@@ -4,6 +4,7 @@ import breakpoints from "../styles/breakpoints";
 const StyledImage = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 10px;
 
     img {
         max-height: 50vh;

@@ -1,26 +1,19 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
-
-import SFProEOT from "../assets/fonts/SFPro/SFPro-Regular.eot";
-import SFProSVG from "../assets/fonts/SFPro/SFPro-Regular.svg";
-import SFProTTF from "../assets/fonts/SFPro/SFPro-Regular.ttf";
-import SFProWOFF from "../assets/fonts/SFPro/SFPro-Regular.woff";
-import SFProWOFF2 from "../assets/fonts/SFPro/SFPro-Regular.woff2";
+import Button from "./Button";
 
 const StyledCanvas = styled.div`
-    @font-face {
-        font-family: "SF Pro";
-        src: url(${SFProTTF}) format('truetype'),
-            url(${SFProSVG}) format('svg'),
-            url(${SFProEOT}) format('embedded-opentype'),
-            url(${SFProWOFF}) format('woff'),
-            url(${SFProWOFF2}) format('woff2');
-    }
-
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    canvas {
+        border: solid;
+    }
 `
 
-const Canvas = () => {
+const VoicemailCanvas = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     /**
@@ -73,18 +66,51 @@ const Canvas = () => {
             ctx.fillStyle = "white";
             ctx.fillRect(0, 0, canvasRef.current.width, canvasRef.current.height);
 
-            for (let i = 0; i < (Math.floor(Math.random() * 801) + 200); i++) {
-                unknownNumber(ctx, Math.random() > 0.5, Math.random() > 0.5, (Math.floor(Math.random() * 91) + 10));
+            
+
+            // 50% chance of either having transparent numbers or not
+            let randomAlpha = Math.random() > 0.5;
+
+            // 50% chance of either random sizes or all the same size
+            let randomSize = Math.random() > 0.5;
+            
+            // If all the same size, set a random size between 10px and 20% of the canvas width
+            let maxSize = canvasRef.current.width / 10;
+            let setSize = Math.floor((Math.random() * maxSize) - 10) + 10;
+            
+            // Draw a random number of phone numbers based on canvas size
+            let randomAmount = Math.floor((Math.random() * canvasRef.current.width)) + (canvasRef.current.width / 10);
+
+            for (let i = 0; i < randomAmount; i++) {
+                unknownNumber(ctx, randomAlpha, randomSize, setSize);
             }
         }
     }
 
+    useEffect(() => {
+        const resizeImg = () => {
+            if (!canvasRef.current || !canvasRef.current.parentElement || !containerRef.current) return;
+            let maxHeight = window.innerHeight;
+            let maxWidth = containerRef.current.clientWidth - 10;
+            canvasRef.current.height = Math.min(maxHeight / 2, maxWidth);
+            canvasRef.current.width = Math.min(maxHeight / 2, maxWidth);
+        }
+        window.addEventListener("resize", resizeImg);
+        window.dispatchEvent(new Event("resize"));
+
+        return () => {
+            window.removeEventListener("resize", resizeImg);
+        }
+    }, [])
+
     return (
-        <StyledCanvas>
-            <canvas width="1000" height="1000" ref={canvasRef}></canvas>
-            <button onClick={generate}>Generate</button>
+        <StyledCanvas ref={containerRef}>
+            <Button text={"Generate"} onClick={generate}/>
+            <div>
+                <canvas width={1000} height={1000} ref={canvasRef}></canvas>
+            </div>
         </StyledCanvas>
     )
 }
 
-export default Canvas;
+export default VoicemailCanvas;
