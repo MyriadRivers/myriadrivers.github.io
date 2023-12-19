@@ -13,7 +13,7 @@ import orbWeaverImg from "./assets/images/orb_weaver.png"
 import nyanCatImg from "./assets/images/nyan_cat.png"
 import syncOrSinkImg from "./assets/images/sync_or_sink.png"
 import diminishedRealityImg from "./assets/images/diminished_reality.png";
-import voicemailImg from "./assets/images/voicemail.jpg";
+import voicemailImg from "./assets/images/voicemail.png";
 import auditoryInterfaceImg from "./assets/images/auditory_interface.png";
 
 import SewSustainable from "./pages/projects/SewSustainable/SewSustainable"
