@@ -21,6 +21,9 @@ import MusicAccessibility from "./pages/projects/MusicAccessibility/MusicAccessi
 import OrbWeaver from "./pages/projects/OrbWeaver/OrbWeaver"
 import DiminishedReality from "./pages/projects/DiminishedReality/DiminishedReality"
 import Voicemail from "./pages/projects/Voicemail/Voicemail"
+import NyanCat from "./pages/projects/NyanCat/NyanCat"
+import SyncOrSink from "./pages/projects/SyncOrSink/SyncOrSink"
+import AuditoryInterface from "./pages/projects/AuditoryInterface/AuditoryInterface"
 
 
 const navRoutes = [
@@ -69,15 +72,15 @@ const projectRoutes = [
     },
     {
         path: "projects/auditory_interface",
-        element: <DiminishedReality />
+        element: <AuditoryInterface />
     },
     {
         path: "projects/nyan_cat",
-        element: <DiminishedReality />
+        element: <NyanCat />
     },
     {
         path: "projects/sync_or_sink",
-        element: <DiminishedReality />
+        element: <SyncOrSink />
     }
 
 ]
@@ -126,7 +129,7 @@ const projects = [
         tags: ["fun"]
     },
     {
-        title: "Synchronized Swimming Auditory Interface",
+        title: "Artistic Swimming Auditory Interface",
         url: "auditory_interface",
         image: auditoryInterfaceImg,
         tags: ["hci"]

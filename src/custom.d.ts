@@ -5,3 +5,4 @@ declare module "*.woff";
 declare module "*.woff2";
 
 declare module "*.mp4";
+declare module "*.mov";
