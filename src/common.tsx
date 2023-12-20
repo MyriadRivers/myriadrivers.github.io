@@ -26,6 +26,7 @@ import SyncOrSink from "./pages/projects/SyncOrSink/SyncOrSink"
 import AuditoryInterface from "./pages/projects/AuditoryInterface/AuditoryInterface"
 
 
+
 const navRoutes = [
     {
         path: "home",

@@ -30,15 +30,19 @@ function SpotifyKaraoke() {
                 text={"Spotify Karaoke"} 
                 subtitle={"Aug–Dec 2023"} 
                 links={[
-                    {text: "Try it!", url: "https://main.d1tjf0r777xvgj.amplifyapp.com/"}, 
-                    {text: "Front-End GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke"}, 
-                    {text: "Back-End GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke-generation"}
+                    {text: "demo", url: "https://main.d1tjf0r777xvgj.amplifyapp.com/"}, 
+                    {text: "front-end GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke"}, 
+                    {text: "back-end GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke-generation"}
                 ]} 
                 tags={["webdev"]}
                 ref={el => headingRefs.current[0] = el} 
             >
                 <p>
-                    Spotify Karaoke is a web app that lets you sing along to any song on Spotify with English lyrics.
+                    Spotify Karaoke is a web app that lets you sing along to any song on Spotify with English lyrics. 
+                </p>
+                <p>
+                    Due to the costs of keeping the entire stack on the cloud, I had to take the back end and API down. 
+                    The demo shows off all the front end functionality with some pregenerated tracks from the back end stored locally. 
                 </p>
             </ProjectTitle>
             <Expandable 

@@ -1,7 +1,79 @@
+import styled from "styled-components";
+import breakpoints from "../../styles/breakpoints";
+import LinkList from "../../components/LinkList";
+import Image from "../../components/Image";
+
+import gulfFritillary from "../../assets/images/gulf_fritillary.jpg";
+import blueDasher from "../../assets/images/blue_dasher.jpg";
+import arabesqueOrbweaver from "../../assets/images/arabesque_orbweaver.jpg";
+
+const StyledAbout = styled.div`
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+    .aboutText {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        font-size: calc(10pt + 1vw);
+
+        /* margin: auto; */
+        overflow: none;
+
+        @media ${breakpoints.mobile} {
+            margin: 0;
+        }
+    }
+
+    .imageContainer {
+        /* background: pink; */
+        display: flex;
+
+        img {
+            height: 30vh;
+        } 
+    }
+`
+const otherLinks = [
+    {text: "bugs", url: "https://www.instagram.com/riveroptera/"},
+    {text: "origami", url: "https://www.instagram.com/manifoldrivers/"},
+    {text: "music", url: "https://www.youtube.com/@riiiver"}
+]
+
 function Links() {
-    return (<div>
-        Links
-    </div>);
+    return (<StyledAbout>
+        <div className={"aboutText"}>
+            <p>
+                Please reach out if you have any questions or would like to get in touch.
+                You can also check out some of my hobbies below.
+            </p>
+            <p>
+                Contact:
+                <br/>
+                <a href="mailto:jasongao678@gmail.com">jasongao678@gmail.com</a>
+            </p>
+            <p>
+                Other links:
+                <LinkList links={otherLinks}></LinkList>
+            </p>
+            <div className={"imageContainer"}>
+                {(() => {
+                    switch (Math.floor(Math.random() * 3)) {
+                        case 0:
+                            return <Image src={blueDasher} caption={"Blue Dasher on the Georgia Tech campus, source: Me"}/>
+                        case 1:
+                            return <Image src={arabesqueOrbweaver} caption={"Arabesque Orbweaver on a boardwalk, source: Me"}/>
+                        default:
+                            return <Image src={gulfFritillary} caption={"Gulf Fritillary on the Georgia Tech campus, source: Me"}/>
+                    }
+                })()}
+            </div>
+        </div>
+    </StyledAbout>);
 }
 
 export default Links;

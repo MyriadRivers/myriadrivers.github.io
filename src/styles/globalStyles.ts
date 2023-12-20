@@ -78,12 +78,12 @@ const GlobalStyle = createGlobalStyle`
 
     a {
         text-decoration: inherit;
-        color: inherit;
+        color: ${props => props.theme.accent};
     }
 
     p {
         margin: 0px 0px;
-        line-height: 24pt;
+        line-height: 1.5em;
     }
 `
 

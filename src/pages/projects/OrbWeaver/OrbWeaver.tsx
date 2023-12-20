@@ -28,7 +28,7 @@ function OrbWeaver() {
                 text={"Orb Weaver"} 
                 subtitle={"Apr 2023"} 
                 links={[
-                    {text: "Try it!", url: "https://myriadrivers.github.io/orb-weaver/"},
+                    {text: "try it!", url: "https://myriadrivers.github.io/orb-weaver/"},
                     {text: "GitHub", url: "https://github.com/MyriadRivers/orb-weaver"},
                 ]} 
                 tags={["webdev", "fun"]}

@@ -1,11 +1,9 @@
 import styled from "styled-components";
-import Heading from "../Heading";
-import Canvas from "../Canvas";
 import breakpoints from "../../styles/breakpoints";
 
 const StyledNavOption = styled.div<{ $active: boolean }>`
     font-family: ${props => props.theme.headerFont};
-    font-size: calc(10pt + 1vw);
+    font-size: calc(7.5pt + 1vw);
     text-transform: uppercase;
     letter-spacing: 6pt;
 

@@ -2,6 +2,9 @@ import styled from "styled-components";
 import jason from "../../assets/images/jason.png"
 import breakpoints from "../../styles/breakpoints";
 import { useEffect, useRef } from "react";
+import LinkList from "../../components/LinkList";
+
+import resumePath from "../../assets/files/resume.pdf";
 
 const StyledHome = styled.div`
     height: 100%;
@@ -15,7 +18,11 @@ const StyledHome = styled.div`
     }
 
     .homeText {
-        font-size: calc(15pt + 1vw);
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        font-size: calc(10pt + 1vw);
 
         margin: auto;
         overflow: none;
@@ -33,6 +40,12 @@ const StyledHome = styled.div`
         margin: auto;
     }
 `
+
+const links = [
+    {text: "résumé", url: resumePath}, 
+    {text: "LinkedIn", url: "https://www.linkedin.com/in/jasoncgao/"}, 
+    {text: "GitHub", url: "https://github.com/MyriadRivers"}
+]
 
 function Home() {
     const homeRef = useRef<HTMLDivElement>(null);
@@ -79,13 +92,16 @@ function Home() {
 
     return (<StyledHome ref={homeRef}>
         <div className={"homeText"}>
-            Hey! I'm Jason, a full-stack developer.
-            <br />
-            <br />
-            I'm interested in Human-Computer Interaction, computational creativity, computer music, and terrestrial arthropods.
-            <br />
-            <br />
-            Nice to meet you!
+            <p>
+                Hey! I'm Jason, a full-stack developer.
+            </p>
+            <p>
+                I'm interested in Human-Computer Interaction, computational creativity, computer music, and terrestrial arthropods.
+            </p>
+            <p>
+                Nice to meet you!
+            </p>
+            <LinkList links={links}/>
         </div>
         <div className={"jasonImageContainer"} ref={imgContainerRef}>
             <img className={"jasonImage"} src={jason} alt={"Self portrait of me!"} ref={imgRef}/>

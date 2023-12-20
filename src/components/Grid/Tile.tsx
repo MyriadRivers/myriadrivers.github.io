@@ -33,6 +33,10 @@ const StyledTile = styled.div`
             color: ${props => props.theme.accent};
         }
     }
+
+    a {
+        color: inherit;
+    }
 `
 
 function Tile({ title, url, image, tags }: { title: string, url: To, image: string, tags: Array<string> }) {

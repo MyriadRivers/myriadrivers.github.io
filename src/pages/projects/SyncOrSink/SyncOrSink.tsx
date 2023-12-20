@@ -27,7 +27,7 @@ function SyncOrSink() {
                 text={"Sync or Sink"} 
                 subtitle={"Jun 2017–Dec 2019"} 
                 links={[
-                    {text: "Play the demo!", url: "https://amarantgames.itch.io/sync-or-sink-dreamhack-demo"},
+                    {text: "play the demo!", url: "https://amarantgames.itch.io/sync-or-sink-dreamhack-demo"},
                 ]} 
                 tags={["fun"]}
                 ref={el => headingRefs.current[0] = el} 

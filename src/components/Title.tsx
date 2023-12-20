@@ -5,7 +5,7 @@ import breakpoints from "../styles/breakpoints";
 
 const StyledTitle = styled.div`
     font-family: ${props => props.theme.headerFont};
-    font-size: 3vw;
+    font-size: calc(15pt + 1vw);
     letter-spacing: 0.25em;
 
     @media ${breakpoints.mobile} {

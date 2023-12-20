@@ -30,7 +30,7 @@ function SewSustainable() {
                 text={"SewSustainable"} 
                 subtitle={"Mar–Apr 2023"} 
                 links={[
-                    {text: "figma", url: "https://www.figma.com/file/SyeAAZQ1fwMlubLZ7tzdog/Ed-Tech-Project-Prototype?type=design&node-id=0-1&mode=design"}
+                    {text: "Figma", url: "https://www.figma.com/file/SyeAAZQ1fwMlubLZ7tzdog/Ed-Tech-Project-Prototype?type=design&node-id=0-1&mode=design"}
                 ]} 
                 tags={["hci"]}
                 ref={el => headingRefs.current[0] = el} 

@@ -4,6 +4,7 @@ import { ReactNode, Ref, forwardRef } from "react"
 import Canvas from "./Canvas";
 import Image from "./Image";
 import Tag from "./Grid/Tag";
+import LinkList from "./LinkList";
 
 const StyledProjectTitle = styled.div`
     display: flex;
@@ -80,11 +81,7 @@ function ProjectTitle({ text,
             ))}
         </div>
         {children}
-        {links.length > 0 && <div className={"titleLinks"}>
-            {links.map((link, index) => 
-                <a href={link.url} className={"titleLink"} target="_blank">{link.text}↗</a>
-            )}
-        </div>}
+        <LinkList links={links}/>
     </StyledProjectTitle>);
 }
 
