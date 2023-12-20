@@ -6,6 +6,8 @@ import StyledPage from "../../../components/StyledPage";
 import Image from "../../../components/Image";
 
 import mainImage from "./title_screen.png";
+import gameplayImage from "./gameplay.png";
+import levelEditorImage from "./level_editor.png";
 
 function SyncOrSink() {
     const headings = ["Description", "About"];
@@ -55,6 +57,8 @@ function SyncOrSink() {
                     The full game actually includes a custom editor to make your own levels as well as 7 more levels of much harder difficulty, 
                     however this version was never released publicly.
                 </p>
+                <Image src={gameplayImage} caption={"Gameplay is a 4-lane rhythm game with modifiers. Swimmers dance to the music on the bottom."}/>
+                <Image src={levelEditorImage} caption={"The unreleased level editor for making custom beat maps and choreographing routines, assets drawn by me."}/>
             </Expandable>
             <div className={"bottomSpace"}></div>
         </div>
