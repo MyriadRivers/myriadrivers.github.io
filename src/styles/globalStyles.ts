@@ -81,7 +81,7 @@ const GlobalStyle = createGlobalStyle`
         color: ${props => props.theme.accent};
     }
 
-    p {
+    p, ol, ul {
         margin: 0px 0px;
         line-height: 1.5em;
     }

@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import { Ref, forwardRef, ReactNode, useState, useEffect } from "react"
 import Heading from "./Heading";
-import exp from "constants";
 import useMedia from "../hooks/useMedia";
 import breakpoints from "../styles/breakpoints";
 
-const StyledExpandable = styled.div<{$expanded: boolean}>`
+const StyledExpandable = styled.div<{ $expanded: boolean }>`
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -21,6 +20,7 @@ const StyledExpandable = styled.div<{$expanded: boolean}>`
         
         &:hover {
             color: ${props => props.theme.accent};
+            font-style: ${props => props.theme.type === "monochrome" ? "italic" : ""};
             cursor: pointer;
         }
     }

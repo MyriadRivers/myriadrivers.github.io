@@ -48,10 +48,6 @@ function Grid({ tiles }: { tiles: Array<{ title: string, url: To, image: string,
         setAllTags(foundTags);
     }, [tiles])
 
-    useEffect(() => {
-        console.log(activeTags);
-    }, [activeTags])
-
     const toggleTag = (tag: string) => {
         if (activeTags.includes(tag)) {
             let newTags = activeTags.filter((el) => el !== tag);
@@ -65,7 +61,7 @@ function Grid({ tiles }: { tiles: Array<{ title: string, url: To, image: string,
     return (<StyledGrid>
         <div className={"tags"}>
             {allTags.map((tag, index) => (
-                <Tag name={tag} toggleTags={() => toggleTag(tag)} />
+                <Tag name={tag} toggleTags={() => toggleTag(tag)} key={index} />
             ))}
         </div>
         <div className="grid">
@@ -75,7 +71,7 @@ function Grid({ tiles }: { tiles: Array<{ title: string, url: To, image: string,
                 // (activeTags.length === 0 || activeTags.every(el => tile.tags.includes(el))) &&
                 // UNION
                 (activeTags.length === 0 || activeTags.some(el => tile.tags.includes(el))) &&
-                <Tile title={tile.title} url={tile.url} image={tile.image} tags={tile.tags}></Tile>
+                <Tile title={tile.title} url={tile.url} image={tile.image} tags={tile.tags} key={index}></Tile>
             ))}
         </div>
     </StyledGrid>);

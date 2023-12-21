@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Canvas from "./Canvas";
 import riverImage from "../assets/images/river.png"
 import breakpoints from "../styles/breakpoints";
 

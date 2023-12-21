@@ -1,8 +1,5 @@
 import styled from "styled-components";
-import Heading from "./Heading";
 import { ReactNode, Ref, forwardRef } from "react"
-import Canvas from "./Canvas";
-import Image from "./Image";
 import Tag from "./Grid/Tag";
 import LinkList from "./LinkList";
 
@@ -54,18 +51,18 @@ const StyledProjectTitle = styled.div`
     }
 `
 
-function ProjectTitle({ text, 
-                        subtitle, 
-                        links,
-                        tags,
-                        children
-                    }: { 
-                        text: string, 
-                        subtitle: string, 
-                        links: Array<{text: string, url: string}>,
-                        tags: Array<string>,
-                        children: ReactNode
-                    }, ref: Ref<HTMLDivElement>) {
+function ProjectTitle({ text,
+    subtitle,
+    links,
+    tags,
+    children
+}: {
+    text: string,
+    subtitle: string,
+    links: Array<{ text: string, url: string }>,
+    tags: Array<string>,
+    children: ReactNode
+}, ref: Ref<HTMLDivElement>) {
     return (<StyledProjectTitle>
         <div className={"titleContainer"}>
             <div className={"title"} ref={ref}>
@@ -76,12 +73,12 @@ function ProjectTitle({ text,
             </div>
         </div>
         <div className={"tags"}>
-            {tags.map(tag => (
-                <Tag name={tag} />
+            {tags.map((tag, index) => (
+                <Tag name={tag} key={index} />
             ))}
         </div>
         {children}
-        <LinkList links={links}/>
+        <LinkList links={links} />
     </StyledProjectTitle>);
 }
 

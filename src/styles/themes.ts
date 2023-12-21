@@ -1,4 +1,4 @@
-const main = {
+const river = {
     headerFont: "Free Sans",
     bodyFont: "Average",
     main: "black",
@@ -6,4 +6,13 @@ const main = {
     accent: "#72b1d2"
 }
 
-export { main };
+const mono = {
+    type: "monochrome",
+    headerFont: "Free Sans",
+    bodyFont: "Average",
+    main: "black",
+    alt: "white",
+    accent: "black"
+}
+
+export { river, mono };

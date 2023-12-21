@@ -11,6 +11,7 @@ const StyledNavbar = styled.div<{ $open: boolean }>`
     justify-content: space-between;
     display: flex;
     position: relative;
+    mix-blend-mode: multiply;
 
     @media ${breakpoints.mobile} {
         background: none;
@@ -64,7 +65,7 @@ function Navbar({ links }: { links: Array<string> }) {
 
                             return (
                                 otherLinks.map((link, index) => (
-                                    <Link to={otherLinks[index]} onClick={() => {
+                                    <Link to={otherLinks[index]} key={index} onClick={() => {
                                         setOpen(false);
                                         setActive(links.indexOf(otherLinks[index]));
                                     }}>{<NavOption text={link} active={false} />}</Link>
@@ -79,7 +80,7 @@ function Navbar({ links }: { links: Array<string> }) {
             </>
             :
             links.map((link, index) => (
-                <Link to={links[index]} onClick={() => setActive(index)}>{<NavOption text={link} active={active === index} />}</Link>
+                <Link to={links[index]} onClick={() => setActive(index)} key={index}>{<NavOption text={link} active={active === index} />}</Link>
             ))}
     </StyledNavbar>);
 }

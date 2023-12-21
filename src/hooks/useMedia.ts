@@ -5,7 +5,7 @@ function useMedia(mq: string) {
 
     useEffect(() => {
         setMatches(window.matchMedia(mq).matches);
-        
+
         const mediaQuery = () => {
             setMatches(window.matchMedia(mq).matches);
         };
@@ -15,8 +15,8 @@ function useMedia(mq: string) {
         return () => {
             window.removeEventListener("resize", mediaQuery);
         }
-        
-    }, [])
+
+    }, [mq])
 
     return matches;
 }

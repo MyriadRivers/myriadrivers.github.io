@@ -1,14 +1,14 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 import GlobalStyle from './styles/globalStyles';
 import styled, { ThemeProvider } from 'styled-components'
-import { main } from './styles/themes';
+import { mono } from './styles/themes';
 
 import Navbar from './components/Navbar/Navbar';
 import { navRoutes } from './common';
 import Title from './components/Title';
-import Canvas from './components/Canvas';
 import breakpoints from './styles/breakpoints';
+import Canvas from './components/Canvas';
 
 const StyledApp = styled.div`
   position: relative;
@@ -47,19 +47,21 @@ const StyledApp = styled.div`
 
 function App() {
   return (
-    <ThemeProvider theme={main}>
-      <StyledApp>
-        <GlobalStyle />
-        <div>
-          <Title />
-        </div>
-        <div className={"centerContainer"}>
-          <div className="outletContainer">
-            <Navbar links={navRoutes.map(route => (route.path))}/>
-            <Outlet />
+    <ThemeProvider theme={mono}>
+      <Canvas>
+        <StyledApp>
+          <GlobalStyle />
+          <div>
+            <Title />
           </div>
-        </div>
-      </StyledApp>
+          <div className={"centerContainer"}>
+            <div className="outletContainer">
+              <Navbar links={navRoutes.map(route => (route.path))} />
+              <Outlet />
+            </div>
+          </div>
+        </StyledApp>
+      </Canvas>
     </ThemeProvider >
   );
 }

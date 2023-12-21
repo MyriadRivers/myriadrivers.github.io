@@ -31,6 +31,7 @@ const StyledTile = styled.div`
     .tileContents {
         &:hover {
             color: ${props => props.theme.accent};
+            letter-spacing: ${props => props.theme.type === "monochrome" ? "2px" : "normal"};
         }
     }
 
@@ -43,12 +44,12 @@ function Tile({ title, url, image, tags }: { title: string, url: To, image: stri
     return (
         <StyledTile>
             <Link to={url} className={"tileContents"}>
-                <img src={image} className={"tileImage"}></img>
+                <img src={image} className={"tileImage"} alt={title}></img>
                 {title}
             </Link>
             <div className={"tileTags"}>
-                {tags.map(tag => (
-                    <Tag name={tag} />
+                {tags.map((tag, index) => (
+                    <Tag name={tag} key={index} />
                 ))}
             </div>
         </StyledTile>);

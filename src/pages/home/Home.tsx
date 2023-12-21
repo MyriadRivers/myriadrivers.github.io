@@ -24,6 +24,10 @@ const StyledHome = styled.div`
 
         font-size: calc(10pt + 1vw);
 
+        @media ${breakpoints.mobile} {
+            flex: 0 0 auto;
+        }
+
         margin: auto;
         overflow: none;
 
@@ -33,18 +37,26 @@ const StyledHome = styled.div`
     }
 
     .jasonImageContainer {
+        @media ${breakpoints.mobile} {
+            flex: 1 1 auto;
+        }
+        
+        min-width: 40%;
         display: flex;
+        overflow: hidden;
     }
 
     .jasonImage {
         margin: auto;
+        max-width: 100%;
+        max-height: 100%;
     }
 `
 
 const links = [
-    {text: "résumé", url: resumePath}, 
-    {text: "LinkedIn", url: "https://www.linkedin.com/in/jasoncgao/"}, 
-    {text: "GitHub", url: "https://github.com/MyriadRivers"}
+    { text: "résumé", url: resumePath },
+    { text: "LinkedIn", url: "https://www.linkedin.com/in/jasoncgao/" },
+    { text: "GitHub", url: "https://github.com/MyriadRivers" }
 ]
 
 function Home() {
@@ -56,31 +68,10 @@ function Home() {
         const resizeImg = () => {
             if (!imgRef.current || !imgContainerRef.current || !homeRef.current) return;
 
-            if (homeRef.current.scrollHeight > homeRef.current.offsetHeight) {
-                console.log("vertical overflow");
-                imgContainerRef.current.style.height = "100%";
-                imgContainerRef.current.style.overflow = "hidden";
-            } else {
-                console.log("vertical normal");
-                imgContainerRef.current.style.height = "auto";
+            if (imgRef.current.height > imgContainerRef.current.clientHeight) {
+                imgRef.current.height = imgContainerRef.current.clientHeight;
             }
 
-            if (homeRef.current.scrollWidth > homeRef.current.offsetWidth) {
-                console.log("horizontal overflow");
-                imgContainerRef.current.style.width = "100%";
-                imgContainerRef.current.style.overflow = "hidden";
-            } else {
-                console.log("horizontal normal");
-                imgContainerRef.current.style.width = "auto";
-            }
-
-            if (imgRef.current.width > imgContainerRef.current.clientWidth) {
-                imgRef.current.style.width = "100%";
-                imgRef.current.style.height = "auto";
-            } else  if (imgRef.current.height > imgContainerRef.current.clientHeight) {
-                imgRef.current.style.width = "auto";
-                imgRef.current.style.height = "100%";
-            }
         }
         window.addEventListener("resize", resizeImg);
         window.dispatchEvent(new Event("resize"));
@@ -101,10 +92,10 @@ function Home() {
             <p>
                 Nice to meet you!
             </p>
-            <LinkList links={links}/>
+            <LinkList links={links} />
         </div>
         <div className={"jasonImageContainer"} ref={imgContainerRef}>
-            <img className={"jasonImage"} src={jason} alt={"Self portrait of me!"} ref={imgRef}/>
+            <img className={"jasonImage"} src={jason} alt={"Self portrait of me!"} ref={imgRef} />
         </div>
     </StyledHome>);
 }

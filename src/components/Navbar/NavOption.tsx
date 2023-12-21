@@ -3,7 +3,7 @@ import breakpoints from "../../styles/breakpoints";
 
 const StyledNavOption = styled.div<{ $active: boolean }>`
     font-family: ${props => props.theme.headerFont};
-    font-size: calc(7.5pt + 1vw);
+    font-size: calc(10pt + 1vw);
     text-transform: uppercase;
     letter-spacing: 6pt;
 
@@ -12,11 +12,16 @@ const StyledNavOption = styled.div<{ $active: boolean }>`
     box-sizing: border-box;
     
     // Eliminate a dark sliver on the edge of the nav bar in some zoom settings
-    box-shadow: 1px 0px 0px 0px ${props => props.$active ? props.theme.alt : props.theme.main};;
+    box-shadow: 1px 0px 0px 0px ${props => props.$active ? props.theme.alt : props.theme.main};
 
     @media ${breakpoints.mobile} {
         background: ${props => props.theme.main};
-        color: ${props => props.$active ? props.theme.accent : props.theme.alt};
+        color: ${props => props.theme.type === "monochrome" ?
+        props.theme.alt :
+        props.$active ?
+            props.theme.accent
+            : props.theme.alt};
+        mix-blend-mode: multiply;
     }
 
     .text {
@@ -24,7 +29,9 @@ const StyledNavOption = styled.div<{ $active: boolean }>`
         margin-right: -5pt;
 
         &:hover {
-            color: ${props => props.$active ? "" : props.theme.accent};
+            color: ${props => props.theme.type === "monochrome" ?
+        "" :
+        props.$active ? "" : props.theme.accent};
         }
     }
 `

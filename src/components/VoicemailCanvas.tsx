@@ -66,18 +66,18 @@ const VoicemailCanvas = () => {
             ctx.fillStyle = "white";
             ctx.fillRect(0, 0, canvasRef.current.width, canvasRef.current.height);
 
-            
+
 
             // 50% chance of either having transparent numbers or not
             let randomAlpha = Math.random() > 0.5;
 
             // 50% chance of either random sizes or all the same size
             let randomSize = Math.random() > 0.5;
-            
+
             // If all the same size, set a random size between 10px and 20% of the canvas width
             let maxSize = canvasRef.current.width / 10;
             let setSize = Math.floor((Math.random() * maxSize) - 10) + 10;
-            
+
             // Draw a random number of phone numbers based on canvas size
             let randomAmount = Math.floor((Math.random() * canvasRef.current.width)) + (canvasRef.current.width / 10);
 
@@ -105,9 +105,9 @@ const VoicemailCanvas = () => {
 
     return (
         <StyledCanvas ref={containerRef}>
-            <Button text={"Generate"} onClick={generate}/>
+            <Button text={"Generate"} onClick={generate} />
             <div>
-                <canvas width={1000} height={1000} ref={canvasRef}></canvas>
+                <canvas ref={canvasRef}></canvas>
             </div>
         </StyledCanvas>
     )

@@ -1,15 +1,16 @@
-const SoundCloudSmall = ({artist, track, artistURL, trackURL, trackID}: {artist: string, track: string, artistURL: string, trackURL: string, trackID: string}) => {
+const SoundCloudSmall = ({ artist, track, artistURL, trackURL, trackID }: { artist: string, track: string, artistURL: string, trackURL: string, trackID: string }) => {
     return (
         <>
-            <iframe 
-            width="100%" 
-            height="166" 
-            scrolling="no" 
-            frameBorder="no" 
-            allow="autoplay" 
-            src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackID}&color=%2372b1d2&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`}>
+            <iframe
+                title="SoundCloudSmall"
+                width="100%"
+                height="166"
+                scrolling="no"
+                frameBorder="no"
+                allow="autoplay"
+                src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackID}&color=%2372b1d2&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`}>
             </iframe>
-            <div 
+            <div
                 style={{
                     fontSize: "10px",
                     color: "#cccccc",
@@ -20,21 +21,23 @@ const SoundCloudSmall = ({artist, track, artistURL, trackURL, trackID}: {artist:
                     textOverflow: "ellipsis",
                     fontFamily: "Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif",
                     fontWeight: "100"
-            }}>
-                <a 
+                }}>
+                <a
                     href={artistURL}
                     title={artist}
-                    target="_blank" 
+                    target="_blank"
+                    rel="noreferrer"
                     style={{
-                        color: "#cccccc", 
+                        color: "#cccccc",
                         textDecoration: "none"
                     }}
-                >{artist}</a> · <a 
-                    href={trackURL} 
-                    title={track} 
-                    target="_blank" 
+                >{artist}</a> · <a
+                    href={trackURL}
+                    title={track}
+                    target="_blank"
+                    rel="noreferrer"
                     style={{
-                        color: "#cccccc", 
+                        color: "#cccccc",
                         textDecoration: "none"
                     }}
                 >{track}</a>

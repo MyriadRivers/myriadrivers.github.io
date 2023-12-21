@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Ref, forwardRef, ReactNode } from "react"
-import Canvas from "./Canvas";
 import breakpoints from "../styles/breakpoints";
 
 const StyledHeading = styled.div<{ $level: number }>`
@@ -22,12 +21,12 @@ const StyledHeading = styled.div<{ $level: number }>`
 
 function Heading({ level, subtitle, children }: { level: number, subtitle?: string, children: ReactNode }, ref: Ref<HTMLDivElement>) {
     return (
-    <StyledHeading $level={level} ref={ref}>
-        {children}
-        <div className={"subtitle"}>
-            {subtitle}
-        </div>
-    </StyledHeading>);
+        <StyledHeading $level={level} ref={ref}>
+            {children}
+            <div className={"subtitle"}>
+                {subtitle}
+            </div>
+        </StyledHeading>);
 }
 
 export default forwardRef(Heading);

@@ -6,6 +6,7 @@ import Image from "../../components/Image";
 import gulfFritillary from "../../assets/images/gulf_fritillary.jpg";
 import blueDasher from "../../assets/images/blue_dasher.jpg";
 import arabesqueOrbweaver from "../../assets/images/arabesque_orbweaver.jpg";
+import Link from "../../components/Link";
 
 const StyledAbout = styled.div`
     height: 100%;
@@ -19,7 +20,7 @@ const StyledAbout = styled.div`
         flex-direction: column;
         gap: 1em;
 
-        font-size: calc(10pt + 1vw);
+        font-size: calc(6pt + 1vw);
 
         /* margin: auto; */
         overflow: none;
@@ -39,36 +40,39 @@ const StyledAbout = styled.div`
     }
 `
 const otherLinks = [
-    {text: "bugs", url: "https://www.instagram.com/riveroptera/"},
-    {text: "origami", url: "https://www.instagram.com/manifoldrivers/"},
-    {text: "music", url: "https://www.youtube.com/@riiiver"}
+    { text: "bugs", url: "https://www.instagram.com/riveroptera/" },
+    { text: "origami", url: "https://www.instagram.com/manifoldrivers/" },
+    { text: "music", url: "https://www.youtube.com/@riiiver" }
 ]
 
 function Links() {
     return (<StyledAbout>
         <div className={"aboutText"}>
             <p>
+                This site was developed using TypeScript and React.js.
+            </p>
+            <p>
                 Please reach out if you have any questions or would like to get in touch.
                 You can also check out some of my hobbies below.
             </p>
             <p>
                 Contact:
-                <br/>
-                <a href="mailto:jasongao678@gmail.com">jasongao678@gmail.com</a>
+                <br />
+                <Link url={"mailto:jasongao678@gmail.com"}>jasongao678@gmail.com</Link>
             </p>
             <p>
                 Other links:
-                <LinkList links={otherLinks}></LinkList>
             </p>
+            <LinkList links={otherLinks}></LinkList>
             <div className={"imageContainer"}>
                 {(() => {
                     switch (Math.floor(Math.random() * 3)) {
                         case 0:
-                            return <Image src={blueDasher} caption={"Blue Dasher on the Georgia Tech campus, source: Me"}/>
+                            return <Image src={blueDasher} caption={"Blue Dasher found on the GT campus"} />
                         case 1:
-                            return <Image src={arabesqueOrbweaver} caption={"Arabesque Orbweaver on a boardwalk, source: Me"}/>
+                            return <Image src={arabesqueOrbweaver} caption={"Arabesque Orbweaver found on a boardwalk"} />
                         default:
-                            return <Image src={gulfFritillary} caption={"Gulf Fritillary on the Georgia Tech campus, source: Me"}/>
+                            return <Image src={gulfFritillary} caption={"Gulf Fritillary found on the GT campus"} />
                     }
                 })()}
             </div>

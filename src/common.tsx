@@ -130,7 +130,7 @@ const projects = [
         tags: ["fun"]
     },
     {
-        title: "Artistic Swimming Auditory Interface",
+        title: "Synchro Auditory Interface",
         url: "auditory_interface",
         image: auditoryInterfaceImg,
         tags: ["hci"]
@@ -148,10 +148,5 @@ const projects = [
         tags: ["fun"]
     },
 ]
-
-const media = {
-    desktop: "(min-width): 1024px",
-    portrait: "(min-aspect-ratio): 1/1"
-}
 
 export { navRoutes, projectRoutes, projects };

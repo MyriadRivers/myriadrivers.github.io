@@ -4,6 +4,7 @@ import { useState } from "react"
 const StyledTag = styled.div<{ $active: boolean }>`
     background: ${props => props.$active ? props.theme.main : ""};
     color: ${props => props.$active ? props.theme.alt : props.theme.main};
+    
 
     font-family: ${props => props.theme.headerFont};
     letter-spacing: 1pt;
