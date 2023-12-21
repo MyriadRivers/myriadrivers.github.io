@@ -6,7 +6,7 @@ import breakpoints from "../../styles/breakpoints";
 import useMedia from "../../hooks/useMedia";
 import riverLogo from "../../assets/images/river_logo.png";
 
-const StyledNavbar = styled.div<{$open: boolean}>` 
+const StyledNavbar = styled.div<{ $open: boolean }>` 
     background: ${props => props.theme.main};
     justify-content: space-between;
     display: flex;
@@ -53,34 +53,34 @@ function Navbar({ links }: { links: Array<string> }) {
     }, [open])
 
     return (<StyledNavbar $open={open}>
-        { mobile ? 
-        <>
-            <NavOption text={links[active]} active={true} onClick={() => setOpen(true)}/> 
-            {open && 
-            <div className={"dropdown"} ref={dropdownRef}>
-                <Link to={links[active]} onClick={() => setOpen(false)}>{<NavOption text={links[active]} active={true} />}</Link>
-                {(() => {
-                    const otherLinks = links.filter((_, index) => index !== active);
+        {mobile ?
+            <>
+                <NavOption text={links[active]} active={true} onClick={() => setOpen(true)} />
+                {open &&
+                    <div className={"dropdown"} ref={dropdownRef}>
+                        <Link to={links[active]} onClick={() => setOpen(false)}>{<NavOption text={links[active]} active={true} />}</Link>
+                        {(() => {
+                            const otherLinks = links.filter((_, index) => index !== active);
 
-                    return (
-                        otherLinks.map((link, index) => (
-                            <Link to={otherLinks[index]} onClick={() => {
-                                setOpen(false);
-                                setActive(links.indexOf(otherLinks[index]));
-                            }}>{<NavOption text={link} active={false} />}</Link>
-                        ))
-                    )
-                })()}
-            </div>}
-            <Link to={links[0]} className={"homeLink"} onClick={() => {
-                setOpen(false);
-                setActive(0);
-            }}><img src={riverLogo} alt={"Jason Gao"} className={"riverLogo"} /></Link>
-        </>
-        :
-        links.map((link, index) => (
-            <Link to={links[index]} onClick={() => setActive(index)}>{<NavOption text={link} active={active === index} />}</Link>
-        ))}
+                            return (
+                                otherLinks.map((link, index) => (
+                                    <Link to={otherLinks[index]} onClick={() => {
+                                        setOpen(false);
+                                        setActive(links.indexOf(otherLinks[index]));
+                                    }}>{<NavOption text={link} active={false} />}</Link>
+                                ))
+                            )
+                        })()}
+                    </div>}
+                <Link to={links[0]} className={"homeLink"} onClick={() => {
+                    setOpen(false);
+                    setActive(0);
+                }}><img src={riverLogo} alt={"Jason Gao"} className={"riverLogo"} /></Link>
+            </>
+            :
+            links.map((link, index) => (
+                <Link to={links[index]} onClick={() => setActive(index)}>{<NavOption text={link} active={active === index} />}</Link>
+            ))}
     </StyledNavbar>);
 }
 
