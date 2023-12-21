@@ -23,7 +23,7 @@ const LinkList = ({ links }: { links: Array<{ text: string, url: string }> }) =>
         <StyledLinkList>
             {links.length > 0 && <div className={"linksList"}>
                 {links.map((link, index) =>
-                    <a href={link.url} className={"individualLink"} target="_blank" key={index} rel="noreferrer">{link.text} 🡥</a>
+                    <a href={link.url} className={"individualLink"} target="_blank" key={index} rel="noreferrer">{link.text} ↗</a>
                 )}
             </div>}
         </StyledLinkList>
