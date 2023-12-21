@@ -10,6 +10,9 @@ import algorithmImage from "./spotify_karaoke_algorithm_table.png";
 import gapImage from "./spotify_karaoke_gap_interpolation.png";
 import StyledPage from "../../../components/StyledPage";
 
+import demoVideo from "./spotify_karaoke_demo.mp4";
+import Video from "../../../components/Video";
+
 function SpotifyKaraoke() {
     const headings = ["Description", "Stack", "Pipeline", "Algorithm", "Future"];
     const headingRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -35,6 +38,7 @@ function SpotifyKaraoke() {
                 tags={["webdev"]}
                 ref={el => headingRefs.current[0] = el}
             >
+                <Video src={demoVideo} caption="Excuse my singing." />
                 <p>
                     Spotify Karaoke is a web app that lets you sing along to any song on Spotify with English lyrics.
                 </p>

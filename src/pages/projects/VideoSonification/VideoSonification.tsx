@@ -12,6 +12,8 @@ import bugVideo from "./soldier_bug_sonified.mp4";
 import fractalVideo from "./julia_set_sonified.mp4";
 import MediaGrid from "../../../components/MediaGrid";
 
+import demoVideo from "./video_sonification_demo.mp4";
+
 function VideoSonification() {
     const headings = ["Description", "Stack", "Examples"];
     const headingRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -33,6 +35,7 @@ function VideoSonification() {
                 tags={["webdev"]}
                 ref={el => headingRefs.current[0] = el}
             >
+                <Video src={demoVideo} />
                 <p>
                     Users upload videos and the system generates accompaniment, transforming them into music videos. App deployment by me, music generation by Richard Savery.
                 </p>
