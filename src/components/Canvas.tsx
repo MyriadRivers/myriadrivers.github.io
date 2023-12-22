@@ -104,7 +104,7 @@ const draw = (ctx: CanvasRenderingContext2D, event: MouseEvent) => {
   let y = event.y;
 
   ctx.fillStyle = randColor();
-  const radius = Math.floor(Math.random() * (ctx.canvas.width / 3));
+  const radius = Math.floor(Math.random() * (ctx.canvas.width / 7));
   ctx.beginPath();
   ctx.arc(x, y, radius, 0, Math.PI * 2);
   ctx.fill();
