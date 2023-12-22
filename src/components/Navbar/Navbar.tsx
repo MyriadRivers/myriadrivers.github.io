@@ -16,6 +16,7 @@ const StyledNavbar = styled.div<{ $open: boolean }>`
     @media ${breakpoints.mobile} {
         background: none;
         flex-direction: row-reverse;
+        mix-blend-mode: normal;
     }
 
     .dropdown {

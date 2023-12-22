@@ -49,7 +49,7 @@ function Expandable({ heading, summary, children }: { heading: string, summary: 
 
     return (<StyledExpandable $expanded={expanded} >
         <div className={"expandableHeader"} onClick={() => { setExpanded(!expanded) }} >
-            <div className={"arrow"}><Heading level={3}>{expanded ? "⋀" : "⋁"}</Heading></div><Heading level={3} ref={ref}>{heading}</Heading>
+            <div className={"arrow"}><Heading level={3}>{expanded ? "⋁" : "ᐳ"}</Heading></div><Heading level={3} ref={ref}>{heading}</Heading>
         </div>
         {expanded ? children : <p className={"summary"}>{summary.length > 0 ? summary + "…" : ""}</p>}
     </StyledExpandable>);

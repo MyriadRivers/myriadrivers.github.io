@@ -21,9 +21,8 @@ const StyledCanvas = styled.div`
   padding: 0px;
   margin: 0px;
 
-  font-size: 32pt;
-
   .canvasButtons {
+    font-size: 32pt;
     display: flex;
     flex-direction: column-reverse;
 
