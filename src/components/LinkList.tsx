@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import linkIcon from "../assets/icons/external_link.png";
 
 const StyledLinkList = styled.div`
     .linksList {
@@ -10,11 +11,16 @@ const StyledLinkList = styled.div`
 
     .individualLink {
         border: solid;
-        padding: 5px;
+        padding: 5px 10px;
 
         &:hover {
             font-style: ${props => props.theme.type === "monochrome" ? "italic" : ""};
         }
+    }
+
+    .externalLink {
+        height: 1em;
+        padding-left: 0.25em;
     }
 `
 
@@ -23,7 +29,9 @@ const LinkList = ({ links }: { links: Array<{ text: string, url: string }> }) =>
         <StyledLinkList>
             {links.length > 0 && <div className={"linksList"}>
                 {links.map((link, index) =>
-                    <a href={link.url} className={"individualLink"} target="_blank" key={index} rel="noreferrer">{link.text} ↗</a>
+                    <a href={link.url} className={"individualLink"} target="_blank" key={index} rel="noreferrer">{link.text}
+                        <img className={"externalLink"} src={linkIcon} alt={"external link"}></img>
+                    </a>
                 )}
             </div>}
         </StyledLinkList>

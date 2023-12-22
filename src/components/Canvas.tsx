@@ -2,6 +2,10 @@ import { ReactNode, useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import breakpoints from "../styles/breakpoints";
 
+import circleIcon from "../assets/icons/circle.png";
+import noCircleIcon from "../assets/icons/no_circle.png";
+import clearCanvasIcon from "../assets/icons/clear_canvas.png";
+
 const StyledCanvas = styled.div`
   position: relative;
   height: 100%;
@@ -17,41 +21,50 @@ const StyledCanvas = styled.div`
   padding: 0px;
   margin: 0px;
 
-  .clearCanvas, .toggleDraw {
-    right: 20px;
+  font-size: 32pt;
+
+  .canvasButtons {
+    display: flex;
+    flex-direction: column-reverse;
 
     position: fixed;
-    background: none;
-    filter: grayscale(100%);
+    bottom: 20px;
+    right: 20px;
+  }
 
-    font-size: 30pt;
+  .clearCanvas {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+  }
 
-    @media ${breakpoints.mobile} {
-      font-size: 20pt;
-    }
-    border: none;
+  .clearCanvasText {
+    visibility: hidden;
+  }
 
-    padding: 0px;
-
+  .clearCanvasIcon, .circles, .noCircles {
+    height: 1em;
     &:hover {
       cursor: pointer;
     }
   }
 
-  .clearCanvas {
-    bottom: 20px;
-    filter: saturate(0%) grayscale(100%) brightness(69%) contrast(300%);
+  .clearCanvasIcon:hover + .clearCanvasText {
+    visibility: visible;
   }
 
   .toggleDraw {
-    bottom: calc(40px + 30pt);
-    @media ${breakpoints.mobile} {
-      bottom: calc(40px + 20pt);
-    }
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
   }
 
-  .noCircles {
-    filter: contrast(150%);
+  .toggleDrawText {
+    visibility: hidden;
+  }
+
+  .toggleDrawIcon:hover + .toggleDrawText {
+    visibility: visible;
   }
 `
 
@@ -87,7 +100,7 @@ const fuzz = (value: number, maxVariance: number = 0.25): number => {
 }
 
 const draw = (ctx: CanvasRenderingContext2D, event: MouseEvent) => {
-  event.preventDefault();
+  // event.preventDefault();
   let x = event.x;
   let y = event.y;
 
@@ -141,7 +154,7 @@ function Canvas({ children }: { children: ReactNode }) {
   }, [width, height])
 
   const mouseHandler = (e: MouseEvent) => {
-    e.preventDefault();
+    // e.preventDefault();
     if (ctxRef.current && drawable) {
       draw(ctxRef.current, e);
     }
@@ -158,9 +171,19 @@ function Canvas({ children }: { children: ReactNode }) {
     <StyledCanvas ref={containerRef}>
       <canvas ref={canvasRef} height={"100%"} width={"100%"} className={"siteCanvas"}></canvas>
       {children}
-      <button className="clearCanvas" onClick={clearCanvas}>🔄</button>
-      <div className="toggleDraw" onClick={() => setDrawable(!drawable)}>
-        {drawable ? <div className={"circles"}>🔘</div> : <div className={"noCircles"}>🚫</div>}
+      <div className={"canvasButtons"}>
+        <div className={"clearCanvas"}>
+          <img className="clearCanvasIcon" onClick={clearCanvas} src={clearCanvasIcon} alt={"clear canvas"} />
+          <div className={"clearCanvasText"}>clear</div>
+        </div>
+
+        <div className="toggleDraw">
+          <div className={"toggleDrawIcon"}>
+            {drawable ? <img className={"circles"} src={circleIcon} alt={"circles: on"} onClick={() => setDrawable(!drawable)} />
+              : <img className={"noCircles"} src={noCircleIcon} alt={"circles: off"} onClick={() => setDrawable(!drawable)} />}
+          </div>
+          <div className={"toggleDrawText"}>{drawable ? "draw: on" : "draw: off"}</div>
+        </div>
       </div>
     </StyledCanvas>
   )

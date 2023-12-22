@@ -13,7 +13,8 @@ const StyledGrid = styled.div`
     .tags {
         position: sticky;
         display: flex;
-        gap: 20px;
+        flex-wrap: wrap;
+        gap: 15px;
     }
 
     .grid {
