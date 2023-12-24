@@ -1,9 +1,19 @@
 import styled from "styled-components";
 import breakpoints from "../../styles/breakpoints";
+import { ReactNode } from "react";
 
 const StyledNavOption = styled.div<{ $active: boolean }>`
     font-family: ${props => props.theme.headerFont};
     font-size: calc(10pt + 1vw);
+    
+    @media ${breakpoints.laptop} {
+        font-size: calc(7.5pt + 1vw);
+    }
+    
+    @media ${breakpoints.mobile} {
+        font-size: calc(10pt + 1vw);
+    }
+
     text-transform: uppercase;
     letter-spacing: 6pt;
 
@@ -36,14 +46,14 @@ const StyledNavOption = styled.div<{ $active: boolean }>`
     }
 `
 
-function NavOption({ text, active, onClick }: { text: string, active: boolean, onClick?: Function }) {
+function NavOption({ active, onClick, children }: { active: boolean, onClick?: Function, children: ReactNode }) {
     return (<StyledNavOption $active={active}>
         {onClick ?
             <div className="text" onClick={() => onClick()}>
-                {text}
+                {children}
             </div> :
             <div className="text">
-                {text}
+                {children}
             </div>}
 
     </StyledNavOption>);

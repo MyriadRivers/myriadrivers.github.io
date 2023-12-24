@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { ReactNode, Ref, forwardRef } from "react"
 import Tag from "./Grid/Tag";
 import LinkList from "./LinkList";
+import breakpoints from "../styles/breakpoints";
 
 const StyledProjectTitle = styled.div`
     display: flex;
@@ -11,12 +12,15 @@ const StyledProjectTitle = styled.div`
     .titleContainer {
         font-family: ${props => props.theme.headerFont};
 
-        font-size: calc(min(15pt + 2.5vw, 2em));
+        font-size: 2em;
+        @media ${breakpoints.laptop} {
+            font-size: 1.5em;
+        }
         
         text-transform: uppercase;
         letter-spacing: 6pt;
 
-        padding-top: 15px;
+        padding-top: calc(4pt + 0.5vw);
     }
 
     .title {

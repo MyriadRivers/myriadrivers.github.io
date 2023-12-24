@@ -69,9 +69,9 @@ function Grid({ tiles }: { tiles: Array<{ title: string, url: To, image: string,
             {tiles.map((tile, index) => (
                 // Display only tiles with matching tags, or all tiles if no tags are selected (default)
                 // INTERSECTION
-                // (activeTags.length === 0 || activeTags.every(el => tile.tags.includes(el))) &&
+                (activeTags.length === 0 || activeTags.every(el => tile.tags.includes(el))) &&
                 // UNION
-                (activeTags.length === 0 || activeTags.some(el => tile.tags.includes(el))) &&
+                // (activeTags.length === 0 || activeTags.some(el => tile.tags.includes(el))) &&
                 <Tile title={tile.title} url={tile.url} image={tile.image} tags={tile.tags} key={index}></Tile>
             ))}
         </div>

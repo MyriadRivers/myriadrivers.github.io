@@ -37,6 +37,12 @@ const StyledApp = styled.div`
     height: 100%;
     
     max-width: 1200px;
+    @media ${breakpoints.laptop} {
+      max-width: 80vw;
+    }
+    @media ${breakpoints.mobile} {
+      max-width: 100%;
+    }
     margin: auto;
 
     display: flex;

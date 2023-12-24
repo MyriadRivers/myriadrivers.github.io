@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from "react"
 import NavOption from "./NavOption";
 import breakpoints from "../../styles/breakpoints";
 import useMedia from "../../hooks/useMedia";
+
 import riverLogo from "../../assets/images/river_logo.png";
+import menuIcon from "../../assets/icons/menu.png";
 
 const StyledNavbar = styled.div<{ $open: boolean }>` 
     background: ${props => props.theme.main};
@@ -34,6 +36,11 @@ const StyledNavbar = styled.div<{ $open: boolean }>`
         height: 100%;
     }
 
+    .menuIcon {
+        height: 1em;
+        padding-right: 5pt;
+    }
+
 `
 
 function Navbar({ links }: { links: Array<string> }) {
@@ -57,10 +64,12 @@ function Navbar({ links }: { links: Array<string> }) {
     return (<StyledNavbar $open={open}>
         {mobile ?
             <>
-                <NavOption text={links[active]} active={true} onClick={() => setOpen(true)} />
+                <NavOption active={true} onClick={() => setOpen(true)} >{<img src={menuIcon} className={"menuIcon"} alt={"Menu"} />}</NavOption>
                 {open &&
                     <div className={"dropdown"} ref={dropdownRef}>
-                        <Link to={links[active]} onClick={() => setOpen(false)}>{<NavOption text={links[active]} active={true} />}</Link>
+                        <Link to={links[active]} onClick={() => setOpen(false)}>
+                            {<NavOption active={true} >{links[active]}</NavOption>}
+                        </Link>
                         {(() => {
                             const otherLinks = links.filter((_, index) => index !== active);
 
@@ -69,7 +78,7 @@ function Navbar({ links }: { links: Array<string> }) {
                                     <Link to={otherLinks[index]} key={index} onClick={() => {
                                         setOpen(false);
                                         setActive(links.indexOf(otherLinks[index]));
-                                    }}>{<NavOption text={link} active={false} />}</Link>
+                                    }}>{<NavOption active={false} >{link}</NavOption>}</Link>
                                 ))
                             )
                         })()}
@@ -81,7 +90,7 @@ function Navbar({ links }: { links: Array<string> }) {
             </>
             :
             links.map((link, index) => (
-                <Link to={links[index]} onClick={() => setActive(index)} key={index}>{<NavOption text={link} active={active === index} />}</Link>
+                <Link to={links[index]} onClick={() => setActive(index)} key={index}>{<NavOption active={active === index} >{link}</NavOption>}</Link>
             ))}
     </StyledNavbar>);
 }

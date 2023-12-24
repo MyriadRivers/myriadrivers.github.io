@@ -30,7 +30,6 @@ const StyledTitle = styled.div`
         margin-right: 0.25em;
 
         &:hover {
-            filter: brightness(120%);
             cursor: pointer;
         }
     }

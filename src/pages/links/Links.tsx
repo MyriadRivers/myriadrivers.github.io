@@ -8,7 +8,7 @@ import blueDasher from "../../assets/images/blue_dasher.jpg";
 import arabesqueOrbweaver from "../../assets/images/arabesque_orbweaver.jpg";
 import Link from "../../components/Link";
 
-const StyledAbout = styled.div`
+const StyledLinks = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
@@ -20,7 +20,7 @@ const StyledAbout = styled.div`
         flex-direction: column;
         gap: 1em;
 
-        font-size: calc(6pt + 1vw);
+        font-size: calc(10pt + 1vw);
 
         /* margin: auto; */
         overflow: none;
@@ -35,7 +35,7 @@ const StyledAbout = styled.div`
         display: flex;
 
         img {
-            height: 30vh;
+            height: 25vh;
         } 
     }
 `
@@ -46,7 +46,7 @@ const otherLinks = [
 ]
 
 function Links() {
-    return (<StyledAbout>
+    return (<StyledLinks>
         <div className={"aboutText"}>
             <p>
                 This site was developed using TypeScript and React.js.
@@ -77,7 +77,7 @@ function Links() {
                 })()}
             </div>
         </div>
-    </StyledAbout>);
+    </StyledLinks>);
 }
 
 export default Links;

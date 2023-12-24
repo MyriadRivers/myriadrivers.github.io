@@ -53,6 +53,9 @@ const GlobalStyle = createGlobalStyle`
         font-family: ${props => props.theme.bodyFont};
         color: ${props => props.theme.main};
         font-size: 16pt;
+        @media ${breakpoints.laptop} {
+            font-size: 14pt;
+        }
         @media ${breakpoints.mobile} {
             font-size: 12pt;
         }
