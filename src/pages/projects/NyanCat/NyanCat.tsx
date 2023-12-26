@@ -52,7 +52,7 @@ function NyanCat() {
                 <p>
                     In 2021, daniwell called for people to submit some remixes of the song to
                     be featured in a 10 year anniversary <Link url={"https://www.youtube.com/watch?v=cAnFYwOu9Js&list=OLAK5uy_nC2NqTyv5O37bPmd5p_ck3WYyGel00-DI"}>album</Link>,
-                    so I decided to give it a shot. Unfortunately, my composition wasn't selected.
+                    so I decided to give it a shot.
                 </p>
                 <p>
                     I tried to take some more creative liberties with the composition rather than sticking with too straight forward of a remix, which usually

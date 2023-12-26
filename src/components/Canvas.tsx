@@ -1,6 +1,5 @@
 import { ReactNode, useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import breakpoints from "../styles/breakpoints";
 
 import circleIcon from "../assets/icons/circle.png";
 import noCircleIcon from "../assets/icons/no_circle.png";
