@@ -31,7 +31,7 @@ function SpotifyKaraoke() {
                 text={"Spotify Karaoke"}
                 subtitle={"Aug–Dec 2023"}
                 links={[
-                    { text: "demo", url: "https://main.d1tjf0r777xvgj.amplifyapp.com/" },
+                    { text: "demo", url: "https://jasoncgao.com/spotify-karaoke/" },
                     { text: "front-end GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke" },
                     { text: "back-end GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke-generation" }
                 ]}
@@ -44,7 +44,7 @@ function SpotifyKaraoke() {
                 </p>
                 <p>
                     Due to the costs of keeping the entire stack on the cloud, I had to take the back end and API down.
-                    The demo shows off all the front end functionality with some pregenerated tracks from the back end stored locally.
+                    The demo shows off all the front-end functionality with some pregenerated tracks from the back end stored locally.
                 </p>
             </ProjectTitle>
             <Expandable
