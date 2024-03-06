@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.974b18c0.js",
+    "main.js": "/static/js/main.009b4378.js",
     "static/media/example_1.mov": "/static/media/example_1.c015e3a20f81df073ce0.mov",
     "static/media/example_2.mov": "/static/media/example_2.2df1a1722900cc33117d.mov",
     "static/media/SFPro-Regular.svg": "/static/media/SFPro-Regular.b9f8c756c198280ee021ef55e45156c2.svg",
@@ -54,7 +54,7 @@
     "static/media/arabesque_orbweaver.jpg": "/static/media/arabesque_orbweaver.4515ef2903e3d2194479.jpg",
     "static/media/blue_dasher.jpg": "/static/media/blue_dasher.c3d591df45df6e41948f.jpg",
     "static/media/script.png": "/static/media/script.9d112e67361a70dd1549.png",
-    "static/media/resume.pdf": "/static/media/resume.5744c391f44b93528907.pdf",
+    "static/media/resume.pdf": "/static/media/resume.2c5eecd715dd0f1df211.pdf",
     "static/media/feature_matrix.png": "/static/media/feature_matrix.14685d45cb17021e197a.png",
     "static/media/orb_weaver.png": "/static/media/orb_weaver.b9e1b04272acd0837b6f.png",
     "static/media/spotify_karaoke_algorithm_table.png": "/static/media/spotify_karaoke_algorithm_table.cd21b275ca0ccb566478.png",
@@ -81,9 +81,9 @@
     "static/media/sync_or_sink.png": "/static/media/sync_or_sink.65eb2a998a0a553bc504.png",
     "static/media/jason.png": "/static/media/jason.ccde4cd4c80986d4241f.png",
     "index.html": "/index.html",
-    "main.974b18c0.js.map": "/static/js/main.974b18c0.js.map"
+    "main.009b4378.js.map": "/static/js/main.009b4378.js.map"
   },
   "entrypoints": [
-    "static/js/main.974b18c0.js"
+    "static/js/main.009b4378.js"
   ]
 }
