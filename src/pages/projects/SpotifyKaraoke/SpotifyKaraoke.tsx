@@ -29,7 +29,7 @@ function SpotifyKaraoke() {
         <div className={"projectContents"} ref={contentsRef}>
             <ProjectTitle
                 text={"Spotify Karaoke"}
-                subtitle={"Nov–Feb 2024"}
+                subtitle={"Aug–Dec 2023"}
                 links={[
                     { text: "demo", url: "https://jasoncgao.com/spotify-karaoke/" },
                     { text: "front-end GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke" },
