@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import jason from "../../assets/images/jason.png"
+import jason2 from "../../assets/images/jason2.png"
 import breakpoints from "../../styles/breakpoints";
 import { useEffect, useRef } from "react";
 import LinkList from "../../components/LinkList";
@@ -95,7 +96,7 @@ function Home() {
             <LinkList links={links} />
         </div>
         <div className={"jasonImageContainer"} ref={imgContainerRef}>
-            <img className={"jasonImage"} src={jason} alt={"Self portrait of me!"} ref={imgRef} />
+            <img className={"jasonImage"} src={Math.random() > 0.5 ? jason : jason2} alt={"Self portrait of me!"} ref={imgRef} />
         </div>
     </StyledHome>);
 }
