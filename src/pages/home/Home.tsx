@@ -85,10 +85,10 @@ function Home() {
     return (<StyledHome ref={homeRef}>
         <div className={"homeText"}>
             <p>
-                Hey! I'm Jason, a full-stack developer.
+                Hey! I'm Jason, a master's student in Human Computer Interaction at the Georgia Institute of Technology.
             </p>
             <p>
-                I'm interested in Human-Computer Interaction, computational creativity, computer music, and terrestrial arthropods.
+                I'm interested in computational creativity, computer music, and terrestrial arthropods.
             </p>
             <p>
                 Nice to meet you!
