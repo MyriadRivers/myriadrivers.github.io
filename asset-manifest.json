@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.js": "/static/js/main.b103b9a8.js",
+    "main.js": "/static/js/main.8dedf0cb.js",
     "static/media/example_1.mov": "/static/media/example_1.c015e3a20f81df073ce0.mov",
     "static/media/example_2.mov": "/static/media/example_2.2df1a1722900cc33117d.mov",
-    "static/media/SFPro-Regular.svg": "/static/media/SFPro-Regular.b9f8c756c198280ee021ef55e45156c2.svg",
+    "static/media/SFPro-Regular.svg": "/static/media/SFPro-Regular.9c36b2c14bc9c32991d18151e67a17e6.svg",
     "static/media/control_vs_dr.mp4": "/static/media/control_vs_dr.fd1fcfd797777aa98416.mp4",
     "static/media/spotify_karaoke_demo.mp4": "/static/media/spotify_karaoke_demo.6dd7fa96b5b1c6a6450d.mp4",
     "static/media/arduino.png": "/static/media/arduino.4aecbe29ffe2f9af2670.png",
@@ -11,7 +11,7 @@
     "static/media/video_sonification_demo.mp4": "/static/media/video_sonification_demo.850d17f5c2796e22b9b5.mp4",
     "static/media/SFPro-Regular.eot": "/static/media/SFPro-Regular.99ecd0a4e4d7b60b721f.eot",
     "static/media/SFPro-Regular.ttf": "/static/media/SFPro-Regular.9bc8ae658c954bdd0922.ttf",
-    "static/media/FreeSans.svg": "/static/media/FreeSans.f8107fdf9b96be71f078e1fa497b5592.svg",
+    "static/media/FreeSans.svg": "/static/media/FreeSans.e0e05b141b369afe439aa7b24724a182.svg",
     "static/media/upcycle.png": "/static/media/upcycle.8a3deac6f22a5374effe.png",
     "static/media/embryo_sonified.mp4": "/static/media/embryo_sonified.87a5a2e662a5e6cf3990.mp4",
     "static/media/soldier_bug_sonified.mp4": "/static/media/soldier_bug_sonified.3d0d6e0aa6b525f616ef.mp4",
@@ -48,7 +48,7 @@
     "static/media/disposal.png": "/static/media/disposal.41d2da33b4a290469709.png",
     "static/media/logic_model.png": "/static/media/logic_model.bd2f141e6841ffa903d2.png",
     "static/media/orb_weaver_main.png": "/static/media/orb_weaver_main.772595941b767e648d16.png",
-    "static/media/Average-Regular.svg": "/static/media/Average-Regular.4c3aec078cbd682799552802365bb0d6.svg",
+    "static/media/Average-Regular.svg": "/static/media/Average-Regular.e5daf5ecc7e75689844861d7bddd71d6.svg",
     "static/media/FreeSans.woff2": "/static/media/FreeSans.fc3da81ac98c1768159c.woff2",
     "static/media/max_patch.png": "/static/media/max_patch.7ef08d9a74dd09f343d6.png",
     "static/media/arabesque_orbweaver.jpg": "/static/media/arabesque_orbweaver.4515ef2903e3d2194479.jpg",
@@ -60,7 +60,7 @@
     "static/media/title_screen.png": "/static/media/title_screen.debc46e00bfcdcb05a4a.png",
     "static/media/angle_diagram.png": "/static/media/angle_diagram.a11dedff5681e9af4eb2.png",
     "static/media/mayfly.jpg": "/static/media/mayfly.34752e7c3908c948f3dc.jpg",
-    "static/media/resume.pdf": "/static/media/resume.0db28c5330a56e16b94a.pdf",
+    "static/media/resume.pdf": "/static/media/resume.57337be02a54a855ec55.pdf",
     "static/media/valence_energy.png": "/static/media/valence_energy.c743ebb13ea853a0aac1.png",
     "static/media/Average-Regular.eot": "/static/media/Average-Regular.7fab04fa97d561b42674.eot",
     "static/media/Average-Regular.ttf": "/static/media/Average-Regular.7d79c08bd9d562d2685b.ttf",
@@ -82,9 +82,9 @@
     "static/media/jason.png": "/static/media/jason.53800240f11d875be196.png",
     "static/media/jason2.png": "/static/media/jason2.e848a1869d925b894c43.png",
     "index.html": "/index.html",
-    "main.b103b9a8.js.map": "/static/js/main.b103b9a8.js.map"
+    "main.8dedf0cb.js.map": "/static/js/main.8dedf0cb.js.map"
   },
   "entrypoints": [
-    "static/js/main.b103b9a8.js"
+    "static/js/main.8dedf0cb.js"
   ]
 }
