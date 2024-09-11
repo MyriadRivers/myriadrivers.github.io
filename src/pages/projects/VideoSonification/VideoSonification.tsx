@@ -32,7 +32,7 @@ function VideoSonification() {
                 text={"Video Sonification"}
                 subtitle={"Aug–Sep 2023"}
                 links={[{ text: "site", url: "https://main.d2s6y4nzwyqtzd.amplifyapp.com/" }, { text: "front-end GitHub", url: "https://github.com/MyriadRivers/aivf" }]}
-                tags={["webdev"]}
+                tags={["engineering"]}
                 ref={el => headingRefs.current[0] = el}
             >
                 <Video src={demoVideo} />

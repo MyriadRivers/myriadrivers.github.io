@@ -88,7 +88,7 @@ function Home() {
                 Hey! I'm Jason, a master's student in Human Computer Interaction at the Georgia Institute of Technology.
             </p>
             <p>
-            I'm passionate about the user experience—from doing the research vital to its design, to engineering it efficiently in code. 
+                I approach UX with a strong multidisciplinary background—from mixed-methods user research to full-stack engineering.
             </p>
             <p>
                 Nice to meet you!

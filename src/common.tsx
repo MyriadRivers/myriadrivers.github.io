@@ -91,37 +91,37 @@ const projects = [
         title: "Spotify Karaoke",
         url: "spotify_karaoke",
         image: spotifyKaraokeImg,
-        tags: ["webdev"]
+        tags: ["engineering"]
     },
     {
         title: "Video Sonification",
         url: "video_sonification",
         image: videoSonificationImg,
-        tags: ["webdev"]
+        tags: ["engineering"]
     },
     {
         title: "SewSustainable",
         url: "sewsustainable",
         image: sewSustainableImg,
-        tags: ["hci"]
+        tags: ["ui/ux"]
     },
     {
         title: "Multimodal Music Accessibility",
         url: "music_accessibility",
         image: multimodalMusicImg,
-        tags: ["research", "hci"]
+        tags: ["engineering", "ui/ux"]
     },
     {
         title: "Orb Weaver",
         url: "orb_weaver",
         image: orbWeaverImg,
-        tags: ["webdev", "fun"]
+        tags: ["engineering", "fun"]
     },
     {
         title: "NASA Diminished Reality",
         url: "diminished_reality",
         image: diminishedRealityImg,
-        tags: ["research", "hci"]
+        tags: ["ui/ux"]
     },
     {
         title: "Voicemail",
@@ -133,7 +133,7 @@ const projects = [
         title: "Synchro Auditory Interface",
         url: "auditory_interface",
         image: auditoryInterfaceImg,
-        tags: ["hci"]
+        tags: ["ui/ux"]
     },
     {
         title: "Nyan Cat (Remix)",

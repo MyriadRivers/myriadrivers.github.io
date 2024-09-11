@@ -30,7 +30,7 @@ function AuditoryInterface() {
                 text={"Synchronized Swimming Auditory Interface"}
                 subtitle={"Jan–May 2021"}
                 links={[]}
-                tags={["hci"]}
+                tags={["ui/ux"]}
                 ref={el => headingRefs.current[0] = el}
             >
                 <Image src={interfaceImage} />

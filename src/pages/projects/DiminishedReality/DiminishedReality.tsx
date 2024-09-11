@@ -31,7 +31,7 @@ function DiminishedReality() {
                 text={"NASA Diminished Reality"}
                 subtitle={"Jun 2021–May 2022"}
                 links={[]}
-                tags={["research", "hci"]}
+                tags={["ui/ux"]}
                 ref={el => headingRefs.current[0] = el}
             >
                 <Image src={mainImage} />

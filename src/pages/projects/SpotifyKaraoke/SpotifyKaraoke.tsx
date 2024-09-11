@@ -35,7 +35,7 @@ function SpotifyKaraoke() {
                     { text: "front-end GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke" },
                     { text: "back-end GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke-generation" }
                 ]}
-                tags={["webdev"]}
+                tags={["engineering"]}
                 ref={el => headingRefs.current[0] = el}
             >
                 <Video src={demoVideo} caption="Excuse my singing." />

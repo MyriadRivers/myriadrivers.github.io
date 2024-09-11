@@ -28,7 +28,7 @@ function MusicAccessibility() {
                 text={"Multimodal Music Accessibility"}
                 subtitle={"Jan–May 2023"}
                 links={[]}
-                tags={["research", "hci"]}
+                tags={["engineering", "ui/ux"]}
                 ref={el => headingRefs.current[0] = el}
             >
                 <Image src={mainImage} />

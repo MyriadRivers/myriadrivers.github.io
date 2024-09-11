@@ -32,7 +32,7 @@ function SewSustainable() {
                 links={[
                     { text: "Figma", url: "https://www.figma.com/file/SyeAAZQ1fwMlubLZ7tzdog/Ed-Tech-Project-Prototype?type=design&node-id=0-1&mode=design" }
                 ]}
-                tags={["hci"]}
+                tags={["ui/ux"]}
                 ref={el => headingRefs.current[0] = el}
             >
                 <Image src={mainImage} />

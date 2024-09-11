@@ -52,8 +52,7 @@ function Links() {
                 This site was developed using TypeScript and React.js.
             </p>
             <p>
-                Please reach out if you have any questions or would like to get in touch.
-                You can also check out some of my hobbies below.
+                In my free time, I enjoy photographing terrestrial arthropods, making music with my computer, and crafts. You can check out some of those links below!
             </p>
             <p>
                 Contact:
