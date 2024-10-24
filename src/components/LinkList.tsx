@@ -15,6 +15,7 @@ const StyledLinkList = styled.div`
 
         &:hover {
             font-style: ${props => props.theme.type === "monochrome" ? "italic" : ""};
+            border: dashed;
         }
     }
 

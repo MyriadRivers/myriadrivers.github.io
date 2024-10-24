@@ -16,6 +16,10 @@ const StyledTile = styled.div`
         aspect-ratio: 1/1;
         width: 100%;
         outline: 2px solid;
+        
+        &:hover {
+            outline-style: dashed;
+        }
     }
 
     .tileTags {

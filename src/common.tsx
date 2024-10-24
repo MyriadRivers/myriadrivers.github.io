@@ -1,10 +1,12 @@
 import Projects from "./pages/projects/Projects"
-import Links from "./pages/links/Links"
+import About from "./pages/about/About"
 import Home from "./pages/home/Home"
 
 import SpotifyKaraoke from "./pages/projects/SpotifyKaraoke/SpotifyKaraoke"
 import VideoSonification from "./pages/projects/VideoSonification/VideoSonification"
 
+import troovImg from "./assets/images/troov.png"
+import ejImage from "./assets/images/ej_affinity.png"
 import spotifyKaraokeImg from "./assets/images/spotify_karaoke.png"
 import videoSonificationImg from "./assets/images/video_sonification.png"
 import sewSustainableImg from "./assets/images/sewsustainable.png"
@@ -24,6 +26,8 @@ import Voicemail from "./pages/projects/Voicemail/Voicemail"
 import NyanCat from "./pages/projects/NyanCat/NyanCat"
 import SyncOrSink from "./pages/projects/SyncOrSink/SyncOrSink"
 import AuditoryInterface from "./pages/projects/AuditoryInterface/AuditoryInterface"
+import Troov from "./pages/projects/Troov/Troov"
+import EnvironmentalJustice from "./pages/projects/EnvironmentalJustice/EnvironmentalJustice"
 
 
 
@@ -37,12 +41,20 @@ const navRoutes = [
         element: <Projects />,
     },
     {
-        path: "links",
-        element: <Links />
+        path: "about",
+        element: <About />
     }
 ]
 
 const projectRoutes = [
+    {
+        path: "projects/app_safety",
+        element: <Troov />,
+    },
+    {
+        path: "projects/environmental_justice",
+        element: <EnvironmentalJustice />,
+    },
     {
         path: "projects/spotify_karaoke",
         element: <SpotifyKaraoke />,
@@ -87,6 +99,18 @@ const projectRoutes = [
 ]
 
 const projects = [
+    {
+        title: "Dating/Friendship App Safety",
+        url: "app_safety",
+        image: troovImg,
+        tags: ["ui/ux"]
+    },
+    {
+        title: "Fenceline Environmental Justice",
+        url: "environmental_justice",
+        image: ejImage,
+        tags: ["ui/ux"]
+    },
     {
         title: "Spotify Karaoke",
         url: "spotify_karaoke",

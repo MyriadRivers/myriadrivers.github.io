@@ -23,7 +23,7 @@ const StyledHome = styled.div`
         flex-direction: column;
         gap: 1em;
 
-        font-size: calc(10pt + 1vw);
+        font-size: calc(20pt + 1vw);
 
         @media ${breakpoints.mobile} {
             flex: 0 0 auto;
@@ -51,6 +51,10 @@ const StyledHome = styled.div`
         margin: auto;
         max-width: 100%;
         max-height: 100%;
+    }
+
+    .homeLinks {
+        font-size: calc(10pt + 1vw);
     }
 `
 
@@ -85,15 +89,16 @@ function Home() {
     return (<StyledHome ref={homeRef}>
         <div className={"homeText"}>
             <p>
-                Hey! I'm Jason, a master's student in Human Computer Interaction at the Georgia Institute of Technology.
+
+                UX<br />
+                Researcher, <br />Designer, <br />Engineer.
             </p>
             <p>
-                I approach UX with a strong multidisciplinary background—from mixed-methods user research to full-stack engineering.
+                I'm Jason, excited to meet you.
             </p>
-            <p>
-                Nice to meet you!
-            </p>
-            <LinkList links={links} />
+            <div className={"homeLinks"}>
+                <LinkList links={links} />
+            </div>
         </div>
         <div className={"jasonImageContainer"} ref={imgContainerRef}>
             <img className={"jasonImage"} src={Math.random() > 0.5 ? jason : jason2} alt={"Self portrait of me!"} ref={imgRef} />

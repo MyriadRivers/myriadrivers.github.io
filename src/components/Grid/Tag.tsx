@@ -23,6 +23,7 @@ const StyledTag = styled.div<{ $active: boolean }>`
 
     &:hover {
         cursor: pointer;
+        border-style: dashed;
     }
 `
 

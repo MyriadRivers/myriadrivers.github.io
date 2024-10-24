@@ -5,7 +5,7 @@ import NavOption from "./NavOption";
 import breakpoints from "../../styles/breakpoints";
 import useMedia from "../../hooks/useMedia";
 
-import riverLogo from "../../assets/images/river_logo.png";
+import riverImage from "../../assets/images/river.png";
 import menuIcon from "../../assets/icons/menu.png";
 
 const StyledNavbar = styled.div<{ $open: boolean }>` 
@@ -29,11 +29,21 @@ const StyledNavbar = styled.div<{ $open: boolean }>`
     }
 
     .homeLink {
-        height: calc((10pt + 1vw) * 2);
+        font-family: ${props => props.theme.headerFont};
+        font-size: 2.8em;
+        line-height: 1.65em;
+
+        margin-top: -.4em;
+
+        height: 1.175em;
+        display: flex;
+        flex-direction: row;
+        gap: 0.3em;
+        overflow: hidden;
     }
 
     .riverLogo {
-        height: 100%;
+        height: 90%;
     }
 
     .menuIcon {
@@ -83,10 +93,16 @@ function Navbar({ links }: { links: Array<string> }) {
                             )
                         })()}
                     </div>}
-                <Link to={links[0]} className={"homeLink"} onClick={() => {
-                    setOpen(false);
-                    setActive(0);
-                }}><img src={riverLogo} alt={"Jason Gao"} className={"riverLogo"} /></Link>
+                <div className={"homeLink"}>
+                    <Link to={links[0]} onClick={() => {
+                        setOpen(false);
+                        setActive(0);
+                    }}>
+                        <img src={riverImage} alt={"Jason Gao"} className={"riverLogo"} />
+
+                    </Link>
+                    JASON GAO
+                </div>
             </>
             :
             links.map((link, index) => (
