@@ -1,7 +1,9 @@
 {
   "files": {
-    "main.js": "/static/js/main.f1ab6076.js",
+    "main.js": "/static/js/main.a66490c7.js",
+    "static/media/ux_research_environmental_justice.pdf": "/static/media/ux_research_environmental_justice.b91c20bf975ff5f4b33d.pdf",
     "static/media/example_1.mov": "/static/media/example_1.c015e3a20f81df073ce0.mov",
+    "static/media/troov_ux_research.pdf": "/static/media/troov_ux_research.da85eafd4a1fc215d728.pdf",
     "static/media/example_2.mov": "/static/media/example_2.2df1a1722900cc33117d.mov",
     "static/media/SFPro-Regular.svg": "/static/media/SFPro-Regular.b9f8c756c198280ee021ef55e45156c2.svg",
     "static/media/control_vs_dr.mp4": "/static/media/control_vs_dr.fd1fcfd797777aa98416.mp4",
@@ -19,6 +21,7 @@
     "static/media/system.png": "/static/media/system.5f4cb8a237fceee5d715.png",
     "static/media/outfitting.png": "/static/media/outfitting.627916369865b6ca1ceb.png",
     "static/media/waves.wav": "/static/media/waves.de1ad919ff33167bda31.wav",
+    "static/media/ej_affinity.png": "/static/media/ej_affinity.a369de34b993e952f0e0.png",
     "static/media/SFPro-Regular.woff": "/static/media/SFPro-Regular.956e747b0d3509f9eb76.woff",
     "static/media/stream.wav": "/static/media/stream.749b606487eabaa46bf5.wav",
     "static/media/voicemail.png": "/static/media/voicemail.185c2bf1f71d62239b7d.png",
@@ -79,12 +82,13 @@
     "static/media/Average-Regular.woff2": "/static/media/Average-Regular.0329a07700244511c80e.woff2",
     "static/media/auditory_interface.png": "/static/media/auditory_interface.1bf2f05cc30a9529fe8f.png",
     "static/media/sync_or_sink.png": "/static/media/sync_or_sink.65eb2a998a0a553bc504.png",
+    "static/media/troov.png": "/static/media/troov.1387a118575f5552c4d2.png",
     "static/media/jason.png": "/static/media/jason.53800240f11d875be196.png",
     "static/media/jason2.png": "/static/media/jason2.e848a1869d925b894c43.png",
     "index.html": "/index.html",
-    "main.f1ab6076.js.map": "/static/js/main.f1ab6076.js.map"
+    "main.a66490c7.js.map": "/static/js/main.a66490c7.js.map"
   },
   "entrypoints": [
-    "static/js/main.f1ab6076.js"
+    "static/js/main.a66490c7.js"
   ]
 }
