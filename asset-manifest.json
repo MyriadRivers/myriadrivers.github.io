@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.e3fdc979.js",
+    "main.js": "/static/js/main.f6a24d99.js",
     "static/media/ux_research_environmental_justice.pdf": "/static/media/ux_research_environmental_justice.b91c20bf975ff5f4b33d.pdf",
     "static/media/example_1.mov": "/static/media/example_1.c015e3a20f81df073ce0.mov",
     "static/media/troov_ux_research.pdf": "/static/media/troov_ux_research.da85eafd4a1fc215d728.pdf",
@@ -86,9 +86,9 @@
     "static/media/jason.png": "/static/media/jason.53800240f11d875be196.png",
     "static/media/jason2.png": "/static/media/jason2.e848a1869d925b894c43.png",
     "index.html": "/index.html",
-    "main.e3fdc979.js.map": "/static/js/main.e3fdc979.js.map"
+    "main.f6a24d99.js.map": "/static/js/main.f6a24d99.js.map"
   },
   "entrypoints": [
-    "static/js/main.e3fdc979.js"
+    "static/js/main.f6a24d99.js"
   ]
 }
