@@ -19,6 +19,7 @@ const StyledNavOption = styled.div<{ $active: boolean }>`
 
     color: ${props => props.$active ? props.theme.main : props.theme.alt};
     background: ${props => props.$active ? props.theme.alt : props.theme.main};
+
     box-sizing: border-box;
     
     // Eliminate a dark sliver on the edge of the nav bar in some zoom settings

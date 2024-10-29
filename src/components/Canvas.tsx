@@ -5,6 +5,23 @@ import circleIcon from "../assets/icons/circle.png";
 import noCircleIcon from "../assets/icons/no_circle.png";
 import clearCanvasIcon from "../assets/icons/clear_canvas.png";
 
+import aranea from "../assets/images/doodles/aranea.png";
+import blattodea from "../assets/images/doodles/blattodea.png";
+import coleoptera from "../assets/images/doodles/coleoptera.png";
+import dermaptera from "../assets/images/doodles/dermaptera.png";
+import diptera from "../assets/images/doodles/diptera.png";
+import hemiptera from "../assets/images/doodles/hemiptera.png";
+import hymenoptera from "../assets/images/doodles/hymenoptera.png";
+import lepidoptera_imago from "../assets/images/doodles/lepidoptera_imago.png";
+import lepidoptera_larva from "../assets/images/doodles/lepidoptera_larva.png";
+import mantodea from "../assets/images/doodles/mantodea.png";
+import myriapoda from "../assets/images/doodles/myriapoda.png";
+import neuroptera from "../assets/images/doodles/neuroptera.png";
+import odonata from "../assets/images/doodles/odonata.png";
+import orthoptera from "../assets/images/doodles/orthoptera.png";
+
+const doodleList = [aranea, blattodea, coleoptera, dermaptera, diptera, hemiptera, hymenoptera, lepidoptera_imago, lepidoptera_larva, mantodea, myriapoda, neuroptera, odonata, orthoptera];
+
 const StyledCanvas = styled.div`
   position: relative;
   height: 100%;
@@ -66,58 +83,149 @@ const StyledCanvas = styled.div`
   }
 `
 
-interface Point {
-  x: number;
-  y: number;
-}
-
-const randColor = () => {
-  const r = Math.floor(Math.random() * 256);
-  const g = Math.floor(Math.random() * 256);
-  const b = Math.floor(Math.random() * 256);
-  const a = (Math.random() * 0.20) + 0.05;
-
-  return `rgba(${r}, ${g}, ${b}, ${a})`;
-}
-
-const clampColor = (value: number) => {
-  return Math.min(Math.max(0, value), 255);
-}
-
-const similarColor = (hex: string, rand: number = .25) => {
-  const r = parseInt(hex.substring(0, 2), 16);
-  const g = parseInt(hex.substring(2, 4), 16);
-  const b = parseInt(hex.substring(4, 6), 16);
-
-  return `rgb(${clampColor(fuzz(r, rand))}, ${clampColor(fuzz(g, rand))}, ${clampColor(fuzz(b, rand))})`;
-}
-
-// Returns a random multiplier that deviates from 1.0 by at greatest the maxVariance
-const fuzz = (value: number, maxVariance: number = 0.25): number => {
-  return value * (1 + (Math.random() * 2 - 1) * maxVariance);
-}
-
-const draw = (ctx: CanvasRenderingContext2D, event: MouseEvent) => {
-  // event.preventDefault();
-  let x = event.x;
-  let y = event.y;
-
-  ctx.fillStyle = randColor();
-  const radius = Math.floor(Math.random() * (ctx.canvas.width / 7));
-  ctx.beginPath();
-  ctx.arc(x, y, radius, 0, Math.PI * 2);
-  ctx.fill();
-}
-
 function Canvas({ children }: { children: ReactNode }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
 
+  const frame = useRef<number>(0);
+  const circles = useRef<Array<Circle>>([]);
+
+  const doodleIdx = useRef<Array<number>>([]);
+  const doodles = useRef<Array<Doodle>>([]);
+  const firstClick = useRef<boolean>(false);
+
   const [width, setWidth] = useState<number>(0);
   const [height, setHeight] = useState<number>(0);
 
   const [drawable, setDrawable] = useState<boolean>(true);
+
+  interface Circle {
+    x: number;
+    y: number;
+    r: number;
+    color: string;
+  }
+
+
+  class Doodle {
+    x: number;
+    y: number;
+    src: string;
+
+    constructor(x: number, y: number, src: string) {
+      this.x = x;
+      this.y = y;
+      this.src = src;
+    }
+
+    render(ctx: CanvasRenderingContext2D) {
+      const doodleImg = new Image();
+      doodleImg.src = this.src;
+      ctx.drawImage(doodleImg, this.x, this.y);
+    }
+  }
+
+  class Circle {
+    x: number;
+    y: number;
+    r: number;
+    maxR: number;
+    color: string;
+    progress: number;
+
+    constructor(x: number, y: number, maxR: number, color: string) {
+      this.x = x;
+      this.y = y;
+      this.r = 0;
+      this.maxR = maxR;
+      this.color = color;
+      this.progress = 0;
+    }
+
+    // grow() {
+    //   if (this.r < this.maxR) this.r += 1;
+    // }
+
+    easeOutQuad(t: number) {
+      return t * (2 - t);
+    }
+
+    render(ctx: CanvasRenderingContext2D) {
+      ctx.beginPath();
+      ctx.fillStyle = this.color;
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fill();
+
+      if (this.progress < 1) {
+        this.progress += 0.01
+        this.r = this.easeOutQuad(this.progress) * this.maxR;
+      };
+    }
+  }
+
+  interface Point {
+    x: number;
+    y: number;
+  }
+
+  const randColor = () => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    const a = (Math.random() * 0.20) + 0.05;
+
+    return `rgba(${r}, ${g}, ${b}, ${a})`;
+  }
+
+  const clampColor = (value: number) => {
+    return Math.min(Math.max(0, value), 255);
+  }
+
+  const similarColor = (hex: string, rand: number = .25) => {
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+
+    return `rgb(${clampColor(fuzz(r, rand))}, ${clampColor(fuzz(g, rand))}, ${clampColor(fuzz(b, rand))})`;
+  }
+
+  // Returns a random multiplier that deviates from 1.0 by at greatest the maxVariance
+  const fuzz = (value: number, maxVariance: number = 0.25): number => {
+    return value * (1 + (Math.random() * 2 - 1) * maxVariance);
+  }
+
+  const randEnds = () => {
+    const rand = Math.random();
+    const uShapeRand = Math.random() < 0.5 ? Math.pow(rand, 2) : 1 - Math.pow(rand, 2);
+    return uShapeRand;
+  }
+
+  const randCircle = (ctx: CanvasRenderingContext2D, event: MouseEvent) => {
+    const newCircle: Circle = new Circle(
+      event.x,
+      event.y,
+      Math.floor(Math.random() * (ctx.canvas.width / 7)),
+      randColor()
+    );
+    circles.current.push(newCircle);
+  }
+
+  const draw = (ctx: CanvasRenderingContext2D) => {
+    // event.preventDefault();
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+
+    for (let i = 0; i < circles.current.length; i++) {
+      circles.current[i].render(ctx);
+    }
+    for (let i = 0; i < doodles.current.length; i++) {
+      doodles.current[i].render(ctx);
+    }
+
+    frame.current++;
+    requestAnimationFrame(() => draw(ctx));
+  }
 
   useEffect(() => {
     if (containerRef.current) {
@@ -134,6 +242,9 @@ function Canvas({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (canvasRef.current) {
       ctxRef.current = canvasRef.current.getContext("2d");
+      // Trigger all the canvas stuff
+
+      if (ctxRef.current) draw(ctxRef.current);
 
       document.addEventListener("mousedown", mouseHandler);
     }
@@ -154,7 +265,30 @@ function Canvas({ children }: { children: ReactNode }) {
   const mouseHandler = (e: MouseEvent) => {
     // e.preventDefault();
     if (ctxRef.current && drawable) {
-      draw(ctxRef.current, e);
+      // draw(ctxRef.current, e);
+      // Draw + animate a circle on mouse click
+
+      if (!firstClick.current) {
+        const numDoodles = Math.min(Math.floor(Math.random() * 5), doodleList.length);
+        console.log("total num doodles: " + numDoodles);
+        for (let i = 0; i < numDoodles; i++) {
+          let idx = Math.floor(Math.random() * doodleList.length);
+          while (doodleIdx.current.includes(idx)) {
+            idx = Math.floor(Math.random() * doodleList.length);
+          }
+          doodleIdx.current.push(idx);
+        }
+        const w = ctxRef.current.canvas.width;
+        const h = ctxRef.current.canvas.height;
+        for (let i = 0; i < doodleIdx.current.length; i++) {
+          console.log("currently pushing: " + doodleIdx.current[i]);
+          const newDoodle = new Doodle(randEnds() * w, randEnds() * h, doodleList[doodleIdx.current[i]]);
+          doodles.current.push(newDoodle);
+        }
+        firstClick.current = true;
+      }
+
+      randCircle(ctxRef.current, e);
     }
   }
 
@@ -162,6 +296,7 @@ function Canvas({ children }: { children: ReactNode }) {
     if (ctxRef.current && canvasRef.current) {
       ctxRef.current.fillStyle = "white";
       ctxRef.current.fillRect(0, 0, canvasRef.current.width, canvasRef.current.height)
+      circles.current = [];
     }
   }
 
