@@ -122,7 +122,8 @@ function Canvas({ children }: { children: ReactNode }) {
     render(ctx: CanvasRenderingContext2D) {
       const doodleImg = new Image();
       doodleImg.src = this.src;
-      ctx.drawImage(doodleImg, this.x, this.y);
+      const scale = Math.min(ctx.canvas.width / 6, doodleImg.width) / doodleImg.width;
+      ctx.drawImage(doodleImg, this.x, this.y, doodleImg.width * scale, doodleImg.height * scale);
     }
   }
 
