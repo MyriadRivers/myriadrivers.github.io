@@ -122,7 +122,7 @@ function Canvas({ children }: { children: ReactNode }) {
     render(ctx: CanvasRenderingContext2D) {
       const doodleImg = new Image();
       doodleImg.src = this.src;
-      const scale = Math.min(ctx.canvas.width / 6, doodleImg.width) / doodleImg.width;
+      const scale = Math.min(ctx.canvas.width / 10, doodleImg.width) / doodleImg.width;
       ctx.drawImage(doodleImg, this.x, this.y, doodleImg.width * scale, doodleImg.height * scale);
     }
   }
@@ -283,7 +283,7 @@ function Canvas({ children }: { children: ReactNode }) {
         const h = ctxRef.current.canvas.height;
         for (let i = 0; i < doodleIdx.current.length; i++) {
           console.log("currently pushing: " + doodleIdx.current[i]);
-          const newDoodle = new Doodle(randEnds() * w, randEnds() * h, doodleList[doodleIdx.current[i]]);
+          const newDoodle = new Doodle(randEnds() * (w * 0.8) + (w * 0.1), randEnds() * (h * 0.8) + (h * 0.1), doodleList[doodleIdx.current[i]]);
           doodles.current.push(newDoodle);
         }
         firstClick.current = true;
