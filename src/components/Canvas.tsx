@@ -282,8 +282,14 @@ function Canvas({ children }: { children: ReactNode }) {
         const w = ctxRef.current.canvas.width;
         const h = ctxRef.current.canvas.height;
         for (let i = 0; i < doodleIdx.current.length; i++) {
-          console.log("currently pushing: " + doodleIdx.current[i]);
-          const newDoodle = new Doodle(randEnds() * (w * 0.8) + (w * 0.1), randEnds() * (h * 0.8) + (h * 0.1), doodleList[doodleIdx.current[i]]);
+          let doodleX = randEnds() * (w * 0.8) + (w * 0.1);
+          let doodleY = randEnds() * (h * 0.8) + (h * 0.1);
+          // Make sure the doodles are sufficiently spaced out
+          while (doodles.current.some((el) => Math.sqrt(Math.pow(doodleX - el.x, 2) + Math.pow(doodleY - el.y, 2)) < (w / 5))) {
+            doodleX = randEnds() * (w * 0.8) + (w * 0.1);
+            doodleY = randEnds() * (h * 0.8) + (h * 0.1);
+          }
+          const newDoodle = new Doodle(doodleX, doodleY, doodleList[doodleIdx.current[i]]);
           doodles.current.push(newDoodle);
         }
         firstClick.current = true;
