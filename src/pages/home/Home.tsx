@@ -1,11 +1,17 @@
 import styled from "styled-components";
 import jason from "../../assets/images/jason.png"
 import jason2 from "../../assets/images/jason2.png"
+import jason3 from "../../assets/images/jason3.png"
+import jason4 from "../../assets/images/jason4.png"
+import jason5 from "../../assets/images/jason5.png"
+import jason6 from "../../assets/images/jason6.png"
 import breakpoints from "../../styles/breakpoints";
 import { useEffect, useRef } from "react";
 import LinkList from "../../components/LinkList";
 
 import resumePath from "../../assets/files/resume.pdf";
+
+const jasonImages = [jason, jason2, jason3, jason4, jason5, jason6];
 
 const StyledHome = styled.div`
     height: 100%;
@@ -101,7 +107,7 @@ function Home() {
             </div>
         </div>
         <div className={"jasonImageContainer"} ref={imgContainerRef}>
-            <img className={"jasonImage"} src={Math.random() > 0.5 ? jason : jason2} alt={"Self portrait of me!"} ref={imgRef} />
+            <img className={"jasonImage"} src={jasonImages[Math.floor(Math.random() * jasonImages.length)]} alt={"Self portrait of me!"} ref={imgRef} />
         </div>
     </StyledHome>);
 }
