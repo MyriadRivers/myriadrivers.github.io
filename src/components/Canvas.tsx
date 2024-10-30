@@ -88,6 +88,9 @@ function Canvas({ children }: { children: ReactNode }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
 
+  const mouseHeldDown = useRef<boolean>(false);
+  const prevMousePos = useRef<Point>({ x: 0, y: 0 });
+
   const frame = useRef<number>(0);
   const circles = useRef<Array<Circle>>([]);
 
@@ -247,11 +250,21 @@ function Canvas({ children }: { children: ReactNode }) {
 
       if (ctxRef.current) draw(ctxRef.current);
 
-      document.addEventListener("mousedown", mouseHandler);
+      document.addEventListener("mousedown", mouseDownHandler);
+      document.addEventListener("mousemove", mouseMoveHandler);
+      document.addEventListener("mouseup", mouseUpHandler);
+      document.addEventListener("mouseleave", mouseUpHandler);
+      document.addEventListener("dragend", mouseUpHandler);
+      document.addEventListener("dragleave", mouseUpHandler);
     }
 
     return () => {
-      document.removeEventListener("mousedown", mouseHandler);
+      document.removeEventListener("mousedown", mouseDownHandler);
+      document.removeEventListener("mousemove", mouseMoveHandler);
+      document.removeEventListener("mouseup", mouseUpHandler);
+      document.removeEventListener("mouseleave", mouseUpHandler);
+      document.removeEventListener("dragend", mouseUpHandler);
+      document.removeEventListener("dragleave", mouseUpHandler);
     }
   }, [drawable])
 
@@ -263,11 +276,14 @@ function Canvas({ children }: { children: ReactNode }) {
     }
   }, [width, height])
 
-  const mouseHandler = (e: MouseEvent) => {
+  const mouseDownHandler = (e: MouseEvent) => {
     // e.preventDefault();
     if (ctxRef.current && drawable) {
       // draw(ctxRef.current, e);
       // Draw + animate a circle on mouse click
+
+      mouseHeldDown.current = true;
+      prevMousePos.current = { x: e.x, y: e.y };
 
       if (!firstClick.current) {
         const numDoodles = Math.min(Math.floor(Math.random() * 5), doodleList.length);
@@ -297,6 +313,25 @@ function Canvas({ children }: { children: ReactNode }) {
 
       randCircle(ctxRef.current, e);
     }
+  }
+
+  const mouseMoveHandler = (e: MouseEvent) => {
+    if (mouseHeldDown.current && ctxRef.current) {
+      const currPos = { x: e.x, y: e.y };
+      const dist = Math.sqrt(
+        Math.pow(currPos.x - prevMousePos.current.x, 2) +
+        Math.pow(currPos.y - prevMousePos.current.y, 2)
+      );
+
+      if (dist > Math.min(ctxRef.current.canvas.width / 10, ctxRef.current.canvas.height / 10)) {
+        randCircle(ctxRef.current, e);
+        prevMousePos.current = currPos;
+      }
+    }
+  }
+
+  const mouseUpHandler = () => {
+    mouseHeldDown.current = false;
   }
 
   const clearCanvas = () => {
