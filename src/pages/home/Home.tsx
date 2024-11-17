@@ -5,13 +5,14 @@ import jason3 from "../../assets/images/jason3.png"
 import jason4 from "../../assets/images/jason4.png"
 import jason5 from "../../assets/images/jason5.png"
 import jason6 from "../../assets/images/jason6.png"
+import jason7 from "../../assets/images/jason7.png"
 import breakpoints from "../../styles/breakpoints";
 import { useEffect, useRef } from "react";
 import LinkList from "../../components/LinkList";
 
 import resumePath from "../../assets/files/resume.pdf";
 
-const jasonImages = [jason, jason2, jason3, jason4, jason5, jason6];
+const jasonImages = [jason, jason2, jason3, jason4, jason5, jason6, jason7];
 
 const StyledHome = styled.div`
     height: 100%;
