@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.9d0207f2.js",
+    "main.js": "/static/js/main.83dd3d4a.js",
     "static/media/ux_research_environmental_justice.pdf": "/static/media/ux_research_environmental_justice.b91c20bf975ff5f4b33d.pdf",
     "static/media/example_1.mov": "/static/media/example_1.c015e3a20f81df073ce0.mov",
     "static/media/troov_ux_research.pdf": "/static/media/troov_ux_research.da85eafd4a1fc215d728.pdf",
@@ -83,16 +83,17 @@
     "static/media/auditory_interface.png": "/static/media/auditory_interface.1bf2f05cc30a9529fe8f.png",
     "static/media/sync_or_sink.png": "/static/media/sync_or_sink.65eb2a998a0a553bc504.png",
     "static/media/troov.png": "/static/media/troov.1387a118575f5552c4d2.png",
-    "static/media/jason.png": "/static/media/jason.53800240f11d875be196.png",
-    "static/media/jason5.png": "/static/media/jason5.541d3b4e8e22563034d2.png",
-    "static/media/jason4.png": "/static/media/jason4.3e1ec5b3173365987341.png",
-    "static/media/jason6.png": "/static/media/jason6.0bdd395de188bec700bd.png",
-    "static/media/jason3.png": "/static/media/jason3.3db54d475462d645cf5a.png",
-    "static/media/jason2.png": "/static/media/jason2.e848a1869d925b894c43.png",
+    "static/media/jason.png": "/static/media/jason.821ec1a14538632b650a.png",
+    "static/media/jason6.png": "/static/media/jason6.f825b7199f9d8e275f89.png",
+    "static/media/jason4.png": "/static/media/jason4.6baee266f91ef46471d9.png",
+    "static/media/jason5.png": "/static/media/jason5.a93df85ae9316c69cdd5.png",
+    "static/media/jason3.png": "/static/media/jason3.4bb54663254b69ba2202.png",
+    "static/media/jason7.png": "/static/media/jason7.dd22e04ea864d93a9c4a.png",
+    "static/media/jason2.png": "/static/media/jason2.ae179753b10523a14853.png",
     "index.html": "/index.html",
-    "main.9d0207f2.js.map": "/static/js/main.9d0207f2.js.map"
+    "main.83dd3d4a.js.map": "/static/js/main.83dd3d4a.js.map"
   },
   "entrypoints": [
-    "static/js/main.9d0207f2.js"
+    "static/js/main.83dd3d4a.js"
   ]
 }
