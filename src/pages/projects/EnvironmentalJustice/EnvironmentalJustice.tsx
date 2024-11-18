@@ -16,7 +16,7 @@ import demoVideo from "./spotify_karaoke_demo.mp4";
 import Video from "../../../components/Video";
 
 function EnvironmentalJustice() {
-    const headings = ["Description", "Summary"];
+    const headings = ["Description", "Problem", "Background", "Research", "Design", "Evaluation", "Next Steps"];
     const headingRefs = useRef<Array<HTMLDivElement | null>>([]);
     const contentsRef = useRef<HTMLDivElement | null>(null);
 
@@ -30,7 +30,7 @@ function EnvironmentalJustice() {
         <Sidebar headings={headings} scrollRef={scrollRef} headingRefs={headingRefs.current} />
         <div className={"projectContents"} ref={contentsRef}>
             <ProjectTitle
-                text={"Fenceline Environmental Justice"}
+                text={"Eco Justice Organizer"}
                 subtitle={"Aug–Dec 2024"}
                 links={[
                     { text: "slides", url: ejPdf },
@@ -42,38 +42,64 @@ function EnvironmentalJustice() {
                     Team: Jason Gao, Shareen Chang, Madison Steinau, Xinxuyang Zhao
                 </p>
                 <p>
-                    This project looks at communities facing environmental injustice, specifically fenceline communities (a.k.a. "Sacrifice Zones") that are situated
-                    in extreme proximity to heavily polluting industrial plants.
+                    End-to-end UX process involving user research, design, and evaluation of a system to aid community leaders of neighborhoods facing environmental injustice.
                 </p>
                 <p>
                     Please view the slides for a detailed overview of the process.
                 </p>
             </ProjectTitle>
             <Expandable
-                heading={"Summary"}
+                heading={"Problem Statement"}
                 summary={"Summary of qualitative research and design ideation"}
                 ref={el => headingRefs.current[1] = el}
             >
                 <p>
                     We focused specifically on the connection between communities and environmental scientists:
                 </p>
+            </Expandable>
+            <Expandable
+                heading={"Background"}
+                summary={"Summary of qualitative research and design ideation"}
+                ref={el => headingRefs.current[2] = el}
+            >
                 <p>
-                    <b>How can we best foster relationships between residents facing environmental injustice and researchers to improve community well-being?</b>
+                    We focused specifically on the connection between communities and environmental scientists:
                 </p>
+            </Expandable>
+            <Expandable
+                heading={"User Research"}
+                summary={"Summary of qualitative research and design ideation"}
+                ref={el => headingRefs.current[3] = el}
+            >
                 <p>
-                    User research included literature review; social media mining from online communities supporting fenceline neighborhoods;
-                    semi-structured interviews with environmental researchers, community organizers, and residents; hierarchical task analysis of existing strategies;
-                    and finally field research through participant observation of local community meetings on environmental concerns.
+                    We focused specifically on the connection between communities and environmental scientists:
                 </p>
+            </Expandable>
+            <Expandable
+                heading={"Design"}
+                summary={"Summary of qualitative research and design ideation"}
+                ref={el => headingRefs.current[4] = el}
+            >
                 <p>
-                    We used thematic analysis through affinity mapping to draw broad, underlying conclusions based on the qualitative data, which we then
-                    used to iteratively and rapidly generate many design sketches.
+                    We focused specifically on the connection between communities and environmental scientists:
                 </p>
+            </Expandable>
+            <Expandable
+                heading={"Evaluation"}
+                summary={"Summary of qualitative research and design ideation"}
+                ref={el => headingRefs.current[5] = el}
+            >
                 <p>
-                    Design ideas were refined collaboratively and the two best were storyboarded to outline contexts of use.
+                    We focused specifically on the connection between communities and environmental scientists:
                 </p>
+            </Expandable>
+            <Expandable
+                heading={"Next Steps"}
+                summary={"Summary of qualitative research and design ideation"}
+                ref={el => headingRefs.current[6] = el}
+            >
                 <p>
-                    Finally, the team used the best design to generate a high fidelity prototype to evaluate with users.
+                    We focused specifically on the connection between communities and environmental scientists:
                 </p>
             </Expandable>
             <div className={"bottomSpace"}></div>

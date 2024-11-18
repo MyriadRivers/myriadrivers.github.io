@@ -20,6 +20,7 @@ import neuroptera from "../assets/images/doodles/neuroptera.png";
 import odonata from "../assets/images/doodles/odonata.png";
 import orthoptera from "../assets/images/doodles/orthoptera.png";
 
+const MAX_DOODLES = 5;
 const doodleList = [aranea, blattodea, coleoptera, dermaptera, diptera, hemiptera, hymenoptera, lepidoptera_imago, lepidoptera_larva, mantodea, myriapoda, neuroptera, odonata, orthoptera];
 
 const StyledCanvas = styled.div`
@@ -286,7 +287,7 @@ function Canvas({ children }: { children: ReactNode }) {
       prevMousePos.current = { x: e.x, y: e.y };
 
       if (!firstClick.current) {
-        const numDoodles = Math.min(Math.floor(Math.random() * 5), doodleList.length);
+        const numDoodles = Math.min(Math.floor(Math.random() * (MAX_DOODLES - 1)) + 1, doodleList.length);
         console.log("total num doodles: " + numDoodles);
         for (let i = 0; i < numDoodles; i++) {
           let idx = Math.floor(Math.random() * doodleList.length);

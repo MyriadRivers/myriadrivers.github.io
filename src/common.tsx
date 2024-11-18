@@ -100,13 +100,13 @@ const projectRoutes = [
 
 const projects = [
     {
-        title: "Dating/Friendship App Safety",
+        title: "Friendship/Dating App Safety",
         url: "app_safety",
         image: troovImg,
         tags: ["ui/ux"]
     },
     {
-        title: "Fenceline Environmental Justice",
+        title: "Eco Justice Organizer",
         url: "environmental_justice",
         image: ejImage,
         tags: ["ui/ux"]
@@ -154,7 +154,7 @@ const projects = [
         tags: ["fun"]
     },
     {
-        title: "Synchro Auditory Interface",
+        title: "Artistic Swim Auditory Interface",
         url: "auditory_interface",
         image: auditoryInterfaceImg,
         tags: ["ui/ux"]

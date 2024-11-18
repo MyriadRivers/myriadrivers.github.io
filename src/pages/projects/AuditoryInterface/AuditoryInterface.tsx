@@ -27,7 +27,7 @@ function AuditoryInterface() {
         <Sidebar headings={headings} scrollRef={scrollRef} headingRefs={headingRefs.current} />
         <div className={"projectContents"} ref={contentsRef}>
             <ProjectTitle
-                text={"Synchronized Swimming Auditory Interface"}
+                text={"Artistic Swim Audio UI"}
                 subtitle={"Jan–May 2021"}
                 links={[]}
                 tags={["ui/ux"]}
