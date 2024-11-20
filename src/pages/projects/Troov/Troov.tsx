@@ -1,4 +1,4 @@
-import Sidebar from "../../../components/Sidebar";
+import Sidebar from "../../../components/Sidebar/Sidebar";
 import { useEffect, useRef, useState } from "react";
 import Expandable from "../../../components/Expandable";
 import ProjectTitle from "../../../components/ProjectTitle";
@@ -27,7 +27,7 @@ function Troov() {
     }, [])
 
     return (<StyledPage>
-        <Sidebar headings={headings} scrollRef={scrollRef} headingRefs={headingRefs.current} />
+        <Sidebar headings={headings} contentScrollTop={scrollRef} headingRefs={headingRefs.current} />
         <div className={"projectContents"} ref={contentsRef}>
             <ProjectTitle
                 text={"Safety on Dating and Friendship Apps"}

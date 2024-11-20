@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 import GlobalStyle from './styles/globalStyles';
 import styled, { ThemeProvider } from 'styled-components'
-import { mono } from './styles/themes';
+import { mono, river } from './styles/themes';
 
 import Navbar from './components/Navbar/Navbar';
 import { navRoutes } from './common';
