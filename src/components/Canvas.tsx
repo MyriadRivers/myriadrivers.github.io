@@ -288,7 +288,7 @@ function Canvas({ children }: { children: ReactNode }) {
 
       if (!firstClick.current) {
         const numDoodles = Math.min(Math.floor(Math.random() * (MAX_DOODLES - 1)) + 1, doodleList.length);
-        console.log("total num doodles: " + numDoodles);
+        // console.log("total num doodles: " + numDoodles);
         for (let i = 0; i < numDoodles; i++) {
           let idx = Math.floor(Math.random() * doodleList.length);
           while (doodleIdx.current.includes(idx)) {

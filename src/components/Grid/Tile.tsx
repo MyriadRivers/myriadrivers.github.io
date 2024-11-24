@@ -1,6 +1,7 @@
 import { Link, To } from "react-router-dom";
 import styled from "styled-components";
 import Tag from "./Tag";
+import { ProjectTag } from "../../types";
 
 const StyledTile = styled.div`
     font-size: 16pt;
@@ -44,7 +45,7 @@ const StyledTile = styled.div`
     }
 `
 
-function Tile({ title, url, image, tags }: { title: string, url: To, image: string, tags: Array<string> }) {
+function Tile({ title, url, image, tags }: { title: string, url: To, image: string, tags: Array<ProjectTag> }) {
     return (
         <StyledTile>
             <Link to={url} className={"tileContents"}>

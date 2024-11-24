@@ -3,6 +3,7 @@ import { ReactNode, Ref, forwardRef } from "react"
 import Tag from "./Grid/Tag";
 import LinkList from "./LinkList";
 import breakpoints from "../styles/breakpoints";
+import { ProjectTag } from "../types";
 
 const StyledProjectTitle = styled.div`
     display: flex;
@@ -64,7 +65,7 @@ function ProjectTitle({ text,
     text: string,
     subtitle: string,
     links: Array<{ text: string, url: string }>,
-    tags: Array<string>,
+    tags: Array<ProjectTag>,
     children: ReactNode
 }, ref: Ref<HTMLDivElement>) {
     return (<StyledProjectTitle>

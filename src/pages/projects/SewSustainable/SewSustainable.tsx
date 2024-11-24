@@ -1,9 +1,7 @@
-import Sidebar from "../../../components/Sidebar/Sidebar";
-import { useEffect, useRef, useState } from "react";
-import Expandable from "../../../components/Expandable";
-import ProjectTitle from "../../../components/ProjectTitle";
+import { Project, ProjectTag, Section } from "../../../types";
+
 import Image from "../../../components/Image";
-import StyledPage from "../../../components/StyledPage";
+import Video from "../../../components/Video";
 
 import mainImage from "./sewsustainable.png";
 import logicModelImage from "./logic_model.png";
@@ -12,29 +10,20 @@ import outfitImage from "./outfitting.png";
 import upcycleImage from "./upcycle.png";
 import disposalImage from "./disposal.png";
 
-function SewSustainable() {
-    const headings = ["Description", "Problem", "Research", "Design", "Walkthrough", "Feedback", "References"];
-    const headingRefs = useRef<Array<HTMLDivElement | null>>([]);
-    const contentsRef = useRef<HTMLDivElement | null>(null);
-
-    const [scrollRef, setScrollRef] = useState<HTMLDivElement | null>(null);
-
-    useEffect(() => {
-        setScrollRef(contentsRef.current);
-    }, [])
-
-    return (<StyledPage>
-        <Sidebar headings={headings} contentScrollTop={scrollRef} headingRefs={headingRefs.current} />
-        <div className={"projectContents"} ref={contentsRef}>
-            <ProjectTitle
-                text={"SewSustainable"}
-                subtitle={"Mar–Apr 2023"}
-                links={[
-                    { text: "Figma", url: "https://www.figma.com/file/SyeAAZQ1fwMlubLZ7tzdog/Ed-Tech-Project-Prototype?type=design&node-id=0-1&mode=design" }
-                ]}
-                tags={["ui/ux"]}
-                ref={el => headingRefs.current[0] = el}
-            >
+const title: string = "SewSustainable";
+const dateRange: string = "Mar–Apr 2023";
+const links: Array<{ text: string, url: string }> = [
+    { text: "Figma", url: "https://www.figma.com/file/SyeAAZQ1fwMlubLZ7tzdog/Ed-Tech-Project-Prototype?type=design&node-id=0-1&mode=design" }
+];
+const tags: Array<ProjectTag> = [
+    ProjectTag.uiux
+];
+const sections: Array<Section> = [
+    {
+        shortTitle: "Description",
+        title: "Description",
+        contents:
+            <>
                 <Image src={mainImage} />
                 <p>
                     SewSustainable is a hypothetical educational app meant to help people practice more sustainable fashion.
@@ -42,12 +31,14 @@ function SewSustainable() {
                 <p>
                     Team: Jason Gao, Marissa Gardner, Naz Ozturk, Spencer Kim
                 </p>
-            </ProjectTitle>
-            <Expandable
-                heading={"Problem"}
-                summary={"The fashion industry is a major polluter. Sustainable fashion is about responsibility on both consumer and manufacturing sides"}
-                ref={el => headingRefs.current[1] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "Problem",
+        title: "Problem",
+        summary: "The fashion industry is a major polluter. Sustainable fashion is about responsibility on both consumer and manufacturing sides",
+        contents:
+            <>
                 <p>
                     The fashion industry is a major contributor to global climate change, as measured in tons of Carbon Dioxide Equivalents (CO2eq) [1].
                     Besides ecological effects such as massive water consumption and production of harmful microplastics, the industry also employs
@@ -61,12 +52,14 @@ function SewSustainable() {
                     <li><b>Long lasting:</b> Does the garment maintain dimensions and color? Does the garment resist damage from prolonged wear?</li>
                     <li><b>Socially responsible:</b> How are workers treated throughout the garment's supply chain?</li>
                 </ol>
-            </Expandable>
-            <Expandable
-                heading={"Research"}
-                summary={"Preliminary research surveyed literature about sustainable attitudes and education, as well as existing sustainable fashion technologies"}
-                ref={el => headingRefs.current[2] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "Research",
+        title: "Research",
+        summary: "Preliminary research surveyed literature about sustainable attitudes and education, as well as existing sustainable fashion technologies",
+        contents:
+            <>
                 <h3>Literature</h3>
                 <p>
                     Benetta and Hill showed that consumers primarily associated sustainable fashion with reusing and upcycling clothes,
@@ -113,12 +106,14 @@ function SewSustainable() {
                     such as H&M's <i>Loooptopia</i> take a gamified approach that build virtual communities of learners who can share
                     experiences and resources.
                 </p>
-            </Expandable>
-            <Expandable
-                heading={"Design"}
-                summary={"The app takes a narrative, gamified approach while attempting to avoid common pitfalls in similar designs"}
-                ref={el => headingRefs.current[3] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "Design",
+        title: "Design",
+        summary: "The app takes a narrative, gamified approach while attempting to avoid common pitfalls in similar designs",
+        contents:
+            <>
                 <p>
                     Following our research, we directed our app design towards users in the "Social" group outlined by McNeill and
                     Moore—those who understood the importance of sustainability but also still desired to be fashionable and cost
@@ -146,12 +141,14 @@ function SewSustainable() {
                     realistic scenario [7]. We avoid use of BLAPs, instead focusing on a narrative with choice and experimentation,
                     in line with Nicholson's guidelines for meaningful gamification [8].
                 </p>
-            </Expandable>
-            <Expandable
-                heading={"Walkthrough"}
-                summary={"Learners go through the lifecycle of a garment from source, to purchase, to wear, to final disposal"}
-                ref={el => headingRefs.current[4] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "Walkthrough",
+        title: "Walkthrough",
+        summary: "Learners go through the lifecycle of a garment from source, to purchase, to wear, to final disposal",
+        contents:
+            <>
                 <p>
                     Learners are first presented with a short introduction to the app outlining the global problem of sustainable
                     fashion and the three components of environmental impact, longevity, and social responsibility that can be
@@ -246,12 +243,14 @@ function SewSustainable() {
                     feedback of visual cues in the app, takes a <b>assessment-centered</b> approach to get learners to
                     think about their actions and reflect, helping to internalize sustainability concepts.
                 </p>
-            </Expandable>
-            <Expandable
-                heading={"Feedback & Future Work"}
-                summary={"Sources for claims"}
-                ref={el => headingRefs.current[5] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "Evaluation",
+        title: "Evaluation & Future Work",
+        summary: "System was evaluated via an app walkthrough with 9 users and a summative assessment of learning",
+        contents:
+            <>
                 <p>
                     In a survey of 9 university students ages 17–22, learners reported low initial knowledge on sustainable
                     fashion practices, but after being walked through the app were able to successfully name and explain
@@ -272,12 +271,14 @@ function SewSustainable() {
                     setting, and visualizing the amount of labor and natural resources that go into each brand's manufacturing
                     can also make comparison and takeaways easier.
                 </p>
-            </Expandable>
-            <Expandable
-                heading={"References"}
-                summary={"Sources referenced"}
-                ref={el => headingRefs.current[6] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "References",
+        title: "References",
+        summary: "Sources referenced",
+        contents:
+            <>
                 <ol className={"references"}>
                     <li>
                         World Economic Forum, "Net-Zero Challenge:
@@ -315,10 +316,17 @@ function SewSustainable() {
                         2015. doi:10.1007/978-3-319-10208-5_1
                     </li>
                 </ol>
-            </Expandable>
-            <div className={"bottomSpace"}></div>
-        </div>
-    </StyledPage>);
+            </>
+    }
+]
+
+const SewSustainable: Project = {
+    title: title,
+    dateRange: dateRange,
+    links: links,
+    tags: tags,
+    sections: sections
 }
 
 export default SewSustainable;
+

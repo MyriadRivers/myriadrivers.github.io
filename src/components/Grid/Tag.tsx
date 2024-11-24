@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react"
+import { ProjectTag } from "../../types";
 
 const StyledTag = styled.div<{ $active: boolean }>`
     background: ${props => props.$active ? props.theme.main : ""};
@@ -27,7 +28,7 @@ const StyledTag = styled.div<{ $active: boolean }>`
     }
 `
 
-function Tag({ name, toggleTags }: { name: string, toggleTags?: () => void }) {
+function Tag({ name, toggleTags }: { name: ProjectTag, toggleTags?: () => void }) {
     const [active, setActive] = useState(false);
 
     const toggleTag = () => {

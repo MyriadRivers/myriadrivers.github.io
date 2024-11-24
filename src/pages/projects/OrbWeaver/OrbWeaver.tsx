@@ -1,49 +1,40 @@
-import Sidebar from "../../../components/Sidebar/Sidebar";
-import { useEffect, useRef, useState } from "react";
-import Expandable from "../../../components/Expandable";
-import ProjectTitle from "../../../components/ProjectTitle";
-import StyledPage from "../../../components/StyledPage";
+import { Project, ProjectTag, Section } from "../../../types";
+
 import Image from "../../../components/Image";
+import Video from "../../../components/Video";
 
 import mainImage from "./orb_weaver_main.png";
 import mayflyImage from "./mayfly.jpg";
 import stepsImage from "./web_steps.png";
 import heptagonImage from "./spinybacked_orbweaver.jpg";
 
-function OrbWeaver() {
-    const headings = ["Description", "Concept", "Process"];
-    const headingRefs = useRef<Array<HTMLDivElement | null>>([]);
-    const contentsRef = useRef<HTMLDivElement | null>(null);
-
-    const [scrollRef, setScrollRef] = useState<HTMLDivElement | null>(null);
-
-    useEffect(() => {
-        setScrollRef(contentsRef.current);
-    }, [])
-
-    return (<StyledPage>
-        <Sidebar headings={headings} contentScrollTop={scrollRef} headingRefs={headingRefs.current} />
-        <div className={"projectContents"} ref={contentsRef}>
-            <ProjectTitle
-                text={"Orb Weaver"}
-                subtitle={"Apr 2023"}
-                links={[
-                    { text: "try it!", url: "https://myriadrivers.github.io/orb-weaver/" },
-                    { text: "GitHub", url: "https://github.com/MyriadRivers/orb-weaver" },
-                ]}
-                tags={["engineering", "fun"]}
-                ref={el => headingRefs.current[0] = el}
-            >
+const title: string = "Orb Weaver";
+const dateRange: string = "Apr 2023";
+const links: Array<{ text: string, url: string }> = [
+    { text: "try it!", url: "https://myriadrivers.github.io/orb-weaver/" },
+    { text: "GitHub", url: "https://github.com/MyriadRivers/orb-weaver" },
+];
+const tags: Array<ProjectTag> = [
+    ProjectTag.engineering, ProjectTag.fun
+];
+const sections: Array<Section> = [
+    {
+        shortTitle: "Description",
+        title: "Description",
+        contents:
+            <>
                 <Image src={mainImage} />
                 <p>
                     Weave aleatoric musical orb webs. Implemented in plain TypeScript and React.js.
                 </p>
-            </ProjectTitle>
-            <Expandable
-                heading={"Concept"}
-                summary={"Orb weaver was conceived as an algorithmic musical composition"}
-                ref={el => headingRefs.current[1] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "Concept",
+        title: "Concept",
+        summary: "Orb weaver was conceived as an algorithmic musical composition",
+        contents:
+            <>
                 <p>
                     Orb weaver was developed for an assignment to create an algorithmic composition. I tried to avoid sonifying a well-known, existing
                     algorithm—I wanted to make something more unique and original. Previously,
@@ -66,12 +57,14 @@ function OrbWeaver() {
                     and it's a very recognizable visual motif.
                 </p>
                 <Image src={heptagonImage} caption={"Spinybacked Orbweaver in a recognizable orb web, source: Me"} />
-            </Expandable>
-            <Expandable
-                heading={"Process"}
-                summary={"Coordinates, type, and length of the threads changes what sounds are played"}
-                ref={el => headingRefs.current[2] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "Process",
+        title: "Process",
+        summary: "Coordinates, type, and length of the threads changes what sounds are played",
+        contents:
+            <>
                 <p>
                     I researched the orb weaver web spinning process, watching videos to help determine the exact steps they take.
                 </p>
@@ -116,10 +109,17 @@ function OrbWeaver() {
                     Other sonification schemes were tested as well, but due to the limits of Web Audio, having too many nodes playing at once strains
                     the browser. Thus, excessive layering, sustained notes, and polyphony was avoided.
                 </p>
-            </Expandable>
-            <div className={"bottomSpace"}></div>
-        </div>
-    </StyledPage>);
+            </>
+    }
+]
+
+const OrbWeaver: Project = {
+    title: title,
+    dateRange: dateRange,
+    links: links,
+    tags: tags,
+    sections: sections
 }
 
 export default OrbWeaver;
+

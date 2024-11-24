@@ -1,42 +1,40 @@
-import Sidebar from "../../../components/Sidebar/Sidebar";
-import { useEffect, useRef, useState } from "react";
-import Expandable from "../../../components/Expandable";
-import ProjectTitle from "../../../components/ProjectTitle";
-import StyledPage from "../../../components/StyledPage";
+import { Project, ProjectTag, Section } from "../../../types";
+
 import Image from "../../../components/Image";
+import Video from "../../../components/Video";
 
-function DiminishedReality() {
-    const headings = ["Description", "Motivation", "Scenario", "Study"];
-    const headingRefs = useRef<Array<HTMLDivElement | null>>([]);
-    const contentsRef = useRef<HTMLDivElement | null>(null);
+import mainImage from "./main_image.png";
+import issImage from "./iss.png";
+import layoutImage from "./layout.png";
+import scriptImage from "./script.png";
+import exampleVideo from "./control_vs_dr.mp4";
+import MediaFlex from "../../../components/MediaFlex";
 
-    const [scrollRef, setScrollRef] = useState<HTMLDivElement | null>(null);
-
-    useEffect(() => {
-        setScrollRef(contentsRef.current);
-    }, [])
-
-    return (<StyledPage>
-        <Sidebar headings={headings} contentScrollTop={scrollRef} headingRefs={headingRefs.current} />
-        <div className={"projectContents"} ref={contentsRef}>
-            <ProjectTitle
-                text={"NASA Diminished Reality"}
-                subtitle={"Jun 2021–May 2022"}
-                links={[]}
-                tags={["ui/ux"]}
-                ref={el => headingRefs.current[0] = el}
-            >
+const title: string = "NASA Diminished Reality";
+const dateRange: string = "Jun 2021–May 2022";
+const links: Array<{ text: string, url: string }> = [];
+const tags: Array<ProjectTag> = [
+    ProjectTag.uiux
+];
+const sections: Array<Section> = [
+    {
+        shortTitle: "Description",
+        title: "Description",
+        contents:
+            <>
                 <Image src={mainImage} />
                 <p>
                     NASA funded study on using diminished reality (DR) to focus during highly distracting scenarios. Scenario and testing environment
                     developed by me using C# in Unity3D.
                 </p>
-            </ProjectTitle>
-            <Expandable
-                heading={"Motivation"}
-                summary={`Extended Reality can help NASA astronauts train for difficult and distracting scenarios on missions`}
-                ref={el => headingRefs.current[1] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "Motivation",
+        title: "Motivation",
+        summary: "Extended Reality can help NASA astronauts train for difficult and distracting scenarios on missions",
+        contents:
+            <>
                 <p>
                     Astronauts can often be put in highly distracting scenarios where the success of a mission depends on their ability to focus or keep
                     track of many different things at once. For instance, the interior walls of the small corridors in the ISS are extremely cluttered.
@@ -48,12 +46,14 @@ function DiminishedReality() {
                     to remove or attenuate unnecessary stimuli from the space, letting the subject focus only on the information they immediately need for their
                     task.
                 </p>
-            </Expandable>
-            <Expandable
-                heading={"Scenario"}
-                summary={`The subject must construct a ventilator while an emergency scenario unfolds onboard a spacecraft`}
-                ref={el => headingRefs.current[2] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "Scenario",
+        title: "Scenario",
+        summary: "The subject must construct a ventilator while an emergency scenario unfolds onboard a spacecraft",
+        contents:
+            <>
                 <p>
                     In the study, the subject assumes the role of Mission Specialist aboard the Mars Transit Vehicle (MATV).
                     The spacecraft is damaged, and the subject must quickly and accurately follow instructions to construct a ventilator
@@ -73,12 +73,14 @@ function DiminishedReality() {
                     fellow lab members contributing voices for the dialogue. I also constructed the VR environment within which the entire scenario unfolds,
                     using Unity to script visual distractions such as astronauts floating by and tools on the wall.
                 </p>
-            </Expandable>
-            <Expandable
-                heading={"Study Design"}
-                summary={`The subject balances main task performance with situational awareness in different levels of DR`}
-                ref={el => headingRefs.current[3] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "Study",
+        title: "Study Design",
+        summary: "The subject balances main task performance with situational awareness in different levels of DR",
+        contents:
+            <>
                 <p>
                     The subject goes through the extremely distracting VR scenario while attempting to construct a ventilator from parts scattered on the walls,
                     following on-screen instructions and facilitated by a study overseer. The scenario is split into three sections, and each section has
@@ -105,10 +107,17 @@ function DiminishedReality() {
                     Diminished Reality effectiveness is measured based both on how well the participants do answering the questions and how well they perform the main
                     task without any errors.
                 </p>
-            </Expandable>
-            <div className={"bottomSpace"}></div>
-        </div>
-    </StyledPage>);
+            </>
+    }
+]
+
+const DiminishedReality: Project = {
+    title: title,
+    dateRange: dateRange,
+    links: links,
+    tags: tags,
+    sections: sections
 }
 
 export default DiminishedReality;
+

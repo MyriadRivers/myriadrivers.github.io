@@ -1,49 +1,40 @@
-import Sidebar from "../../../components/Sidebar/Sidebar";
-import { useEffect, useRef, useState } from "react";
-import Expandable from "../../../components/Expandable";
-import ProjectTitle from "../../../components/ProjectTitle";
-import StyledPage from "../../../components/StyledPage";
+import { Project, ProjectTag, Section } from "../../../types";
+
 import Image from "../../../components/Image";
+import Video from "../../../components/Video";
 
 import mainImage from "./title_screen.png";
 import gameplayImage from "./gameplay.png";
 import levelEditorImage from "./level_editor.png";
 
-function SyncOrSink() {
-    const headings = ["Description", "About"];
-    const headingRefs = useRef<Array<HTMLDivElement | null>>([]);
-    const contentsRef = useRef<HTMLDivElement | null>(null);
-
-    const [scrollRef, setScrollRef] = useState<HTMLDivElement | null>(null);
-
-    useEffect(() => {
-        setScrollRef(contentsRef.current);
-    }, [])
-
-    return (<StyledPage>
-        <Sidebar headings={headings} contentScrollTop={scrollRef} headingRefs={headingRefs.current} />
-        <div className={"projectContents"} ref={contentsRef}>
-            <ProjectTitle
-                text={"Sync or Sink"}
-                subtitle={"Jun 2017–Dec 2019"}
-                links={[
-                    { text: "play the demo!", url: "https://amarantgames.itch.io/sync-or-sink-dreamhack-demo" },
-                ]}
-                tags={["fun"]}
-                ref={el => headingRefs.current[0] = el}
-            >
+const title: string = "Sync or Sink";
+const dateRange: string = "Jun 2017–Dec 2019";
+const links: Array<{ text: string, url: string }> = [
+    { text: "play the demo!", url: "https://amarantgames.itch.io/sync-or-sink-dreamhack-demo" }
+];
+const tags: Array<ProjectTag> = [
+    ProjectTag.fun
+];
+const sections: Array<Section> = [
+    {
+        shortTitle: "Description",
+        title: "Description",
+        contents:
+            <>
                 <Image src={mainImage} />
                 <p>
                     Sync or Sink is a synchronized swimming rhythm game, developed in Unity with C#. I coded some of the dialogue
                     system, illustrated a few assets, and composed the large majority of the music.
                 </p>
                 <p>Team: Jason Gao, Sean Choi, Alice Hayes, Angie Chen, Catherine Sun, William Choi</p>
-            </ProjectTitle>
-            <Expandable
-                heading={"About"}
-                summary={"Sync or Sink was the second game made among a group of friends"}
-                ref={el => headingRefs.current[1] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "About",
+        title: "About",
+        summary: "Sync or Sink was the second game made among a group of friends",
+        contents:
+            <>
                 <p>
                     Sync or Sink was the second game that I made with friends after a dungeon puzzler called "Slime Travel". It was initially
                     made for a Technology Student Association competition in high school, in which the theme that
@@ -59,10 +50,17 @@ function SyncOrSink() {
                 </p>
                 <Image src={gameplayImage} caption={"Gameplay is a 4-lane rhythm game with modifiers. Swimmers dance to the music on the bottom."} />
                 <Image src={levelEditorImage} caption={"The unreleased level editor for making custom beat maps and choreographing routines, assets drawn by me."} />
-            </Expandable>
-            <div className={"bottomSpace"}></div>
-        </div>
-    </StyledPage>);
+            </>
+    }
+]
+
+const SyncOrSink: Project = {
+    title: title,
+    dateRange: dateRange,
+    links: links,
+    tags: tags,
+    sections: sections
 }
 
 export default SyncOrSink;
+

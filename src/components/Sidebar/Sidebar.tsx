@@ -25,27 +25,8 @@ const StyledSidebar = styled.div`
     }
 `
 
-function Sidebar({ headings, scrollRef, contentScrollTop, headingRefs }:
-    { headings: Array<string>, scrollRef: HTMLDivElement | null, contentScrollTop: number, headingRefs: Array<HTMLDivElement | null> }) {
-    const [active, setActive] = useState<number>(0);
-
-    useEffect(() => {
-        if (!headingRefs || !contentScrollTop || !headingRefs[0]) return;
-
-        for (let i = 0; i < headingRefs.length; i++) {
-            let headingRef = headingRefs[i];
-            let offsetTop = headingRef ? headingRef.offsetTop : 0;
-            if (contentScrollTop >= offsetTop - headingRefs[0].offsetTop) { setActive(i) };
-        }
-    }, [contentScrollTop])
-
-    useEffect(() => {
-        if (contentScrollTop) console.log(contentScrollTop);
-    }, [contentScrollTop])
-
-    useEffect(() => {
-        console.log("Active index " + active);
-    }, [active])
+function Sidebar({ headings, activeHeading, scrollRef, headingRefs }:
+    { headings: Array<string>, activeHeading: number, scrollRef: HTMLDivElement | null, headingRefs: Array<HTMLDivElement | null> }) {
 
     const scrollTo = (element: HTMLElement | null) => {
         if (element && scrollRef && headingRefs[0]) {
@@ -54,15 +35,14 @@ function Sidebar({ headings, scrollRef, contentScrollTop, headingRefs }:
     }
 
     return (<StyledSidebar>
-        <div className="sidebarContent">
+        <div className="sidebarContent" onScroll={() => console.log("oof")}>
             {headings.map((heading, index) => (
                 <SideBarElement text={heading} active={
-                    active === index
+                    activeHeading === index
                 }
                     key={index}
                     onClick={() => {
                         scrollTo(headingRefs[index]);
-                        setActive(index);
                     }} />
             ))}
         </div>

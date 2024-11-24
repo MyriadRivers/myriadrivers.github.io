@@ -3,6 +3,7 @@ import Tile from "./Tile";
 import { To } from "react-router-dom";
 import { useState, useEffect } from "react"
 import Tag from "./Tag";
+import { ProjectTag } from "../../types";
 
 const StyledGrid = styled.div`
     position: relative;
@@ -30,13 +31,13 @@ const StyledGrid = styled.div`
     width: 100%;
 `
 
-function Grid({ tiles }: { tiles: Array<{ title: string, url: To, image: string, tags: Array<string> }> }) {
-    const [allTags, setAllTags] = useState<Array<string>>([]);
-    const [activeTags, setActiveTags] = useState<Array<string>>([]);
+function Grid({ tiles }: { tiles: Array<{ title: string, url: To, image: string, tags: Array<ProjectTag> }> }) {
+    const [allTags, setAllTags] = useState<Array<ProjectTag>>([]);
+    const [activeTags, setActiveTags] = useState<Array<ProjectTag>>([]);
 
     useEffect(() => {
         // Get array of all occurring tags
-        let foundTags: Array<string> = []
+        let foundTags: Array<ProjectTag> = []
 
         tiles.forEach(tile => {
             tile.tags.forEach(tag => {
@@ -49,7 +50,7 @@ function Grid({ tiles }: { tiles: Array<{ title: string, url: To, image: string,
         setAllTags(foundTags);
     }, [tiles])
 
-    const toggleTag = (tag: string) => {
+    const toggleTag = (tag: ProjectTag) => {
         if (activeTags.includes(tag)) {
             let newTags = activeTags.filter((el) => el !== tag);
             setActiveTags(newTags);

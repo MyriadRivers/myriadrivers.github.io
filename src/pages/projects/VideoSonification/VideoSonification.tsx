@@ -1,9 +1,6 @@
-import Sidebar from "../../../components/Sidebar/Sidebar";
-import { useEffect, useRef, useState } from "react";
-import Expandable from "../../../components/Expandable";
-import ProjectTitle from "../../../components/ProjectTitle";
+import { Project, ProjectTag, Section } from "../../../types";
+
 import Image from "../../../components/Image";
-import StyledPage from "../../../components/StyledPage";
 import Video from "../../../components/Video";
 
 import architectureImage from "./architecture.png";
@@ -14,27 +11,20 @@ import MediaGrid from "../../../components/MediaGrid";
 
 import demoVideo from "./video_sonification_demo.mp4";
 
-function VideoSonification() {
-    const headings = ["Description", "Stack", "Examples"];
-    const headingRefs = useRef<Array<HTMLDivElement | null>>([]);
-    const contentsRef = useRef<HTMLDivElement | null>(null);
-
-    const [scrollRef, setScrollRef] = useState<HTMLDivElement | null>(null);
-
-    useEffect(() => {
-        setScrollRef(contentsRef.current);
-    }, [])
-
-    return (<StyledPage>
-        <Sidebar headings={headings} contentScrollTop={scrollRef} headingRefs={headingRefs.current} />
-        <div className={"projectContents"} ref={contentsRef}>
-            <ProjectTitle
-                text={"Video Sonification"}
-                subtitle={"Aug–Sep 2023"}
-                links={[{ text: "site", url: "https://main.d2s6y4nzwyqtzd.amplifyapp.com/" }, { text: "front-end GitHub", url: "https://github.com/MyriadRivers/aivf" }]}
-                tags={["engineering"]}
-                ref={el => headingRefs.current[0] = el}
-            >
+const title: string = "Video Sonification";
+const dateRange: string = "Aug–Sep 2023";
+const links: Array<{ text: string, url: string }> = [
+    { text: "front-end GitHub", url: "https://github.com/MyriadRivers/aivf" }
+];
+const tags: Array<ProjectTag> = [
+    ProjectTag.engineering
+];
+const sections: Array<Section> = [
+    {
+        shortTitle: "Description",
+        title: "Description",
+        contents:
+            <>
                 <Video src={demoVideo} />
                 <p>
                     Users upload videos and the system generates accompaniment, transforming them into music videos. App deployment by me, music generation by Richard Savery.
@@ -42,12 +32,14 @@ function VideoSonification() {
                 <p>
                     At the request of the client, the site was authorized only to a set of initial testers.
                 </p>
-            </ProjectTitle>
-            <Expandable
-                heading={"Stack"}
-                summary={"The app is separated into three main components: the front end, the API, and the back end"}
-                ref={el => headingRefs.current[1] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "Stack",
+        title: "Stack",
+        summary: "The app is separated into three main components: the front end, the API, and the back end",
+        contents:
+            <>
                 <p>
                     The app is hosted on the cloud through AWS and is separated into three main components: the front end, the API, and the back end.
                 </p>
@@ -70,12 +62,14 @@ function VideoSonification() {
                     begins generating the music to accompany the video, using Google's MediaPipe computer vision models along with a rule-based system for detecting and converting
                     salient parts of the video. The music generation system was developed by Richard Savery.
                 </p>
-            </Expandable>
-            <Expandable
-                heading={"Examples"}
-                summary={"The app was originally developed to sonify footage of embryo development, but can sonify any video"}
-                ref={el => headingRefs.current[2] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "Examples",
+        title: "Examples",
+        summary: "The app was originally developed to sonify footage of embryo development, but can sonify any video",
+        contents:
+            <>
                 <p>
                     The app was originally developed to sonify footage of embryo development, but can sonify any video.
                     However, the app restricts video duration on uploads, as longer videos take longer to process.
@@ -85,10 +79,17 @@ function VideoSonification() {
                     <Video src={bugVideo} caption="Stink Bug, source: Me" />
                     <Video src={fractalVideo} caption="Julia Set Fractal, source: Me" />
                 </MediaGrid>
-            </Expandable>
-            <div className={"bottomSpace"}></div>
-        </div>
-    </StyledPage>);
+            </>
+    }
+]
+
+const VideoSonification: Project = {
+    title: title,
+    dateRange: dateRange,
+    links: links,
+    tags: tags,
+    sections: sections
 }
 
 export default VideoSonification;
+

@@ -1,36 +1,25 @@
-import Sidebar from "../../../components/Sidebar/Sidebar";
-import { useEffect, useRef, useState } from "react";
-import Expandable from "../../../components/Expandable";
-import ProjectTitle from "../../../components/ProjectTitle";
-import StyledPage from "../../../components/StyledPage";
+import { Project, ProjectTag, Section } from "../../../types";
+
 import Image from "../../../components/Image";
+import Video from "../../../components/Video";
 
 import mainImage from "./music_accessibility_sketch.png";
 import featureMatrixImage from "./feature_matrix.png";
 import valenceEnergyImage from "./valence_energy.png";
 import systemImage from "./system.png";
 
-function MusicAccessibility() {
-    const headings = ["Description", "Motivation", "Design", "System", "Future", "References"];
-    const headingRefs = useRef<Array<HTMLDivElement | null>>([]);
-    const contentsRef = useRef<HTMLDivElement | null>(null);
-
-    const [scrollRef, setScrollRef] = useState<HTMLDivElement | null>(null);
-
-    useEffect(() => {
-        setScrollRef(contentsRef.current);
-    }, [])
-
-    return (<StyledPage>
-        <Sidebar headings={headings} contentScrollTop={scrollRef} headingRefs={headingRefs.current} />
-        <div className={"projectContents"} ref={contentsRef}>
-            <ProjectTitle
-                text={"Multimodal Music Accessibility"}
-                subtitle={"Jan–May 2023"}
-                links={[]}
-                tags={["engineering", "ui/ux"]}
-                ref={el => headingRefs.current[0] = el}
-            >
+const title: string = "Multimodal Music Accessibility";
+const dateRange: string = "Jan–May 2023";
+const links: Array<{ text: string, url: string }> = [];
+const tags: Array<ProjectTag> = [
+    ProjectTag.uiux
+];
+const sections: Array<Section> = [
+    {
+        shortTitle: "Description",
+        title: "Description",
+        contents:
+            <>
                 <Image src={mainImage} />
                 <p>
                     A multimodal accessibility experience meant to explore different ways of helping Deaf and Hard-of-Hearing (DHH) users experience music through
@@ -40,12 +29,14 @@ function MusicAccessibility() {
                     Project headed by Dani Leinwander as part of the Robotic Musicianship Lab, directed by Dr. Gil Weinberg. App and Unity visualizations
                     developed by me.
                 </p>
-            </ProjectTitle>
-            <Expandable
-                heading={"Motivation"}
-                summary={"We sought to contribute to existing literature on DHH musical experiences"}
-                ref={el => headingRefs.current[1] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "Motivation",
+        title: "Motivation",
+        summary: "We sought to contribute to existing literature on DHH musical experiences",
+        contents:
+            <>
                 <p>
                     Despite the development of various technologies meant for helping d/Deaf users experience music [1], many are inaccessible or
                     largely unused due to cost, availability, lack of utility, or misalignment with users' desires.
@@ -56,12 +47,14 @@ function MusicAccessibility() {
                     vibrations as well as emotional content, often conveyed through interpreters at live events, when enjoying music. This substantiates
                     existing literature on visual and haptic musical feedback for DHH users [2].
                 </p>
-            </Expandable>
-            <Expandable
-                heading={"Design"}
-                summary={"The goal was an exploratory breadth-first approach providing many different modalities to see what users liked"}
-                ref={el => headingRefs.current[2] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "Design",
+        title: "Design",
+        summary: "The goal was an exploratory breadth-first approach providing many different modalities to see what users liked",
+        contents:
+            <>
                 <p>
                     Listening to music is a multidimensional experience where specific lower-level information such as frequencies, durations, and words
                     can generate visceral, emotional, and cognitive changes.
@@ -84,12 +77,14 @@ function MusicAccessibility() {
                     a general mood.
                 </p>
                 <Image src={valenceEnergyImage} caption={`Possible relationships between valence, energy, and multimodal features.`} />
-            </Expandable>
-            <Expandable
-                heading={"System"}
-                summary={"An app displays visualizations and lyrics on a user's phone, while also triggering robotic dance in time with the played music"}
-                ref={el => headingRefs.current[3] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "System",
+        title: "System",
+        summary: "An app displays visualizations and lyrics on a user's phone, while also triggering robotic dance in time with the played music",
+        contents:
+            <>
                 <p>
                     When a user selects a song, the mobile app establishes a TCP connection to Shimi and sends a message containing the song and
                     a start message. It also begins the visualization on the phone based on the song.
@@ -120,12 +115,14 @@ function MusicAccessibility() {
                     In addition to research and ideation, my primary responsibilities involved creating the second visualization and the app, as well
                     as configuring app communication with Shimi, primarily using C# and Unity.
                 </p>
-            </Expandable>
-            <Expandable
-                heading={"Future Work"}
-                summary={"Future work could involve more visualization options focusing on time-variant features and thorough user testing"}
-                ref={el => headingRefs.current[4] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "Future",
+        title: "Future Work",
+        summary: "Future work could involve more visualization options focusing on time-variant features and thorough user testing",
+        contents:
+            <>
                 <p>
                     Our visualizations mainly translated time-invariant features that were constant throughout the entire song. Future work might involve
                     the creation of more robust animation, gestural, and haptic options based on time-variant features such as the current section the song is in,
@@ -135,12 +132,14 @@ function MusicAccessibility() {
                     Besides additional visualizations, extensive user studies are necessary to evaluate the effectiveness of the different modalities, such as
                     Shimi's gestures in mediating user response to the music.
                 </p>
-            </Expandable>
-            <Expandable
-                heading={"References"}
-                summary={"Sources referenced"}
-                ref={el => headingRefs.current[5] = el}
-            >
+            </>
+    },
+    {
+        shortTitle: "References",
+        title: "References",
+        summary: "Sources referenced",
+        contents:
+            <>
                 <ol className={"references"}>
                     <li>
                         M. D. Fletcher, “Can Haptic Stimulation Enhance Music Perception in Hearing-Impaired Listeners?,” Frontiers in Neuroscience, vol. 15,
@@ -163,10 +162,17 @@ function MusicAccessibility() {
                         Motivation and Emotion, vol. 29, no. 1, pp. 19–39, Mar. 2005, doi: https://doi.org/10.1007/s11031-005-4414-0.
                     </li>
                 </ol>
-            </Expandable>
-            <div className={"bottomSpace"}></div>
-        </div>
-    </StyledPage>);
+            </>
+    }
+]
+
+const MusicAccessibility: Project = {
+    title: title,
+    dateRange: dateRange,
+    links: links,
+    tags: tags,
+    sections: sections
 }
 
 export default MusicAccessibility;
+

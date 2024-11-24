@@ -4,7 +4,8 @@ import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/home/Home';
 
-import { navRoutes, projectRoutes } from './common';
+import { navRoutes, projects } from './routes';
+import ProjectPage from './components/ProjectPage';
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
         element: <Home />
       },
       ...navRoutes,
-      ...projectRoutes
+      ...projects.map((project) => ({ path: "projects/" + project.url, element: <ProjectPage content={project.content} /> }))
     ]
   }
 ]);

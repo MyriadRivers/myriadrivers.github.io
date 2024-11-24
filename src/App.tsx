@@ -5,7 +5,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import { mono, river } from './styles/themes';
 
 import Navbar from './components/Navbar/Navbar';
-import { navRoutes } from './common';
+import { navRoutes } from './routes';
 import Title from './components/Title';
 import breakpoints from './styles/breakpoints';
 import Canvas from './components/Canvas';

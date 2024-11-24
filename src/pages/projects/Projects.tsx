@@ -1,5 +1,5 @@
 import Grid from "../../components/Grid/Grid";
-import { projects } from "../../common";
+import { projects } from "../../routes";
 import styled from "styled-components";
 
 const StyledProjects = styled.div`
