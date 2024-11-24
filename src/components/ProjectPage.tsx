@@ -18,7 +18,6 @@ function ProjectPage({ content }: { content: Project }) {
     }, [])
 
     const setActiveHeader = () => {
-        console.log('yowza!')
         if (!headingRefs.current || !headingRefs.current[0] || !scrollRef) return;
         for (let i = 0; i < headingRefs.current.length; i++) {
             let headingRef = headingRefs.current[i];
