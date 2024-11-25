@@ -37,6 +37,7 @@ function ProjectPage({ content }: { content: Project }) {
                             subtitle={content.dateRange}
                             links={content.links}
                             tags={content.tags}
+                            mainMedia={content.media}
                             ref={el => headingRefs.current[index] = el}
                             key={index}
                         >

@@ -9,8 +9,8 @@ const StyledSideBarElement = styled.div<{ $active: boolean }>`
     &:hover {
         cursor: pointer;
         text-decoration: underline;
+        text-decoration-thickness: 3px;
         text-decoration-style: dashed;
-        
     }
 `
 

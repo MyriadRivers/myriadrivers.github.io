@@ -13,6 +13,7 @@ const StyledHeading = styled.div<{ $level: number }>`
     letter-spacing: 6pt;
 
     padding: 15px 0px;
+    /* padding: 10px 100px 10px 100px; */
     
     @media ${breakpoints.mobile} {
         padding: 0px 0px;

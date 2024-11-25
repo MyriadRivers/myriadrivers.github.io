@@ -36,7 +36,7 @@ const StyledApp = styled.div`
   .outletContainer {
     height: 100%;
     
-    max-width: 1200px;
+    /* max-width: 1200px; */
     @media ${breakpoints.laptop} {
       max-width: 80vw;
     }
