@@ -7,6 +7,7 @@ import mainImage from "./orb_weaver_main.png";
 import mayflyImage from "./mayfly.jpg";
 import stepsImage from "./web_steps.png";
 import heptagonImage from "./spinybacked_orbweaver.jpg";
+import { ReactNode } from "react";
 
 const title: string = "Orb Weaver";
 const dateRange: string = "Apr 2023";
@@ -17,13 +18,13 @@ const links: Array<{ text: string, url: string }> = [
 const tags: Array<ProjectTag> = [
     ProjectTag.engineering, ProjectTag.fun
 ];
+const media: ReactNode = <Image src={mainImage} />;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
         title: "Description",
         contents:
             <>
-                <Image src={mainImage} />
                 <p>
                     Weave aleatoric musical orb webs. Implemented in plain TypeScript and React.js.
                 </p>
@@ -118,6 +119,7 @@ const OrbWeaver: Project = {
     dateRange: dateRange,
     links: links,
     tags: tags,
+    media: media,
     sections: sections
 }
 

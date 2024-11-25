@@ -8,6 +8,7 @@ import gapImage from "./spotify_karaoke_gap_interpolation.png";
 
 import demoVideo from "./spotify_karaoke_demo.mp4";
 import Video from "../../../components/Video";
+import { ReactNode } from "react";
 
 const title: string = "Spotify Karaoke";
 const dateRange: string = "Aug–Dec 2023";
@@ -19,13 +20,13 @@ const links: Array<{ text: string, url: string }> = [
 const tags: Array<ProjectTag> = [
     ProjectTag.engineering
 ];
+const media: ReactNode = <Video src={demoVideo} caption="Excuse my singing." />;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
         title: "Description",
         contents:
             <>
-                <Video src={demoVideo} caption="Excuse my singing." />
                 <p>
                     Spotify Karaoke is a web app that lets you sing along to any song on Spotify with English lyrics.
                 </p>
@@ -293,6 +294,7 @@ const SpotifyKaraoke: Project = {
     dateRange: dateRange,
     links: links,
     tags: tags,
+    media: media,
     sections: sections
 }
 

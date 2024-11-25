@@ -8,6 +8,7 @@ import diagramImage from "./figure_diagram.png";
 import angleImage from "./angle_diagram.png";
 import example1Video from "./example_1.mov";
 import example2Video from "./example_2.mov";
+import { ReactNode } from "react";
 
 const title: string = "Artistic Swim Audio UI";
 const dateRange: string = "Jan–May 2021";
@@ -15,13 +16,13 @@ const links: Array<{ text: string, url: string }> = [];
 const tags: Array<ProjectTag> = [
     ProjectTag.uiux
 ];
+const media: ReactNode = <Image src={interfaceImage} />;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
         title: "Description",
         contents:
             <>
-                <Image src={interfaceImage} />
                 <p>
                     A hypothetical auditory interface to help synchronized swimmers train their figures.
                 </p>
@@ -283,6 +284,7 @@ const AuditoryInterface: Project = {
     dateRange: dateRange,
     links: links,
     tags: tags,
+    media: media,
     sections: sections
 }
 

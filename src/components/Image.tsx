@@ -5,9 +5,10 @@ const StyledImage = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+    /* max-height: 57vh; */
+    margin: 0px -920px 0px 0px;
 
     img {
-        max-height: 50vh;
         max-width: 100%;
     }
 
@@ -23,7 +24,7 @@ const StyledImage = styled.div`
 
 function Image({ src, caption }: { src: string, caption?: string }) {
     return (<StyledImage>
-        <img src={src} alt={caption}/>
+        <img src={src} alt={caption} />
         {caption}
     </StyledImage>);
 }

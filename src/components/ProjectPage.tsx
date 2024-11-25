@@ -1,9 +1,53 @@
 import { useEffect, useRef, useState } from "react";
-import StyledPage from "./StyledPage";
 import Sidebar from "./Sidebar/Sidebar";
 import ProjectTitle from "./ProjectTitle";
 import Expandable from "./Expandable";
 import { Project } from "../types";
+import styled from "styled-components";
+
+const StyledPage = styled.div`
+    display: flex;
+    gap: 20px;
+    height: 100%;
+
+    .projectContents {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        height: 100%;
+        overflow: auto;
+
+        padding: 0px 1000px 0px 80px;
+        scroll-behavior: smooth;
+    }
+
+    .bottomSpace {
+        min-height: 100px;
+    }
+
+    .references {
+        counter-reset: list-counter;
+        list-style: none;
+        padding-left: 0px;
+
+        li {
+            counter-increment: list-counter;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        li:before{
+            content: "[" counter(list-counter) "] ";
+            align-self: flex-start;
+            margin-right: 20px;
+        }
+    }
+
+    overflow: hidden;
+`
 
 function ProjectPage({ content }: { content: Project }) {
     const headings = content.sections.map((section) => section.shortTitle);
@@ -32,17 +76,22 @@ function ProjectPage({ content }: { content: Project }) {
             {content.sections.map((section, index) => {
                 if (index === 0) {
                     return (
-                        <ProjectTitle
-                            text={content.title}
-                            subtitle={content.dateRange}
-                            links={content.links}
-                            tags={content.tags}
-                            mainMedia={content.media}
-                            ref={el => headingRefs.current[index] = el}
-                            key={index}
-                        >
-                            {section.contents}
-                        </ProjectTitle>
+                        <>
+                            <ProjectTitle
+                                text={content.title}
+                                subtitle={content.dateRange}
+                                links={content.links}
+                                tags={content.tags}
+                                ref={el => headingRefs.current[index] = el}
+                                key={index}
+                            >
+                                {section.contents}
+                            </ProjectTitle>
+                            <div>
+                                {content.media}
+                            </div>
+                        </>
+
                     )
                 } else {
                     return (

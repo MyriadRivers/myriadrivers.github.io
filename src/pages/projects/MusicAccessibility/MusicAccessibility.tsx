@@ -7,6 +7,7 @@ import mainImage from "./music_accessibility_sketch.png";
 import featureMatrixImage from "./feature_matrix.png";
 import valenceEnergyImage from "./valence_energy.png";
 import systemImage from "./system.png";
+import { ReactNode } from "react";
 
 const title: string = "Multimodal Music Accessibility";
 const dateRange: string = "Jan–May 2023";
@@ -14,13 +15,13 @@ const links: Array<{ text: string, url: string }> = [];
 const tags: Array<ProjectTag> = [
     ProjectTag.uiux
 ];
+const media: ReactNode = <Image src={mainImage} />;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
         title: "Description",
         contents:
             <>
-                <Image src={mainImage} />
                 <p>
                     A multimodal accessibility experience meant to explore different ways of helping Deaf and Hard-of-Hearing (DHH) users experience music through
                     visuals, haptics, and affective gestures.
@@ -171,6 +172,7 @@ const MusicAccessibility: Project = {
     dateRange: dateRange,
     links: links,
     tags: tags,
+    media: media,
     sections: sections
 }
 

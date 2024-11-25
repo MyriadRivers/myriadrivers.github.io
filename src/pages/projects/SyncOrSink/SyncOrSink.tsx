@@ -6,6 +6,7 @@ import Video from "../../../components/Video";
 import mainImage from "./title_screen.png";
 import gameplayImage from "./gameplay.png";
 import levelEditorImage from "./level_editor.png";
+import { ReactNode } from "react";
 
 const title: string = "Sync or Sink";
 const dateRange: string = "Jun 2017–Dec 2019";
@@ -15,13 +16,13 @@ const links: Array<{ text: string, url: string }> = [
 const tags: Array<ProjectTag> = [
     ProjectTag.fun
 ];
+const media: ReactNode = <Image src={mainImage} />;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
         title: "Description",
         contents:
             <>
-                <Image src={mainImage} />
                 <p>
                     Sync or Sink is a synchronized swimming rhythm game, developed in Unity with C#. I coded some of the dialogue
                     system, illustrated a few assets, and composed the large majority of the music.
@@ -59,6 +60,7 @@ const SyncOrSink: Project = {
     dateRange: dateRange,
     links: links,
     tags: tags,
+    media: media,
     sections: sections
 }
 

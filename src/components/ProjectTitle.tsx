@@ -60,14 +60,12 @@ function ProjectTitle({ text,
     subtitle,
     links,
     tags,
-    mainMedia,
     children
 }: {
     text: string,
     subtitle: string,
     links: Array<{ text: string, url: string }>,
     tags: Array<ProjectTag>,
-    mainMedia: ReactNode,
     children: ReactNode
 }, ref: Ref<HTMLDivElement>) {
     return (<StyledProjectTitle>

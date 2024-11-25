@@ -14,11 +14,12 @@ interface Section {
 }
 
 interface Project {
-    title: string;
-    dateRange: string;
-    links: Array<{ text: string, url: string }>;
-    tags: Array<ProjectTag>;
-    sections: Array<Section>;
+    title: string,
+    dateRange: string,
+    links: Array<{ text: string, url: string }>,
+    tags: Array<ProjectTag>,
+    media: ReactNode,
+    sections: Array<Section>
 }
 
 export { ProjectTag, type Section, type Project };

@@ -10,6 +10,7 @@ import fractalVideo from "./julia_set_sonified.mp4";
 import MediaGrid from "../../../components/MediaGrid";
 
 import demoVideo from "./video_sonification_demo.mp4";
+import { ReactNode } from "react";
 
 const title: string = "Video Sonification";
 const dateRange: string = "Aug–Sep 2023";
@@ -19,13 +20,13 @@ const links: Array<{ text: string, url: string }> = [
 const tags: Array<ProjectTag> = [
     ProjectTag.engineering
 ];
+const media: ReactNode = <Video src={demoVideo} />;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
         title: "Description",
         contents:
             <>
-                <Video src={demoVideo} />
                 <p>
                     Users upload videos and the system generates accompaniment, transforming them into music videos. App deployment by me, music generation by Richard Savery.
                 </p>
@@ -88,6 +89,7 @@ const VideoSonification: Project = {
     dateRange: dateRange,
     links: links,
     tags: tags,
+    media: media,
     sections: sections
 }
 

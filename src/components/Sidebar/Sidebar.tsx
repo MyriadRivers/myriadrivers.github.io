@@ -11,8 +11,6 @@ const StyledSidebar = styled.div`
     }
 
     .sidebarContent {
-        /* background: pink; */
-        margin-right: 80px;
 
         font-family: ${props => props.theme.headerFont};
         font-size: calc(min(5pt + 2vw, 16pt));

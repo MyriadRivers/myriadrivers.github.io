@@ -9,6 +9,8 @@ import valenceEnergyImage from "./valence_energy.png";
 import systemImage from "./system.png";
 import SoundCloudSmall from "../../../components/SoundCloudSmall";
 import Link from "../../../components/Link";
+import { ReactNode } from "react";
+import SoundCloudLarge from "../../../components/SoundCloudLarge";
 
 const title: string = "Nyan Cat (Remix)";
 const dateRange: string = "Feb 2021";
@@ -16,6 +18,13 @@ const links: Array<{ text: string, url: string }> = [{ text: "YouTube", url: "ht
 const tags: Array<ProjectTag> = [
     ProjectTag.uiux
 ];
+const media: ReactNode = <SoundCloudLarge
+    artist={"RIIIVER"}
+    track={"Nyan Cat (Remix)"}
+    artistURL={"https://soundcloud.com/riiivermusic"}
+    trackURL={"https://on.soundcloud.com/uzBBX"}
+    trackID={"979559179"}
+/>;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
@@ -62,6 +71,7 @@ const NyanCat: Project = {
     dateRange: dateRange,
     links: links,
     tags: tags,
+    media: media,
     sections: sections
 }
 

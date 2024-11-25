@@ -7,6 +7,8 @@ import maxImage from "./max_patch.png";
 import arduinoImage from "./arduino.png";
 import VoicemailCanvas from "../../../components/VoicemailCanvas";
 import SoundCloudSmall from "../../../components/SoundCloudSmall";
+import { ReactNode } from "react";
+import SoundCloudLarge from "../../../components/SoundCloudLarge";
 
 const title: string = "Voicemail";
 const dateRange: string = "Mar 2022";
@@ -16,6 +18,13 @@ const links: Array<{ text: string, url: string }> = [
 const tags: Array<ProjectTag> = [
     ProjectTag.engineering
 ];
+const media: ReactNode = <SoundCloudLarge
+    artist={"Jason Gao"}
+    track={"Voicemail"}
+    artistURL={"https://soundcloud.com/myriadrivers-558554438"}
+    trackURL={"https://soundcloud.com/myriadrivers-558554438/voicemail?si=819715ce8d3d46ffa1ac10c1e0c78f4d&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"}
+    trackID={"1694478468"}
+/>
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
@@ -75,6 +84,7 @@ const Voicemail: Project = {
     dateRange: dateRange,
     links: links,
     tags: tags,
+    media: media,
     sections: sections
 }
 

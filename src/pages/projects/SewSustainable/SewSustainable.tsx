@@ -1,7 +1,6 @@
 import { Project, ProjectTag, Section } from "../../../types";
 
 import Image from "../../../components/Image";
-import Video from "../../../components/Video";
 
 import mainImage from "./sewsustainable.png";
 import logicModelImage from "./logic_model.png";
@@ -9,6 +8,7 @@ import garmentSelectionImage from "./garment_selection.png";
 import outfitImage from "./outfitting.png";
 import upcycleImage from "./upcycle.png";
 import disposalImage from "./disposal.png";
+import { ReactNode } from "react";
 
 const title: string = "SewSustainable";
 const dateRange: string = "Mar–Apr 2023";
@@ -18,13 +18,13 @@ const links: Array<{ text: string, url: string }> = [
 const tags: Array<ProjectTag> = [
     ProjectTag.uiux
 ];
+const media: ReactNode = <Image src={mainImage} />;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
         title: "Description",
         contents:
             <>
-                <Image src={mainImage} />
                 <p>
                     SewSustainable is a hypothetical educational app meant to help people practice more sustainable fashion.
                 </p>
@@ -325,6 +325,7 @@ const SewSustainable: Project = {
     dateRange: dateRange,
     links: links,
     tags: tags,
+    media: media,
     sections: sections
 }
 

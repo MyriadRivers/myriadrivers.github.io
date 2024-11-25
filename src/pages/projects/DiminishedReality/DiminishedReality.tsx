@@ -9,6 +9,7 @@ import layoutImage from "./layout.png";
 import scriptImage from "./script.png";
 import exampleVideo from "./control_vs_dr.mp4";
 import MediaFlex from "../../../components/MediaFlex";
+import { ReactNode } from "react";
 
 const title: string = "NASA Diminished Reality";
 const dateRange: string = "Jun 2021–May 2022";
@@ -16,13 +17,13 @@ const links: Array<{ text: string, url: string }> = [];
 const tags: Array<ProjectTag> = [
     ProjectTag.uiux
 ];
+const media: ReactNode = <Image src={mainImage} />;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
         title: "Description",
         contents:
             <>
-                <Image src={mainImage} />
                 <p>
                     NASA funded study on using diminished reality (DR) to focus during highly distracting scenarios. Scenario and testing environment
                     developed by me using C# in Unity3D.
@@ -116,6 +117,7 @@ const DiminishedReality: Project = {
     dateRange: dateRange,
     links: links,
     tags: tags,
+    media: media,
     sections: sections
 }
 
