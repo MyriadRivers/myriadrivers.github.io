@@ -13,11 +13,13 @@ import { ReactNode } from "react";
 
 const title: string = "NASA Diminished Reality";
 const dateRange: string = "Jun 2021–May 2022";
+const summary: string = "Summary";
 const links: Array<{ text: string, url: string }> = [];
 const tags: Array<ProjectTag> = [
-    ProjectTag.uiux
+    ProjectTag.uiux,
+    ProjectTag.engineering
 ];
-const media: ReactNode = <Image src={mainImage} />;
+const media: ReactNode = <Image src={mainImage} mainImage={true}/>;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
@@ -115,6 +117,7 @@ const sections: Array<Section> = [
 const DiminishedReality: Project = {
     title: title,
     dateRange: dateRange,
+    summary: summary,
     links: links,
     tags: tags,
     media: media,

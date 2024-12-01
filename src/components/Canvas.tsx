@@ -55,6 +55,8 @@ const StyledCanvas = styled.div`
   }
 
   .clearCanvasText {
+    background: white;
+    padding: 0px 10px;
     visibility: hidden;
   }
 
@@ -76,6 +78,8 @@ const StyledCanvas = styled.div`
   }
 
   .toggleDrawText {
+    background: white;
+    padding: 0px 10px;
     visibility: hidden;
   }
 

@@ -10,7 +10,9 @@ import menuIcon from "../../assets/icons/menu.png";
 
 const StyledNavbar = styled.div<{ $open: boolean }>` 
     background: ${props => props.theme.main};
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: center;
+    gap: 100px;
     display: flex;
     position: relative;
     mix-blend-mode: multiply;

@@ -16,6 +16,8 @@ interface Section {
 interface Project {
     title: string,
     dateRange: string,
+    subtitles?: Array<{title: string, text: string}>,
+    summary: string,
     links: Array<{ text: string, url: string }>,
     tags: Array<ProjectTag>,
     media: ReactNode,

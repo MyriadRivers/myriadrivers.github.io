@@ -1,19 +1,20 @@
 import styled from "styled-components";
 import breakpoints from "../styles/breakpoints";
 
-const StyledImage = styled.div`
+const StyledImage = styled.div<{$mainImage: boolean}>`
     display: flex;
     flex-direction: column;
     gap: 10px;
     /* max-height: 57vh; */
-    margin: 0px -920px 0px 0px;
+    padding: 20px 0px;
+    margin: 0px 0px 0px calc(${props => props.$mainImage ? "0px" : "-100%"});
 
     img {
-        max-width: 100%;
+        width: 100%;
     }
 
     overflow: hidden;
-    align-items: center;
+    align-items: end;
     text-align: center;
     font-size: 13pt;
     @media ${breakpoints.mobile} {
@@ -22,8 +23,8 @@ const StyledImage = styled.div`
     font-style: italic;
 `
 
-function Image({ src, caption }: { src: string, caption?: string }) {
-    return (<StyledImage>
+function Image({ src, caption, mainImage }: { src: string, caption?: string, mainImage?: boolean }) {
+    return (<StyledImage $mainImage={mainImage ?? false}>
         <img src={src} alt={caption} />
         {caption}
     </StyledImage>);

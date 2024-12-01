@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import Sidebar from "./Sidebar/Sidebar";
+import Sidebar from "../Sidebar/Sidebar";
 import ProjectTitle from "./ProjectTitle";
-import Expandable from "./Expandable";
-import { Project } from "../types";
+import Expandable from "../Expandable";
+import { Project } from "../../types";
 import styled from "styled-components";
 
 const StyledPage = styled.div`
@@ -16,10 +16,12 @@ const StyledPage = styled.div`
         flex-direction: column;
         gap: 20px;
 
+        align-items: end;
+
         height: 100%;
         overflow: auto;
 
-        padding: 0px 1000px 0px 80px;
+        padding: 0px 60px 0px 40px;
         scroll-behavior: smooth;
     }
 
@@ -55,6 +57,7 @@ function ProjectPage({ content }: { content: Project }) {
     const headingRefs = useRef<Array<HTMLDivElement | null>>([]);
     const contentsRef = useRef<HTMLDivElement | null>(null);
 
+    const [pageTopOffset, setPageTopOffset] = useState<number | null>(null);
     const [scrollRef, setScrollRef] = useState<HTMLDivElement | null>(null);
 
     useEffect(() => {
@@ -62,16 +65,16 @@ function ProjectPage({ content }: { content: Project }) {
     }, [])
 
     const setActiveHeader = () => {
-        if (!headingRefs.current || !headingRefs.current[0] || !scrollRef) return;
+        if (!headingRefs.current || !scrollRef || !pageTopOffset) return;
         for (let i = 0; i < headingRefs.current.length; i++) {
             let headingRef = headingRefs.current[i];
             let offsetTop = headingRef ? headingRef.offsetTop : 0;
-            if (scrollRef.scrollTop >= offsetTop - headingRefs.current[0].offsetTop) { setActiveHeading(i) };
+            if (scrollRef.scrollTop >= offsetTop - pageTopOffset) { setActiveHeading(i) };
         }
     }
 
     return (<StyledPage>
-        <Sidebar headings={headings} activeHeading={activeHeading} scrollRef={scrollRef} headingRefs={headingRefs.current} />
+        <Sidebar headings={headings} activeHeading={activeHeading} pageTop={pageTopOffset} scrollRef={scrollRef} headingRefs={headingRefs.current} />
         <div className={"projectContents"} ref={contentsRef} onScroll={setActiveHeader}>
             {content.sections.map((section, index) => {
                 if (index === 0) {
@@ -79,17 +82,18 @@ function ProjectPage({ content }: { content: Project }) {
                         <>
                             <ProjectTitle
                                 text={content.title}
-                                subtitle={content.dateRange}
+                                dateRange={content.dateRange}
+                                subtitles={content.subtitles}
+                                summary={content.summary}
+                                media={content.media}
                                 links={content.links}
                                 tags={content.tags}
+                                setPageTop={setPageTopOffset}
                                 ref={el => headingRefs.current[index] = el}
                                 key={index}
                             >
                                 {section.contents}
                             </ProjectTitle>
-                            <div>
-                                {content.media}
-                            </div>
                         </>
 
                     )

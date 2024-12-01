@@ -71,14 +71,14 @@ const projects = [
         title: "SewSustainable",
         url: "sewsustainable",
         image: sewSustainableImg,
-        tags: [ProjectTag.uiux, ProjectTag.engineering],
+        tags: [ProjectTag.uiux],
         content: SewSustainable
     },
     {
         title: "Multimodal Music Accessibility",
         url: "music_accessibility",
         image: multimodalMusicImg,
-        tags: [ProjectTag.engineering, ProjectTag.uiux],
+        tags: [ProjectTag.uiux, ProjectTag.engineering],
         content: MusicAccessibility
     },
     {
@@ -92,7 +92,7 @@ const projects = [
         title: "NASA Diminished Reality",
         url: "diminished_reality",
         image: diminishedRealityImg,
-        tags: [ProjectTag.uiux],
+        tags: [ProjectTag.uiux, ProjectTag.engineering],
         content: DiminishedReality
     },
     {
@@ -106,7 +106,7 @@ const projects = [
         title: "Artistic Swim Auditory Interface",
         url: "auditory_interface",
         image: auditoryInterfaceImg,
-        tags: [ProjectTag.uiux],
+        tags: [ProjectTag.uiux, ProjectTag.engineering],
         content: AuditoryInterface
     },
     {

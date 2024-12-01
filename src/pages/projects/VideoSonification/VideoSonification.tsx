@@ -14,13 +14,14 @@ import { ReactNode } from "react";
 
 const title: string = "Video Sonification";
 const dateRange: string = "Aug–Sep 2023";
+const summary: string = "Summary";
 const links: Array<{ text: string, url: string }> = [
     { text: "front-end GitHub", url: "https://github.com/MyriadRivers/aivf" }
 ];
 const tags: Array<ProjectTag> = [
     ProjectTag.engineering
 ];
-const media: ReactNode = <Video src={demoVideo} />;
+const media: ReactNode = <Video src={demoVideo} mainImage={true}/>;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
@@ -87,6 +88,7 @@ const sections: Array<Section> = [
 const VideoSonification: Project = {
     title: title,
     dateRange: dateRange,
+    summary: summary,
     links: links,
     tags: tags,
     media: media,

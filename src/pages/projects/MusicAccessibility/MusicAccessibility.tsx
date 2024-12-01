@@ -11,11 +11,18 @@ import { ReactNode } from "react";
 
 const title: string = "Multimodal Music Accessibility";
 const dateRange: string = "Jan–May 2023";
+const subtitles = [
+    {title: "Affiliation", text: "Robotic Musicianship Lab @ Georgia Tech"},
+    {title: "Project Lead", text: "Dani Leinwander"},
+    {title: "My Role", text: "Interaction Design, Prototype Engineering"}
+]
+const summary: string = "Summary";
 const links: Array<{ text: string, url: string }> = [];
 const tags: Array<ProjectTag> = [
-    ProjectTag.uiux
+    ProjectTag.uiux,
+    ProjectTag.engineering
 ];
-const media: ReactNode = <Image src={mainImage} />;
+const media: ReactNode = <Image src={mainImage} mainImage={true}/>;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
@@ -170,6 +177,8 @@ const sections: Array<Section> = [
 const MusicAccessibility: Project = {
     title: title,
     dateRange: dateRange,
+    subtitles: subtitles,
+    summary: summary,
     links: links,
     tags: tags,
     media: media,

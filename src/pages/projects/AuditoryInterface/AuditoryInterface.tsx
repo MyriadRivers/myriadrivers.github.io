@@ -12,11 +12,12 @@ import { ReactNode } from "react";
 
 const title: string = "Artistic Swim Audio UI";
 const dateRange: string = "Jan–May 2021";
+const summary: string = "Summary";
 const links: Array<{ text: string, url: string }> = [];
 const tags: Array<ProjectTag> = [
     ProjectTag.uiux
 ];
-const media: ReactNode = <Image src={interfaceImage} />;
+const media: ReactNode = <Image src={interfaceImage} mainImage={true} />;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
@@ -282,6 +283,7 @@ const sections: Array<Section> = [
 const AuditoryInterface: Project = {
     title: title,
     dateRange: dateRange,
+    summary: summary,
     links: links,
     tags: tags,
     media: media,

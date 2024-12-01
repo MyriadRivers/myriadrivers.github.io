@@ -11,6 +11,7 @@ import { ReactNode } from "react";
 
 const title: string = "Orb Weaver";
 const dateRange: string = "Apr 2023";
+const summary: string = "Summary";
 const links: Array<{ text: string, url: string }> = [
     { text: "try it!", url: "https://myriadrivers.github.io/orb-weaver/" },
     { text: "GitHub", url: "https://github.com/MyriadRivers/orb-weaver" },
@@ -18,7 +19,7 @@ const links: Array<{ text: string, url: string }> = [
 const tags: Array<ProjectTag> = [
     ProjectTag.engineering, ProjectTag.fun
 ];
-const media: ReactNode = <Image src={mainImage} />;
+const media: ReactNode = <Image src={mainImage} mainImage={true}/>;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
@@ -117,6 +118,7 @@ const sections: Array<Section> = [
 const OrbWeaver: Project = {
     title: title,
     dateRange: dateRange,
+    summary: summary,
     links: links,
     tags: tags,
     media: media,

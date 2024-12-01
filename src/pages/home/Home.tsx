@@ -7,108 +7,100 @@ import jason5 from "../../assets/images/jason5.png"
 import jason6 from "../../assets/images/jason6.png"
 import jason7 from "../../assets/images/jason7.png"
 import breakpoints from "../../styles/breakpoints";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import LinkList from "../../components/LinkList";
 
 import resumePath from "../../assets/files/resume.pdf";
+import Link from "../../components/Link";
 
 const jasonImages = [jason, jason2, jason3, jason4, jason5, jason6, jason7];
 
 const StyledHome = styled.div`
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
+
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+
     overflow: auto;
+
+
+    gap: 40px;
     
     @media ${breakpoints.mobile} {
         flex-direction: column;
     }
 
     .homeText {
+        width: 100%;
+
         display: flex;
         flex-direction: column;
-        gap: 1em;
+        gap: 20px;
 
-        font-size: calc(20pt + 1vw);
-
-        @media ${breakpoints.mobile} {
-            flex: 0 0 auto;
-        }
-
+        overflow: auto;
+        /* padding-right: 60px; */
         margin: auto;
-        overflow: none;
+        padding: 20px 60px 20px 40px;
+    }
 
-        @media ${breakpoints.mobile} {
-            margin: 0;
-        }
+    .homeHeader {
+        font-size: calc(20pt + 1vw);
     }
 
     .jasonImageContainer {
+        width: 140%;
         @media ${breakpoints.mobile} {
             flex: 1 1 auto;
         }
         
-        min-width: 40%;
+        height: 100%;
         display: flex;
-        overflow: hidden;
     }
 
     .jasonImage {
+        cursor: help;
         margin: auto;
-        max-width: 100%;
-        max-height: 100%;
-    }
 
-    .homeLinks {
-        font-size: calc(10pt + 1vw);
+        height: 100%;
+        width: auto;
+        
     }
 `
 
 const links = [
     { text: "résumé", url: resumePath },
     { text: "LinkedIn", url: "https://www.linkedin.com/in/jasoncgao/" },
-    { text: "GitHub", url: "https://github.com/MyriadRivers" }
+    { text: "GitHub", url: "https://github.com/MyriadRivers" },
+    { text: "email", url: "mailto:jasongao678+careers@gmail.com"}
 ]
 
 function Home() {
-    const homeRef = useRef<HTMLDivElement>(null);
-    const imgRef = useRef<HTMLImageElement>(null);
-    const imgContainerRef = useRef<HTMLDivElement>(null);
+    const [portraitID, setPortraitID] = useState<number>(Math.floor(Math.random() * jasonImages.length));
 
-    useEffect(() => {
-        const resizeImg = () => {
-            if (!imgRef.current || !imgContainerRef.current || !homeRef.current) return;
-
-            if (imgRef.current.height > imgContainerRef.current.clientHeight) {
-                imgRef.current.height = imgContainerRef.current.clientHeight;
-            }
-
+    const swapPortrait = () => {
+        let newID = Math.floor(Math.random() * jasonImages.length);
+        while (newID === portraitID) {
+            newID = Math.floor(Math.random() * jasonImages.length);
         }
-        window.addEventListener("resize", resizeImg);
-        window.dispatchEvent(new Event("resize"));
+        setPortraitID(newID);
+    }
 
-        return () => {
-            window.removeEventListener("resize", resizeImg);
-        }
-    }, [])
-
-    return (<StyledHome ref={homeRef}>
-        <div className={"homeText"}>
-            <p>
-
-                UX<br />
-                Researcher, <br />Designer, <br />Engineer.
-            </p>
-            <p>
-                I'm Jason, excited to meet you.
-            </p>
-            <div className={"homeLinks"}>
-                <LinkList links={links} />
-            </div>
+    return (<StyledHome>
+        <div className={"jasonImageContainer"}>
+            {/* <img className={"jasonImage"} onClick={swapPortrait} src={jasonImages[portraitID]} alt={"Self portrait of me!"}/> */}
         </div>
-        <div className={"jasonImageContainer"} ref={imgContainerRef}>
-            <img className={"jasonImage"} src={jasonImages[Math.floor(Math.random() * jasonImages.length)]} alt={"Self portrait of me!"} ref={imgRef} />
+        <div className={"homeText"}>
+            <div className={"homeHeader"}>
+                Simple, usable, delightful.
+            </div>
+            <p>
+                I'm Jason, a UX researcher and creative engineer passionate about making people's lives more enjoyable.
+            </p>
+            <p>
+                Excited to meet you.
+            </p>
+            {/* <LinkList links={links} /> */}
         </div>
     </StyledHome>);
 }

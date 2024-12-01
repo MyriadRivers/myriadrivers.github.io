@@ -12,6 +12,7 @@ import SoundCloudLarge from "../../../components/SoundCloudLarge";
 
 const title: string = "Voicemail";
 const dateRange: string = "Mar 2022";
+const summary: string = "Summary";
 const links: Array<{ text: string, url: string }> = [
     { text: "front-end GitHub", url: "https://github.com/MyriadRivers/aivf" }
 ];
@@ -82,6 +83,7 @@ const sections: Array<Section> = [
 const Voicemail: Project = {
     title: title,
     dateRange: dateRange,
+    summary: summary,
     links: links,
     tags: tags,
     media: media,

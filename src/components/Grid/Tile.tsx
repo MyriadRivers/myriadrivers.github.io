@@ -15,12 +15,12 @@ const StyledTile = styled.div`
 
     .tileImage {
         aspect-ratio: 1/1;
-        width: 100%;
+        width: 100%;    
         outline: 2px solid;
-        
-        &:hover {
-            outline-style: dashed;
-        }
+    }
+
+    .tileContents:hover .tileImage {
+        outline-style: dashed;
     }
 
     .tileTags {
@@ -31,13 +31,6 @@ const StyledTile = styled.div`
         gap: 10px;
 
         pointer-events: none;
-    }
-
-    .tileContents {
-        &:hover {
-            color: ${props => props.theme.accent};
-            letter-spacing: ${props => props.theme.type === "monochrome" ? "2px" : "normal"};
-        }
     }
 
     a {

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import breakpoints from "../../styles/breakpoints";
-import { useEffect, useState } from "react";
 import SideBarElement from "./SideBarElement";
 
 const StyledSidebar = styled.div`
     display: flex;
+    width: 20%;
 
     @media ${breakpoints.mobile} {
         display: none;
@@ -26,17 +26,17 @@ const StyledSidebar = styled.div`
     }
 `
 
-function Sidebar({ headings, activeHeading, scrollRef, headingRefs }:
-    { headings: Array<string>, activeHeading: number, scrollRef: HTMLDivElement | null, headingRefs: Array<HTMLDivElement | null> }) {
+function Sidebar({ headings, activeHeading, pageTop, scrollRef, headingRefs }:
+    { headings: Array<string>, activeHeading: number, pageTop: number | null, scrollRef: HTMLDivElement | null, headingRefs: Array<HTMLDivElement | null> }) {
 
     const scrollTo = (element: HTMLElement | null) => {
-        if (element && scrollRef && headingRefs[0]) {
-            scrollRef.scrollTop = element.offsetTop - headingRefs[0].offsetTop;
+        if (element && scrollRef && headingRefs[0] && pageTop) {
+            scrollRef.scrollTop = element.offsetTop - pageTop;
         }
     }
 
     return (<StyledSidebar>
-        <div className="sidebarContent" onScroll={() => console.log("oof")}>
+        <div className="sidebarContent">
             {headings.map((heading, index) => (
                 <SideBarElement text={heading} active={
                     activeHeading === index

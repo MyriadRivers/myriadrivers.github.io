@@ -4,7 +4,8 @@ import { ReactNode } from "react";
 
 const StyledNavOption = styled.div<{ $active: boolean }>`
     font-family: ${props => props.theme.headerFont};
-    font-size: calc(10pt + 1vw);
+    font-size: calc(min(5pt + 2vw, 16pt));
+    transform: translate3d(0,0,0);
     
     @media ${breakpoints.laptop} {
         font-size: calc(7.5pt + 1vw);
@@ -19,6 +20,17 @@ const StyledNavOption = styled.div<{ $active: boolean }>`
 
     color: ${props => props.$active ? props.theme.main : props.theme.alt};
     background: ${props => props.$active ? props.theme.alt : props.theme.main};
+    box-sizing: border-box;
+
+    &:hover {
+        color: ${props => props.theme.main};
+        background: ${props => props.theme.alt};
+        border-color: ${props => props.theme.main};
+        /* color: ${props => props.theme.type === "monochrome" ?
+        "" :
+        props.$active ? "" : props.theme.accent}; */
+    }
+    
 
     box-sizing: border-box;
     
@@ -38,12 +50,6 @@ const StyledNavOption = styled.div<{ $active: boolean }>`
     .text {
         padding: 5px 10px 5px 10px;
         margin-right: -5pt;
-
-        &:hover {
-            color: ${props => props.theme.type === "monochrome" ?
-        "" :
-        props.$active ? "" : props.theme.accent};
-        }
     }
 `
 

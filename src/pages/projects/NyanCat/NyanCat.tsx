@@ -14,6 +14,7 @@ import SoundCloudLarge from "../../../components/SoundCloudLarge";
 
 const title: string = "Nyan Cat (Remix)";
 const dateRange: string = "Feb 2021";
+const summary: string = "Summary";
 const links: Array<{ text: string, url: string }> = [{ text: "YouTube", url: "https://www.youtube.com/watch?v=ENX0IeDVcl8" }];
 const tags: Array<ProjectTag> = [
     ProjectTag.uiux
@@ -69,6 +70,7 @@ const sections: Array<Section> = [
 const NyanCat: Project = {
     title: title,
     dateRange: dateRange,
+    summary: summary,
     links: links,
     tags: tags,
     media: media,

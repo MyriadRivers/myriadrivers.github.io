@@ -10,13 +10,14 @@ import { ReactNode } from "react";
 
 const title: string = "Sync or Sink";
 const dateRange: string = "Jun 2017–Dec 2019";
+const summary: string = "Summary";
 const links: Array<{ text: string, url: string }> = [
     { text: "play the demo!", url: "https://amarantgames.itch.io/sync-or-sink-dreamhack-demo" }
 ];
 const tags: Array<ProjectTag> = [
     ProjectTag.fun
 ];
-const media: ReactNode = <Image src={mainImage} />;
+const media: ReactNode = <Image src={mainImage} mainImage={true}/>;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
@@ -58,6 +59,7 @@ const sections: Array<Section> = [
 const SyncOrSink: Project = {
     title: title,
     dateRange: dateRange,
+    summary: summary,
     links: links,
     tags: tags,
     media: media,

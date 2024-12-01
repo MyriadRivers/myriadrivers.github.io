@@ -7,6 +7,9 @@ const StyledCanvas = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 20px;
+
+    margin-left: -100%;
+
     canvas {
         border: solid;
     }

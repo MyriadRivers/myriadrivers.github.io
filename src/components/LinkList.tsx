@@ -10,12 +10,16 @@ const StyledLinkList = styled.div`
     }
 
     .individualLink {
-        border: solid;
-        padding: 5px 10px;
+        /* border: solid; */
+        /* padding: 5px 10px; */
+        text-underline-offset: 0.5rem;
+        text-decoration-thickness: 3px;
+        text-decoration: underline;
 
         &:hover {
-            font-style: ${props => props.theme.type === "monochrome" ? "italic" : ""};
-            border: dashed;
+            /* font-style: ${props => props.theme.type === "monochrome" ? "italic" : ""}; */
+            /* border: dashed; */
+            text-decoration-style: dashed;
         }
     }
 

@@ -6,13 +6,15 @@ const StyledHeading = styled.div<{ $level: number }>`
     display: flex;
     flex-direction: column;
 
-    font-family: ${props => props.theme.headerFont};
+    font-family: ${props => props.theme.bodyFont};
+    font-weight: bold;
 
-    font-size: ${props => 3 - (props.$level * .5)}em;
-    text-transform: uppercase;
-    letter-spacing: 6pt;
+    /* font-size: ${props => 3 - (props.$level * .5)}em; */
+    font-size: 1.25em;  
+    /* text-transform: uppercase;font-size: 1.25em; */
+    /* letter-spacing: 6pt; */
 
-    padding: 15px 0px;
+    /* padding: 15px 0px; */
     /* padding: 10px 100px 10px 100px; */
     
     @media ${breakpoints.mobile} {
