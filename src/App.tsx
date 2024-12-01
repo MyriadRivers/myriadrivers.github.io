@@ -24,13 +24,14 @@ const StyledApp = styled.div`
   height: 100%;
  
   box-sizing: border-box;
-  padding: 20px 60px 20px 60px;
+  padding: 30px 60px 20px 60px;
 
   margin: auto;
 
   .websiteTitleContainer {
     width: 100%;
     display: flex;
+    gap: 20px;
     align-items: center;
   }
 

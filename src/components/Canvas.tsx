@@ -93,6 +93,8 @@ function Canvas({ children }: { children: ReactNode }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
 
+  const firstCircles = useRef<boolean>(false);
+
   const mouseHeldDown = useRef<boolean>(false);
   const prevMousePos = useRef<Point>({ x: 0, y: 0 });
 
@@ -214,7 +216,7 @@ function Canvas({ children }: { children: ReactNode }) {
     const newCircle: Circle = new Circle(
       event.x,
       event.y,
-      Math.floor(Math.random() * (ctx.canvas.width / 7)),
+      Math.floor(Math.random() * ((ctx.canvas.width / 7) - 25)) + 25,
       randColor()
     );
     circles.current.push(newCircle);
@@ -321,6 +323,22 @@ function Canvas({ children }: { children: ReactNode }) {
   }
 
   const mouseMoveHandler = (e: MouseEvent) => {
+    // Draw some circles on the first page to fill in the empty space on the left
+    if (ctxRef.current && canvasRef.current && !firstCircles.current) {
+      const w = canvasRef.current.width;
+      const h = canvasRef.current.height;
+
+      for (let i = 0; i < 3; i++) {
+        let autoCircle = new MouseEvent("click", {
+          bubbles: true,
+          cancelable: true,
+          clientX: fuzz((w / 4) + (i % 2 === 0 ? i : i * (w / 10)), 0.1),
+          clientY: fuzz((h * 2 / 5) + (i * (h / 7)), 0.05)
+        })
+        randCircle(ctxRef.current, autoCircle);
+      }
+      firstCircles.current = true;
+    }
     if (mouseHeldDown.current && ctxRef.current) {
       const currPos = { x: e.x, y: e.y };
       const dist = Math.sqrt(
