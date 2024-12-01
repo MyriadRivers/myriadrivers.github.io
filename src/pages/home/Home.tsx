@@ -12,6 +12,8 @@ import LinkList from "../../components/LinkList";
 
 import resumePath from "../../assets/files/resume.pdf";
 import Link from "../../components/Link";
+import Tile from "../../components/Grid/Tile";
+import { projects } from "../../routes";
 
 const jasonImages = [jason, jason2, jason3, jason4, jason5, jason6, jason7];
 
@@ -56,6 +58,16 @@ const StyledHome = styled.div`
         
         height: 100%;
         display: flex;
+        overflow: hidden;
+    }
+
+    .homeTileContainer {
+        /* background: pink; */
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .jasonImage {
@@ -89,6 +101,9 @@ function Home() {
     return (<StyledHome>
         <div className={"jasonImageContainer"}>
             {/* <img className={"jasonImage"} onClick={swapPortrait} src={jasonImages[portraitID]} alt={"Self portrait of me!"}/> */}
+            {/* <div className={"homeTileContainer"}>
+                <Tile title={projects[0].title} url={projects[0].url} image={projects[0].image} tags={projects[0].tags} cropped/>
+            </div> */}
         </div>
         <div className={"homeText"}>
             <div className={"homeHeader"}>

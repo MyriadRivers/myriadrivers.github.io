@@ -23,6 +23,7 @@ const StyledGrid = styled.div`
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 15px;
         overflow: auto;
+        padding: 0px 20px; 
     }
 
     margin: auto;

@@ -28,6 +28,16 @@ const StyledApp = styled.div`
 
   margin: auto;
 
+  .websiteTitleContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .navbarContainer {
+    width: 100%;
+  }
+
   .centerContainer {
     height: 100%;
     overflow: hidden;
@@ -57,12 +67,15 @@ function App() {
       <Canvas>
         <StyledApp>
           <GlobalStyle />
-          <div>
+          <div className={"websiteTitleContainer"}>
             <Title />
+            <div className={"navbarContainer"}>
+              <Navbar links={navRoutes.map(route => (route.path))} />
+            </div>
           </div>
           <div className={"centerContainer"}>
             <div className="outletContainer">
-              <Navbar links={navRoutes.map(route => (route.path))} />
+              
               <Outlet />
             </div>
           </div>

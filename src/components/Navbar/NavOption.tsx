@@ -29,6 +29,7 @@ const StyledNavOption = styled.div<{ $active: boolean }>`
         /* color: ${props => props.theme.type === "monochrome" ?
         "" :
         props.$active ? "" : props.theme.accent}; */
+        box-shadow: 1px 0px 0px 0px ${props => props.theme.alt};
     }
     
 

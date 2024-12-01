@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Tag from "./Tag";
 import { ProjectTag } from "../../types";
 
-const StyledTile = styled.div`
+const StyledTile = styled.div<{$cropped: boolean}>`
     font-size: 16pt;
     max-width: 100%;
 
@@ -17,6 +17,17 @@ const StyledTile = styled.div`
         aspect-ratio: 1/1;
         width: 100%;    
         outline: 2px solid;
+    }
+
+    .tileContainer {
+        overflow: ${props => props.$cropped ? "hidden" : "visible"};
+        height: ${props => props.$cropped ? "60vh" : "auto"};
+    }
+
+    .tileContents {
+        display: flex;
+        flex-direction: column;
+        gap: ${props => props.$cropped ? "10px" : "0px"};
     }
 
     .tileContents:hover .tileImage {
@@ -38,11 +49,13 @@ const StyledTile = styled.div`
     }
 `
 
-function Tile({ title, url, image, tags }: { title: string, url: To, image: string, tags: Array<ProjectTag> }) {
+function Tile({ title, url, image, tags, cropped }: { title: string, url: To, image: string, tags: Array<ProjectTag>, cropped?: boolean }) {
     return (
-        <StyledTile>
+        <StyledTile $cropped={cropped ?? false}>
             <Link to={url} className={"tileContents"}>
-                <img src={image} className={"tileImage"} alt={title}></img>
+                <div className={"tileContainer"}>
+                    <img src={image} className={"tileImage"} alt={title}></img>
+                </div>
                 {title}
             </Link>
             <div className={"tileTags"}>

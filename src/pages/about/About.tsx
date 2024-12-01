@@ -40,6 +40,7 @@ const StyledAbout = styled.div`
 
         overflow: auto;
         /* padding-right: 60px; */
+        margin: auto;
         padding: 20px 60px 20px 40px;
     }
 

@@ -13,6 +13,7 @@ import umbrella from "../assets/sounds/umbrella.wav";
 import drain from "../assets/sounds/drain.wav";
 import storm from "../assets/sounds/storm.wav";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const StyledTitle = styled.div`
     font-family: ${props => props.theme.headerFont};
@@ -32,6 +33,10 @@ const StyledTitle = styled.div`
         &:hover {
             cursor: pointer;
         }
+    }
+
+    .homeLink {
+        display: flex;
     }
     
     text-transform: uppercase;
@@ -72,9 +77,11 @@ function Title() {
 
     return (
         <StyledTitle>
-            Jason
-            <img src={riverImage} className={"river"} alt={"川"} onClick={playWater} style={{ filter: playing ? "brightness(120%)" : "brightness(100%)" }} />
-            Gao
+            <Link to={"/home"} className="homeLink">
+                Jason
+                <img src={riverImage} className={"river"} alt={"川"} onClick={playWater} style={{ filter: playing ? "brightness(120%)" : "brightness(100%)" }} />
+                Gao
+            </Link>
         </StyledTitle>);
 }
 

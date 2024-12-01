@@ -9,11 +9,13 @@ import riverImage from "../../assets/images/river.png";
 import menuIcon from "../../assets/icons/menu.png";
 
 const StyledNavbar = styled.div<{ $open: boolean }>` 
+    width: 100%;
     background: ${props => props.theme.main};
     /* justify-content: space-between; */
-    justify-content: center;
-    gap: 100px;
+    justify-content: end;
+    gap: 40px;
     display: flex;
+    align-items: center;
     position: relative;
     mix-blend-mode: multiply;
 
