@@ -21,7 +21,7 @@ const links: Array<{ text: string, url: string }> = [
 const tags: Array<ProjectTag> = [
     ProjectTag.engineering
 ];
-const media: ReactNode = <Video src={demoVideo} mainImage={true}/>;
+const media: ReactNode = <Video src={demoVideo} mainImage={true} />;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
@@ -90,7 +90,6 @@ const VideoSonification: Project = {
     dateRange: dateRange,
     summary: summary,
     links: links,
-    tags: tags,
     media: media,
     sections: sections
 }

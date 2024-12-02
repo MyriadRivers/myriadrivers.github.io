@@ -19,7 +19,6 @@ interface Project {
     subtitles?: Array<{ title: string, text: string }>,
     summary: string,
     links: Array<{ text: string, url: string }>,
-    tags: Array<ProjectTag>,
     media: ReactNode,
     sections: Array<Section>
 }

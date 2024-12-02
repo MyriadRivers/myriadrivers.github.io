@@ -285,7 +285,6 @@ const AuditoryInterface: Project = {
     dateRange: dateRange,
     summary: summary,
     links: links,
-    tags: tags,
     media: media,
     sections: sections
 }

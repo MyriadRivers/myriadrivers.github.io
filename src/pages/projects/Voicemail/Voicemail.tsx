@@ -18,9 +18,6 @@ const subtitles = [
 const summary: string = "A programmatic piece performed with Arduino";
 const links: Array<{ text: string, url: string }> = [
 ];
-const tags: Array<ProjectTag> = [
-    ProjectTag.engineering
-];
 const media: ReactNode = <SoundCloudSmall
     artist={"Jason Gao"}
     track={"Voicemail"}
@@ -79,7 +76,6 @@ const Voicemail: Project = {
     subtitles: subtitles,
     summary: summary,
     links: links,
-    tags: tags,
     media: media,
     sections: sections
 }

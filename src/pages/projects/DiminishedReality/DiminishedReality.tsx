@@ -19,7 +19,7 @@ const tags: Array<ProjectTag> = [
     ProjectTag.uiux,
     ProjectTag.engineering
 ];
-const media: ReactNode = <Image src={mainImage} mainImage={true}/>;
+const media: ReactNode = <Image src={mainImage} mainImage={true} />;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
@@ -119,7 +119,6 @@ const DiminishedReality: Project = {
     dateRange: dateRange,
     summary: summary,
     links: links,
-    tags: tags,
     media: media,
     sections: sections
 }

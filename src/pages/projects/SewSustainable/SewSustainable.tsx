@@ -13,7 +13,7 @@ import { ReactNode } from "react";
 const title: string = "SewSustainable";
 const dateRange: string = "Mar–Apr 2023";
 const subtitles = [
-    {title: "Team", text: "Jason Gao, Marissa Gardner, Naz Ozturk, Spencer Kim"}
+    { title: "Team", text: "Jason Gao, Marissa Gardner, Naz Ozturk, Spencer Kim" }
 ]
 const summary: string = "Summary";
 const links: Array<{ text: string, url: string }> = [
@@ -22,7 +22,7 @@ const links: Array<{ text: string, url: string }> = [
 const tags: Array<ProjectTag> = [
     ProjectTag.uiux
 ];
-const media: ReactNode = <Image src={mainImage} mainImage={true}/>;
+const media: ReactNode = <Image src={mainImage} mainImage={true} />;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
@@ -330,7 +330,6 @@ const SewSustainable: Project = {
     subtitles: subtitles,
     summary: summary,
     links: links,
-    tags: tags,
     media: media,
     sections: sections
 }

@@ -12,7 +12,7 @@ const title: string = "Sync or Sink";
 const dateRange: string = "Jun 2017 – Dec 2019";
 const subtitles = [
     { title: "Team", text: "Jason Gao, Sean Choi, Alice Hayes, Angie Chen, Catherine Sun, William Choi" },
-    { title: "My Role", text: "Development of dialogue system, illustration of level editor and title screen, composition of 90% of music" },
+    { title: "My Role", text: "Music Composition, Engineering, some Illustration" },
     { title: "Tools", text: "C#, Unity, FL Studio, Adobe Photoshop" }
 ]
 const summary: string = "A rhythm game about artistic swimming!";
@@ -67,7 +67,6 @@ const SyncOrSink: Project = {
     subtitles: subtitles,
     summary: summary,
     links: links,
-    tags: tags,
     media: media,
     sections: sections
 }

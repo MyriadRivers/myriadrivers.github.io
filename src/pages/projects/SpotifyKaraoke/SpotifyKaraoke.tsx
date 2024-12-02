@@ -1,4 +1,4 @@
-import { Project, ProjectTag, Section } from "../../../types";
+import { Project, Section } from "../../../types";
 import Image from "../../../components/Image";
 
 import pipelineImage from "./spotify_karaoke_pipeline.png";
@@ -11,15 +11,15 @@ import Video from "../../../components/Video";
 import { ReactNode } from "react";
 
 const title: string = "Spotify Karaoke";
-const dateRange: string = "Aug–Dec 2023";
+const dateRange: string = "Aug – Dec 2023";
+const subtitles = [
+    { title: "Tools", text: "TypeScript, Python, React.js, Docker, AWS" }
+]
 const summary: string = "Word-level animated karaoke tracks for songs on Spotify";
 const links: Array<{ text: string, url: string }> = [
     { text: "demo", url: "https://jasoncgao.com/spotify-karaoke/" },
     { text: "front-end GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke" },
     { text: "back-end GitHub", url: "https://github.com/MyriadRivers/spotify-karaoke-generation" }
-];
-const tags: Array<ProjectTag> = [
-    ProjectTag.engineering
 ];
 const media: ReactNode = <Video src={demoVideo} caption="Excuse my singing." mainImage={true} />;
 const sections: Array<Section> = [
@@ -293,9 +293,9 @@ const sections: Array<Section> = [
 const SpotifyKaraoke: Project = {
     title: title,
     dateRange: dateRange,
+    subtitles: subtitles,
     summary: summary,
     links: links,
-    tags: tags,
     media: media,
     sections: sections
 }

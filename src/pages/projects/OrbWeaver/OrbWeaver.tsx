@@ -129,7 +129,6 @@ const OrbWeaver: Project = {
     subtitles: subtitles,
     summary: summary,
     links: links,
-    tags: tags,
     media: media,
     sections: sections
 }

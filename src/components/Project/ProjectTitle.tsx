@@ -50,12 +50,13 @@ const StyledProjectTitle = styled.div`
         }
         
         text-transform: uppercase;
-        letter-spacing: 6pt;
+        letter-spacing: 0.25rem;
         
     }
 
     .title {
         display: flex;
+        font-weight: bold;
     }
 
     .subtitleContainer {
@@ -67,6 +68,7 @@ const StyledProjectTitle = styled.div`
     .titleSummary {
         font-weight: bold;
         font-size: 1.25em;
+        line-height: 1.5em;
     }
 
     .dateRange {

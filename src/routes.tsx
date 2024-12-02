@@ -3,7 +3,7 @@ import About from "./pages/about/About"
 import Home from "./pages/home/Home"
 
 import troovImg from "./assets/images/troov.png"
-import ejImage from "./assets/images/ej_affinity.png"
+import dashboardImg from "./assets/images/dashboard.png"
 import spotifyKaraokeImg from "./assets/images/spotify_karaoke.png"
 import videoSonificationImg from "./assets/images/video_sonification.png"
 import sewSustainableImg from "./assets/images/sewsustainable.png"
@@ -14,6 +14,7 @@ import syncOrSinkImg from "./assets/images/sync_or_sink.png"
 import diminishedRealityImg from "./assets/images/diminished_reality.png";
 import voicemailImg from "./assets/images/voicemail.png";
 import auditoryInterfaceImg from "./assets/images/auditory_interface.png";
+import websiteImg from "./assets/images/website.png"
 
 import SpotifyKaraoke from "./pages/projects/SpotifyKaraoke/SpotifyKaraoke"
 import VideoSonification from "./pages/projects/VideoSonification/VideoSonification"
@@ -27,6 +28,9 @@ import SyncOrSink from "./pages/projects/SyncOrSink/SyncOrSink"
 import AuditoryInterface from "./pages/projects/AuditoryInterface/AuditoryInterface"
 
 import { Project, ProjectTag } from "./types"
+import Troov from "./pages/projects/Troov/Troov"
+import Dashboard from "./pages/projects/Dashboard/Dashboard"
+import Website from "./pages/projects/Website/Website"
 
 interface ProjectInfo {
     title: string,
@@ -54,11 +58,32 @@ const navRoutes = [
 
 const projects = [
     {
+        title: "Meetup App Safety",
+        url: "troov",
+        image: troovImg,
+        tags: [ProjectTag.uiux],
+        content: Troov
+    },
+    {
+        title: "Environmental Justice Dashboard",
+        url: "dashboard",
+        image: dashboardImg,
+        tags: [ProjectTag.uiux],
+        content: Dashboard
+    },
+    {
         title: "Spotify Karaoke",
         url: "spotify_karaoke",
         image: spotifyKaraokeImg,
         tags: [ProjectTag.engineering],
         content: SpotifyKaraoke
+    },
+    {
+        title: "Personal Website",
+        url: "website",
+        image: websiteImg,
+        tags: [ProjectTag.engineering, ProjectTag.fun],
+        content: Website
     },
     // {
     //     title: "Video Sonification",
