@@ -52,6 +52,9 @@ const StyledAbout = styled.div`
         /* padding-right: 60px; */
         margin: auto;
         padding: 20px 60px 20px 40px;
+        @media ${breakpoints.mobile} {
+            padding: 0px; 
+        }
     }
 
     .aboutHeader {

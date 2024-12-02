@@ -24,6 +24,9 @@ const StyledPage = styled.div`
         overflow: auto;
 
         padding: 0px 60px 0px 40px;
+        @media ${breakpoints.mobile} {
+            padding: 0px; 
+        }
 
         scroll-behavior: smooth;
     }
