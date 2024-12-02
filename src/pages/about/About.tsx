@@ -81,6 +81,15 @@ const StyledAbout = styled.div`
         width: auto;
         
     }
+
+    .bottomSpace {
+        display: none;
+
+        @media ${breakpoints.mobile} {
+            display: inline-block;      
+        }
+        min-height: 100px;
+    }
 `
 
 const links = [
@@ -123,6 +132,7 @@ function About() {
                     In my free time, you might catch me making music, coding a personal project, or looking for bugs outside.
                 </p>
                 <LinkList links={links} />
+                <div className={"bottomSpace"} />
             </div>
         </div>
     </StyledAbout>);

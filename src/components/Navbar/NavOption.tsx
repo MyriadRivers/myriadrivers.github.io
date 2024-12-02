@@ -5,12 +5,14 @@ import { ReactNode } from "react";
 const StyledNavOption = styled.div<{ $active: boolean }>`
     font-family: ${props => props.theme.headerFont};
     font-size: calc(min(5pt + 2vw, 16pt));
+
     transform: translate3d(0,0,0);
 
     text-transform: uppercase;
     letter-spacing: 6pt;
 
     @media ${breakpoints.laptop} {
+        font-size: 18pt;
         letter-spacing: 4pt;
     }
 

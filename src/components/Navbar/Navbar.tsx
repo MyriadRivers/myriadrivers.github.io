@@ -45,8 +45,7 @@ const StyledNavbar = styled.div<{ $open: boolean }>`
     .homeLink {
         /* background: pink; */
         font-family: ${props => props.theme.headerFont};
-        font-size: 2rem;
-        letter-spacing: 0.25rem;
+        font-size: 42pt;
         line-height: 1.65em;
 
         margin-top: -.4em;
@@ -58,9 +57,34 @@ const StyledNavbar = styled.div<{ $open: boolean }>`
         overflow: hidden;
     }
 
+    .homeDomLink {
+        width: 100%;
+        display: flex;
+    }
+
+    .mobileName {
+        width: 100%;
+        font-size: 40pt;
+        letter-spacing: 0.25rem;
+
+        @media ${breakpoints.xs} {
+            font-size: 15pt;
+            display: flex;
+            flex-direction: column;
+            line-height: 15pt;
+            justify-content: end;
+            margin-bottom: -2px;
+        }
+
+        display: flex;
+        flex-direction: row;
+        gap: 0.3em;
+    }
+
     .riverLogo {
         height: 90%;
         margin-right: 20px;
+        margin-top: 0.11em;
     }
 
     .menuIcon {
@@ -115,9 +139,9 @@ function Navbar({ links }: { links: Array<string> }) {
                     <Link to={links[0]} onClick={() => {
                         setOpen(false);
                         setActive(0);
-                    }}>
+                    }} className={"homeDomLink"}>
                         <img src={riverImage} alt={"Jason Gao"} className={"riverLogo"} />
-                        JASON GAO
+                        <div className={"mobileName"}><div>JASON</div><div>GAO</div></div>
                     </Link>
                 </div>
             </div>
