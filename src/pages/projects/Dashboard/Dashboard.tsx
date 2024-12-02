@@ -8,7 +8,7 @@ import Link from "../../../components/Link";
 
 import researchSlides from "../../../assets/files/ux_research_environmental_justice.pdf";
 
-const title: string = "Meetup App Safety";
+const title: string = "Environmental Justice Dashboard";
 const dateRange: string = "Aug – Dec 2024";
 const subtitles = [
     { title: "Team", text: "Jason Gao, Shareen Chang, Madison Steinau, Xinxuyang Zhao" },

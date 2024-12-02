@@ -4,6 +4,7 @@ import { To } from "react-router-dom";
 import { useState, useEffect } from "react"
 import Tag from "./Tag";
 import { ProjectTag } from "../../types";
+import breakpoints from "../../styles/breakpoints";
 
 const StyledGrid = styled.div`
     position: relative;
@@ -21,9 +22,16 @@ const StyledGrid = styled.div`
     .grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        @media ${breakpoints.mobile} {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
         gap: 20px;
         overflow: auto;
         padding: 0px 20px; 
+
+        @media ${breakpoints.mobile} {
+            padding: 0px; 
+        }
     }
 
     margin: auto;

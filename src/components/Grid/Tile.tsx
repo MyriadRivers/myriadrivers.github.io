@@ -2,8 +2,9 @@ import { Link, To } from "react-router-dom";
 import styled from "styled-components";
 import Tag from "./Tag";
 import { ProjectTag } from "../../types";
+import breakpoints from "../../styles/breakpoints";
 
-const StyledTile = styled.div<{$cropped: boolean}>`
+const StyledTile = styled.div<{ $cropped: boolean }>`
     font-size: 16pt;
     max-width: 100%;
 
@@ -12,6 +13,10 @@ const StyledTile = styled.div<{$cropped: boolean}>`
     gap: 10px;
 
     padding: 10px;
+
+    /* @media ${breakpoints.mobile} {
+        padding: 0px; 
+    } */
 
     .tileImage {
         aspect-ratio: 1/1;
