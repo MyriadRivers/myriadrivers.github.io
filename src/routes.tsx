@@ -60,27 +60,27 @@ const projects = [
         tags: [ProjectTag.engineering],
         content: SpotifyKaraoke
     },
-    {
-        title: "Video Sonification",
-        url: "video_sonification",
-        image: videoSonificationImg,
-        tags: [ProjectTag.engineering],
-        content: VideoSonification
-    },
-    {
-        title: "SewSustainable",
-        url: "sewsustainable",
-        image: sewSustainableImg,
-        tags: [ProjectTag.uiux],
-        content: SewSustainable
-    },
-    {
-        title: "Multimodal Music Accessibility",
-        url: "music_accessibility",
-        image: multimodalMusicImg,
-        tags: [ProjectTag.uiux, ProjectTag.engineering],
-        content: MusicAccessibility
-    },
+    // {
+    //     title: "Video Sonification",
+    //     url: "video_sonification",
+    //     image: videoSonificationImg,
+    //     tags: [ProjectTag.engineering],
+    //     content: VideoSonification
+    // },
+    // {
+    //     title: "SewSustainable",
+    //     url: "sewsustainable",
+    //     image: sewSustainableImg,
+    //     tags: [ProjectTag.uiux],
+    //     content: SewSustainable
+    // },
+    // {
+    //     title: "Multimodal Music Accessibility",
+    //     url: "music_accessibility",
+    //     image: multimodalMusicImg,
+    //     tags: [ProjectTag.uiux, ProjectTag.engineering],
+    //     content: MusicAccessibility
+    // },
     {
         title: "Orb Weaver",
         url: "orb_weaver",
@@ -88,13 +88,13 @@ const projects = [
         tags: [ProjectTag.engineering, ProjectTag.fun],
         content: OrbWeaver
     },
-    {
-        title: "NASA Diminished Reality",
-        url: "diminished_reality",
-        image: diminishedRealityImg,
-        tags: [ProjectTag.uiux, ProjectTag.engineering],
-        content: DiminishedReality
-    },
+    // {
+    //     title: "NASA Diminished Reality",
+    //     url: "diminished_reality",
+    //     image: diminishedRealityImg,
+    //     tags: [ProjectTag.uiux, ProjectTag.engineering],
+    //     content: DiminishedReality
+    // },
     {
         title: "Voicemail",
         url: "voicemail",
@@ -102,13 +102,13 @@ const projects = [
         tags: [ProjectTag.fun],
         content: Voicemail
     },
-    {
-        title: "Artistic Swim Auditory Interface",
-        url: "auditory_interface",
-        image: auditoryInterfaceImg,
-        tags: [ProjectTag.uiux, ProjectTag.engineering],
-        content: AuditoryInterface
-    },
+    // {
+    //     title: "Artistic Swim Auditory Interface",
+    //     url: "auditory_interface",
+    //     image: auditoryInterfaceImg,
+    //     tags: [ProjectTag.uiux, ProjectTag.engineering],
+    //     content: AuditoryInterface
+    // },
     {
         title: "Nyan Cat (Remix)",
         url: "nyan_cat",

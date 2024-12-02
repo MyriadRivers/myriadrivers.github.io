@@ -17,15 +17,19 @@ const StyledApp = styled.div`
   flex-direction: column;
   gap: 10px;
 
-  @media ${breakpoints.mobile} {
-    gap: 0px;
-  }
-
   height: 100%;
  
   box-sizing: border-box;
   padding: 30px 60px 20px 60px;
 
+  @media ${breakpoints.laptop} {
+    padding: 30px 40px 20px 40px;
+  }
+
+  @media ${breakpoints.mobile} {
+    padding: 20px;
+  }
+  
   margin: auto;
 
   .websiteTitleContainer {
@@ -46,14 +50,6 @@ const StyledApp = styled.div`
 
   .outletContainer {
     height: 100%;
-    
-    /* max-width: 1200px; */
-    @media ${breakpoints.laptop} {
-      max-width: 80vw;
-    }
-    @media ${breakpoints.mobile} {
-      max-width: 100%;
-    }
     margin: auto;
 
     display: flex;
@@ -76,7 +72,6 @@ function App() {
           </div>
           <div className={"centerContainer"}>
             <div className="outletContainer">
-              
               <Outlet />
             </div>
           </div>

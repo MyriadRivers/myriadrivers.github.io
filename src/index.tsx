@@ -17,7 +17,7 @@ const router = createBrowserRouter([
         element: <Home />
       },
       ...navRoutes,
-      ...projects.map((project) => ({ path: "projects/" + project.url, element: <ProjectPage content={project.content} /> }))
+      ...projects.map((project) => ({ path: "projects/" + project.url, element: <ProjectPage tags={project.tags} content={project.content} /> }))
     ]
   }
 ]);

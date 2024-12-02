@@ -11,7 +11,10 @@ import { ReactNode } from "react";
 
 const title: string = "Orb Weaver";
 const dateRange: string = "Apr 2023";
-const summary: string = "Summary";
+const summary: string = "Weave aleatoric musical orb webs";
+const subtitles = [
+    { title: "Tools", text: "TypeScript, React.js" }
+]
 const links: Array<{ text: string, url: string }> = [
     { text: "try it!", url: "https://myriadrivers.github.io/orb-weaver/" },
     { text: "GitHub", url: "https://github.com/MyriadRivers/orb-weaver" },
@@ -19,7 +22,7 @@ const links: Array<{ text: string, url: string }> = [
 const tags: Array<ProjectTag> = [
     ProjectTag.engineering, ProjectTag.fun
 ];
-const media: ReactNode = <Image src={mainImage} mainImage={true}/>;
+const media: ReactNode = <Image src={mainImage} mainImage={true} />;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
@@ -27,13 +30,18 @@ const sections: Array<Section> = [
         contents:
             <>
                 <p>
-                    Weave aleatoric musical orb webs. Implemented in plain TypeScript and React.js.
+                    Orb Weaver is an algorithmic composition that takes inspiration from patterns found in nature.
+                    Every time the composition is played, it randomly generates a unique orb web following the same sequence as spiders in the family Araneidae.
+                </p>
+                <p>
+                    As the orb is constructed, musical notes play based on the qualities and structural purpose of each thread within the web, creating a musical
+                    composition that is also a sonification of the web-spinning process.
                 </p>
             </>
     },
     {
         shortTitle: "Concept",
-        title: "Concept",
+        title: "Inspired by nature",
         summary: "Orb weaver was conceived as an algorithmic musical composition",
         contents:
             <>
@@ -62,8 +70,8 @@ const sections: Array<Section> = [
             </>
     },
     {
-        shortTitle: "Process",
-        title: "Process",
+        shortTitle: "Music",
+        title: "Music reveals web structure",
         summary: "Coordinates, type, and length of the threads changes what sounds are played",
         contents:
             <>
@@ -118,6 +126,7 @@ const sections: Array<Section> = [
 const OrbWeaver: Project = {
     title: title,
     dateRange: dateRange,
+    subtitles: subtitles,
     summary: summary,
     links: links,
     tags: tags,

@@ -1,6 +1,6 @@
 const size = {
     mobile: "764px",
-    laptop: "1300px"
+    laptop: "1000px"
 }
 
 const breakpoints = {

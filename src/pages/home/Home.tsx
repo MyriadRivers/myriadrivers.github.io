@@ -28,6 +28,9 @@ const StyledHome = styled.div`
         /* padding-right: 60px; */
         margin: auto;
         padding: 20px 60px 20px 40px;
+        @media ${breakpoints.mobile} {
+            padding: 0px;
+        }
     }
 
     .homeHeader {
@@ -36,12 +39,14 @@ const StyledHome = styled.div`
 
     .homeLeftContainer {
         width: 140%;
-        @media ${breakpoints.mobile} {
-            flex: 1 1 auto;
-        }
         
         height: 100%;
         display: flex;
+
+        @media ${breakpoints.mobile} {
+            flex-direction: column;
+            display: none;
+        }
     }
 `
 

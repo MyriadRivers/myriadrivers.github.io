@@ -54,13 +54,7 @@ const GlobalStyle = createGlobalStyle`
         color: ${props => props.theme.main};
 
         // TODO: Standardize font sizes, header sizes, margins and store them in Theme
-        font-size: 16pt;
-        @media ${breakpoints.laptop} {
-            font-size: 16pt;
-        }
-        @media ${breakpoints.mobile} {
-            font-size: 16pt;
-        }
+        font-size: 14pt;
 
         margin: 0px;
         padding: 0px;

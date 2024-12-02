@@ -323,6 +323,7 @@ function Canvas({ children }: { children: ReactNode }) {
   }
 
   const mouseMoveHandler = (e: MouseEvent) => {
+    // TODO: Redo this only happen in non-mobile in the actual middle of the div, on page load.
     // Draw some circles on the first page to fill in the empty space on the left
     if (ctxRef.current && canvasRef.current && !firstCircles.current) {
       const w = canvasRef.current.width;

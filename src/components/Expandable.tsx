@@ -6,12 +6,15 @@ import breakpoints from "../styles/breakpoints";
 
 const StyledExpandable = styled.div<{ $expanded: boolean }>`
     width: calc(50% - 20px);
+    @media ${breakpoints.laptop} {
+        width: 100%;
+    }
 
     display: flex;
     flex-direction: column;
     gap: 20px;
 
-    padding-top: 40px;
+    /* padding-top: 40px; */
     /* border: ${props => props.$expanded ? "" : "solid"};
     box-sizing: border-box;
     padding: 20px; */
@@ -19,7 +22,7 @@ const StyledExpandable = styled.div<{ $expanded: boolean }>`
     .expandableHeader {
         display: flex;
         gap: 20px;
-        /* justify-content: space-between; */
+        justify-content: space-between;
 
         &:hover {
             cursor: pointer
@@ -59,7 +62,7 @@ function Expandable({ heading, summary, children }: { heading: string, summary: 
 
     return (<StyledExpandable $expanded={expanded} >
         <div className={"expandableHeader"} onClick={() => { setExpanded(!expanded) }} >
-            <div className={"arrow"}><Heading level={3}>{expanded ? "⋁" : "ᐳ"}</Heading></div><div className={"expandableText"}><Heading level={3} ref={ref}>{heading}</Heading></div>
+            <div className={"expandableText"}><Heading level={3} ref={ref}>{heading}</Heading></div><div className={"arrow"}><Heading level={3}>{expanded ? "⋁" : "ᐸ"}</Heading></div>
         </div>
         {expanded ? children : <p className={"summary"}>{summary.length > 0 ? summary + "…" : ""}</p>}
     </StyledExpandable>);

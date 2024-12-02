@@ -24,21 +24,28 @@ const StyledAbout = styled.div`
 
     overflow: auto;
 
-
     gap: 40px;
     
     @media ${breakpoints.mobile} {
         flex-direction: column;
     }
 
-    .aboutText {
+    .aboutTextContainer {
         width: 100%;
+        overflow: auto;
+        @media ${breakpoints.mobile} {
+            overflow: visible;
+        }
+        display: flex;
+    }
+
+    .aboutText {
+        /* width: 100%; */
 
         display: flex;
         flex-direction: column;
         gap: 20px;
 
-        overflow: auto;
         /* padding-right: 60px; */
         margin: auto;
         padding: 20px 60px 20px 40px;
@@ -50,20 +57,20 @@ const StyledAbout = styled.div`
     }
 
     .jasonImageContainer {
-        width: 140%;
         @media ${breakpoints.mobile} {
-            flex: 1 1 auto;
+            width: 100%;        
         }
-        
-        height: 100%;
+        width: 140%;
         display: flex;
+        /* overflow: hidden; */
     }
 
     .jasonImage {
         cursor: help;
         margin: auto;
 
-        height: 100%;
+        max-width: 100%;
+        height: auto;
         width: auto;
         
     }
@@ -73,7 +80,7 @@ const links = [
     { text: "résumé", url: resumePath },
     { text: "LinkedIn", url: "https://www.linkedin.com/in/jasoncgao/" },
     { text: "GitHub", url: "https://github.com/MyriadRivers" },
-    { text: "email", url: "mailto:jasongao678+careers@gmail.com"}
+    { text: "email", url: "mailto:jasongao678+careers@gmail.com" }
 ]
 
 function About() {
@@ -89,25 +96,27 @@ function About() {
 
     return (<StyledAbout>
         <div className={"jasonImageContainer"}>
-            <img className={"jasonImage"} onClick={swapPortrait} src={jasonImages[portraitID]} alt={"Self portrait of me!"}/>
+            <img className={"jasonImage"} onClick={swapPortrait} src={jasonImages[portraitID]} alt={"Self portrait of me!"} />
         </div>
-        <div className={"aboutText"}>
-            <div className={"aboutHeader"}>
-                Hey! I'm Jason.
+        <div className={"aboutTextContainer"}>
+            <div className={"aboutText"}>
+                <div className={"aboutHeader"}>
+                    Hey, I'm Jason!
+                </div>
+                <p>
+                    I'm a current master's student in <Link url={"https://mshci.gatech.edu"}>Human-Computer Interaction at Georgia Tech</Link>,
+                    where I studied Computer Science and Music Technology in my undergrad.
+                </p>
+                <p>
+                    I work to bring together creativity, technology, and human connection.
+                    Good design doesn't stop at the sketching or wireframing phase; I bring a usability and empathy
+                    centered mindset from the initial user interviews to the technical implementation in code.
+                </p>
+                <p>
+                    In my free time, you might catch me making music, coding a personal project, or looking for bugs outside.
+                </p>
+                <LinkList links={links} />
             </div>
-            <p>
-                I'm a current master's student in <Link url={"https://mshci.gatech.edu"}>Human-Computer Interaction at Georgia Tech</Link>,
-                where I studied Computer Science and Music Technology in my undergrad. 
-            </p>
-            <p>
-                I work to bring together creativity, technology, and human connection. 
-                Good design doesn't stop at the sketching or wireframing phase; I bring a usability and empathy
-                centered mindset from the initial user interviews to the technical implementation in code. 
-            </p>
-            <p>
-                In my free time, you might catch me making music, coding a personal project, or outside looking for bugs.
-            </p>
-            <LinkList links={links} />
         </div>
     </StyledAbout>);
 }

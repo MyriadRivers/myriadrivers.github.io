@@ -20,9 +20,19 @@ const StyledNavbar = styled.div<{ $open: boolean }>`
     mix-blend-mode: multiply;
 
     @media ${breakpoints.mobile} {
+        align-items: start;
         background: none;
-        flex-direction: row-reverse;
         mix-blend-mode: normal;
+    }
+
+    .mobileNavbar {
+        width: 100%;
+        /* background: lavender; */
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: start;
+        /* align-items: center; */
     }
 
     .dropdown {
@@ -33,8 +43,10 @@ const StyledNavbar = styled.div<{ $open: boolean }>`
     }
 
     .homeLink {
+        /* background: pink; */
         font-family: ${props => props.theme.headerFont};
-        font-size: 2.8em;
+        font-size: 2rem;
+        letter-spacing: 0.25rem;
         line-height: 1.65em;
 
         margin-top: -.4em;
@@ -48,6 +60,7 @@ const StyledNavbar = styled.div<{ $open: boolean }>`
 
     .riverLogo {
         height: 90%;
+        margin-right: 20px;
     }
 
     .menuIcon {
@@ -77,7 +90,8 @@ function Navbar({ links }: { links: Array<string> }) {
 
     return (<StyledNavbar $open={open}>
         {mobile ?
-            <>
+            // TODO: Mobile navbar should probably just be just a separate component compared to navbar
+            <div className={"mobileNavbar"}>
                 <NavOption active={true} onClick={() => setOpen(true)} >{<img src={menuIcon} className={"menuIcon"} alt={"Menu"} />}</NavOption>
                 {open &&
                     <div className={"dropdown"} ref={dropdownRef}>
@@ -103,11 +117,10 @@ function Navbar({ links }: { links: Array<string> }) {
                         setActive(0);
                     }}>
                         <img src={riverImage} alt={"Jason Gao"} className={"riverLogo"} />
-
+                        JASON GAO
                     </Link>
-                    JASON GAO
                 </div>
-            </>
+            </div>
             :
             links.map((link, index) => (
                 <Link to={links[index]} onClick={() => setActive(index)} key={index}>{<NavOption active={active === index} >{link}</NavOption>}</Link>

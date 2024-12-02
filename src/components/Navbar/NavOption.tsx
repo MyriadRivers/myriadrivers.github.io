@@ -6,17 +6,13 @@ const StyledNavOption = styled.div<{ $active: boolean }>`
     font-family: ${props => props.theme.headerFont};
     font-size: calc(min(5pt + 2vw, 16pt));
     transform: translate3d(0,0,0);
-    
-    @media ${breakpoints.laptop} {
-        font-size: calc(7.5pt + 1vw);
-    }
-    
-    @media ${breakpoints.mobile} {
-        font-size: calc(10pt + 1vw);
-    }
 
     text-transform: uppercase;
     letter-spacing: 6pt;
+
+    @media ${breakpoints.laptop} {
+        letter-spacing: 4pt;
+    }
 
     color: ${props => props.$active ? props.theme.main : props.theme.alt};
     background: ${props => props.$active ? props.theme.alt : props.theme.main};
@@ -25,6 +21,10 @@ const StyledNavOption = styled.div<{ $active: boolean }>`
     &:hover {
         color: ${props => props.theme.main};
         background: ${props => props.theme.alt};
+        @media ${breakpoints.mobile} {
+            color: ${props => props.theme.alt};
+            background: ${props => props.theme.main};
+        }
         border-color: ${props => props.theme.main};
         /* color: ${props => props.theme.type === "monochrome" ?
         "" :
@@ -46,6 +46,7 @@ const StyledNavOption = styled.div<{ $active: boolean }>`
             props.theme.accent
             : props.theme.alt};
         mix-blend-mode: multiply;
+        box-shadow: 0px 0px 0px 0px ${props => props.$active ? props.theme.alt : props.theme.main};
     }
 
     .text {

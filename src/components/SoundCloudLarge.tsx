@@ -4,7 +4,7 @@ const SoundCloudLarge = ({ artist, track, artistURL, trackURL, trackID }: { arti
             <iframe
                 title="SoundCloudLarge"
                 width="100%"
-                height="300"
+                height="500"
                 scrolling="no"
                 frameBorder="no"
                 allow="autoplay"

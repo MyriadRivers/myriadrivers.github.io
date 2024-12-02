@@ -10,11 +10,15 @@ const StyledProjectTitle = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 
     .titleContentContainer {
         display: flex;
         flex-direction: row;
         gap: 40px;
+        @media ${breakpoints.laptop} {
+            flex-direction: column;
+        }
     }
 
     .titleLeftHalf {
@@ -22,6 +26,9 @@ const StyledProjectTitle = styled.div`
         display: flex;
         flex-direction: column;
         gap: 20px;
+        @media ${breakpoints.laptop} {
+            gap: 10px;
+        }
     }
 
     .titleRightHalf {
@@ -39,7 +46,7 @@ const StyledProjectTitle = styled.div`
 
         font-size: 1.75em;
         @media ${breakpoints.laptop} {
-            font-size: 1.35em;
+            font-size: 1.5em;
         }
         
         text-transform: uppercase;
@@ -64,7 +71,7 @@ const StyledProjectTitle = styled.div`
 
     .dateRange {
         font-size: calc(min(5pt + 2vw, 16pt));
-        letter-spacing: 4pt;
+        letter-spacing: 0.25rem;
     }
 
     .titleLinks {
@@ -93,7 +100,7 @@ const StyledProjectTitle = styled.div`
     }
 `
 
-function ProjectTitle({ 
+function ProjectTitle({
     text,
     dateRange,
     subtitles,
@@ -106,7 +113,7 @@ function ProjectTitle({
 }: {
     text: string,
     dateRange: string,
-    subtitles?: Array<{title: string, text: string}>
+    subtitles?: Array<{ title: string, text: string }>
     summary: string,
     media?: ReactNode,
     links: Array<{ text: string, url: string }>,
@@ -139,15 +146,15 @@ function ProjectTitle({
                         {dateRange}
                     </div>
                 </div>
-                <div className={"subtitleContainer"}>
-                    {subtitles && subtitles.map((subtitle) => 
-                    <Subtitle title={subtitle.title} text={subtitle.text}/>)}
-                </div>
+                {subtitles && <div className={"subtitleContainer"}>
+                    {subtitles && subtitles.map((subtitle) =>
+                        <Subtitle title={subtitle.title} text={subtitle.text} />)}
+                </div>}
                 <div className={"titleLinks"}>
                     <LinkList links={links} />
                 </div>
             </div>
-                
+
             <div className={"titleRightHalf"}>
                 <div className={"titleSummary"}>
                     {summary}

@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import ProjectTitle from "./ProjectTitle";
 import Expandable from "../Expandable";
-import { Project } from "../../types";
+import { Project, ProjectTag } from "../../types";
 import styled from "styled-components";
+import breakpoints from "../../styles/breakpoints";
 
 const StyledPage = styled.div`
     display: flex;
@@ -11,6 +12,7 @@ const StyledPage = styled.div`
     height: 100%;
 
     .projectContents {
+        
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -22,6 +24,7 @@ const StyledPage = styled.div`
         overflow: auto;
 
         padding: 0px 60px 0px 40px;
+
         scroll-behavior: smooth;
     }
 
@@ -51,7 +54,7 @@ const StyledPage = styled.div`
     overflow: hidden;
 `
 
-function ProjectPage({ content }: { content: Project }) {
+function ProjectPage({ tags, content }: { tags: Array<ProjectTag>, content: Project }) {
     const headings = content.sections.map((section) => section.shortTitle);
     const [activeHeading, setActiveHeading] = useState<number>(0);
     const headingRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -87,7 +90,7 @@ function ProjectPage({ content }: { content: Project }) {
                                 summary={content.summary}
                                 media={content.media}
                                 links={content.links}
-                                tags={content.tags}
+                                tags={tags}
                                 setPageTop={setPageTopOffset}
                                 ref={el => headingRefs.current[index] = el}
                                 key={index}
