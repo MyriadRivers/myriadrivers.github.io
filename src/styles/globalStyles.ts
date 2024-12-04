@@ -110,6 +110,16 @@ const GlobalStyle = createGlobalStyle`
         font-family: ${props => props.theme.bodyFont};
         color: ${props => props.theme.main};
 
+        ::-moz-selection { /* Code for Firefox */
+            color: white;
+            background: black;            
+        }
+
+        ::selection {
+            color: white;
+            background: black;
+        }
+
         // TODO: Standardize font sizes, header sizes, margins and store them in Theme
         font-size: 16pt;
 
@@ -141,6 +151,10 @@ const GlobalStyle = createGlobalStyle`
     p, ol, ul {
         margin: 0px 0px;
         line-height: 1.5em;
+    }
+
+    div {
+        /* mix-blend-mode: multiply; */
     }
 `
 

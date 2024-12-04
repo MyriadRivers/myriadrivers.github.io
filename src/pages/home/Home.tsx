@@ -3,6 +3,7 @@ import breakpoints from "../../styles/breakpoints";
 import { useEffect, useRef, useState } from "react";
 
 const StyledHome = styled.div`
+    /* background-color: black; */
     height: 100%;
     /* width: 100%; */
 

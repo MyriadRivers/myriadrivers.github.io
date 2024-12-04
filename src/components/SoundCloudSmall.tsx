@@ -8,12 +8,12 @@ const SoundCloudSmall = ({ artist, track, artistURL, trackURL, trackID }: { arti
                 scrolling="no"
                 frameBorder="no"
                 allow="autoplay"
-                src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackID}&color=%2372b1d2&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`}>
+                src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackID}&color=%23000000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`}>
             </iframe>
             <div
                 style={{
                     fontSize: "10px",
-                    color: "#cccccc",
+                    color: "#000000",
                     lineBreak: "anywhere",
                     wordBreak: "normal",
                     overflow: "hidden",
@@ -28,7 +28,7 @@ const SoundCloudSmall = ({ artist, track, artistURL, trackURL, trackID }: { arti
                     target="_blank"
                     rel="noreferrer"
                     style={{
-                        color: "#cccccc",
+                        color: "#000000",
                         textDecoration: "none"
                     }}
                 >{artist}</a> · <a
@@ -37,7 +37,7 @@ const SoundCloudSmall = ({ artist, track, artistURL, trackURL, trackID }: { arti
                     target="_blank"
                     rel="noreferrer"
                     style={{
-                        color: "#cccccc",
+                        color: "#000000",
                         textDecoration: "none"
                     }}
                 >{track}</a>

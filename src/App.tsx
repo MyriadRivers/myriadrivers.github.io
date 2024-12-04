@@ -12,6 +12,7 @@ import Canvas from './components/Canvas';
 
 const StyledApp = styled.div`
   position: relative;
+  /* mix-blend-mode: multiply;  */
   
   display: flex;
   flex-direction: column;
