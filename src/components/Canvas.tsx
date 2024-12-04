@@ -105,7 +105,7 @@ function Canvas({ children }: { children: ReactNode }) {
   const [drawable, setDrawable] = useState<boolean>(true);
   const [audible, setAudible] = useState<boolean>(true);
 
-  const randCircle = (ctx: CanvasRenderingContext2D, event: MouseEvent) => {
+  const randCircle = (ctx: CanvasRenderingContext2D, event: MouseEvent): Circle => {
     const maxPossibleR = ctx.canvas.width / 7;
     const maxR = Math.floor(Math.random() * (maxPossibleR - 25)) + 25;
     const newCircle: Circle = new Circle(
@@ -116,15 +116,8 @@ function Canvas({ children }: { children: ReactNode }) {
       randPastel()
     );
     circles.current.push(newCircle);
-
-    // Play a note
-    if (!PolyRef.current || !Panner3DRef.current) return;
-    const xPan = (event.x - (ctx.canvas.width / 2)) / (ctx.canvas.width / 2);
-    const yPan = (event.y - (ctx.canvas.height / 2)) / (ctx.canvas.height / 2);
-    const note = octave(numToScale(Math.random(), Scale.PENTATONIC, 2), 1);
-    const duration = ((maxR / maxPossibleR) / 2) + 0.01
-    // Panner3DRef.current.setPosition(xPan, yPan, 0);
-    PolyRef.current.triggerAttackRelease(note, duration);
+    makeNote(newCircle, event);
+    return newCircle;
   }
 
   const draw = (ctx: CanvasRenderingContext2D) => {
@@ -141,6 +134,18 @@ function Canvas({ children }: { children: ReactNode }) {
 
     frame.current++;
     requestAnimationFrame(() => draw(ctx));
+  }
+
+  const makeNote = (c: Circle, event: MouseEvent) => {
+    // Play a note
+    if (!PolyRef.current || !Panner3DRef.current || !canvasRef.current) return;
+    const maxPossibleR = canvasRef.current.width / 7;
+    const xPan = (event.x - (canvasRef.current.width / 2)) / (canvasRef.current.width / 2);
+    const yPan = (event.y - (canvasRef.current.height / 2)) / (canvasRef.current.height / 2);
+    const note = octave(numToScale(Math.random(), Scale.PENTATONIC, 2), 1);
+    const duration = ((c.maxR / maxPossibleR) / 2) + 0.01
+    // Panner3DRef.current.setPosition(xPan, yPan, 0);
+    PolyRef.current.triggerAttackRelease(note, duration);
   }
 
   // Set up canvas, sounds
@@ -241,7 +246,7 @@ function Canvas({ children }: { children: ReactNode }) {
   const mouseMoveHandler = (e: MouseEvent) => {
     // TODO: Redo this only happen in non-mobile in the actual middle of the div, on page load.
     // Draw some circles on the first page to fill in the empty space on the left
-    if (ctxRef.current && canvasRef.current && !firstCircles.current) {
+    if (ctxRef.current && canvasRef.current && !firstCircles.current && canvasRef.current.width > 1) {
       const w = canvasRef.current.width;
       const h = canvasRef.current.height;
 
