@@ -105,7 +105,7 @@ function Canvas({ children }: { children: ReactNode }) {
   const [drawable, setDrawable] = useState<boolean>(true);
   const [audible, setAudible] = useState<boolean>(true);
 
-  const randCircle = (ctx: CanvasRenderingContext2D, event: MouseEvent): Circle => {
+  const randCircle = (ctx: CanvasRenderingContext2D, event: MouseEvent, mute: boolean = false): Circle => {
     const maxPossibleR = ctx.canvas.width / 7;
     const maxR = Math.floor(Math.random() * (maxPossibleR - 25)) + 25;
     const newCircle: Circle = new Circle(
@@ -116,7 +116,7 @@ function Canvas({ children }: { children: ReactNode }) {
       randPastel()
     );
     circles.current.push(newCircle);
-    makeNote(newCircle, event);
+    if (!mute) makeNote(newCircle, event);
     return newCircle;
   }
 
@@ -246,7 +246,7 @@ function Canvas({ children }: { children: ReactNode }) {
   const mouseMoveHandler = (e: MouseEvent) => {
     // TODO: Redo this only happen in non-mobile in the actual middle of the div, on page load.
     // Draw some circles on the first page to fill in the empty space on the left
-    if (ctxRef.current && canvasRef.current && !firstCircles.current && canvasRef.current.width > 1) {
+    if (ctxRef.current && canvasRef.current && !firstCircles.current) {
       const w = canvasRef.current.width;
       const h = canvasRef.current.height;
 
@@ -257,7 +257,7 @@ function Canvas({ children }: { children: ReactNode }) {
           clientX: fuzz((w / 4) + (i % 2 === 0 ? i : i * (w / 10)), 0.1),
           clientY: fuzz((h * 2 / 5) + (i * (h / 7)), 0.05)
         })
-        randCircle(ctxRef.current, autoCircle);
+        randCircle(ctxRef.current, autoCircle, true);
       }
       firstCircles.current = true;
     }
