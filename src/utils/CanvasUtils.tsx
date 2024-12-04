@@ -58,7 +58,7 @@ class Circle {
 
         if (this.progress < 1) {
             this.progress += 0.01
-            this.r = this.easeOut(this.progress, 5) * this.maxR;
+            this.r = this.easeOut(this.progress, 4) * this.maxR;
         };
     }
 }

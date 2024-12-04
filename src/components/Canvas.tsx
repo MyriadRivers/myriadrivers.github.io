@@ -305,7 +305,7 @@ function Canvas({ children }: { children: ReactNode }) {
             {audible ? <img className={"canvasIcon"} src={soundIcon} alt={"sound: on"} onClick={() => setAudible(!audible)} />
               : <img className={"canvasIcon"} src={muteIcon} alt={"sound: off"} onClick={() => setAudible(!audible)} />}
           </div>
-          <div className={"canvasText"}>{drawable ? "sound: on" : "sound: off"}</div>
+          <div className={"canvasText"}>{audible ? "sound: on" : "sound: off"}</div>
         </div>
       </div>
     </StyledCanvas>

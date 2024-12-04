@@ -56,7 +56,7 @@ function Home() {
         </div>
         <div className={"homeText"}>
             <div className={"homeHeader"}>
-                Simplicity, usability, delight.
+                Simple, usable, playful.
             </div>
             <p>
                 I'm Jason, a UX researcher and creative engineer passionate about making people's lives more enjoyable.
