@@ -32,7 +32,7 @@ const StyledPage = styled.div`
     }
 
     .bottomSpace {
-        min-height: 100px;
+        min-height: 150px;
     }
 
     .references {

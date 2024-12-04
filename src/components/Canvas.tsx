@@ -3,6 +3,8 @@ import styled from "styled-components"
 
 import circleIcon from "../assets/icons/circle.png";
 import noCircleIcon from "../assets/icons/no_circle.png";
+import soundIcon from "../assets/icons/sound.png";
+import muteIcon from "../assets/icons/mute.png";
 import clearCanvasIcon from "../assets/icons/clear_canvas.png";
 
 import aranea from "../assets/images/doodles/aranea.png";
@@ -19,6 +21,9 @@ import myriapoda from "../assets/images/doodles/myriapoda.png";
 import neuroptera from "../assets/images/doodles/neuroptera.png";
 import odonata from "../assets/images/doodles/odonata.png";
 import orthoptera from "../assets/images/doodles/orthoptera.png";
+import { BaseContext, Panner3D, PolySynth, Reverb, Synth, Volume } from "tone";
+import { Circle, Doodle, fuzz, Point, randEnds, randPastel } from "../utils/CanvasUtils";
+import { numToScale, octave, Scale } from "../utils/musicUtils";
 
 const MAX_DOODLES = 5;
 const doodleList = [aranea, blattodea, coleoptera, dermaptera, diptera, hemiptera, hymenoptera, lepidoptera_imago, lepidoptera_larva, mantodea, myriapoda, neuroptera, odonata, orthoptera];
@@ -48,43 +53,27 @@ const StyledCanvas = styled.div`
     right: 20px;
   }
 
-  .clearCanvas {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 20px;
-  }
-
-  .clearCanvasText {
-    background: white;
-    padding: 0px 10px;
-    visibility: hidden;
-  }
-
-  .clearCanvasIcon, .circles, .noCircles {
+  .canvasIcon {
     height: 1em;
     &:hover {
       cursor: pointer;
     }
   }
 
-  .clearCanvasIcon:hover + .clearCanvasText {
+  .canvasIcon:hover + .canvasText {
     visibility: visible;
   }
 
-  .toggleDraw {
+  .canvasButton {
     display: flex;
     flex-direction: row-reverse;
     gap: 20px;
   }
 
-  .toggleDrawText {
+  .canvasText {
     background: white;
     padding: 0px 10px;
     visibility: hidden;
-  }
-
-  .toggleDrawIcon:hover + .toggleDrawText {
-    visibility: visible;
   }
 `
 
@@ -92,6 +81,11 @@ function Canvas({ children }: { children: ReactNode }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
+
+  const PolyRef = useRef<PolySynth | null>(null);
+  const Panner3DRef = useRef<Panner3D | null>(null);
+  const gainRef = useRef<Volume | null>(null);
+  const reverbRef = useRef<Reverb | null>(null);
 
   const firstCircles = useRef<boolean>(false);
 
@@ -109,131 +103,28 @@ function Canvas({ children }: { children: ReactNode }) {
   const [height, setHeight] = useState<number>(0);
 
   const [drawable, setDrawable] = useState<boolean>(true);
-
-  interface Circle {
-    x: number;
-    y: number;
-    r: number;
-    color: string;
-  }
-
-
-  class Doodle {
-    x: number;
-    y: number;
-    src: string;
-
-    constructor(x: number, y: number, src: string) {
-      this.x = x;
-      this.y = y;
-      this.src = src;
-    }
-
-    render(ctx: CanvasRenderingContext2D) {
-      const doodleImg = new Image();
-      doodleImg.src = this.src;
-      const scale = Math.min(ctx.canvas.width / 10, doodleImg.width) / doodleImg.width;
-      ctx.drawImage(doodleImg, this.x, this.y, doodleImg.width * scale, doodleImg.height * scale);
-    }
-  }
-
-  class Circle {
-    x: number;
-    y: number;
-    r: number;
-    maxR: number;
-    color: string;
-    progress: number;
-
-    constructor(x: number, y: number, maxR: number, color: string) {
-      this.x = x;
-      this.y = y;
-      this.r = 0;
-      this.maxR = maxR;
-      this.color = color;
-      this.progress = 0;
-    }
-
-    // grow() {
-    //   if (this.r < this.maxR) this.r += 1;
-    // }
-
-    easeOut(t: number, exp: number) {
-      return 1 - Math.pow((1 - t), exp);
-    }
-
-    render(ctx: CanvasRenderingContext2D) {
-      ctx.beginPath();
-      ctx.fillStyle = this.color;
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fill();
-
-      if (this.progress < 1) {
-        this.progress += 0.01
-        this.r = this.easeOut(this.progress, 5) * this.maxR;
-      };
-    }
-  }
-
-  interface Point {
-    x: number;
-    y: number;
-  }
-
-  const randColor = () => {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    const a = (Math.random() * 0.20) + 0.05;
-
-    return `rgba(${r}, ${g}, ${b}, ${a})`;
-  }
-
-  const brighten = (value: number, amount: number = 0.6) => {
-    return value + ((255 - value) * amount)
-  }
-
-  const randPastel = () => {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    const a = (Math.random() * 0.35) + 0.15;
-
-    return `rgb(${brighten(r)}, ${brighten(g)}, ${brighten(b)}, ${a})`;
-  }
-
-  const clampColor = (value: number) => {
-    return Math.min(Math.max(0, value), 255);
-  }
-
-  const similarColor = (hex: string, rand: number = .25) => {
-    const r = parseInt(hex.substring(0, 2), 16);
-    const g = parseInt(hex.substring(2, 4), 16);
-    const b = parseInt(hex.substring(4, 6), 16);
-
-    return `rgb(${clampColor(fuzz(r, rand))}, ${clampColor(fuzz(g, rand))}, ${clampColor(fuzz(b, rand))})`;
-  }
-
-  // Returns a random multiplier that deviates from 1.0 by at greatest the maxVariance
-  const fuzz = (value: number, maxVariance: number = 0.25): number => {
-    return value * (1 + (Math.random() * 2 - 1) * maxVariance);
-  }
-
-  const randEnds = () => {
-    const rand = Math.random();
-    const uShapeRand = Math.random() < 0.5 ? Math.pow(rand, 2) : 1 - Math.pow(rand, 2);
-    return uShapeRand;
-  }
+  const [audible, setAudible] = useState<boolean>(true);
 
   const randCircle = (ctx: CanvasRenderingContext2D, event: MouseEvent) => {
+    const maxPossibleR = ctx.canvas.width / 7;
+    const maxR = Math.floor(Math.random() * (maxPossibleR - 25)) + 25;
     const newCircle: Circle = new Circle(
       event.x,
       event.y,
-      Math.floor(Math.random() * ((ctx.canvas.width / 7) - 25)) + 25,
+      maxR,
       // randColor()
       randPastel()
     );
     circles.current.push(newCircle);
+
+    // Play a note
+    if (!PolyRef.current || !Panner3DRef.current) return;
+    const xPan = (event.x - (ctx.canvas.width / 2)) / (ctx.canvas.width / 2);
+    const yPan = (event.y - (ctx.canvas.height / 2)) / (ctx.canvas.height / 2);
+    const note = octave(numToScale(Math.random(), Scale.PENTATONIC, 2), 1);
+    const duration = ((maxR / maxPossibleR) / 2) + 0.01
+    // Panner3DRef.current.setPosition(xPan, yPan, 0);
+    PolyRef.current.triggerAttackRelease(note, duration);
   }
 
   const draw = (ctx: CanvasRenderingContext2D) => {
@@ -252,6 +143,7 @@ function Canvas({ children }: { children: ReactNode }) {
     requestAnimationFrame(() => draw(ctx));
   }
 
+  // Set up canvas, sounds
   useEffect(() => {
     if (containerRef.current) {
       // Canvas size listens to the size of the window
@@ -261,8 +153,18 @@ function Canvas({ children }: { children: ReactNode }) {
         setHeight(rect.height);
       })
       resizeObserver.observe(containerRef.current);
+
+      gainRef.current = new Volume().toDestination();
+      reverbRef.current = new Reverb(0.5).connect(gainRef.current);
+      Panner3DRef.current = new Panner3D().connect(reverbRef.current);
+      PolyRef.current = new PolySynth(Synth, { oscillator: { type: "sine" }, envelope: { attack: 0.05, release: 0.1 } }).connect(Panner3DRef.current);
     }
   }, [])
+
+  useEffect(() => {
+    if (!gainRef.current) return;
+    gainRef.current.mute = !audible;
+  }, [audible])
 
   useEffect(() => {
     if (canvasRef.current) {
@@ -385,17 +287,25 @@ function Canvas({ children }: { children: ReactNode }) {
       <canvas ref={canvasRef} height={"100%"} width={"100%"} className={"siteCanvas"}></canvas>
       {children}
       <div className={"canvasButtons"}>
-        <div className={"clearCanvas"}>
-          <img className="clearCanvasIcon" onClick={clearCanvas} src={clearCanvasIcon} alt={"clear canvas"} />
-          <div className={"clearCanvasText"}>clear</div>
+        <div className={"canvasButton"}>
+          <img className="canvasIcon" onClick={clearCanvas} src={clearCanvasIcon} alt={"clear canvas"} />
+          <div className={"canvasText"}>clear</div>
         </div>
 
-        <div className="toggleDraw">
-          <div className={"toggleDrawIcon"}>
-            {drawable ? <img className={"circles"} src={circleIcon} alt={"circles: on"} onClick={() => setDrawable(!drawable)} />
-              : <img className={"noCircles"} src={noCircleIcon} alt={"circles: off"} onClick={() => setDrawable(!drawable)} />}
+        <div className="canvasButton">
+          <div className={"canvasIcon"}>
+            {drawable ? <img className={"canvasIcon"} src={circleIcon} alt={"circles: on"} onClick={() => setDrawable(!drawable)} />
+              : <img className={"canvasIcon"} src={noCircleIcon} alt={"circles: off"} onClick={() => setDrawable(!drawable)} />}
           </div>
-          <div className={"toggleDrawText"}>{drawable ? "draw: on" : "draw: off"}</div>
+          <div className={"canvasText"}>{drawable ? "draw: on" : "draw: off"}</div>
+        </div>
+
+        <div className="canvasButton">
+          <div className={"canvasIcon"}>
+            {audible ? <img className={"canvasIcon"} src={soundIcon} alt={"sound: on"} onClick={() => setAudible(!audible)} />
+              : <img className={"canvasIcon"} src={muteIcon} alt={"sound: off"} onClick={() => setAudible(!audible)} />}
+          </div>
+          <div className={"canvasText"}>{drawable ? "sound: on" : "sound: off"}</div>
         </div>
       </div>
     </StyledCanvas>

@@ -88,7 +88,7 @@ const StyledAbout = styled.div`
         @media ${breakpoints.mobile} {
             display: inline-block;      
         }
-        min-height: 100px;
+        min-height: 150px;
     }
 `
 
