@@ -16,9 +16,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const StyledTitle = styled.div`
-    font-family: ${props => props.theme.headerFont};
+    /* font-family: ${props => props.theme.headerFont}; */
+    font-family: "Funnel Sans Light";
     font-size: calc(15pt + 1vw);
     letter-spacing: 0.25em;
+    font-weight: bold;
 
     @media ${breakpoints.mobile} {
         display: none;

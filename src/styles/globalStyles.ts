@@ -20,6 +20,30 @@ import SFProTTF from "../assets/fonts/SFPro/SFPro-Regular.ttf";
 import SFProWOFF from "../assets/fonts/SFPro/SFPro-Regular.woff";
 import SFProWOFF2 from "../assets/fonts/SFPro/SFPro-Regular.woff2";
 
+import ParkinsansEOT from "../assets/fonts/Parkinsans/eot.eot";
+import ParkinsansSVG from "../assets/fonts/Parkinsans/svg.svg";
+import ParkinsansTTF from "../assets/fonts/Parkinsans/ttf.ttf";
+import ParkinsansWOFF from "../assets/fonts/Parkinsans/woff.woff";
+import ParkinsansWOFF2 from "../assets/fonts/Parkinsans/woff2.woff2";
+
+import FunnelSansEOT from "../assets/fonts/FunnelSans/regular.eot";
+import FunnelSansSVG from "../assets/fonts/FunnelSans/regular.svg";
+import FunnelSansTTF from "../assets/fonts/FunnelSans/regular.ttf";
+import FunnelSansWOFF from "../assets/fonts/FunnelSans/regular.woff";
+import FunnelSansWOFF2 from "../assets/fonts/FunnelSans/regular.woff2";
+
+import FunnelSansLightEOT from "../assets/fonts/FunnelSans/light.eot";
+import FunnelSansLightSVG from "../assets/fonts/FunnelSans/light.svg";
+import FunnelSansLightTTF from "../assets/fonts/FunnelSans/light.ttf";
+import FunnelSansLightWOFF from "../assets/fonts/FunnelSans/light.woff";
+import FunnelSansLightWOFF2 from "../assets/fonts/FunnelSans/light.woff2";
+
+import AfacadFluxEOT from "../assets/fonts/AfacadFlux/eot.eot";
+import AfacadFluxSVG from "../assets/fonts/AfacadFlux/svg.svg";
+import AfacadFluxTTF from "../assets/fonts/AfacadFlux/ttf.ttf";
+import AfacadFluxWOFF from "../assets/fonts/AfacadFlux/woff.woff";
+import AfacadFluxWOFF2 from "../assets/fonts/AfacadFlux/woff2.woff2";
+
 const GlobalStyle = createGlobalStyle`
     @font-face {
         font-family: "Average";
@@ -49,12 +73,45 @@ const GlobalStyle = createGlobalStyle`
             url(${SFProWOFF2}) format('woff2');
     }
 
+    @font-face {
+        font-family: "Parkinsans";
+        src: url(${ParkinsansTTF}) format('truetype'),
+            url(${ParkinsansSVG}) format('svg'),
+            url(${ParkinsansEOT}) format('embedded-opentype'),
+            url(${ParkinsansWOFF}) format('woff'),
+            url(${ParkinsansWOFF2}) format('woff2');
+    }
+    @font-face {
+        font-family: "Funnel Sans";
+        src: url(${FunnelSansTTF}) format('truetype'),
+            url(${FunnelSansSVG}) format('svg'),
+            url(${FunnelSansEOT}) format('embedded-opentype'),
+            url(${FunnelSansWOFF}) format('woff'),
+            url(${FunnelSansWOFF2}) format('woff2');
+    }
+    @font-face {
+        font-family: "Funnel Sans Light";
+        src: url(${FunnelSansLightTTF}) format('truetype'),
+            url(${FunnelSansLightSVG}) format('svg'),
+            url(${FunnelSansLightEOT}) format('embedded-opentype'),
+            url(${FunnelSansLightWOFF}) format('woff'),
+            url(${FunnelSansLightWOFF2}) format('woff2');
+    }
+    @font-face {
+        font-family: "Afacad Flux";
+        src: url(${AfacadFluxTTF}) format('truetype'),
+            url(${AfacadFluxSVG}) format('svg'),
+            url(${AfacadFluxEOT}) format('embedded-opentype'),
+            url(${AfacadFluxWOFF}) format('woff'),
+            url(${AfacadFluxWOFF2}) format('woff2');
+    }
+
     body {
         font-family: ${props => props.theme.bodyFont};
         color: ${props => props.theme.main};
 
         // TODO: Standardize font sizes, header sizes, margins and store them in Theme
-        font-size: 14pt;
+        font-size: 16pt;
 
         margin: 0px;
         padding: 0px;

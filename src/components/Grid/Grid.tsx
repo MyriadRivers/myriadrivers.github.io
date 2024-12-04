@@ -10,13 +10,15 @@ const StyledGrid = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 
     .tags {
+        margin-top: 10px;
         position: sticky;
         display: flex;
+        flex-direction: row-reverse;
         flex-wrap: wrap;
-        gap: 15px;
+        gap: 20px;
     }
 
     .grid {

@@ -124,7 +124,7 @@ function About() {
                     where I studied Computer Science and Music Technology in my undergrad.
                 </p>
                 <p>
-                    I work to bring together creativity, technology, and human connection.
+                    My desire is to unify creativity, technology, and human connection.
                     Good design doesn't stop at the sketching or wireframing phase; I bring a usability and empathy
                     centered mindset from the initial user interviews to the technical implementation in code.
                 </p>

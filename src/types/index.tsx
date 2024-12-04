@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
 enum ProjectTag {
-    uiux = "UI/UX",
-    engineering = "Engineering",
-    fun = "Fun"
+    uiux = "👤 UI/UX",
+    engineering = "🖥️ Engineering",
+    fun = "⭐ Fun"
 }
 
 interface Section {

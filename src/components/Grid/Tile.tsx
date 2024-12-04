@@ -22,6 +22,9 @@ const StyledTile = styled.div<{ $cropped: boolean }>`
         aspect-ratio: 1/1;
         width: 100%;    
         outline: 2px solid;
+
+        /* -webkit-filter: grayscale(0%);
+        filter: grayscale(0%); */
     }
 
     .tileContainer {
@@ -37,6 +40,9 @@ const StyledTile = styled.div<{ $cropped: boolean }>`
 
     .tileContents:hover .tileImage {
         outline-style: dashed;
+
+        /* -webkit-filter: grayscale(100%);
+        filter: grayscale(100%); */
     }
 
     .tileTags {

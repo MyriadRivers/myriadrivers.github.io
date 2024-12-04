@@ -6,7 +6,6 @@ const StyledTag = styled.div<{ $active: boolean }>`
     background: ${props => props.$active ? props.theme.main : ""};
     color: ${props => props.$active ? props.theme.alt : props.theme.main};
     
-
     font-family: ${props => props.theme.headerFont};
     letter-spacing: 1pt;
 
@@ -16,6 +15,8 @@ const StyledTag = styled.div<{ $active: boolean }>`
     border-width: 2px;
 
     text-transform: uppercase;
+
+    /* filter: grayscale(100%); */
 
     margin: 0px;
     padding: 5px;

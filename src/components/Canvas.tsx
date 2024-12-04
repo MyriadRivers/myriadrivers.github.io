@@ -158,8 +158,8 @@ function Canvas({ children }: { children: ReactNode }) {
     //   if (this.r < this.maxR) this.r += 1;
     // }
 
-    easeOutQuad(t: number) {
-      return t * (2 - t);
+    easeOut(t: number, exp: number) {
+      return 1 - Math.pow((1 - t), exp);
     }
 
     render(ctx: CanvasRenderingContext2D) {
@@ -170,7 +170,7 @@ function Canvas({ children }: { children: ReactNode }) {
 
       if (this.progress < 1) {
         this.progress += 0.01
-        this.r = this.easeOutQuad(this.progress) * this.maxR;
+        this.r = this.easeOut(this.progress, 5) * this.maxR;
       };
     }
   }
@@ -187,6 +187,19 @@ function Canvas({ children }: { children: ReactNode }) {
     const a = (Math.random() * 0.20) + 0.05;
 
     return `rgba(${r}, ${g}, ${b}, ${a})`;
+  }
+
+  const brighten = (value: number, amount: number = 0.6) => {
+    return value + ((255 - value) * amount)
+  }
+
+  const randPastel = () => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    const a = (Math.random() * 0.35) + 0.15;
+
+    return `rgb(${brighten(r)}, ${brighten(g)}, ${brighten(b)}, ${a})`;
   }
 
   const clampColor = (value: number) => {
@@ -217,7 +230,8 @@ function Canvas({ children }: { children: ReactNode }) {
       event.x,
       event.y,
       Math.floor(Math.random() * ((ctx.canvas.width / 7) - 25)) + 25,
-      randColor()
+      // randColor()
+      randPastel()
     );
     circles.current.push(newCircle);
   }

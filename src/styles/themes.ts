@@ -8,8 +8,8 @@ const river = {
 
 const mono = {
     type: "monochrome",
-    headerFont: "Free Sans",
-    bodyFont: "Average",
+    headerFont: "Funnel Sans",
+    bodyFont: "Afacad Flux",
     main: "black",
     alt: "white",
     accent: "black"

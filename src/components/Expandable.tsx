@@ -39,7 +39,9 @@ const StyledExpandable = styled.div<{ $expanded: boolean }>`
 
     .arrow {
         cursor: pointer;
-        color: ${props => props.theme.accent}
+        color: ${props => props.theme.accent};
+        transform: ${props => props.$expanded ? "rotate(-90deg)" : "rotate(0deg)"};
+        transition: transform 200ms;
     }
 
     .summary {
@@ -62,7 +64,7 @@ function Expandable({ heading, summary, children }: { heading: string, summary: 
 
     return (<StyledExpandable $expanded={expanded} >
         <div className={"expandableHeader"} onClick={() => { setExpanded(!expanded) }} >
-            <div className={"expandableText"}><Heading level={3} ref={ref}>{heading}</Heading></div><div className={"arrow"}><Heading level={3}>{expanded ? "⋁" : "ᐸ"}</Heading></div>
+            <div className={"expandableText"}><Heading level={3} ref={ref}>{heading}</Heading></div><div className={"arrow"}><Heading level={3}>{"◁"}</Heading></div>
         </div>
         {expanded ? children : <p className={"summary"}>{summary.length > 0 ? summary + "…" : ""}</p>}
     </StyledExpandable>);
