@@ -22,8 +22,14 @@ const StyledPage = styled.div`
 
         height: 100%;
         overflow: auto;
+        /* z-index: 1; */
 
         padding: 0px 60px 0px 40px;
+
+        @media ${breakpoints.laptop} {
+            padding:  0px 60px 0px 40px;
+        }
+
         @media ${breakpoints.mobile} {
             padding: 0px; 
         }
@@ -31,27 +37,44 @@ const StyledPage = styled.div`
         scroll-behavior: smooth;
     }
 
-    .bottomSpace {
-        min-height: 150px;
-    }
-
-    .references {
+    .fr, .nfr, .findings, .references {
         counter-reset: list-counter;
         list-style: none;
-        padding-left: 0px;
 
         li {
             counter-increment: list-counter;
             display: flex;
             align-items: flex-start;
-            margin-bottom: 20px;
         }
 
         li:before{
-            content: "[" counter(list-counter) "] ";
+            font-weight: bold;
             align-self: flex-start;
-            margin-right: 20px;
         }
+    }
+
+    .findings li:before {
+        content: "F" counter(list-counter) ".\\00a0" ;
+        white-space: nowrap;
+    }
+
+    .nfr li:before {
+        content: "NFR " counter(list-counter) ".\\00a0" ;
+        white-space: nowrap;
+    }
+
+    .fr li:before {
+        content: "FR " counter(list-counter) ".\\00a0" ;
+        white-space: nowrap;
+    }   
+
+    .references li:before {
+        content: "[" counter(list-counter) "]\\00a0" ;
+        white-space: nowrap;
+    }
+
+    .bottomSpace {
+        min-height: 100px;
     }
 
     overflow: hidden;

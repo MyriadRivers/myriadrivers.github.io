@@ -5,6 +5,7 @@ import LinkList from "../LinkList";
 import breakpoints from "../../styles/breakpoints";
 import { ProjectTag } from "../../types";
 import Subtitle from "./Subtitle";
+import Heading from "../Heading";
 
 const StyledProjectTitle = styled.div`
     display: flex;
@@ -35,7 +36,7 @@ const StyledProjectTitle = styled.div`
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        /* gap: 20px; */
     }
 
     .titleContainer {
@@ -63,12 +64,6 @@ const StyledProjectTitle = styled.div`
         display: flex;
         flex-direction: column;
         gap: 10px;
-    }
-
-    .titleSummary {
-        font-weight: bold;
-        font-size: 1.25em;
-        line-height: 1.5em;
     }
 
     .dateRange {
@@ -159,7 +154,7 @@ function ProjectTitle({
 
             <div className={"titleRightHalf"}>
                 <div className={"titleSummary"}>
-                    {summary}
+                    <Heading level={3}>{summary}</Heading>
                 </div>
                 {children}
             </div>

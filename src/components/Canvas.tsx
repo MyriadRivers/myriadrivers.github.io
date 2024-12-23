@@ -44,9 +44,11 @@ const StyledCanvas = styled.div`
   margin: 0px;
 
   .canvasButtons {
+    /* background-color: pink; */
     font-size: 32pt;
     display: flex;
     flex-direction: column-reverse;
+    gap: 10px;
 
     position: fixed;
     bottom: 20px;
@@ -61,19 +63,23 @@ const StyledCanvas = styled.div`
   }
 
   .canvasIcon:hover + .canvasText {
-    visibility: visible;
+    display: flex;
+    /* height: 10px; */
+    align-items: center;
   }
 
   .canvasButton {
     display: flex;
     flex-direction: row-reverse;
     gap: 20px;
+    height: 1em;
+    align-items: center;
   }
 
   .canvasText {
     background: white;
     padding: 0px 10px;
-    visibility: hidden;
+    display: none;
   }
 `
 

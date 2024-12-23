@@ -13,7 +13,7 @@ const dateRange: string = "Aug – Dec 2024";
 const subtitles = [
     { title: "Affiliation", text: "Troov" },
     { title: "Team", text: "Jason Gao, Shareen Chang, Madison Steinau, Xinxuyang Zhao" },
-    { title: "My Role", text: "User Research, Design" }
+    // { title: "My Role", text: "User Research, Design" }
 ]
 const summary: string = "How might we foster a safe environment on Meetup Apps to promote authentic and meaningful in-person connections?";
 const links: Array<{ text: string, url: string }> = [

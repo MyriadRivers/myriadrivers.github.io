@@ -12,7 +12,7 @@ const StyledExpandable = styled.div<{ $expanded: boolean }>`
 
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    /* gap: 20px; */
 
     /* padding-top: 40px; */
     /* border: ${props => props.$expanded ? "" : "solid"};
@@ -23,6 +23,7 @@ const StyledExpandable = styled.div<{ $expanded: boolean }>`
         display: flex;
         gap: 20px;
         justify-content: space-between;
+        align-items: center;
 
         &:hover {
             cursor: pointer

@@ -149,8 +149,18 @@ const GlobalStyle = createGlobalStyle`
     }
 
     p, ol, ul {
-        margin: 0px 0px;
+        margin: 10px 0px;  
         line-height: 1.5em;
+    }
+    
+    ol, ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px
+    }
+
+    li > ol, li > ul {
+        margin-top: 10px;
     }
 
     div {

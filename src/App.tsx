@@ -16,7 +16,7 @@ const StyledApp = styled.div`
   
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 
   height: 100%;
  

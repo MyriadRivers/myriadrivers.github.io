@@ -9,8 +9,10 @@ const StyledHeading = styled.div<{ $level: number }>`
     font-family: ${props => props.theme.bodyFont};
     font-weight: bold;
 
-    /* font-size: ${props => 3 - (props.$level * .5)}em; */
-    font-size: 1.25em;  
+    font-size: ${props => props.$level <= 3 ? "1.5em" : (props.$level <= 4 ? "1.25em" : "1em")};
+
+    margin-top: ${props => props.$level <= 3 ? "0px" : (props.$level <= 4 ? "20px" : "0px")};
+    /* font-size: 1.25em;   */
     /* text-transform: uppercase;font-size: 1.25em; */
     /* letter-spacing: 6pt; */
 

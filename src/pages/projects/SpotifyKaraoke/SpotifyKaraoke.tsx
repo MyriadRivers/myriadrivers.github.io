@@ -9,6 +9,7 @@ import gapImage from "./spotify_karaoke_gap_interpolation.png";
 import demoVideo from "./spotify_karaoke_demo.mp4";
 import Video from "../../../components/Video";
 import { ReactNode } from "react";
+import Heading from "../../../components/Heading";
 
 const title: string = "Spotify Karaoke";
 const dateRange: string = "Aug – Dec 2023";
@@ -39,7 +40,7 @@ const sections: Array<Section> = [
     },
     {
         shortTitle: "Stack",
-        title: "Stack",
+        title: "A full-stack app deployed on the cloud",
         summary: "The app is separated into three main components: the front end, the API, and the back end",
         contents:
             <>
@@ -75,7 +76,7 @@ const sections: Array<Section> = [
     },
     {
         shortTitle: "Pipeline",
-        title: "Pipeline",
+        title: "Data pipeline connects Spotify, YouTube, and ML models",
         summary: "The app retrieves data from the Spotify Web API and YouTube, and use source separation and speech-to-text transcription in order to derive the time synced lyrics",
         contents:
             <>
@@ -115,7 +116,7 @@ const sections: Array<Section> = [
     },
     {
         shortTitle: "Algorithm",
-        title: "Algorithm",
+        title: "Algorithm matches words and timestamps using dynamic programming",
         summary: "The word-level synchronized lyrics are generated using a dynamic programming approach",
         contents:
             <>
@@ -124,16 +125,16 @@ const sections: Array<Section> = [
                     generated using a dynamic programming approach similar to finding the longest common subsequence between two strings,
                     with alterations to prioritize matching words that are close together.
                 </p>
-                <h3>Initial Alignment</h3>
+                <Heading level={4}>Initial Alignment</Heading>
                 <p>
                     <i>S</i> represents the list of Spotify words.
                     <br />
                     <i>W</i> represents the list of WhisperX words.
-                    <br />
-                    <br />
+                </p>
+                <p>
                     We construct a 2D array <i>A</i> of dimensions <i>S.length + 1</i> × <i>W.length + 1</i>.
-                    <br />
-                    <br />
+                </p>
+                <p>
                     Every index <i>[i, j]</i> in the array stores the max number of matched words possible between
                     the substring of <i>S</i> of length <i>i</i> and the substring of <i>W</i> of length <i>j</i>,
                     as well as the syllable indices within <i>S</i> and <i>W</i> of the match. The syllable indices are important in case there are
@@ -142,16 +143,17 @@ const sections: Array<Section> = [
                 </p>
                 <ul>
                     <li>
-                        <b>Match:</b> <i>A[i, j] = A[i - 1, j - 1] + 1</i>
-                        <br />
-                        Since the current index is a match, the total matches needs to be 1 higher than
-                        when both of the substrings were one word shorter (before the addition of the current index).
-                        <br />
-                        <br />
-                        The syllable indices stored are based on whether <i>A[i - 1, j]</i> or <i>A[i, j - 1]</i> has the same number of total matches
-                        as <i>A[i, j]</i>:
-                        <ul>
+                        <p>
+                            <b>Match:</b> <i>A[i, j] = A[i - 1, j - 1] + 1</i>
                             <br />
+                            Since the current index is a match, the total matches needs to be 1 higher than
+                            when both of the substrings were one word shorter (before the addition of the current index).
+                        </p>
+                        <p>
+                            The syllable indices stored are based on whether <i>A[i - 1, j]</i> or <i>A[i, j - 1]</i> has the same number of total matches
+                            as <i>A[i, j]</i>:
+                        </p>
+                        <ul>
                             <li>
                                 <b>Current index's matches = a previous index's matches: </b>
                                 We compare the current and previous indices that have the same number of matches and save the syllable indices where
@@ -160,7 +162,6 @@ const sections: Array<Section> = [
                                 If the 2nd word of Spotify matches to both the 3rd and 8th word of WhisperX, we choose to match to the 3rd as they are closer
                                 temporally and thus it is more likely that the WhisperX transcription was offset by a smaller amount.
                             </li>
-                            <br />
                             <li>
                                 <b>Current index's matches &gt; previous indices' matches: </b>
                                 Because this is a new match and the maximum number of matches has gone strictly up from the previous indices,
@@ -168,17 +169,18 @@ const sections: Array<Section> = [
                             </li>
                         </ul>
                     </li>
-                    <br />
                     <li>
-                        <b>No Match:</b> <i>A[i, j] = max(A[i - 1, j], A[i, j - 1])</i>
-                        <br />
-                        Since the current index is not a match, the total matches remains the same, the max of the previous cases,
-                        where either of the substrings was one word shorter.
-                        <br />
-                        <br />
-                        The syllable indices saved are the same as the previous case that had the greater total matches.
-                        In cases where both previous cases have the same number of matches,
-                        the syllable indices carried over once again prioritize the indices closest together.
+                        <p>
+                            <b>No Match:</b> <i>A[i, j] = max(A[i - 1, j], A[i, j - 1])</i>
+                            <br />
+                            Since the current index is not a match, the total matches remains the same, the max of the previous cases,
+                            where either of the substrings was one word shorter.
+                        </p>
+                        <p>
+                            The syllable indices saved are the same as the previous case that had the greater total matches.
+                            In cases where both previous cases have the same number of matches,
+                            the syllable indices carried over once again prioritize the indices closest together.
+                        </p>
                     </li>
                 </ul>
                 <p>
@@ -186,7 +188,7 @@ const sections: Array<Section> = [
                     we can trace back to recover the indices of <i>S</i> and <i>W</i> that are matched.
                 </p>
                 <Image src={algorithmImage} caption={"Table visualizing the dynamic programming algorithm."} />
-                <h3>Filling in the Gaps</h3>
+                <Heading level={4}>Filling in the Gaps</Heading>
                 <p>
                     After the alignment algorithm, there are usually still some Spotify lyrics left
                     that have not been matched to any WhisperX timestamps.
@@ -230,7 +232,6 @@ const sections: Array<Section> = [
                         The WhisperX has the same or more syllables than the Spotify gap. This means that every word in the
                         Spotify gap should have been assigned a timestamp from the WhisperX gap, and the gap is considered "closed".
                     </li>
-                    <br />
                     <li>
                         The Spotify gap has more syllables than the WhisperX gap. In this case, we linearly interpolate
                         between the end of the last WhisperX syllable within the gap and the start of the next aligned word by the number of syllables
@@ -253,7 +254,7 @@ const sections: Array<Section> = [
     },
     {
         shortTitle: "Future",
-        title: "Future Work",
+        title: "Future work could add features and improve accuracy",
         summary: "Improvements to the app can include additional karaoke features like pitch shifting, as well as improving the algorithm accuracy",
         contents:
             <>

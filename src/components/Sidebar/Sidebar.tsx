@@ -3,8 +3,9 @@ import breakpoints from "../../styles/breakpoints";
 import SideBarElement from "./SideBarElement";
 
 const StyledSidebar = styled.div`
+    /* background: pink; */
     display: flex;
-    width: 20%;
+    /* width: 20%; */
 
     @media ${breakpoints.mobile} {
         display: none;
@@ -22,7 +23,8 @@ const StyledSidebar = styled.div`
         flex-direction: column;
         gap: calc(6pt + 0.5vw);
 
-        padding: calc(4pt + 0.5vw);
+        /* padding-top: 20px; */
+        /* padding: calc(4pt + 0.5vw); */
     }
 `
 

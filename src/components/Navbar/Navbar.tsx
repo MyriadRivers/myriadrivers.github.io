@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react"
 import NavOption from "./NavOption";
 import breakpoints from "../../styles/breakpoints";
@@ -95,11 +95,16 @@ const StyledNavbar = styled.div<{ $open: boolean }>`
 `
 
 function Navbar({ links }: { links: Array<string> }) {
-    const [active, setActive] = useState<number>(0);
+    const location = useLocation();
+    const [active, setActive] = useState<number>(links.findIndex(link => ("/" + link) === location.pathname));
     // Only for mobile, if drop down is open or not
     const [open, setOpen] = useState<boolean>(false);
     const mobile = useMedia(`${breakpoints.mobile}`);
     const dropdownRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        console.log(location);
+    }, [location])
 
     useEffect(() => {
         // Close the dropdown when you click out of it
