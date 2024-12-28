@@ -26,20 +26,23 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
   box-sizing: border-box;
   padding: 0px;
   /* padding: 30px 60px 20px 60px; */
-
+/* 
   @media ${breakpoints.laptop} {
     padding: 30px 40px 20px 40px;
   }
 
   @media ${breakpoints.mobile} {
     padding: 20px;
-  }
+  } */
   
   margin: auto;
 
   .websiteTitleContainer {
     mix-blend-mode: multiply; 
-    background: white;
+    /* @media ${breakpoints.mobile} {
+      mix-blend-mode: normal;
+    } */
+    background: ${props => props.theme.alt};
     backdrop-filter: blur(5px) opacity(70%);
     /* mask: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%); */
     
@@ -48,6 +51,12 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
     left: 50%;
     transform:  translateX(-50%);
     width: calc(100% - 2 * 60px);
+    @media ${breakpoints.laptop} {
+      width: calc(100% - 2 * 40px);
+    }
+    @media ${breakpoints.mobile} {
+      width: calc(100% - 2 * 20px);
+    }
     max-width: 1500px;
     
     /* box-shadow: 8px 0px 0 ${props => props.theme.alt}, -8px 0px 0 ${props => props.theme.alt}; */
@@ -66,7 +75,27 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
     /* background: pink; */
     height: 100%;
 
-    padding: ${props => `calc(${props.$contentTop}px + 30px + 20px)`} ${props => `calc(60px - ${props.$scrollBarWidth}px)`} ${props => `calc(${props.$contentTop}px + 30px + 20px)`} 60px;
+    padding: 
+    ${props => `calc(${props.$contentTop}px + 30px + 20px)`} 
+    ${props => `calc(60px - ${props.$scrollBarWidth}px)`} 
+    ${props => `calc(${props.$contentTop}px + 30px + 20px)`} 
+    60px;
+
+    @media ${breakpoints.laptop} {
+      padding: 
+      ${props => `calc(${props.$contentTop}px + 30px + 20px)`} 
+      ${props => `calc(40px - ${props.$scrollBarWidth}px)`} 
+      ${props => `calc(${props.$contentTop}px + 30px + 20px)`} 
+      40px;
+    }
+
+    @media ${breakpoints.mobile} {
+      padding: 
+      ${props => `calc(${props.$contentTop}px + 20px + 20px)`} 
+      ${props => `calc(20px - ${props.$scrollBarWidth}px)`} 
+      ${props => `calc(${props.$contentTop}px + 20px + 20px)`} 
+      20px;
+    }
   }
 
   .outletContainer {

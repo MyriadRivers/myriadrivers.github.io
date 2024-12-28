@@ -26,10 +26,6 @@ const StyledPage = styled.div<{ $paddingLeft: number }>`
         height: 100%;
         padding-left: ${props => props.$paddingLeft > 0 ? `calc(${props.$paddingLeft}px + 40px)` : "0px"};
 
-        @media ${breakpoints.laptop} {
-            padding:  0px 60px 0px 40px;
-        }
-
         @media ${breakpoints.mobile} {
             padding: 0px; 
         }
