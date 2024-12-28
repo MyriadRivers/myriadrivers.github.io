@@ -79,6 +79,7 @@ const StyledCanvas = styled.div`
 
   .canvasText {
     background: white;
+    /* backdrop-filter: blur(5px); */
     padding: 0px 10px;
     display: none;
   }
