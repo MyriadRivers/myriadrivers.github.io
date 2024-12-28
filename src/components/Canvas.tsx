@@ -29,14 +29,15 @@ const MAX_DOODLES = 5;
 const doodleList = [aranea, blattodea, coleoptera, dermaptera, diptera, hemiptera, hymenoptera, lepidoptera_imago, lepidoptera_larva, mantodea, myriapoda, neuroptera, odonata, orthoptera];
 
 const StyledCanvas = styled.div`
+  /* background: pink; */
   position: relative;
   height: 100%;
   width: 100%;
 
   .siteCanvas {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    position: fixed;
+    /* width: 100%; */
+    /* height: 100%; */
     z-index: -1;
   }
 
@@ -164,6 +165,13 @@ function Canvas({ children }: { children: ReactNode }) {
         setHeight(rect.height);
       })
       resizeObserver.observe(containerRef.current);
+
+      // const resizeListener = () => {
+      //   setWidth(window.innerWidth);
+      //   setHeight(window.innerHeight);
+      // }
+
+      // window.addEventListener("resize", resizeListener)
 
       gainRef.current = new Volume().toDestination();
       reverbRef.current = new Reverb(0.5).connect(gainRef.current);

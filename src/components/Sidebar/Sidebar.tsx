@@ -3,7 +3,8 @@ import breakpoints from "../../styles/breakpoints";
 import SideBarElement from "./SideBarElement";
 
 const StyledSidebar = styled.div`
-    /* background: pink; */
+    /* background: lavender; */
+    /* position: fixed; */
     display: flex;
     /* width: 20%; */
 
@@ -32,8 +33,8 @@ function Sidebar({ headings, activeHeading, pageTop, scrollRef, headingRefs }:
     { headings: Array<string>, activeHeading: number, pageTop: number | null, scrollRef: HTMLDivElement | null, headingRefs: Array<HTMLDivElement | null> }) {
 
     const scrollTo = (element: HTMLElement | null) => {
-        if (element && scrollRef && headingRefs[0] && pageTop) {
-            scrollRef.scrollTop = element.offsetTop - pageTop;
+        if (element && pageTop) {
+            window.scroll({ top: element.offsetTop - pageTop });
         }
     }
 

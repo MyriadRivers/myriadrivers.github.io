@@ -96,15 +96,11 @@ const StyledNavbar = styled.div<{ $open: boolean }>`
 
 function Navbar({ links }: { links: Array<string> }) {
     const location = useLocation();
-    const [active, setActive] = useState<number>(links.findIndex(link => ("/" + link) === location.pathname));
+    const [active, setActive] = useState<number>(links.findIndex(link => ("/" + link) === (location.pathname.indexOf("/", 1) > 0 ? location.pathname.substring(0, location.pathname.indexOf("/", 1)) : location.pathname)));
     // Only for mobile, if drop down is open or not
     const [open, setOpen] = useState<boolean>(false);
     const mobile = useMedia(`${breakpoints.mobile}`);
     const dropdownRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        console.log(location);
-    }, [location])
 
     useEffect(() => {
         // Close the dropdown when you click out of it

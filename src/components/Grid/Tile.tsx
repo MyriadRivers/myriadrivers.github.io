@@ -12,7 +12,7 @@ const StyledTile = styled.div<{ $cropped: boolean }>`
     flex-direction: column;
     gap: 10px;
 
-    padding: 10px;
+    /* padding: 10px; */
 
     /* @media ${breakpoints.mobile} {
         padding: 0px; 
@@ -21,7 +21,8 @@ const StyledTile = styled.div<{ $cropped: boolean }>`
     .tileImage {
         aspect-ratio: 1/1;
         width: 100%;    
-        outline: 2px solid;
+        border: 2px solid;
+        box-sizing: border-box;
 
         /* -webkit-filter: grayscale(0%);
         filter: grayscale(0%); */
@@ -39,7 +40,7 @@ const StyledTile = styled.div<{ $cropped: boolean }>`
     }
 
     .tileContents:hover .tileImage {
-        outline-style: dashed;
+        border-style: dashed;
 
         /* -webkit-filter: grayscale(100%);
         filter: grayscale(100%); */

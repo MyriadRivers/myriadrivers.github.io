@@ -3,7 +3,7 @@ import { useState } from "react"
 import { ProjectTag } from "../../types";
 
 const StyledTag = styled.div<{ $active: boolean }>`
-    background: ${props => props.$active ? props.theme.main : ""};
+    background: ${props => props.$active ? props.theme.main : props.theme.alt};
     color: ${props => props.$active ? props.theme.alt : props.theme.main};
     
     font-family: ${props => props.theme.headerFont};

@@ -1,22 +1,25 @@
 import styled from "styled-components";
 import Tile from "./Tile";
 import { To } from "react-router-dom";
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Tag from "./Tag";
 import { ProjectTag } from "../../types";
 import breakpoints from "../../styles/breakpoints";
 
-const StyledGrid = styled.div`
+const StyledGrid = styled.div<{ $tagsHeight: number }>`
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 20px;
 
-    .tags {
-        /* margin-top: 10px; */
-        position: sticky;
+    .tagsContainer {
         display: flex;
         flex-direction: row-reverse;
+    }
+
+    .tags {
+        position: fixed;
+
+        display: flex;
         flex-wrap: wrap;
         gap: 20px;
     }
@@ -24,27 +27,48 @@ const StyledGrid = styled.div`
     .grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+
+        padding-top: ${props => `calc(${props.$tagsHeight}px + 20px)`};
+        
         @media ${breakpoints.mobile} {
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         }
         gap: 20px;
-        overflow: auto;
-        padding: 0px 20px; 
+        /* overflow: auto; */
+        /* padding: 0px 20px;  */
 
         @media ${breakpoints.mobile} {
             padding: 0px; 
         }
     }
 
+    
+    .bottomSpace {
+        min-height: 150px;
+    }
+
     margin: auto;
-    overflow: hidden;
-    height: 100%;
+    /* overflow: hidden; */
+    /* height: 100%; */
     width: 100%;
 `
 
 function Grid({ tiles }: { tiles: Array<{ title: string, url: To, image: string, tags: Array<ProjectTag> }> }) {
     const [allTags, setAllTags] = useState<Array<ProjectTag>>([]);
     const [activeTags, setActiveTags] = useState<Array<ProjectTag>>([]);
+
+    const tagsContainerRef = useRef<HTMLDivElement | null>(null);
+    const [tagsHeight, setTagsHeight] = useState<number>(0);
+
+    useEffect(() => {
+        if (!tagsContainerRef.current) return;
+        const tagsResizeObserver = new ResizeObserver((size) => {
+            let rect = size[0].contentRect;
+            setTagsHeight(rect.height);
+        })
+        tagsResizeObserver.observe(tagsContainerRef.current);
+        setTagsHeight(tagsContainerRef.current.clientHeight);
+    }, [])
 
     useEffect(() => {
         // Get array of all occurring tags
@@ -71,11 +95,13 @@ function Grid({ tiles }: { tiles: Array<{ title: string, url: To, image: string,
         }
     }
 
-    return (<StyledGrid>
-        <div className={"tags"}>
-            {allTags.map((tag, index) => (
-                <Tag name={tag} toggleTags={() => toggleTag(tag)} key={index} />
-            ))}
+    return (<StyledGrid $tagsHeight={tagsHeight}>
+        <div className={"tagsContainer"}>
+            <div className={"tags"} ref={tagsContainerRef}>
+                {allTags.map((tag, index) => (
+                    <Tag name={tag} toggleTags={() => toggleTag(tag)} key={index} />
+                ))}
+            </div>
         </div>
         <div className="grid">
             {tiles.map((tile, index) => (
@@ -87,6 +113,7 @@ function Grid({ tiles }: { tiles: Array<{ title: string, url: To, image: string,
                 <Tile title={tile.title} url={tile.url} image={tile.image} tags={tile.tags} key={index}></Tile>
             ))}
         </div>
+        <div className={"bottomSpace"}>&nbsp;</div>
     </StyledGrid>);
 }
 

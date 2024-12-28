@@ -131,12 +131,13 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
 
         height: 100%;
-        overflow: hidden;
     }
 
     html {
         height: 100%;
         margin: 0px;
+        overflow: auto;
+        scroll-behavior: smooth;
     }
 
     #root, .App {

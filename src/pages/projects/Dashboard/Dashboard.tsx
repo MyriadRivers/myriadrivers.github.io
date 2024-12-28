@@ -23,6 +23,7 @@ import researchSlides from "../../../assets/files/ux_research_environmental_just
 import Heading from "../../../components/Heading";
 import Table from "../../../components/Table";
 import Link from "../../../components/Link";
+import GridList from "../../../components/GridList/GridList";
 
 const title: string = "EcoJustice Dashboard";
 const dateRange: string = "Aug – Dec 2024";
@@ -35,7 +36,7 @@ const links: Array<{ text: string, url: string }> = [
     { text: "Figma", url: "https://www.figma.com/design/HWV9yvvhLUYO5whGoxNYwF/D3---Design?node-id=833-8289&t=Y4G1ywa0NmW0tgEi-1" },
     { text: "research slides", url: researchSlides }
 ];
-const media: ReactNode = <Image src={mainImage} mainImage />
+const media: ReactNode = <Image src={mainImage} mainImage />;
 const sections: Array<Section> = [
     {
         shortTitle: "Description",
@@ -88,7 +89,8 @@ const sections: Array<Section> = [
                     as well as their requirements when working with one another. When necessary, we asked follow-up questions to probe for motivations and deeper insights.
                     Through both remote and in-person sessions, we interviewed one environmental scientist and two active community leaders.
                 </p>
-                <Table title={"Interview Users"}>
+                <GridList />
+                {/* <Table title={"Interview Users"}>
                     <thead>
                         <tr>
                             <th>U1</th>
@@ -110,7 +112,7 @@ const sections: Array<Section> = [
                             <td>Leader of the Stop Sterigenics Georgia Facebook group. Coordinates with sympathetic government representatives and media to raise awareness and advocate change.</td>
                         </tr>
                     </tbody>
-                </Table>
+                </Table> */}
                 <p>
                     We interviewed the researcher regarding her experience doing community outreach,
                     including unforeseen obstacles to collecting data and working with community members,

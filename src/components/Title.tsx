@@ -21,6 +21,7 @@ const StyledTitle = styled.div`
     font-size: calc(15pt + 1vw);
     letter-spacing: 0.25em;
     font-weight: bold;
+    /* width: 100%; */
 
     @media ${breakpoints.mobile} {
         display: none;

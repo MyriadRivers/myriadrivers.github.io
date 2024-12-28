@@ -6,13 +6,16 @@ import { Project, ProjectTag } from "../../types";
 import styled from "styled-components";
 import breakpoints from "../../styles/breakpoints";
 
-const StyledPage = styled.div`
+const StyledPage = styled.div<{ $paddingLeft: number }>`
     display: flex;
     gap: 20px;
     height: 100%;
 
+    .sidebarContainer {
+        position: fixed;
+    }
+
     .projectContents {
-        
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -21,10 +24,7 @@ const StyledPage = styled.div`
         align-items: end;
 
         height: 100%;
-        overflow: auto;
-        /* z-index: 1; */
-
-        padding: 0px 60px 0px 40px;
+        padding-left: ${props => props.$paddingLeft > 0 ? `calc(${props.$paddingLeft}px + 40px)` : "0px"};
 
         @media ${breakpoints.laptop} {
             padding:  0px 60px 0px 40px;
@@ -74,10 +74,10 @@ const StyledPage = styled.div`
     }
 
     .bottomSpace {
-        min-height: 100px;
+        min-height: 150px;
     }
 
-    overflow: hidden;
+    /* overflow: hidden; */
 `
 
 function ProjectPage({ tags, content }: { tags: Array<ProjectTag>, content: Project }) {
@@ -86,25 +86,43 @@ function ProjectPage({ tags, content }: { tags: Array<ProjectTag>, content: Proj
     const headingRefs = useRef<Array<HTMLDivElement | null>>([]);
     const contentsRef = useRef<HTMLDivElement | null>(null);
 
-    const [pageTopOffset, setPageTopOffset] = useState<number | null>(null);
+    const pageTopOffset = useRef<number>(0);
     const [scrollRef, setScrollRef] = useState<HTMLDivElement | null>(null);
 
+    const sidebarContainerRef = useRef<HTMLDivElement | null>(null);
+    const [contentLeftPadding, setContentLeftPadding] = useState<number>(0);
+
     useEffect(() => {
+        window.scroll({ top: 0, left: 0, behavior: "instant" } as unknown as ScrollToOptions);
+
         setScrollRef(contentsRef.current);
+
+        if (!sidebarContainerRef.current) return;
+        const sidebarResizeObserver = new ResizeObserver((size) => {
+            let rect = size[0].contentRect;
+            setContentLeftPadding(rect.width);
+        })
+        sidebarResizeObserver.observe(sidebarContainerRef.current);
+        setContentLeftPadding(sidebarContainerRef.current.clientWidth);
+
+        window.addEventListener("scroll", setActiveHeader);
     }, [])
 
     const setActiveHeader = () => {
-        if (!headingRefs.current || !scrollRef || !pageTopOffset) return;
+        console.log(pageTopOffset.current);
+        // if (!headingRefs.current || !pageTopOffset) return;
         for (let i = 0; i < headingRefs.current.length; i++) {
             let headingRef = headingRefs.current[i];
             let offsetTop = headingRef ? headingRef.offsetTop : 0;
-            if (scrollRef.scrollTop >= offsetTop - pageTopOffset) { setActiveHeading(i) };
+            if (window.scrollY >= offsetTop - pageTopOffset.current) { setActiveHeading(i) };
         }
     }
 
-    return (<StyledPage>
-        <Sidebar headings={headings} activeHeading={activeHeading} pageTop={pageTopOffset} scrollRef={scrollRef} headingRefs={headingRefs.current} />
-        <div className={"projectContents"} ref={contentsRef} onScroll={setActiveHeader}>
+    return (<StyledPage $paddingLeft={contentLeftPadding}>
+        <div className={"sidebarContainer"} ref={sidebarContainerRef}>
+            <Sidebar headings={headings} activeHeading={activeHeading} pageTop={pageTopOffset.current} scrollRef={scrollRef} headingRefs={headingRefs.current} />
+        </div>
+        <div className={"projectContents"} ref={contentsRef}>
             {content.sections.map((section, index) => {
                 if (index === 0) {
                     return (
@@ -117,7 +135,7 @@ function ProjectPage({ tags, content }: { tags: Array<ProjectTag>, content: Proj
                                 media={content.media}
                                 links={content.links}
                                 tags={tags}
-                                setPageTop={setPageTopOffset}
+                                setPageTop={(value: number) => pageTopOffset.current = value}
                                 ref={el => headingRefs.current[index] = el}
                                 key={index}
                             >
@@ -139,7 +157,7 @@ function ProjectPage({ tags, content }: { tags: Array<ProjectTag>, content: Proj
                     )
                 }
             })}
-            <div className={"bottomSpace"}></div>
+            <div className={"bottomSpace"}>&nbsp;</div>
         </div>
     </StyledPage>);
 }

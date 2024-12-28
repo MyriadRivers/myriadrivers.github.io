@@ -121,6 +121,7 @@ function ProjectTitle({
     const pageTopRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
+        console.log(pageTopRef.current?.offsetTop);
         setPageTop(pageTopRef.current?.offsetTop);
     }, [pageTopRef.current])
 
