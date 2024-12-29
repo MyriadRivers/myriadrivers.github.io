@@ -64,9 +64,9 @@ const StyledNavbar = styled.div<{ $open: boolean }>`
 
     .mobileName {
         width: 100%;
-        font-size: 48pt;
+        font-size: 47pt;
         letter-spacing: 0.25rem;
-        margin-top: -5px;
+        margin-top: -3px;
 
         @media ${breakpoints.xs} {
             font-size: 15pt;

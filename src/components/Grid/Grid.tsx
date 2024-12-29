@@ -17,9 +17,22 @@ const StyledGrid = styled.div<{ $tagsHeight: number }>`
     }
 
     .tags {
+        /* background: pink; */
         position: fixed;
+        width: calc(100% - 2 * 60px);
+        @media ${breakpoints.laptop} {
+            width: calc(100% - 2 * 40px);
+        }
+        @media ${breakpoints.mobile} {
+            width: calc(100% - 2 * 20px);
+        }
+        
+        @media ${breakpoints.mobile} {
+            padding-top: 10px;
+        }
 
         display: flex;
+        flex-direction: row-reverse;
         flex-wrap: wrap;
         gap: 20px;
     }
@@ -38,7 +51,7 @@ const StyledGrid = styled.div<{ $tagsHeight: number }>`
         /* padding: 0px 20px;  */
 
         @media ${breakpoints.mobile} {
-            padding: 0px; 
+            padding: ${props => `calc(${props.$tagsHeight}px + 20px)`} 0px 0px 0px; 
         }
     }
 

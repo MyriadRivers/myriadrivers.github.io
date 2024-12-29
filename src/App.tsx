@@ -42,8 +42,15 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
     /* @media ${breakpoints.mobile} {
       mix-blend-mode: normal;
     } */
+
     background: ${props => props.theme.alt};
+    -webkit-backdrop-filter: blur(5px) opacity(70%);
     backdrop-filter: blur(5px) opacity(70%);
+    
+
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+
     /* mask: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%); */
     
     position: fixed;
@@ -55,6 +62,7 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
       width: calc(100% - 2 * 40px);
     }
     @media ${breakpoints.mobile} {
+      /* mix-blend-mode: normal;  */
       width: calc(100% - 2 * 20px);
     }
     max-width: 1500px;
@@ -78,22 +86,22 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
     padding: 
     ${props => `calc(${props.$contentTop}px + 30px + 20px)`} 
     ${props => `calc(60px - ${props.$scrollBarWidth}px)`} 
-    ${props => `calc(${props.$contentTop}px + 30px + 20px)`} 
+    30px
     60px;
 
     @media ${breakpoints.laptop} {
       padding: 
       ${props => `calc(${props.$contentTop}px + 30px + 20px)`} 
       ${props => `calc(40px - ${props.$scrollBarWidth}px)`} 
-      ${props => `calc(${props.$contentTop}px + 30px + 20px)`} 
+      30px
       40px;
     }
 
     @media ${breakpoints.mobile} {
       padding: 
-      ${props => `calc(${props.$contentTop}px + 20px + 20px)`} 
+      ${props => `calc(${props.$contentTop}px + 30px)`} 
       ${props => `calc(20px - ${props.$scrollBarWidth}px)`} 
-      ${props => `calc(${props.$contentTop}px + 20px + 20px)`} 
+      30px
       20px;
     }
   }
@@ -124,6 +132,7 @@ function App() {
       setContentTopPadding(rect.height);
     })
     headerResizeObserver.observe(headerRef.current);
+    console.log("top padding: " + headerRef.current.clientHeight)
     setContentTopPadding(headerRef.current.clientHeight);
 
     const contentResizeObserver = new ResizeObserver((size) => {

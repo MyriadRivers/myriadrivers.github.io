@@ -22,7 +22,7 @@ const StyledAbout = styled.div`
     display: flex;
     flex-direction: row;
 
-    overflow: auto;
+    /* overflow: auto; */
 
     gap: 40px;
     @media ${breakpoints.mobile} {
@@ -35,7 +35,7 @@ const StyledAbout = styled.div`
 
     .aboutTextContainer {
         width: 100%;
-        overflow: auto;
+        /* overflow: auto; */
         @media ${breakpoints.mobile} {
             overflow: visible;
         }
@@ -63,6 +63,8 @@ const StyledAbout = styled.div`
     }
 
     .jasonImageContainer {
+        /* position: fixed; */
+
         @media ${breakpoints.mobile} {
             width: 50%;
             margin: auto;        
