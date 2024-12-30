@@ -34,13 +34,13 @@ const StyledNavOption = styled.div<{ $active: boolean }>`
         /* color: ${props => props.theme.type === "monochrome" ?
         "" :
         props.$active ? "" : props.theme.accent}; */
-        box-shadow: 1px 0px 0px 0px ${props => props.theme.alt};
+        /* box-shadow: 1px 0px 0px 0px ${props => props.theme.alt}; */
     }
     
     box-sizing: border-box;
     
     // Eliminate a dark sliver on the edge of the nav bar in some zoom settings
-    box-shadow: 1px 0px 0px 0px ${props => props.$active ? props.theme.alt : props.theme.main};
+    /* box-shadow: 1px 0px 0px 0px ${props => props.$active ? props.theme.alt : props.theme.main}; */
 
     @media ${breakpoints.mobile} {
         background: ${props => props.theme.main};

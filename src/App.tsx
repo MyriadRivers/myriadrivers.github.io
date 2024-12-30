@@ -132,7 +132,7 @@ function App() {
       setContentTopPadding(rect.height);
     })
     headerResizeObserver.observe(headerRef.current);
-    console.log("top padding: " + headerRef.current.clientHeight)
+    // console.log("top padding: " + headerRef.current.clientHeight)
     setContentTopPadding(headerRef.current.clientHeight);
 
     const contentResizeObserver = new ResizeObserver((size) => {

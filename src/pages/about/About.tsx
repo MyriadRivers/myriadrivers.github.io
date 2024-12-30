@@ -15,7 +15,7 @@ import Link from "../../components/Link";
 
 const jasonImages = [jason, jason2, jason3, jason4, jason5, jason6, jason7];
 
-const StyledAbout = styled.div`
+const StyledAbout = styled.div<{ $overflow: boolean, $topPadding: number }>`
     height: 100%;
     /* width: 100%; */
 
@@ -34,27 +34,31 @@ const StyledAbout = styled.div`
     }
 
     .aboutTextContainer {
-        width: 100%;
-        /* overflow: auto; */
+        /* background: green; */
+        width: 50%;
+
+        margin: 0px 0px 0px calc(50% + 20px);
         @media ${breakpoints.mobile} {
-            overflow: visible;
+            width: 100%;
+            margin: 0px;
+            padding: 0px; 
         }
         display: flex;
+        justify-content: ${props => props.$overflow ? "start" : "center"};
+        flex-direction: column;
     }
 
     .aboutText {
         /* width: 100%; */
+        /* background: pink; */
 
         display: flex;
+        
         flex-direction: column;
         gap: 20px;
 
         /* padding-right: 60px; */
-        margin: auto;
-        padding: 20px 60px 20px 40px;
-        @media ${breakpoints.mobile} {
-            padding: 0px; 
-        }
+        
     }
 
     .aboutHeader {
@@ -63,13 +67,27 @@ const StyledAbout = styled.div`
     }
 
     .jasonImageContainer {
-        /* position: fixed; */
+        /* background: lavender; */
+        position: fixed;
+        top: ${props => props.$topPadding};
+        /* top: 50%; */
+
+        /* transform: translateY(-50%); */
+
+        height: ${props => `calc(100% - ${props.$topPadding}px - 30px)`};
+        width: min(calc(50% - 60px), 1500px / 2 - 60px);
+
+        @media ${breakpoints.laptop} {
+            width: calc(50% - 40px);     
+        }
 
         @media ${breakpoints.mobile} {
+            position: static;
+            transform: translateY(0%);
             width: 50%;
             margin: auto;        
         }
-        width: 140%;
+        /* width: 140%; */
         display: flex;
         /* overflow: hidden; */
     }
@@ -79,17 +97,14 @@ const StyledAbout = styled.div`
         margin: auto;
 
         max-width: 100%;
-        height: auto;
+        max-height: 100%;
         width: auto;
         
     }
 
     .bottomSpace {
-        display: none;
-
-        @media ${breakpoints.mobile} {
-            display: inline-block;      
-        }
+        /* background-color: pink; */
+        display:  ${props => props.$overflow ? "inline-block" : "none"};
         min-height: 150px;
     }
 `
@@ -103,6 +118,34 @@ const links = [
 
 function About() {
     const [portraitID, setPortraitID] = useState<number>(Math.floor(Math.random() * jasonImages.length));
+    const aboutPageRef = useRef<HTMLDivElement | null>(null);
+    const aboutContainerRef = useRef<HTMLDivElement | null>(null);
+    const aboutRef = useRef<HTMLDivElement | null>(null);
+
+    const [overflow, setOverflow] = useState<boolean>(false);
+    const [aboutTopPadding, setAboutTopPadding] = useState<number>(0);
+
+    useEffect(() => {
+        if (!aboutPageRef.current) return;
+        console.log(aboutPageRef.current.getBoundingClientRect().top);
+        const topPadding = aboutPageRef.current.getBoundingClientRect().top;
+        setAboutTopPadding(topPadding);
+    }, [])
+
+    useEffect(() => {
+        if (!aboutContainerRef.current || !aboutRef.current) return;
+        const aboutContainerResizeObserver = new ResizeObserver((size) => {
+            let rect = size[0].contentRect;
+            if (!aboutRef.current) return;
+            if (rect.height > aboutRef.current.clientHeight) {
+                setOverflow(false);
+            } else {
+                setOverflow(true);
+            }
+        })
+        aboutContainerResizeObserver.observe(aboutContainerRef.current);
+        // setTagsHeight(tagsContainerRef.current.clientHeight);
+    }, [])
 
     const swapPortrait = () => {
         let newID = Math.floor(Math.random() * jasonImages.length);
@@ -112,12 +155,12 @@ function About() {
         setPortraitID(newID);
     }
 
-    return (<StyledAbout>
+    return (<StyledAbout $overflow={overflow} $topPadding={aboutTopPadding} ref={aboutPageRef}>
         <div className={"jasonImageContainer"}>
             <img className={"jasonImage"} onClick={swapPortrait} src={jasonImages[portraitID]} alt={"Self portrait of me!"} />
         </div>
-        <div className={"aboutTextContainer"}>
-            <div className={"aboutText"}>
+        <div className={"aboutTextContainer"} ref={aboutContainerRef}>
+            <div className={"aboutText"} ref={aboutRef}>
                 <div className={"aboutHeader"}>
                     Hey, I'm Jason!
                 </div>
@@ -134,7 +177,7 @@ function About() {
                     In my free time, you might catch me making music, coding a personal project, or looking for bugs outside.
                 </p>
                 <LinkList links={links} />
-                <div className={"bottomSpace"} />
+                <div className={"bottomSpace"} >&nbsp;</div>
             </div>
         </div>
     </StyledAbout>);
