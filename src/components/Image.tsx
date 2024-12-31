@@ -2,12 +2,14 @@ import styled from "styled-components";
 import breakpoints from "../styles/breakpoints";
 
 const StyledImage = styled.div<{ $mainImage: boolean, $gif: boolean }>`
+    /* background: pink; */
     display: flex;
     flex-direction: column;
     gap: 10px;
     /* max-height: 57vh; */
     padding: ${props => props.$mainImage ? "0px" : "40px"} 0px;
     margin: 0px 0px 0px calc(${props => props.$mainImage ? "0px" : "-100%"});
+
     @media ${breakpoints.laptop} {
         margin: 0px;
         align-items: start;
@@ -25,8 +27,16 @@ const StyledImage = styled.div<{ $mainImage: boolean, $gif: boolean }>`
         } */
     }
 
+    .imageContainer {
+        /* width: 100%; */
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        /* background: lavender; */
+    }
+
     overflow: hidden;
-    align-items: end;
+    align-items: center;
     text-align: right;
     /* text-align: center; */
     font-size: 12pt;
@@ -36,8 +46,10 @@ const StyledImage = styled.div<{ $mainImage: boolean, $gif: boolean }>`
 
 function Image({ src, caption, mainImage, gif }: { src: string, caption?: string, mainImage?: boolean, gif?: boolean }) {
     return (<StyledImage $mainImage={mainImage ?? false} $gif={gif ?? false}>
-        <img src={src} alt={caption} />
-        {caption}
+        <div className={"imageContainer"}>
+            <img src={src} alt={caption} />
+            {caption}
+        </div>
     </StyledImage>);
 }
 

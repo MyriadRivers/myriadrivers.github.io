@@ -29,7 +29,7 @@ import AuditoryInterface from "./pages/projects/AuditoryInterface/AuditoryInterf
 
 import { Project, ProjectTag } from "./types"
 import Troov from "./pages/projects/Troov/Troov"
-import EcoDashboard from "./pages/projects/Dashboard/EcoDashboard"
+import EcoDashboard from "./pages/projects/EcoDashboard/EcoDashboard"
 import Website from "./pages/projects/Website/Website"
 
 interface ProjectInfo {

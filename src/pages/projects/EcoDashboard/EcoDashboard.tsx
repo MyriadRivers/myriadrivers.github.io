@@ -25,6 +25,9 @@ import Table from "../../../components/Table";
 import Link from "../../../components/Link";
 import GridList from "../../../components/GridList/GridList";
 import { BackHand, Biotech, Dashboard, Directions, Diversity2, Diversity3, EmojiPeople, FormatListNumbered, GridGoldenratio, Handshake, Info, Keyboard, MenuBook, Newspaper, RecordVoiceOver, Rule, SentimentVeryDissatisfied, Traffic, TurnLeft, Warning } from "@mui/icons-material";
+import { AxisConfig, BarChart, ChartsYAxisProps } from "@mui/x-charts";
+import { Box, Typography } from "@mui/material";
+import MediaContainer from "../../../components/MediaContainer";
 
 const title: string = "EcoJustice Dashboard";
 const dateRange: string = "Aug – Dec 2024";
@@ -387,7 +390,7 @@ const sections: Array<Section> = [
     {
         shortTitle: "Evaluation",
         title: "Evaluation with users assesses design requirements",
-        summary: "We evaluated our design on two design requirements using Heuristic Evaluations with other HCI students and usability testing with fenceline community members.",
+        summary: "We evaluated our design on two design requirements using heuristic evaluations with other HCI students and usability testing with fenceline community members.",
         contents:
             <>
                 <p>
@@ -490,27 +493,94 @@ const sections: Array<Section> = [
                 </p>
                 <Heading level={4}>Analysis</Heading>
                 <p>
-                    The scores of the heuristic evaluations and the SUS forms were averaged to assess general usability of the system as a whole.
+                    The heuristic evaluations were averaged and viewed with our SUS scores to assess the usability of the system as a whole.
                     Notes from all evaluation sessions were organized into likes, dislikes, confusions, and wants, which were then coded by feature
                     and heuristic.
                 </p>
                 <Heading level={4}>Findings</Heading>
                 <p>
-                    After finishing all the tasks, participants were given 2 worksheets to complete. One was a System Usability Scale measuring the overall
-                    efficacy of the system in achieving their goals, and the other was a list of adjectives in which users circled the words that best described
-                    their experience.
+                    From our SUS scores, the resident rated our system 92.5, while the community organizer rated it 77.5. 
+                    Through these scores and our analysis, we found that we need to make our design more intuitive especially
+                    towards older users.
+                </p>
+                <p>
+                    Among the words chosen to describe our system were <b>controllable, convenient, effective, 
+                    and empowering</b>. Both the resident and community leader described the system as <b>clean</b> and <b>organized</b> implying that our system broadly supports 
+                    <b> NFR 1: Organization and Hierarchy</b>. 
+                </p>
+                <MediaContainer>
+                    <Typography variant="h5" textAlign={"center"}>Average Heuristic Evaluation Scores</Typography>
+                    <BarChart
+                        height={300}
+                        margin={{
+                            top: 20,
+                            bottom: 20,
+                            left: 200
+                        }}
+                        xAxis={[
+                            {
+                                min: 0,
+                                max: 100,
+                                tickInterval: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+                            }
+                        ]}
+                        yAxis={[
+                            {
+                                id: "heuristics",
+                                data: [
+                                    "Visibility of System Status", 
+                                    "Consistency & Standards", 
+                                    "Recognition > Recall", 
+                                    "Flexibility & Efficiency of Use", 
+                                    "Aesthetic & Minimalistic Design"
+                                ],
+                                categoryGapRatio: 0.5,
+                                scaleType: "band"
+                            } as AxisConfig<'band', any, ChartsYAxisProps>,
+                        ]}
+                        series={[
+                            {
+                                data: [85, 79.7, 78.3, 78, 85.8],
+                                color: "black",
+                            }
+                        ]}
+                        layout={"horizontal"}
+                    />
+                </MediaContainer>
+                <p>
+                    From our heuristic evaluations, we found that our system across all evaluators and heuristics
+                    had an average score 81.36, indicating that our design generally supported our tasks but had 
+                    minor usability issues. 
+                    Through our discussion with the evaluators and users, we identified specific points of confusion
+                    within each heuristic and design ideas to address these, which included issues such as
+                    experts having questions on where the values of the Insights page come from, 
+                    and users reporting that the specific issues in the Insights page aren't usually as relevant
+                    in terms of blockers actual community members face. 
+                </p>
+                <p>
+                    As a whole, the community resident and organizer both expressed excitement at the design.
+                    They found the timeline view and ability to create and monitor resident completion of tasks very helpful,
+                    suggesting our system's generally supports <b> FR 1: Suggest Actions</b>.
                 </p>
             </>
     },
     {
         shortTitle: "Future",
-        title: "Evaluation with users assesses design requirements",
-        summary: "We evaluated our design on two design requirements using Heuristic Evaluations with other HCI students and usability testing with fenceline community members.",
+        title: "Future iterations address user feedback",
+        summary: `Future work would address the specific features users found confusing. Reflecting on the project, 
+        narrowing the problem scope took up a lot of time`,
         contents:
             <>
                 <p>
-                    To evaluate the effectiveness of our high-fidelity prototype and investigate any usability issues, we performed two types of evaluations.
-                    Due to scope, we specifically focused on two design requirements:
+                    If we were to move forward with this project, next steps would be addressing the specific
+                    feedback from our evaluation in creating a new prototype. 
+                </p>
+                <p>
+                    Reflecting on the project and a whole, our team spent a long time orienting to a problem 
+                    space and narrowing our scope, as we first focused on all stakeholders, then scientists, and
+                    finally community organizers. Starting with a more specific problem in the future would
+                    allow us to save time and have apply findings in the research phase more directly towards our
+                    design.
                 </p>
             </>
     }

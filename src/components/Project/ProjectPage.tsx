@@ -73,7 +73,7 @@ const StyledPage = styled.div<{ $paddingLeft: number }>`
         min-height: 150px;
     }
 
-    /* overflow: hidden; */
+    /* overflow: visible; */
 `
 
 function ProjectPage({ tags, content }: { tags: Array<ProjectTag>, content: Project }) {

@@ -46,7 +46,6 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
     background: ${props => props.theme.alt};
     -webkit-backdrop-filter: blur(5px) opacity(70%);
     backdrop-filter: blur(5px) opacity(70%);
-    
 
     transform: translate3d(0, 0, 0);
     will-change: transform;
