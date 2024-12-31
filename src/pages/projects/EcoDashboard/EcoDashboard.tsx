@@ -552,7 +552,7 @@ const sections: Array<Section> = [
                         margin={{
                             top: 20,
                             bottom: 20,
-                            left: 200
+                            left: 100
                         }}
                         xAxis={[
                             {
@@ -565,11 +565,11 @@ const sections: Array<Section> = [
                             {
                                 id: "heuristics",
                                 data: [
-                                    "Visibility of System Status", 
-                                    "Consistency & Standards", 
-                                    "Recognition > Recall", 
-                                    "Flexibility & Efficiency of Use", 
-                                    "Aesthetic & Minimalistic Design"
+                                    "Status Visibility", 
+                                    "Consistency", 
+                                    "Recognition", 
+                                    "Flexibility of Use", 
+                                    "Minimalist Design"
                                 ],
                                 categoryGapRatio: 0.5,
                                 scaleType: "band"

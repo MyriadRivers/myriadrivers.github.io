@@ -8,6 +8,7 @@ const StyledMediaContainer = styled.div`
     justify-content: center;
 
     margin: 0px 0px 0px calc(-100% + -40px);
+    padding: 40px 0px;
 
     @media ${breakpoints.laptop} {
         margin: 0px;
