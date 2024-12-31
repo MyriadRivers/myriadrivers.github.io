@@ -85,7 +85,7 @@ const randPastel = () => {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
-    const a = (Math.random() * 0.35) + 0.15;
+    const a = (Math.random() * 0.25) + 0.15;
 
     return `rgb(${brighten(r)}, ${brighten(g)}, ${brighten(b)}, ${a})`;
 }

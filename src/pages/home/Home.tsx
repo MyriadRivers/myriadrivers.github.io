@@ -23,7 +23,7 @@ const StyledHome = styled.div`
 
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        /* gap: 20px; */
 
         overflow: auto;
         /* padding-right: 60px; */
@@ -59,12 +59,14 @@ function Home() {
             <div className={"homeHeader"}>
                 Simple, usable, playful.
             </div>
-            <p>
-                I'm Jason, a UX researcher and creative engineer passionate about making people's lives more enjoyable.
-            </p>
-            <p>
-                Excited to meet you.
-            </p>
+            <div>
+                <p>
+                    I'm Jason, a UX researcher and creative engineer passionate about making people's lives more enjoyable.
+                </p>
+                <p>
+                    Excited to meet you.
+                </p>
+            </div>
             {/* <LinkList links={links} /> */}
         </div>
     </StyledHome>);

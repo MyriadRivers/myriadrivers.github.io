@@ -105,7 +105,6 @@ function ProjectPage({ tags, content }: { tags: Array<ProjectTag>, content: Proj
     }, [])
 
     const setActiveHeader = () => {
-        console.log(pageTopOffset.current);
         // if (!headingRefs.current || !pageTopOffset) return;
         for (let i = 0; i < headingRefs.current.length; i++) {
             let headingRef = headingRefs.current[i];
@@ -143,6 +142,7 @@ function ProjectPage({ tags, content }: { tags: Array<ProjectTag>, content: Proj
                 } else {
                     return (
                         <Expandable
+                            shortTitle={headings[index]}
                             heading={section.title}
                             summary={section.summary ?? ""}
                             ref={el => headingRefs.current[index] = el}

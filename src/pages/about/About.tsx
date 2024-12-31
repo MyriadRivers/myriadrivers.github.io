@@ -35,9 +35,9 @@ const StyledAbout = styled.div<{ $overflow: boolean, $topPadding: number }>`
 
     .aboutTextContainer {
         /* background: green; */
-        width: 50%;
+        width: 40%;
 
-        margin: 0px 0px 0px calc(50% + 20px);
+        margin: 0px 0px 0px calc(60% + 20px);
         @media ${breakpoints.mobile} {
             width: 100%;
             margin: 0px;
@@ -55,7 +55,7 @@ const StyledAbout = styled.div<{ $overflow: boolean, $topPadding: number }>`
         display: flex;
         
         flex-direction: column;
-        gap: 20px;
+        /* gap: 20px; */
 
         /* padding-right: 60px; */
         
@@ -75,10 +75,10 @@ const StyledAbout = styled.div<{ $overflow: boolean, $topPadding: number }>`
         /* transform: translateY(-50%); */
 
         height: ${props => `calc(100% - ${props.$topPadding}px - 30px)`};
-        width: min(calc(50% - 60px), 1500px / 2 - 60px);
+        width: min(calc(60% - 60px), 1500px * 0.6 - 60px);
 
         @media ${breakpoints.laptop} {
-            width: calc(50% - 40px);     
+            width: calc(60% - 40px);     
         }
 
         @media ${breakpoints.mobile} {
@@ -164,18 +164,20 @@ function About() {
                 <div className={"aboutHeader"}>
                     Hey, I'm Jason!
                 </div>
-                <p>
-                    I'm a current master's student in <Link url={"https://mshci.gatech.edu"}>Human-Computer Interaction at Georgia Tech</Link>,
-                    where I studied Computer Science and Music Technology in my undergrad.
-                </p>
-                <p>
-                    My desire is to unify creativity, technology, and human connection.
-                    Good design doesn't stop at the sketching or wireframing phase; I bring a usability and empathy
-                    centered mindset from the initial user interviews to the technical implementation in code.
-                </p>
-                <p>
-                    In my free time, you might catch me making music, coding a personal project, or looking for bugs outside.
-                </p>
+                <div>
+                    <p>
+                        I'm a current master's student in <Link url={"https://mshci.gatech.edu"}>Human-Computer Interaction at Georgia Tech</Link>,
+                        where I studied Computer Science and Music Technology in my undergrad.
+                    </p>
+                    <p>
+                        My desire is to unify creativity, technology, and human connection.
+                        Good design doesn't stop at the sketching or wireframing phase; I bring a usability and empathy
+                        centered mindset from the initial user interviews to the technical implementation in code.
+                    </p>
+                    <p>
+                        In my free time, you might catch me making music, coding a personal project, or looking for bugs outside.
+                    </p>
+                </div>
                 <LinkList links={links} />
                 <div className={"bottomSpace"} >&nbsp;</div>
             </div>

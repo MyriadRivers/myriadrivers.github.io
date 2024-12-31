@@ -24,6 +24,7 @@ import Heading from "../../../components/Heading";
 import Table from "../../../components/Table";
 import Link from "../../../components/Link";
 import GridList from "../../../components/GridList/GridList";
+import { BackHand, Biotech, Dashboard, Directions, Diversity2, Diversity3, EmojiPeople, FormatListNumbered, GridGoldenratio, Handshake, Info, Keyboard, MenuBook, Newspaper, RecordVoiceOver, Rule, SentimentVeryDissatisfied, Traffic, TurnLeft, Warning } from "@mui/icons-material";
 
 const title: string = "EcoJustice Dashboard";
 const dateRange: string = "Aug – Dec 2024";
@@ -44,9 +45,9 @@ const sections: Array<Section> = [
         contents:
             <>
                 <p>
-                    Fenceline communities, also known as sacrifice zones, are areas situated in extreme proximity to heavily polluting industrial facilities,
-                    where residents face disproportionately high rates of disease, disability, and birth defect. With government, laws, and economic power
-                    often on the side of the companies, communities must rely on grassroots organization to enact change.
+                    Fenceline communities, also known as sacrifice zones, are communities located extremely close to heavily polluting industrial facilities,
+                    where residents face high rates of health risks, disease, and birth defects. These companies hold significant economic and legal sway,
+                    meaning communities must rely on grassroots organization for any hope of change.
                 </p>
                 <p>
                     We pursued a 16-week end-to-end UX project involving the research and design of a new system to integrate with Facebook, a tool many of these
@@ -61,58 +62,44 @@ const sections: Array<Section> = [
         contents:
             <>
                 <p>
-                    To evaluate the problem space and build an initial understanding of the domain, we conducted a literature review of over 40 articles, websites, and books
-                    covering case studies of existing sacrifice zones and their strategies, government regulations and monitoring, and existing technological solutions.
+                    To build an initial understanding of the domain, we conducted a <b>literature review</b> of over 40 articles, websites, and books
+                    covering case studies of existing sacrifice zones, government regulations, and existing technologies.
                 </p>
-                {/* <p>
-                    Fenceline communities must build a diverse coalition of stakeholders, including government, legal, media, and scientific allies, in order to stand a chance
-                    against industry giants. It became evident through our secondary research that addressing such a broad spectrum would be impossible—we thus narrowed
-                    our scope to specifically <b>the relationship between communities and researchers</b>, as we felt this was an area that could best benefit from
-                    technological intervention through monitoring, data collection, and aggregation.
-                </p> */}
                 <p>
-                    To supplement our secondary findings, we set about conducting primary research through three methods to generate specific user needs.
+                    We also set about conducting primary research through three methods to generate specific user needs.
                 </p>
                 <Heading level={4}>Social Media Mining</Heading>
                 <p>
                     In order to assess how communities organized themselves online, we investigated two "Stop Sterigenics" Facebook groups, centered in Willowbrook, IL
-                    and Atlanta, GA. Both of these groups represent a community of residents and businesses located near a Sterigenics facility,
-                    a company that performs medical sterilization using the carcinogenic gas Ethylene Oxide (EtO).
-                    We analyzed how residents used their respective Facebook groups to post updates, discuss changes, and keep each other informed and engaged.
+                    and Atlanta, GA. Both of these groups represent communities located near Sterigenics facilities,
+                    a company that performs medical sterilization using a carcinogenic gas, Ethylene Oxide (EtO).
+                    We analyzed how residents posted updates, discussed changes, and kept each other engaged.
                 </p>
-                <p>
-                    <Image src={smMining} caption={"Posts were classified into broad categories based on content, looking at their engagement and the discussions in the comments sections."} />
-                </p>
+                <Image src={smMining} caption={"Posts were classified into broad categories based on content, looking at their engagement and the discussions in the comments sections."} />
                 <Heading level={4}>Semi-structured Interviews</Heading>
                 <p>
-                    From our initial research, we developed interview guides for both scientists and community residents, with questions based around their general needs and experiences,
-                    as well as their requirements when working with one another. When necessary, we asked follow-up questions to probe for motivations and deeper insights.
-                    Through both remote and in-person sessions, we interviewed one environmental scientist and two active community leaders.
+                    We developed interview guides for 1 environmental scientist and 2 community leaders, with questions based around their general needs and experiences,
+                    as well as their requirements when working with one another.
                 </p>
-                <GridList />
-                {/* <Table title={"Interview Users"}>
-                    <thead>
-                        <tr>
-                            <th>U1</th>
-                            <th>U2</th>
-                            <th>U3</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Researcher</td>
-                            <td>Community Leader</td>
-                            <td>Community Leader</td>
-                        </tr>
-                        <tr>
-                            <td>Environmental scientist at Emory University specializing in air and soil pollution.
-                                Worked with the Atlanta Westside community to investigate lead contamination in the soil, leading to the area being classified as an EPA Superfund Site.</td>
-                            <td>Lead the classification of the Buckhead Superfund Site, another local area contaminated with lead that U1's
-                                team had been investigating. Worked with federal officials to oversee remediation and cleanup.</td>
-                            <td>Leader of the Stop Sterigenics Georgia Facebook group. Coordinates with sympathetic government representatives and media to raise awareness and advocate change.</td>
-                        </tr>
-                    </tbody>
-                </Table> */}
+                <GridList items={[
+                    {
+                        icon: <Biotech fontSize="large" />,
+                        header: "U1: Researcher",
+                        text: `Environmental scientist at Emory University specializing in air and soil pollution.
+                        Worked with the Atlanta Westside community to investigate lead contamination in the soil, leading to the area being classified as an EPA Superfund Site.`
+                    },
+                    {
+                        icon: <EmojiPeople fontSize="large" />,
+                        header: "U2: Community Leader",
+                        text: `Lead the classification of the Buckhead Superfund Site, another local area contaminated with lead that U1's team had been investigating. 
+                        Worked with federal officials to oversee remediation and cleanup.`
+                    },
+                    {
+                        icon: <EmojiPeople fontSize="large" />,
+                        header: "U3: Community Leader",
+                        text: `Leader of the Stop Sterigenics Georgia Facebook group. Coordinates with sympathetic government representatives and media to raise awareness and advocate change.`
+                    }
+                ]} />
                 <p>
                     We interviewed the researcher regarding her experience doing community outreach,
                     including unforeseen obstacles to collecting data and working with community members,
@@ -122,16 +109,16 @@ const sections: Array<Section> = [
                     We interviewed the community leaders about how they became aware of their respective issues, their efforts in communicating to other residents,
                     their outreach to other stakeholders including scientists, and their confusions and problems with current systems.
                 </p>
-                <Image src={interview} caption={"Zoom interview with U1, an environmental researcher from Emory University."} />
+                {/* <Image src={interview} caption={"Zoom interview with U1, an environmental researcher from Emory University."} /> */}
                 <Heading level={4}>Participant Observation</Heading>
                 <p>
                     Finally, we attended an in-person environmental meeting at a local church where community members discussed a local landfill that was being remediated and
-                    built upon, with the construction process throwing up large amounts of sediment and particulate matter into the air. We sat in on the meeting, taking notes and
+                    built upon, with the construction process throwing up large amounts of particulate matter into the air. We sat in on the meeting, taking notes and
                     observing as a community member headed off with a status update of the current situation and as residents asked questions
                     about progress, concerns, and possible health risks.
                 </p>
                 <p>
-                    After the meeting, we were able to individually speak to a few of the residents regarding their experiences with the meeting and their concerns about the landfill,
+                    After the meeting, we also individually spoke to a few of the residents,
                     as well as with the organizer who had led event.
                 </p>
                 <Image src={landfillMeeting} caption={"Community organizer setting up agenda and notes for the meeting to discuss the landfill."} />
@@ -149,38 +136,51 @@ const sections: Array<Section> = [
                     revealing both more surface level commonalities, as well as higher level overarching goals.
                 </p>
                 <p>
-                    In our map, each sticky note was colored based on the user it was taken from. Pink notes represent first level groupings
-                    that describe the entire column, which were then organized again into grey sticky notes representing second and third level groupings.
-                    If at any point we came up with an initial design idea to address a problem, this was written down as an orange slanted note placed on the
-                    corresponding sticky.
+                    In our map, each sticky note was colored based on the user it was taken from, allowing us to quickly see if a finding was supported by multiple users.
+                    Pink notes summarize an entire column, and grey notes group multiple columns.
+                    Orange notes were initial design solutions/ideas that we came up with as we organized the map.
                 </p>
                 <Image src={affinityMap} caption={"Affinity map and design recommendations from our primary research."} />
                 <p>
                     From our thematic analysis, we derived <b>7 key findings</b>:
                 </p>
-                <ol className="findings">
-                    <li>
-                        Internal community organization is key for effective external outreach.
-                    </li>
-                    <li>
-                        Transparent information increases community engagement and empowerment.
-                    </li>
-                    <li>
-                        Affected communities value representation throughout relevant decision-making processes.
-                    </li>
-                    <li>
-                        Direct engagement is essential  to successfully collect data and gain a deeper understanding of the issues.
-                    </li>
-                    <li>
-                        Collaborating thoughtfully with media raises awareness.
-                    </li>
-                    <li>
-                        Communities feel hopeless and experience enormous barriers to address environmental risks.
-                    </li>
-                    <li>
-                        Residents struggle to understand scientific, industry, or governmental reports on environmental issues.
-                    </li>
-                </ol>
+                <GridList items={[
+                    {
+                        icon: <Diversity3 fontSize="large" />,
+                        header: "F1: Organization",
+                        text: `Internal community organization is key for effective external outreach.`
+                    },
+                    {
+                        icon: <Info fontSize="large" />,
+                        header: "F2: Transparency",
+                        text: `Transparent information increases community engagement and empowerment.`
+                    },
+                    {
+                        icon: <RecordVoiceOver fontSize="large" />,
+                        header: "F3: Representation",
+                        text: `Affected communities value representation throughout relevant decision-making processes.`
+                    },
+                    {
+                        icon: <BackHand fontSize="large" />,
+                        header: "F4: Engagement",
+                        text: `Direct engagement is essential to successfully collect data and gain a deeper understanding of the issues.`
+                    },
+                    {
+                        icon: <Newspaper fontSize="large" />,
+                        header: "F5: Media",
+                        text: `Collaborating thoughtfully with media raises awareness.`
+                    },
+                    {
+                        icon: <SentimentVeryDissatisfied fontSize="large" />,
+                        header: "F6: Powerlessness",
+                        text: `Communities feel hopeless and experience enormous barriers to address environmental risks.`
+                    },
+                    {
+                        icon: <MenuBook fontSize="large" />,
+                        header: "F7: Literacy",
+                        text: `Residents struggle to understand scientific, industry, or governmental reports on environmental issues.`
+                    }
+                ]} />
                 <p>
                     Our research made it evident that fenceline community members must form a broad coalition of diverse stakeholders including
                     researchers, government officials, legal experts, and the media in order to stand a chance against industry giants.
@@ -189,7 +189,7 @@ const sections: Array<Section> = [
                     technological intervention.
                 </p>
                 <p>
-                    To pinpoint an area to focus our ideation on, we developed <b>2 hierarchical task analyses</b> to identify the current processes that residents and researchers engage in to
+                    To pinpoint an area to focus our ideation on, we developed <b>2 hierarchical task analyses (HTAs)</b> to identify the current processes that residents and researchers engage in to
                     collaborate with one another, from both the community and the researchers' point of views.
                 </p>
                 <Image src={hta} caption={"Hierarchical task analysis of how community members connect with researchers."} />
@@ -202,36 +202,47 @@ const sections: Array<Section> = [
         contents:
             <>
                 <p>
-                    Based on our findings (F1–7), we developed <b>3 non-functional design requirements</b>:
+                    Based on our findings (F1–7), we developed <b>3 non-functional design requirements</b> and <b>4 functional design requirements</b>:
                 </p>
-                <ol className="nfr">
-                    <li>
-                        <span><b>Organization and Hierarchy: </b>Design should facilitate organization and hierarchy within a community (F1).</span>
-                    </li>
-                    <li>
-                        <span><b>Transparent Processes: </b>Design should facilitate transparency and accountability in processes (F2, F7).</span>
-                    </li>
-                    <li>
-                        <span><b>Non-expert Accessibility: </b>Design should be easy to use and accessible to anyone regardless of scientific literacy (F7).</span>
-                    </li>
-                </ol>
-                <p>
-                    and <b>4 functional design requirements:</b>
-                </p>
-                <ol className="fr">
-                    <li>
-                        <span><b>Communicate Danger: </b>The system should make the dangers of environmental contaminants understandable and relevant to the community (F2, F7).</span>
-                    </li>
-                    <li>
-                        <span><b>Suggest Actions: </b>Design should suggest concrete and actionable items to community members (F3, F6).</span>
-                    </li>
-                    <li>
-                        <span><b>Facilitate Understanding: </b>Design should enable researchers to develop an intimate and empathetic understanding of constituent residents (F3, F4).</span>
-                    </li>
-                    <li>
-                        <span><b>Encourage Discussion: </b>Design should facilitate creating a safe and open online environment to gather feedback from all community members (F2, F3, F4, F5).</span>
-                    </li>
-                </ol>
+                <GridList items={[
+                    {
+                        icon: <Diversity3 fontSize="large" />,
+                        header: "NFR 1: Organization and Hierarchy",
+                        text: `Design should facilitate organization and hierarchy within a community (F1: Organization).`
+                    },
+                    {
+                        icon: <Info fontSize="large" />,
+                        header: "NFR 2: Transparent Processes",
+                        text: `Design should facilitate transparency and accountability in processes (F2: Transparency, F7: Literacy).`
+                    },
+                    {
+                        icon: <MenuBook fontSize="large" />,
+                        header: "NFR 3: Non-expert Accessibility",
+                        text: `Design should be easy to use and accessible to anyone regardless of scientific literacy (F7: Literacy).`
+                    },
+                    {
+                        icon: <Warning fontSize="large" />,
+                        header: "FR 1: Communicate Danger",
+                        text: `The system should make the dangers of environmental contaminants understandable and relevant to the community (F2: Tranparency, F7: Literacy).`
+                    },
+                    {
+                        icon: <FormatListNumbered fontSize="large" />,
+                        header: "FR 2: Suggest Actions",
+                        text: `Design should suggest concrete and actionable items to community members (F3: Representation, F6: Powerlessness).`
+                    },
+                    {
+                        icon: <Handshake fontSize="large" />,
+                        header: "FR 3: Facilitate Understanding",
+                        text: `Design should enable researchers to develop an intimate and empathetic understanding of constituent residents (F3: Representation, F4: Engagement).`
+                    }
+                    ,
+                    {
+                        icon: <Diversity2 fontSize="large" />,
+                        header: "FR 4: Encourage Discussion",
+                        text: `Design should facilitate creating a safe and open online environment to gather feedback and experiences from all community members
+                        (F2: Transparency, F3: Representation, F4: Engagement, F5: Media).`
+                    }
+                ]} />
             </>
     },
     {
@@ -242,8 +253,8 @@ const sections: Array<Section> = [
         contents:
             <>
                 <p>
-                    Using the initial ideas from our affinity map along with the SCAMPER (Substitute, Combine, Adjust, Modify, Put to other uses, Eliminate, Reverse)
-                    method of iterating upon or altering existing systems, every member of our team individually developed three different idea sketches to address our
+                    Using the initial ideas from our affinity map, the SCAMPER (Substitute, Combine, Adjust, Modify, Put to other uses, Eliminate, Reverse)
+                    method of iterating upon or altering existing systems, and the steps outlined in our HTAs, every member of our team individually developed three different idea sketches to address our
                     design requirements. Then, we got together to discuss and merge similar ideas, resulting in 11 alternate possibilities.
                 </p>
                 <Image src={ideation} caption={"11 design ideas and voting to determine top two choices."} />
@@ -251,40 +262,41 @@ const sections: Array<Section> = [
                     We each voted for our top three choices, discussing our rationale, to determine the designs to pursue in further detail.
                     This resulted in two top ideas:
                 </p>
-                <ol>
-                    <li>
-                        A data collection system for allowing residents to log samples and reports ranging from photos of unknown contaminants or sensor readouts to
+                <GridList items={[
+                    {
+                        icon: <Biotech fontSize="large" />,
+                        header: "Data Collection",
+                        text: `A data collection system for allowing residents to log samples and reports ranging from photos of unknown contaminants or sensor readouts to
                         diary entries about adverse health effects or observed factory incidents.
                         The system would organize and aggregate this information based on geography to allow scientists
-                        to analyze and identify areas of greatest danger and to issue proper guidance.
-                    </li>
-                    <li>
-                        A project management system for allowing residents and researchers to communicate and keep track of ongoing tasks and action items,
+                        to analyze and identify areas of greatest danger and to issue proper guidance.`
+                    },
+                    {
+                        icon: <Diversity3 fontSize="large" />,
+                        header: "Project Management",
+                        text: `A project management system for allowing residents and researchers to communicate and keep track of ongoing tasks and action items,
                         including workshops, testing initiatives, and community events. The system would keep both sides informed about what the other is doing,
                         and what each side needs from the other to complete their tasks. It would also explain how each task affects the overall effort in the
-                        fight for the community's environmental justice.
-                    </li>
-                </ol>
+                        fight for the community's environmental justice.`
+                    }
+                ]} />
                 <p>
                     We further developed each of these ideas into a storyboard to get a better sense of how they would fit into users' existing practices.
                 </p>
                 <Image src={storyboard} caption={"Storyboard of the data collection system, idea 1."} />
                 <p>
-                    As we iterated on our designs, we kept in contact with our users, specifically the Stop Sterigenics Georgia Facebook group users.
-                    Through our research and correspondence, it became more and more evident that every sacrifice zone's situation and needs were wholly unique,
+                    As we iterated on our designs, we kept in contact with our users, and it became more and more evident that every sacrifice zone's
+                    situation and needs were wholly unique,
                     heavily dependent on the type of pollution they were facing.
                 </p>
                 <p>
                     In the case of Sterigenics, Ethylene Oxide is colorless gas that is difficult to detect without
                     proper instrumentation, unavailable to average consumers. In addition to this, because EtO is used heavily in the medical fields,
-                    many researchers and scientists were unwilling to ally with the group for monitoring, testing, and data collection,
-                    as it potentially conflicted with their own interests or the interests of their instutitions.
+                    many researchers were unwilling to partner with the group or help monitor.
                 </p>
                 <p>
-                    Based on this information and the difficulty of collecting accurate visual evidence of pollutants such as EtO,
-                    we decided to focus on the project management idea. Furthermore, based on the findings that scientists are unwilling to cooperate with
-                    some fenceline communities, and much of the collaboration that does happen is centered around data collection—which again
-                    varies heavily by the type of pollutant—we decided to scope down even further to center around intra-community
+                    Based on the difficulties of data collection and conflicts of interest with scientists,
+                    we decided to focus on the project management idea and to scope down even further to center around intra-community
                     communication, specifically <b>between community organizers and regular residents</b>, leading to our current problem statement.
                 </p>
                 <Image src={stakeholders} caption={"Community leaders serve as the critical bridge between all other stakeholders and the residents."} />
@@ -308,10 +320,8 @@ const sections: Array<Section> = [
                     Our non-functional design requirements remained unchanged.
                 </p>
                 <p>
-                    With these new design requirements, our final idea for a project management system was to integrate with an existing system many communities
-                    already use for a similar purpose—Facebook groups. By leveraging the existing platform and features of Facebook while providing new
-                    affordances for communication, visualization, and organization, our system hopes to empower organizers to better coordinate and keep track of
-                    their respective communities.
+                    With these new design requirements, our final idea was to integrate with an existing system many communities
+                    already use for a similar purpose—Facebook groups.
                 </p>
             </>
     },
@@ -400,34 +410,43 @@ const sections: Array<Section> = [
                     a set of guidelines broadly used within the Design community to assess usability, we had UX designers with
                     no prior knowledge of our system evaluate our design on the 5 most relevant heuristics we chose based on prototyped functionality:
                 </p>
-                <ol>
-                    <li>
-                        <b>Visibility of System Status: </b>Does the system always keep users informed about what is going on and what effects user actions have,
-                        through appropriate feedback within reasonable time?
-                    </li>
-                    <li>
-                        <b>Consistency & Standards: </b>Does the system follow platform conventions?
-                        Do the same words, actions, and situations mean the same things at all times? Are the same functions always found in the same place?
-                    </li>
-                    <li>
-                        <b>Recognition &gt; Recall: </b>Does the system minimize memory load by making instructions, data, actions, and options visible
-                        whenever they are needed or referenced?
-                    </li>
-                    <li>
-                        <b>Flexibility & Efficiency of Use: </b>Does the system support both beginner and expert users through gradually revealing additional information?
-                        Does the system allow experienced users to customize or quickly perform frequent actions (e.g. key bindings, gestures, shortcuts)?
-                    </li>
-                    <li>
-                        <b>Aesthetic & Minimalistic Design: </b>Is every word, color, font, button, or other unit of information necessary to the system?
-                        Does everything serve a unique, important purpose?
-                    </li>
-                </ol>
+                <GridList items={[
+                    {
+                        icon: <Traffic fontSize="large" />,
+                        header: "Visibility of System Status",
+                        text: `Does the system always keep users informed about what is going on and what effects user actions have,
+                        through appropriate feedback within reasonable time?`
+                    },
+                    {
+                        icon: <Rule fontSize="large" />,
+                        header: "Consistency & Standards",
+                        text: `Does the system follow platform conventions?
+                        Do the same words, actions, and situations mean the same things at all times? Are the same functions always found in the same place?`
+                    },
+                    {
+                        icon: <Directions fontSize="large" />,
+                        header: "Recognition > Recall",
+                        text: `Does the system minimize memory load by making instructions, data, actions, and options visible
+                        whenever they are needed or referenced?`
+                    },
+                    {
+                        icon: <Keyboard fontSize="large" />,
+                        header: "Flexibility & Efficiency of Use",
+                        text: `Does the system support both beginner and expert users through gradually revealing additional information?
+                        Does the system allow experienced users to customize or quickly perform frequent actions (e.g. key bindings, gestures, shortcuts)?`
+                    },
+                    {
+                        icon: <Dashboard fontSize="large" />,
+                        header: "Aesthetic & Minimalistic Design",
+                        text: `Is every word, color, font, button, or other unit of information necessary to the system?
+                        Does everything serve a unique, important purpose?`
+                    }
+                ]} />
                 <Heading level={5}>Participants</Heading>
                 <p>
                     4 HCI Master's Students.
                 </p>
                 <Heading level={5}>Procedure</Heading>
-
                 <p>
                     Participants were given the clickable prototype and a worksheet with each of these heuristics broken down into criteria evaluating
                     very specific parts of the system, for instance button feedback or typography.
@@ -448,14 +467,56 @@ const sections: Array<Section> = [
                     Finally, participants openly discussed their experience with researchers, highlighting what they liked and what they found confusing,
                     as well as the reasons behind it and suggested improvements.
                 </p>
-                <Heading level={5}>Rationale</Heading>
+                <Heading level={4}>Usability Testing</Heading>
                 <p>
+                    Users from the target demographic with no prior knowledge of the design evaluated the system through set tasks and compared it to their existing experiences.
+                </p>
+                <Heading level={5}>Participants</Heading>
+                <p>
+                    1 community leader, an administrator from the Stop Sterigenics Facebook group.
+                    <br />
+                    1 community resident, a regular user of the Stop Sterigenics Facebook group.
+                </p>
+                <Heading level={5}>Procedure</Heading>
+                <p>
+                    Participants were interviewed by a pair of researchers. After a brief overview of the system,
+                    participants were asked to go through tasks corresponding to the prototype functions, <b>thinking aloud</b> as they used the system.
+                    Researchers took notes of actions, confusions, and interactions.
+                </p>
+                <p>
+                    After finishing all the tasks, participants were given 2 worksheets to complete. One was a System Usability Scale (SUS) measuring the overall
+                    efficacy of the system in achieving their goals, and the other was a list of adjectives in which users circled the words that best described
+                    their experience.
+                </p>
+                <Heading level={4}>Analysis</Heading>
+                <p>
+                    The scores of the heuristic evaluations and the SUS forms were averaged to assess general usability of the system as a whole.
+                    Notes from all evaluation sessions were organized into likes, dislikes, confusions, and wants, which were then coded by feature
+                    and heuristic.
+                </p>
+                <Heading level={4}>Findings</Heading>
+                <p>
+                    After finishing all the tasks, participants were given 2 worksheets to complete. One was a System Usability Scale measuring the overall
+                    efficacy of the system in achieving their goals, and the other was a list of adjectives in which users circled the words that best described
+                    their experience.
+                </p>
+            </>
+    },
+    {
+        shortTitle: "Future",
+        title: "Evaluation with users assesses design requirements",
+        summary: "We evaluated our design on two design requirements using Heuristic Evaluations with other HCI students and usability testing with fenceline community members.",
+        contents:
+            <>
+                <p>
+                    To evaluate the effectiveness of our high-fidelity prototype and investigate any usability issues, we performed two types of evaluations.
+                    Due to scope, we specifically focused on two design requirements:
                 </p>
             </>
     }
 ]
 
-const Dashboard: Project = {
+const EcoDashboard: Project = {
     title: title,
     dateRange: dateRange,
     subtitles: subtitles,
@@ -465,5 +526,5 @@ const Dashboard: Project = {
     sections: sections
 }
 
-export default Dashboard;
+export default EcoDashboard;
 

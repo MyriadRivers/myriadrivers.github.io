@@ -5,7 +5,7 @@ import breakpoints from "../styles/breakpoints";
 const StyledTable = styled.table`
     // TODO: Undo all this. Use a grid. Better yet, import MUI and redo all your fucking styling so responsiveness doesn't suck completely
     width: 200%;
-    margin: 20px 0px 20px -100%;
+    margin: 40px 0px 40px -100%;
 
     table-layout: fixed;
     border-collapse: collapse;

@@ -7,11 +7,11 @@ const StyledVideo = styled.div<{ $mainImage: boolean }>`
     flex-direction: column;
     gap: 10px;
     margin: 0px 0px 0px calc(${props => props.$mainImage ? "0px" : "-100%"});
-    padding: ${props => props.$mainImage ? "0px" : "20px"} 0px;
+    padding: ${props => props.$mainImage ? "0px" : "40px"} 0px;
     
     @media ${breakpoints.laptop} {
         margin: 0px;
-        padding: 20px 0px;
+        /* padding: 20px 0px; */
     }
 
     video {

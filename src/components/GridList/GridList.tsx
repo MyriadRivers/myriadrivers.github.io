@@ -1,32 +1,50 @@
 import { Biotech, EmojiPeople, Person } from "@mui/icons-material";
 import { Box, Grid2, Paper, Typography } from "@mui/material";
-const GridList = () => {
+import { ReactNode, useEffect, useRef, useState } from "react";
+import GridItem from "./GridItem";
+
+const MIN_WIDTH = 300;
+
+const GridList = ({ items }: { items: Array<{ icon: ReactNode, header?: string, text: string }> }) => {
+    const gridRef = useRef<HTMLDivElement | null>(null);
+    const [cols, setCols] = useState<number>(0);
+
+    useEffect(() => {
+        if (!gridRef.current) return;
+        const tagsResizeObserver = new ResizeObserver((size) => {
+            let gridWidth = size[0].contentRect.width;
+            console.log("gridWidth " + gridWidth);
+            setCols(Math.min(Math.floor(gridWidth / MIN_WIDTH), items.length));
+        })
+        tagsResizeObserver.observe(gridRef.current);
+        setCols(Math.floor(gridRef.current.clientWidth / MIN_WIDTH));
+    }, [])
+
+    const getBorderStyle = (index: number, totalItems: number) => {
+        const isLastInRow = (index + 1) % cols === 0;
+        const isLastRow = (index) >= totalItems - (totalItems % cols || cols);
+
+        return {
+            borderRight: !isLastInRow ? "1px solid black" : "none",
+            borderBottom: !isLastRow ? "1px solid black" : "none",
+        };
+    };
+
     return (
-        <Grid2 container direction={"row"} sx={{ width: { laptop: "200%", xs: "100%" }, marginTop: "20px", marginBottom: "20px", marginLeft: { laptop: "-100%", xs: "0%" }, alignItems: "stretch" }}>
-            <Grid2 size={4} sx={{ display: "flex", flexDirection: "column", gap: "10px", padding: "20px", alignItems: "center", borderRight: "solid black 1px" }}>
-                <Box display="flex" sx={{ bgcolor: "primary.main", color: "secondary.main", padding: "20px", borderRadius: "100%" }}>
-                    <Biotech fontSize="large" />
-                </Box>
-                <Typography variant="h4">U1: Researcher</Typography>
-                Environmental scientist at Emory University specializing in air and soil pollution.
-                Worked with the Atlanta Westside community to investigate lead contamination in the soil, leading to the area being classified as an EPA Superfund Site.
-            </Grid2>
-            <Grid2 size={4} sx={{ display: "flex", flexDirection: "column", gap: "10px", padding: "20px", alignItems: "center", borderRight: "solid black 1px" }}>
-                <Box display="flex" sx={{ bgcolor: "primary.main", color: "secondary.main", padding: "20px", borderRadius: "100%" }}>
-                    <EmojiPeople fontSize="large" />
-                </Box>
-                <Typography variant="h4">U2: Community Leader</Typography>
-                Lead the classification of the Buckhead Superfund Site, another local area contaminated with lead that U1's
-                team had been investigating. Worked with federal officials to oversee remediation and cleanup.
-            </Grid2>
-            <Grid2 size={4} sx={{ display: "flex", flexDirection: "column", gap: "10px", padding: "20px", alignItems: "center" }}>
-                <Box display="flex" sx={{ bgcolor: "primary.main", color: "secondary.main", padding: "20px", borderRadius: "100%" }}>
-                    <EmojiPeople fontSize="large" />
-                </Box>
-                <Typography variant="h4">U3: Community Leader</Typography>
-                Leader of the Stop Sterigenics Georgia Facebook group. Coordinates with sympathetic government representatives and media to raise awareness and advocate change.
-            </Grid2>
-        </Grid2>
+        <Box display={"grid"} ref={gridRef} sx={
+            {
+                width: { laptop: "200%", xs: "100%" },
+                marginTop: "40px",
+                marginBottom: "40px",
+                marginLeft: { laptop: "-100%", xs: "0%" },
+                alignItems: "stretch",
+                gridTemplateColumns: `repeat(auto-fit, minmax(${MIN_WIDTH}px, 1fr))`,
+            }
+        }>
+            {items.map((tile, index) => (
+                <GridItem icon={tile.icon} header={tile.header} text={tile.text} borderStyle={getBorderStyle(index, items.length)} key={index} />
+            ))}
+        </Box>
     )
 }
 

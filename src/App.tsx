@@ -99,7 +99,7 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
 
     @media ${breakpoints.mobile} {
       padding: 
-      ${props => `calc(${props.$contentTop}px + 30px)`} 
+      ${props => `calc(${props.$contentTop}px + 30px + 20px)`} 
       ${props => `calc(20px - ${props.$scrollBarWidth}px)`} 
       30px
       20px;

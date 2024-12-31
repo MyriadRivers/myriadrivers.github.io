@@ -27,9 +27,9 @@ const StyledGrid = styled.div<{ $tagsHeight: number }>`
             width: calc(100% - 2 * 20px);
         }
         
-        @media ${breakpoints.mobile} {
+        /* @media ${breakpoints.mobile} {
             padding-top: 10px;
-        }
+        } */
 
         display: flex;
         flex-direction: row-reverse;

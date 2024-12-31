@@ -29,7 +29,7 @@ import AuditoryInterface from "./pages/projects/AuditoryInterface/AuditoryInterf
 
 import { Project, ProjectTag } from "./types"
 import Troov from "./pages/projects/Troov/Troov"
-import Dashboard from "./pages/projects/Dashboard/Dashboard"
+import EcoDashboard from "./pages/projects/Dashboard/EcoDashboard"
 import Website from "./pages/projects/Website/Website"
 
 interface ProjectInfo {
@@ -69,7 +69,7 @@ const projects = [
         url: "dashboard",
         image: dashboardImg,
         tags: [ProjectTag.uiux],
-        content: Dashboard
+        content: EcoDashboard
     },
     {
         title: "Spotify Karaoke",

@@ -36,7 +36,8 @@ const StyledProjectTitle = styled.div`
         width: 100%;
         display: flex;
         flex-direction: column;
-        /* gap: 20px; */
+        gap: 20px;
+        padding-bottom: 20px;
     }
 
     .titleContainer {
@@ -121,7 +122,6 @@ function ProjectTitle({
     const pageTopRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        console.log(pageTopRef.current?.offsetTop);
         setPageTop(pageTopRef.current?.offsetTop);
     }, [pageTopRef.current])
 
@@ -157,7 +157,9 @@ function ProjectTitle({
                 <div className={"titleSummary"}>
                     <Heading level={3}>{summary}</Heading>
                 </div>
-                {children}
+                <div>
+                    {children}
+                </div>
             </div>
         </div>
     </StyledProjectTitle>);

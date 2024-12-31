@@ -150,8 +150,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     p, ol, ul {
-        margin: 10px 0px;  
-        line-height: 1.5em;
+        /* margin: 10px 0px;   */
+        line-height: 1.35em;
     }
     
     ol, ul {
