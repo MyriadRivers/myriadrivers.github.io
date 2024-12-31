@@ -7,7 +7,7 @@ const StyledMediaContainer = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    margin: 0px 0px 0px -100%;
+    margin: 0px 0px 0px calc(-100% + -40px);
 
     @media ${breakpoints.laptop} {
         margin: 0px;

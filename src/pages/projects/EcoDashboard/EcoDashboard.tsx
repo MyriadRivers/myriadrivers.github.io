@@ -26,8 +26,9 @@ import Link from "../../../components/Link";
 import GridList from "../../../components/GridList/GridList";
 import { BackHand, Biotech, Dashboard, Directions, Diversity2, Diversity3, EmojiPeople, FormatListNumbered, GridGoldenratio, Handshake, Info, Keyboard, MenuBook, Newspaper, RecordVoiceOver, Rule, SentimentVeryDissatisfied, Traffic, TurnLeft, Warning } from "@mui/icons-material";
 import { AxisConfig, BarChart, ChartsYAxisProps } from "@mui/x-charts";
-import { Box, Typography } from "@mui/material";
+import { Box, Grid2, Typography } from "@mui/material";
 import MediaContainer from "../../../components/MediaContainer";
+import Timeline from "../../../components/Timeline/Timeline";
 
 const title: string = "EcoJustice Dashboard";
 const dateRange: string = "Aug – Dec 2024";
@@ -56,6 +57,50 @@ const sections: Array<Section> = [
                     We pursued a 16-week end-to-end UX project involving the research and design of a new system to integrate with Facebook, a tool many of these
                     communities already rely on. These features aim to help community leaders more effectively mobilize and monitor their residents.
                 </p>
+                <Timeline sections={[
+                    {
+                        name: "Research",
+                        weeks: 6,
+                        events: [
+                            "Literature Review",
+                            "Social Media Mining",
+                            "Semi-structured Interviews",
+                            "Participant Observation"
+                        ]
+                    },
+                    {
+                        name: "Analysis",
+                        weeks: 1,
+                        events: [
+                            "Affinity Mapping",
+                            "Task Analysis"
+                        ]
+                    },
+                    {
+                        name: "Ideation",
+                        weeks: 3,
+                        events: [
+                            "SCAMPER",
+                            "Sketching",
+                            "Storyboarding"
+                        ]
+                    },
+                    {
+                        name: "Prototype",
+                        weeks: 4,
+                        events: [
+                            "Figma"
+                        ]
+                    },
+                    {
+                        name: "Evaluation",
+                        weeks: 2,
+                        events: [
+                            "Heuristic Evaluation",
+                            "Usability Testing"
+                        ]
+                    }
+                ]}/>
             </>
     },
     {
@@ -196,14 +241,6 @@ const sections: Array<Section> = [
                     collaborate with one another, from both the community and the researchers' point of views.
                 </p>
                 <Image src={hta} caption={"Hierarchical task analysis of how community members connect with researchers."} />
-            </>
-    },
-    {
-        shortTitle: "Requirements",
-        title: "System design requirements based on findings",
-        summary: "We developed 3 non-functional and 4 functional requirements for possible designs based on our insights",
-        contents:
-            <>
                 <p>
                     Based on our findings (F1–7), we developed <b>3 non-functional design requirements</b> and <b>4 functional design requirements</b>:
                 </p>
