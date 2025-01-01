@@ -8,7 +8,7 @@ const TimelineSection = ({name, weeks, events }: {name: string, weeks: number, e
                     <Box>
                         <Typography variant="h5">{name}</Typography>
                     </Box>
-                    <Box>
+                    <Box fontSize={"12pt"}>
                         <i>{weeks} {weeks > 1 ? "weeks" : "week"}</i>
                     </Box>
                 </Box>

@@ -34,6 +34,7 @@ const title: string = "EcoJustice Dashboard";
 const dateRange: string = "Aug – Dec 2024";
 const subtitles = [
     { title: "Team", text: "Jason Gao, Shareen Chang, Madison Steinau, Xinxuyang Zhao" },
+    { title: "Tools", text: "Figma, Miro, Dovetail, Google Sheets" }
     // { title: "My Role", text: "User Research, Design" }
 ]
 const summary: string = "How might we empower leaders of fenceline communities to keep their residents engaged and informed in the fight for environmental justice?";
@@ -59,7 +60,7 @@ const sections: Array<Section> = [
                 </p>
                 <Timeline sections={[
                     {
-                        name: "Research",
+                        name: "RESEARCH",
                         weeks: 6,
                         events: [
                             "Literature Review",
@@ -69,7 +70,7 @@ const sections: Array<Section> = [
                         ]
                     },
                     {
-                        name: "Analysis",
+                        name: "ANALYSIS",
                         weeks: 1,
                         events: [
                             "Affinity Mapping",
@@ -77,7 +78,7 @@ const sections: Array<Section> = [
                         ]
                     },
                     {
-                        name: "Ideation",
+                        name: "IDEATION",
                         weeks: 3,
                         events: [
                             "SCAMPER",
@@ -86,14 +87,14 @@ const sections: Array<Section> = [
                         ]
                     },
                     {
-                        name: "Prototype",
+                        name: "DESIGN",
                         weeks: 4,
                         events: [
-                            "Figma"
+                            "Hi-fi Prototype"
                         ]
                     },
                     {
-                        name: "Evaluation",
+                        name: "EVALUATION",
                         weeks: 2,
                         events: [
                             "Heuristic Evaluation",
@@ -106,7 +107,7 @@ const sections: Array<Section> = [
     {
         shortTitle: "Research",
         title: "Primary research identifies user needs",
-        summary: "Initial Research included literature review, semi-structured interviews, social media mining, and participatory observation",
+        summary: "Initial research evaluated the problem space and existing strategies users employ",
         contents:
             <>
                 <p>
@@ -366,8 +367,8 @@ const sections: Array<Section> = [
             </>
     },
     {
-        shortTitle: "Prototype",
-        title: "Prototype Dashboard empowers users through actions",
+        shortTitle: "Design",
+        title: "Design empowers users through actions",
         summary: "We designed a dashboard to integrate with Facebook, allowing community organizers to easily keep track of processes and issue tasks to residents",
         contents:
             <>
