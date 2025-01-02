@@ -78,7 +78,7 @@ const sections: Array<Section> = [
                         ]
                     },
                     {
-                        name: "IDEATION",
+                        name: "DESIGN",
                         weeks: 3,
                         events: [
                             "SCAMPER",
@@ -87,10 +87,10 @@ const sections: Array<Section> = [
                         ]
                     },
                     {
-                        name: "DESIGN",
+                        name: "PROTOTYPE",
                         weeks: 4,
                         events: [
-                            "Hi-fi Prototype"
+                            "Hi-fi Figma"
                         ]
                     },
                     {
@@ -101,7 +101,7 @@ const sections: Array<Section> = [
                             "Usability Testing"
                         ]
                     }
-                ]}/>
+                ]} />
             </>
     },
     {
@@ -190,6 +190,7 @@ const sections: Array<Section> = [
                     Orange notes were initial design solutions/ideas that we came up with as we organized the map.
                 </p>
                 <Image src={affinityMap} caption={"Affinity map and design recommendations from our primary research."} />
+                <Heading level={4}>Findings</Heading>
                 <p>
                     From our thematic analysis, we derived <b>7 key findings</b>:
                 </p>
@@ -242,8 +243,9 @@ const sections: Array<Section> = [
                     collaborate with one another, from both the community and the researchers' point of views.
                 </p>
                 <Image src={hta} caption={"Hierarchical task analysis of how community members connect with researchers."} />
+                <Heading level={4}>Design Requirements</Heading>
                 <p>
-                    Based on our findings (F1–7), we developed <b>3 non-functional design requirements</b> and <b>4 functional design requirements</b>:
+                    Based on our findings, we developed <b>3 non-functional design requirements</b> and <b>4 functional design requirements</b>:
                 </p>
                 <GridList items={[
                     {
@@ -287,8 +289,8 @@ const sections: Array<Section> = [
             </>
     },
     {
-        shortTitle: "Ideation",
-        title: "Iterative ideation narrows problem scope",
+        shortTitle: "Design",
+        title: "Iterative design narrows problem scope",
         summary: `We generated 11 sketches and voted upon the 2 best ideas, which were further developed as storyboards. 
         Through this process, we narrowed our problem statement to focus on community organizers and residents instead of researchers and communities`,
         contents:
@@ -367,8 +369,8 @@ const sections: Array<Section> = [
             </>
     },
     {
-        shortTitle: "Design",
-        title: "Design empowers users through actions",
+        shortTitle: "Prototype",
+        title: "Prototype empowers users through actions",
         summary: "We designed a dashboard to integrate with Facebook, allowing community organizers to easily keep track of processes and issue tasks to residents",
         contents:
             <>
@@ -537,14 +539,14 @@ const sections: Array<Section> = [
                 </p>
                 <Heading level={4}>Findings</Heading>
                 <p>
-                    From our SUS scores, the resident rated our system 92.5, while the community organizer rated it 77.5. 
+                    From our SUS scores, the resident rated our system 92.5, while the community organizer rated it 77.5.
                     Through these scores and our analysis, we found that we need to make our design more intuitive especially
                     towards older users.
                 </p>
                 <p>
-                    Among the words chosen to describe our system were <b>controllable, convenient, effective, 
-                    and empowering</b>. Both the resident and community leader described the system as <b>clean</b> and <b>organized</b> implying that our system broadly supports 
-                    <b> NFR 1: Organization and Hierarchy</b>. 
+                    Among the words chosen to describe our system were <b>controllable, convenient, effective,
+                        and empowering</b>. Both the resident and community leader described the system as <b>clean</b> and <b>organized</b> implying that our system broadly supports
+                    <b> NFR 1: Organization and Hierarchy</b>.
                 </p>
                 <MediaContainer>
                     <Typography variant="h5" textAlign={"center"}>Average Heuristic Evaluation Scores</Typography>
@@ -566,10 +568,10 @@ const sections: Array<Section> = [
                             {
                                 id: "heuristics",
                                 data: [
-                                    "Status Visibility", 
-                                    "Consistency", 
-                                    "Recognition", 
-                                    "Flexibility of Use", 
+                                    "Status Visibility",
+                                    "Consistency",
+                                    "Recognition",
+                                    "Flexibility of Use",
                                     "Minimalist Design"
                                 ],
                                 categoryGapRatio: 0.5,
@@ -583,17 +585,27 @@ const sections: Array<Section> = [
                             }
                         ]}
                         layout={"horizontal"}
+                        sx={{
+                            "::selection": {
+                                color: "white",
+                                background: "black"
+                            },
+                            "::-moz-selection": {
+                                color: "white",
+                                background: "black"
+                            }
+                        }}
                     />
                 </MediaContainer>
                 <p>
                     From our heuristic evaluations, we found that our system across all evaluators and heuristics
-                    had an average score 81.36, indicating that our design generally supported our tasks but had 
-                    minor usability issues. 
+                    had an average score 81.36, indicating that our design generally supported our tasks but had
+                    minor usability issues.
                     Through our discussion with the evaluators and users, we identified specific points of confusion
                     within each heuristic and design ideas to address these, which included issues such as
-                    experts having questions on where the values of the Insights page come from, 
+                    experts having questions on where the values of the Insights page come from,
                     and users reporting that the specific issues in the Insights page aren't usually as relevant
-                    in terms of blockers actual community members face. 
+                    in terms of blockers actual community members face.
                 </p>
                 <p>
                     As a whole, the community resident and organizer both expressed excitement at the design.
@@ -611,10 +623,10 @@ const sections: Array<Section> = [
             <>
                 <p>
                     If we were to move forward with this project, next steps would be addressing the specific
-                    feedback from our evaluation in creating a new prototype. 
+                    feedback from our evaluation in creating a new prototype.
                 </p>
                 <p>
-                    Reflecting on the project and a whole, our team spent a long time orienting to a problem 
+                    Reflecting on the project and a whole, our team spent a long time orienting to a problem
                     space and narrowing our scope, as we first focused on all stakeholders, then scientists, and
                     finally community organizers. Starting with a more specific problem in the future would
                     allow us to save time and have apply findings in the research phase more directly towards our
