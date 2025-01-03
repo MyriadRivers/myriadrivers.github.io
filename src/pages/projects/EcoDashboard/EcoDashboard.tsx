@@ -11,6 +11,7 @@ import hta from "./hta.png";
 import ideation from "./ideation.png";
 import storyboard from "./storyboard.png";
 import stakeholders from "./stakeholders.png";
+import heuristicEval from "./heuristic_evaluation.png";
 
 import viewTimeline from "./timeline.gif";
 import viewInsights from "./view_insights.gif";
@@ -55,7 +56,7 @@ const sections: Array<Section> = [
                     meaning communities must rely on grassroots organization for any hope of change.
                 </p>
                 <p>
-                    We pursued a 16-week end-to-end UX project involving the research and design of a new system to integrate with Facebook, a tool many of these
+                    We pursued a <b>16-week end-to-end UX project</b> involving the research and design of a new system to integrate with Facebook, a tool many of these
                     communities already rely on. These features aim to help community leaders more effectively mobilize and monitor their residents.
                 </p>
                 <Timeline sections={[
@@ -127,7 +128,7 @@ const sections: Array<Section> = [
                 <Image src={smMining} caption={"Posts were classified into broad categories based on content, looking at their engagement and the discussions in the comments sections."} />
                 <Heading level={4}>Semi-structured Interviews</Heading>
                 <p>
-                    We developed interview guides for 1 environmental scientist and 2 community leaders, with questions based around their general needs and experiences,
+                    We developed interview guides for <b>1 environmental scientist and 2 community leaders</b>, with questions based around their general needs and experiences,
                     as well as their requirements when working with one another.
                 </p>
                 <GridList items={[
@@ -176,7 +177,7 @@ const sections: Array<Section> = [
     {
         shortTitle: "Analysis",
         title: "Thematic analysis reveals key user insights",
-        summary: "We conducted an inductive thematic analysis through affinity mapping, as well as 2 hierarchical task analyses, in order to identify needs and areas of intervention",
+        summary: "We conducted an inductive thematic analysis through affinity mapping and 2 hierarchical task analyses to identify needs and areas of intervention",
         contents:
             <>
                 <p>
@@ -291,19 +292,19 @@ const sections: Array<Section> = [
     {
         shortTitle: "Design",
         title: "Iterative design narrows problem scope",
-        summary: `We generated 11 sketches and voted upon the 2 best ideas, which were further developed as storyboards. 
+        summary: `We generated 11 sketches and voted on the 2 best ideas, which were further developed as storyboards. 
         Through this process, we narrowed our problem statement to focus on community organizers and residents instead of researchers and communities`,
         contents:
             <>
                 <p>
                     Using the initial ideas from our affinity map, the SCAMPER (Substitute, Combine, Adjust, Modify, Put to other uses, Eliminate, Reverse)
-                    method of iterating upon or altering existing systems, and the steps outlined in our HTAs, every member of our team individually developed three different idea sketches to address our
-                    design requirements. Then, we got together to discuss and merge similar ideas, resulting in 11 alternate possibilities.
+                    method of iterating upon or altering existing systems, and the steps outlined in our HTAs, every member of our team individually developed 3 different idea concepts to address our
+                    design requirements. Then, we got together to discuss and merge similar ideas, resulting in <b>11 initial sketches</b>.
                 </p>
                 <Image src={ideation} caption={"11 design ideas and voting to determine top two choices."} />
                 <p>
-                    We each voted for our top three choices, discussing our rationale, to determine the designs to pursue in further detail.
-                    This resulted in two top ideas:
+                    We each voted for our top 3 choices, discussing our rationale, to determine the designs to pursue in further detail.
+                    This resulted in <b>2 top ideas</b>:
                 </p>
                 <GridList items={[
                     {
@@ -430,7 +431,7 @@ const sections: Array<Section> = [
     {
         shortTitle: "Evaluation",
         title: "Evaluation with users assesses design requirements",
-        summary: "We evaluated our design on two design requirements using heuristic evaluations with other HCI students and usability testing with fenceline community members.",
+        summary: "We evaluated our design on two design requirements using heuristic evaluations with other HCI students and usability testing with fenceline community members",
         contents:
             <>
                 <p>
@@ -451,7 +452,7 @@ const sections: Array<Section> = [
                 <p>
                     In accordance with <Link url={"https://www.nngroup.com/articles/ten-usability-heuristics/"}>Nielsen's 10 Usability Heuristics</Link>,
                     a set of guidelines broadly used within the Design community to assess usability, we had UX designers with
-                    no prior knowledge of our system evaluate our design on the 5 most relevant heuristics we chose based on prototyped functionality:
+                    no prior knowledge of our system evaluate our design on the <b>5 most relevant heuristics</b> we chose based on prototyped functionality:
                 </p>
                 <GridList items={[
                     {
@@ -510,6 +511,7 @@ const sections: Array<Section> = [
                     Finally, participants openly discussed their experience with researchers, highlighting what they liked and what they found confusing,
                     as well as the reasons behind it and suggested improvements.
                 </p>
+                <Image src={heuristicEval} caption={"Example page from the heuristic evaluation worksheet."} />
                 <Heading level={4}>Usability Testing</Heading>
                 <p>
                     Users from the target demographic with no prior knowledge of the design evaluated the system through set tasks and compared it to their existing experiences.
@@ -527,8 +529,8 @@ const sections: Array<Section> = [
                     Researchers took notes of actions, confusions, and interactions.
                 </p>
                 <p>
-                    After finishing all the tasks, participants were given 2 worksheets to complete. One was a System Usability Scale (SUS) measuring the overall
-                    efficacy of the system in achieving their goals, and the other was a list of adjectives in which users circled the words that best described
+                    After finishing all the tasks, participants were given 2 worksheets to complete. One was a <b>System Usability Scale</b> (SUS) measuring the overall
+                    efficacy of the system in achieving their goals, and the other was a <b>word list</b> in which users circled the adjectives that best described
                     their experience.
                 </p>
                 <Heading level={4}>Analysis</Heading>
@@ -539,7 +541,7 @@ const sections: Array<Section> = [
                 </p>
                 <Heading level={4}>Findings</Heading>
                 <p>
-                    From our SUS scores, the resident rated our system 92.5, while the community organizer rated it 77.5.
+                    From our SUS scores, the resident rated our system <b>92.5</b>, while the community organizer rated it <b>77.5</b>.
                     Through these scores and our analysis, we found that we need to make our design more intuitive especially
                     towards older users.
                 </p>
@@ -599,7 +601,7 @@ const sections: Array<Section> = [
                 </MediaContainer>
                 <p>
                     From our heuristic evaluations, we found that our system across all evaluators and heuristics
-                    had an average score 81.36, indicating that our design generally supported our tasks but had
+                    had an average score <b>81.36</b>, indicating that our design generally supported our tasks but had
                     minor usability issues.
                     Through our discussion with the evaluators and users, we identified specific points of confusion
                     within each heuristic and design ideas to address these, which included issues such as
@@ -616,7 +618,7 @@ const sections: Array<Section> = [
     },
     {
         shortTitle: "Future",
-        title: "Future iterations address user feedback",
+        title: "Future iterations address feedback",
         summary: `Future work would address the specific features users found confusing. Reflecting on the project, 
         narrowing the problem scope took up a lot of time`,
         contents:
@@ -626,7 +628,7 @@ const sections: Array<Section> = [
                     feedback from our evaluation in creating a new prototype.
                 </p>
                 <p>
-                    Reflecting on the project and a whole, our team spent a long time orienting to a problem
+                    Reflecting on the project as a whole, our team spent a long time orienting to a problem
                     space and narrowing our scope, as we first focused on all stakeholders, then scientists, and
                     finally community organizers. Starting with a more specific problem in the future would
                     allow us to save time and have apply findings in the research phase more directly towards our

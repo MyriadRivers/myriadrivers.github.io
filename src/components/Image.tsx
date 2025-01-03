@@ -12,12 +12,14 @@ const StyledImage = styled.div<{ $mainImage: boolean, $gif: boolean }>`
 
     @media ${breakpoints.laptop} {
         margin: 0px;
-        align-items: start;
+        /* align-items: start; */
         text-align: left;
     }
 
     img {
-        width: 100%;
+        max-width: 100%;
+        height: auto;
+        /* height: 100%; */
         /* height: ${props => props.$gif ? "70vh" : ""};
         margin: ${props => props.$gif ? "auto" : ""};
         width: ${props => props.$gif ? "" : "100%"};
@@ -27,12 +29,16 @@ const StyledImage = styled.div<{ $mainImage: boolean, $gif: boolean }>`
         } */
     }
 
-    .imageContainer {
+    .imageCaptionContainer {
         /* width: 100%; */
         display: flex;
         flex-direction: column;
         gap: 10px;
-        /* background: lavender; */
+        justify-content: center;
+    }
+
+    .imageContainer {
+        margin: auto;
     }
 
     overflow: hidden;
@@ -46,8 +52,10 @@ const StyledImage = styled.div<{ $mainImage: boolean, $gif: boolean }>`
 
 function Image({ src, caption, mainImage, gif }: { src: string, caption?: string, mainImage?: boolean, gif?: boolean }) {
     return (<StyledImage $mainImage={mainImage ?? false} $gif={gif ?? false}>
-        <div className={"imageContainer"}>
-            <img src={src} alt={caption} />
+        <div className={"imageCaptionContainer"}>
+            <div className={"imageContainer"}>
+                <img src={src} alt={caption} />
+            </div>
             {caption}
         </div>
     </StyledImage>);

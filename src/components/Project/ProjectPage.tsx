@@ -33,7 +33,7 @@ const StyledPage = styled.div<{ $paddingLeft: number }>`
         scroll-behavior: smooth;
     }
 
-    .fr, .nfr, .findings, .references {
+    .fr, .nfr, .findings, .references, .severity {
         counter-reset: list-counter;
         list-style: none;
 
@@ -49,6 +49,10 @@ const StyledPage = styled.div<{ $paddingLeft: number }>`
         }
     }
 
+    .severity {
+        counter-reset: list-counter -1;
+    }
+
     .findings li:before {
         content: "F" counter(list-counter) ".\\00a0" ;
         white-space: nowrap;
@@ -61,6 +65,11 @@ const StyledPage = styled.div<{ $paddingLeft: number }>`
 
     .fr li:before {
         content: "FR " counter(list-counter) ".\\00a0" ;
+        white-space: nowrap;
+    } 
+
+    .severity li:before {
+        content: counter(list-counter) ":\\00a0" ;
         white-space: nowrap;
     }   
 
