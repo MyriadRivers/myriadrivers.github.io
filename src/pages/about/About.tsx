@@ -127,7 +127,6 @@ function About() {
 
     useEffect(() => {
         if (!aboutPageRef.current) return;
-        console.log(aboutPageRef.current.getBoundingClientRect().top);
         const topPadding = aboutPageRef.current.getBoundingClientRect().top;
         setAboutTopPadding(topPadding);
     }, [])

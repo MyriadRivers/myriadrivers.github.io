@@ -62,7 +62,7 @@ const StyledNavOption = styled.div<{ $active: boolean }>`
 function NavOption({ active, onClick, children }: { active: boolean, onClick?: Function, children: ReactNode }) {
     return (<StyledNavOption $active={active}>
         {onClick ?
-            <div className="text" onClick={() => onClick()}>
+            <div className="text" onClick={(e) => onClick(e)}>
                 {children}
             </div> :
             <div className="text">

@@ -13,7 +13,6 @@ const GridList = ({ items }: { items: Array<{ icon: ReactNode, header?: string, 
         if (!gridRef.current) return;
         const tagsResizeObserver = new ResizeObserver((size) => {
             let gridWidth = size[0].contentRect.width;
-            console.log("gridWidth " + gridWidth);
             setCols(Math.min(Math.floor(gridWidth / MIN_WIDTH), items.length));
         })
         tagsResizeObserver.observe(gridRef.current);

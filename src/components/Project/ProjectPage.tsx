@@ -130,23 +130,20 @@ function ProjectPage({ tags, content }: { tags: Array<ProjectTag>, content: Proj
             {content.sections.map((section, index) => {
                 if (index === 0) {
                     return (
-                        <>
-                            <ProjectTitle
-                                text={content.title}
-                                dateRange={content.dateRange}
-                                subtitles={content.subtitles}
-                                summary={content.summary}
-                                media={content.media}
-                                links={content.links}
-                                tags={tags}
-                                setPageTop={(value: number) => pageTopOffset.current = value}
-                                ref={el => headingRefs.current[index] = el}
-                                key={index}
-                            >
-                                {section.contents}
-                            </ProjectTitle>
-                        </>
-
+                        <ProjectTitle
+                            text={content.title}
+                            dateRange={content.dateRange}
+                            subtitles={content.subtitles}
+                            summary={content.summary}
+                            media={content.media}
+                            links={content.links}
+                            tags={tags}
+                            setPageTop={(value: number) => pageTopOffset.current = value}
+                            ref={el => headingRefs.current[index] = el}
+                            key={index}
+                        >
+                            {section.contents}
+                        </ProjectTitle>
                     )
                 } else {
                     return (

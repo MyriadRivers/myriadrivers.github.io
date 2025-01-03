@@ -145,8 +145,8 @@ function ProjectTitle({
                     </div>
                 </div>
                 {subtitles && <div className={"subtitleContainer"}>
-                    {subtitles && subtitles.map((subtitle) =>
-                        <Subtitle title={subtitle.title} text={subtitle.text} />)}
+                    {subtitles && subtitles.map((subtitle, i) =>
+                        <Subtitle title={subtitle.title} text={subtitle.text} key={i} />)}
                 </div>}
                 <div className={"titleLinks"}>
                     <LinkList links={links} />

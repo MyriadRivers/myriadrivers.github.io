@@ -7,6 +7,7 @@ import useMedia from "../../hooks/useMedia";
 
 import riverImage from "../../assets/images/river.png";
 import menuIcon from "../../assets/icons/menu.png";
+import { click } from "@testing-library/user-event/dist/click";
 
 const StyledNavbar = styled.div<{ $open: boolean }>` 
     width: 100%;
@@ -103,25 +104,36 @@ function Navbar({ links }: { links: Array<string> }) {
     const mobile = useMedia(`${breakpoints.mobile}`);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
+    const clickOutside = (e: MouseEvent) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+            setOpen(false);
+        }
+    }
+
     useEffect(() => {
         // Close the dropdown when you click out of it
-        document.addEventListener("click", (e) => {
-            if (dropdownRef.current && e.target) {
-                if (open && dropdownRef.current.contains(e.target as Node)) {
-                    setOpen(false);
-                }
-            }
-        })
+        if (open) {
+            document.addEventListener("click", clickOutside)
+        } else {
+            document.removeEventListener("click", clickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("click", clickOutside);
+        };
     }, [open])
 
     return (<StyledNavbar $open={open}>
         {mobile ?
             // TODO: Mobile navbar should probably just be just a separate component compared to navbar
             <div className={"mobileNavbar"}>
-                <NavOption active={true} onClick={() => setOpen(true)} >{<img src={menuIcon} className={"menuIcon"} alt={"Menu"} />}</NavOption>
+                <NavOption active={true} onClick={(e: MouseEvent) => {
+                    e.stopPropagation();
+                    setOpen((prev) => !prev);
+                }} >{<img src={menuIcon} className={"menuIcon"} alt={"Menu"} />}</NavOption>
                 {open &&
                     <div className={"dropdown"} ref={dropdownRef}>
-                        <Link to={links[active]} onClick={() => setOpen(false)}>
+                        {/* <Link to={links[active]} onClick={() => setOpen(false)}>
                             {<NavOption active={true} >{links[active]}</NavOption>}
                         </Link>
                         {(() => {
@@ -135,7 +147,13 @@ function Navbar({ links }: { links: Array<string> }) {
                                     }}>{<NavOption active={false} >{link}</NavOption>}</Link>
                                 ))
                             )
-                        })()}
+                        })()} */}
+                        {links.map((link, index) => (
+                            <Link to={links[index]} key={index} onClick={() => {
+                                setOpen(false);
+                                setActive(index);
+                            }}>{<NavOption active={false} >{link}</NavOption>}</Link>
+                        ))}
                     </div>}
                 <div className={"homeLink"}>
                     <Link to={links[0]} onClick={() => {
