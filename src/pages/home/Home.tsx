@@ -57,9 +57,12 @@ function Home() {
         </div>
         <div className={"homeText"}>
             <div className={"homeHeader"}>
-                Simple, usable, playful.
+                Simple, usable, playful
             </div>
             <div>
+                <p>
+                    ...to the very last detail.
+                </p>
                 <p>
                     I'm Jason, a UX researcher and creative engineer passionate about making people's lives more enjoyable.
                 </p>
