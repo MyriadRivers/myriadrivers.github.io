@@ -38,7 +38,9 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
   margin: auto;
 
   .websiteTitleContainer {
-    mix-blend-mode: multiply; 
+    /* mix-blend-mode: multiply;  */
+    box-shadow: 8px 0px 0 ${props => props.theme.alt}, -8px 0px 0 ${props => props.theme.alt};
+
     /* @media ${breakpoints.mobile} {
       mix-blend-mode: normal;
     } */
@@ -65,8 +67,6 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
       width: calc(100% - 2 * 20px);
     }
     max-width: 1500px;
-    
-    /* box-shadow: 8px 0px 0 ${props => props.theme.alt}, -8px 0px 0 ${props => props.theme.alt}; */
     
     display: flex;
     gap: 20px;
