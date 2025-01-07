@@ -71,15 +71,16 @@ class Circle {
         if (this.progress < 1) {
             this.progress += 0.01
             this.r = this.easeOut(this.progress, 4) * this.maxR;
-        } else if (this.progress >= 1 && this.progress < 3) {
-            this.progress += 0.01;
-        } else if (!this.destroyed) {
-            this.progress += 0.01;
-            this.destroyProgress += 0.0005;
-            const newAlpha = pCol.a * (1 - this.destroyProgress) < 0.01 ? 0 : pCol.a * (1 - this.destroyProgress);
-            const nCol = toColor(pCol.r, pCol.g, pCol.b, newAlpha);
-            this.color = nCol;
-        };
+        }
+        //  else if (this.progress >= 1 && this.progress < 3) {
+        //     this.progress += 0.01;
+        // } else if (!this.destroyed) {
+        //     this.progress += 0.01;
+        //     this.destroyProgress += 0.0005;
+        //     const newAlpha = pCol.a * (1 - this.destroyProgress) < 0.01 ? 0 : pCol.a * (1 - this.destroyProgress);
+        //     const nCol = toColor(pCol.r, pCol.g, pCol.b, newAlpha);
+        //     this.color = nCol;
+        // };
 
         // if (this.destroy) {
         //     const pCol = parseRGBA(this.color);
@@ -155,18 +156,18 @@ const randEnds = () => {
 function parseRGBA(color: string): { r: number; g: number; b: number; a: number } | null {
     const rgbaRegex = /rgba*\(\s*(\d*\.?\d*)\s*,\s*(\d*\.?\d*)\s*,\s*(\d*\.?\d*)\s*,\s*(\d*\.?\d*)\s*\)/;
     const match = color.match(rgbaRegex);
-  
+
     if (match) {
-      const [, r, g, b, a] = match;
-      return {
-        r: parseFloat(r),
-        g: parseFloat(g),
-        b: parseFloat(b),
-        a: parseFloat(a),
-      };
+        const [, r, g, b, a] = match;
+        return {
+            r: parseFloat(r),
+            g: parseFloat(g),
+            b: parseFloat(b),
+            a: parseFloat(a),
+        };
     }
-  
+
     return null; // Return null if the format doesn't match
-  }
+}
 
 export { Circle, Doodle, type Point, randColor, randPastel, randEnds, fuzz }

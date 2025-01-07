@@ -125,9 +125,9 @@ function Canvas({ children }: { children: ReactNode }) {
       // randColor()
       randPastel()
     );
-    if (circles.current.length > MAX_CIRCLES) {
-      // circles.current[0].destroy = true;
-    }
+    // if (circles.current.length > MAX_CIRCLES) {
+    //   // circles.current[0].destroy = true;
+    // }
     circles.current.push(newCircle);
     if (!mute) makeNote(newCircle, event);
     return newCircle;
@@ -140,13 +140,16 @@ function Canvas({ children }: { children: ReactNode }) {
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
 
     let i = 0;
-    while (i < circles.current.length) {
-      if (circles.current[i].destroyed) {
-        circles.current.splice(i, 1)
-      } else {
-        circles.current[i].render(ctx);
-      }
-      i++;
+    // while (i < circles.current.length) {
+    //   if (circles.current[i].destroyed) {
+    //     circles.current.splice(i, 1)
+    //   } else {
+    //     circles.current[i].render(ctx);
+    //   }
+    //   i++;
+    // }
+    for (let i = 0; i < circles.current.length; i++) {
+      circles.current[i].render(ctx);
     }
     for (let i = 0; i < doodles.current.length; i++) {
       doodles.current[i].render(ctx);
@@ -265,7 +268,7 @@ function Canvas({ children }: { children: ReactNode }) {
         }
         firstClick.current = true;
       }
-      
+
       randCircle(ctxRef.current, e);
     }
   }
