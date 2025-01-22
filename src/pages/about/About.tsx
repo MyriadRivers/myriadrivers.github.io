@@ -6,6 +6,7 @@ import jason4 from "../../assets/images/jason4.png"
 import jason5 from "../../assets/images/jason5.png"
 import jason6 from "../../assets/images/jason6.png"
 import jason7 from "../../assets/images/jason7.png"
+import jason8 from "../../assets/images/jason8.png"
 import breakpoints from "../../styles/breakpoints";
 import { useEffect, useRef, useState } from "react";
 import LinkList from "../../components/LinkList";
@@ -13,7 +14,7 @@ import LinkList from "../../components/LinkList";
 import resumePath from "../../assets/files/resume.pdf";
 import Link from "../../components/Link";
 
-const jasonImages = [jason, jason2, jason3, jason4, jason5, jason6, jason7];
+const jasonImages = [jason, jason2, jason3, jason4, jason5, jason6, jason7, jason8];
 
 const StyledAbout = styled.div<{ $overflow: boolean, $topPadding: number }>`
     height: 100%;
