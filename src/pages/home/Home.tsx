@@ -64,7 +64,7 @@ function Home() {
                     ...to the very last detail.
                 </p>
                 <p>
-                    I'm Jason, a UX researcher and creative engineer passionate about making people's lives more enjoyable.
+                    I'm Jason, a UX researcher and creative engineer committed to making people's lives a little more enjoyable.
                 </p>
                 <p>
                     Excited to meet you.
