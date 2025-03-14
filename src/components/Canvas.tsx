@@ -22,7 +22,7 @@ import neuroptera from "../assets/images/doodles/neuroptera.png";
 import odonata from "../assets/images/doodles/odonata.png";
 import orthoptera from "../assets/images/doodles/orthoptera.png";
 import { BaseContext, Panner3D, PolySynth, Reverb, Synth, Volume } from "tone";
-import { Circle, Doodle, fuzz, Point, randEnds, randPastel } from "../utils/CanvasUtils";
+import { Circle, Doodle, fuzz, parseRGBA, Point, randBrightness, randEnds, randPastel, similarRGBA } from "../utils/CanvasUtils";
 import { numToScale, octave, Scale } from "../utils/musicUtils";
 
 const MAX_DOODLES = 5;
@@ -131,6 +131,8 @@ function Canvas({ children }: { children: ReactNode }) {
   const [drawable, setDrawable] = useState<boolean>(true);
   const [audible, setAudible] = useState<boolean>(true);
 
+  const paletteRef = useRef<{ r: number, g: number, b: number, a: number } | null>(null);
+
   const randCircle = (ctx: CanvasRenderingContext2D, event: MouseEvent, mute: boolean = false): Circle => {
     const maxPossibleR = ctx.canvas.width / 7;
     const maxR = Math.floor(Math.random() * (maxPossibleR - 25)) + 25;
@@ -139,7 +141,7 @@ function Canvas({ children }: { children: ReactNode }) {
       event.y,
       maxR,
       // randColor()
-      randPastel()
+      paletteRef.current ? similarRGBA(paletteRef.current.r, paletteRef.current.g, paletteRef.current.b, paletteRef.current.a, 0.1) : randPastel()
     );
     // if (circles.current.length > MAX_CIRCLES) {
     //   // circles.current[0].destroy = true;
@@ -209,6 +211,8 @@ function Canvas({ children }: { children: ReactNode }) {
       reverbRef.current = new Reverb(0.5).connect(gainRef.current);
       Panner3DRef.current = new Panner3D().connect(reverbRef.current);
       PolyRef.current = new PolySynth(Synth, { oscillator: { type: "sine" }, envelope: { attack: 0.05, release: 0.1 } }).connect(Panner3DRef.current);
+
+      Math.random() > 0.5 ? paletteRef.current = parseRGBA(randPastel()) : paletteRef.current = null;
     }
   }, [])
 

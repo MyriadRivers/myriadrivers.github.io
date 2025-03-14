@@ -13,7 +13,7 @@ const StyledActionVerb = styled.span`
 
 function ActionVerb({ }) {
     const words = useRef<Array<string>>(["learning", "doing", "creating", "understanding", "playing", "empathizing", "exploring", "tinkering", "dreaming"]);
-    const [wordIndex, setWordIndex] = useState<number>(0);
+    const [wordIndex, setWordIndex] = useState<number>(Math.floor(Math.random() * words.current.length));
     return (<StyledActionVerb onClick={() => {
         let newIndex = Math.floor(Math.random() * words.current.length);
         while (newIndex == wordIndex) {

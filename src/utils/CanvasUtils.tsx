@@ -130,16 +130,29 @@ const randPastel = () => {
     return `rgb(${brighten(r)}, ${brighten(g)}, ${brighten(b)}, ${a})`;
 }
 
+const randBrightness = (r: number, g: number, b: number) => {
+    // const r = Math.floor(Math.random() * 256);
+    // const g = Math.floor(Math.random() * 256);
+    // const b = Math.floor(Math.random() * 256);
+    const a = (Math.random() * 0.25) + 0.15;
+
+    return `rgb(${brighten(r)}, ${brighten(g)}, ${brighten(b)}, ${a})`;
+}
+
 const clampColor = (value: number) => {
     return Math.min(Math.max(0, value), 255);
 }
 
-const similarColor = (hex: string, rand: number = .25) => {
+const similarHex = (hex: string, rand: number = .25) => {
     const r = parseInt(hex.substring(0, 2), 16);
     const g = parseInt(hex.substring(2, 4), 16);
     const b = parseInt(hex.substring(4, 6), 16);
 
     return `rgb(${clampColor(fuzz(r, rand))}, ${clampColor(fuzz(g, rand))}, ${clampColor(fuzz(b, rand))})`;
+}
+
+const similarRGBA = (r: number, g: number, b: number, a: number, rand: number = .25) => {
+    return `rgb(${clampColor(Math.round(fuzz(r, rand)))}, ${clampColor(Math.round(fuzz(g, rand)))}, ${clampColor(Math.round(fuzz(b, rand)))}, ${a})`;
 }
 
 // Returns a random multiplier that deviates from 1.0 by at greatest the maxVariance
@@ -160,9 +173,9 @@ function parseRGBA(color: string): { r: number; g: number; b: number; a: number 
     if (match) {
         const [, r, g, b, a] = match;
         return {
-            r: parseFloat(r),
-            g: parseFloat(g),
-            b: parseFloat(b),
+            r: Math.round(parseFloat(r)),
+            g: Math.round(parseFloat(g)),
+            b: Math.round(parseFloat(b)),
             a: parseFloat(a),
         };
     }
@@ -170,4 +183,4 @@ function parseRGBA(color: string): { r: number; g: number; b: number; a: number 
     return null; // Return null if the format doesn't match
 }
 
-export { Circle, Doodle, type Point, randColor, randPastel, randEnds, fuzz }
+export { Circle, Doodle, type Point, randColor, randPastel, randEnds, fuzz, similarRGBA, parseRGBA, randBrightness }
