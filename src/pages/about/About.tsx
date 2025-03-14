@@ -177,7 +177,7 @@ function About() {
                     </p>
                     <p>
                         I love learning new crafts and practices that help me create what I want, whether that's how to code in a new language,
-                        how to fabricate a circuit board, how to use a research method, or how to sew. In my free time,
+                        how to fabricate a circuit board, how to use a research method, or how to work with a new material. In my free time,
                         I'm making music, crafting stuff, or looking for bugs outside!
                     </p>
                 </div>

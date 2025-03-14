@@ -10,6 +10,7 @@ const StyledGrid = styled.div<{ $tagsHeight: number }>`
     position: relative;
     display: flex;
     flex-direction: column;
+    z-index: 0;
 
     .tagsContainer {
         display: flex;
