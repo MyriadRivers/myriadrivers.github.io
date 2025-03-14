@@ -167,7 +167,7 @@ function About() {
                 <div>
                     <p>
                         I'm a current master's student in <Link url={"https://mshci.gatech.edu"}>Human-Computer Interaction at Georgia Tech</Link>,
-                        where I studied Computer Science and Music Technology in my undergrad.
+                        where I also studied Computer Science and Music Technology in my undergrad.
                     </p>
                     <p>
                         Ever since I was a kid, I've been told that I had too many interests. That I'm 三心二意—of three hearts and two desires.
