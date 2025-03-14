@@ -35,6 +35,8 @@ const StyledGrid = styled.div<{ $tagsHeight: number }>`
         flex-direction: row-reverse;
         flex-wrap: wrap;
         gap: 20px;
+
+        z-index: 10;
     }
 
     .grid {
@@ -46,7 +48,7 @@ const StyledGrid = styled.div<{ $tagsHeight: number }>`
         @media ${breakpoints.mobile} {
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         }
-        gap: 40px;
+        /* gap: 40px; */
         /* overflow: auto; */
         /* padding: 0px 20px;  */
 

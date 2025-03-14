@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import breakpoints from "../../styles/breakpoints";
 import { useEffect, useRef, useState } from "react";
+import ActionVerb from "../../components/ActionVerb";
 
 const StyledHome = styled.div`
     /* background-color: black; */
@@ -49,6 +50,14 @@ const StyledHome = styled.div`
             display: none;
         }
     }
+
+    .actionVerb {
+        font-weight: bold;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 `
 
 function Home() {
@@ -57,14 +66,17 @@ function Home() {
         </div>
         <div className={"homeText"}>
             <div className={"homeHeader"}>
-                Simple, usable, playful
+                Never stop <ActionVerb />
             </div>
             <div>
-                <p>
+                {/* <p>
                     ...to the very last detail.
+                </p> */}
+                <p>
+                    I'm Jason.
                 </p>
                 <p>
-                    I'm Jason, a UX researcher and creative engineer committed to making people's lives a little more enjoyable.
+                    I am a designer, UX researcher, and creative engineer committed to empathizing radically and building playfully.
                 </p>
                 <p>
                     Excited to meet you.

@@ -56,6 +56,22 @@ const StyledCanvas = styled.div`
     right: 20px;
   }
 
+  .copyright {
+    /* background-color: pink; */
+    font-size: 10pt;
+    /* display: flex;
+    flex-direction: column-reverse;
+    gap: 10px; */
+
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    /* left: 50%; */
+
+    background: ${props => props.theme.alt};
+    color: ${props => props.theme.main};
+  }
+
   .canvasIcon {
     height: 1em;
     &:hover {
@@ -321,6 +337,9 @@ function Canvas({ children }: { children: ReactNode }) {
     <StyledCanvas ref={containerRef}>
       <canvas ref={canvasRef} height={"100%"} width={"100%"} className={"siteCanvas"}></canvas>
       {children}
+      <div className={"copyright"}>
+        Coded with love, sweat, & tears © {new Date().getFullYear()}
+      </div>
       <div className={"canvasButtons"}>
         <div className={"canvasButton"}>
           <img className="canvasIcon" onClick={clearCanvas} src={clearCanvasIcon} alt={"clear canvas"} />

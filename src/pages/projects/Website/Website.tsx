@@ -28,9 +28,8 @@ const sections: Array<Section> = [
                     My website functions as a portfolio of my work, an archive of my personal projects, and a playground for experimentation.
                 </p>
                 <p>
-                    I wanted my website to focus on usability, streamlining information architecture, navigation, and flow, while still maintaining playful dynamics.
-                    I designed my site to be completely black and white, forcing me to rely on other visual indicators for contrast and hierarchy.
-                    This also allows me add color through ubiquitous user interaction while ensuring that nothing is completely obscured.
+                    I wanted my website to focus on usability, streamlining information architecture, navigation, and flow, while still maintaining playful dynamics and a
+                    eye-catching, distinct look.
                 </p>
                 <p>
                     Coding my own website gives me the level of control necessary to ensure everything looks and behaves exactly how I want it to—meaning
@@ -41,6 +40,16 @@ const sections: Array<Section> = [
                     My logo features the negative space of a stylized 川 character, my name in Chinese. My heritage, in both the scale of my culture at large
                     and the scale of my family, is a constant theme in my work and a source of strength and pride for myself.
                 </p>
+                <p>
+                    Particular constraints when I was designing my website were included:
+                </p>
+                <ol>
+                    <li><b>No colors as affordances:</b> explore other visual signifiers, create a distinct look, and prioritize accessibility.
+                    </li>
+                    <li><b>No bevels:</b> stray away from overused design canons while still maintaining aesthetics and usability.</li>
+                    <li><b>Code everything:</b> it's one thing to design, but another if that's infeasible to implement. I own the process—anything I draw out, I ought to be able to make.
+                        Keep not just the users but also the engineers in mind.</li>
+                </ol>
             </>
     },
     // {

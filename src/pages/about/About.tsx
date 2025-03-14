@@ -170,12 +170,15 @@ function About() {
                         where I studied Computer Science and Music Technology in my undergrad.
                     </p>
                     <p>
-                        My desire is to unify creativity, technology, and human connection.
-                        Good design doesn't stop at the sketching or wireframing phase; I bring a usability and empathy
-                        centered mindset from the initial user interviews to the technical implementation in code.
+                        Ever since I was a kid, I've been told that I had too many interests. That I'm 三心二意—of three hearts and two desires.
+                        But I don't believe in silos. I'm always learning, always trying to understand more—whether thats user needs, how other teams operate,
+                        or how to hone my practices.
+                        Even if I'm just working on one part, I take the needs of the entire stack—from the user, to the engineer—into consideration.
                     </p>
                     <p>
-                        In my free time, you might catch me making music, coding a personal project, or looking for bugs outside.
+                        I love learning new crafts and practices that help me create what I want, whether that's how to code in a new language,
+                        how to fabricate a circuit board, how to use a research method, or how to sew. In my free time,
+                        I'm making music, crafting stuff, or looking for bugs outside!
                     </p>
                 </div>
                 <LinkList links={links} />
