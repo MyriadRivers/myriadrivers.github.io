@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.17cd2877.js",
+    "main.js": "/static/js/main.cdd29d62.js",
     "static/media/ux_research_environmental_justice.pdf": "/static/media/ux_research_environmental_justice.b91c20bf975ff5f4b33d.pdf",
     "static/media/troov_final_presentation.pdf": "/static/media/troov_final_presentation.282fd0fb3f83ee442021.pdf",
     "static/media/troov_ux_research.pdf": "/static/media/troov_ux_research.da85eafd4a1fc215d728.pdf",
@@ -64,7 +64,7 @@
     "static/media/light.svg": "/static/media/light.6089085b57a1a33592d2466b42db65b4.svg",
     "static/media/regular.svg": "/static/media/regular.8077fe8ae52c1b0287d244d7d2d2bca8.svg",
     "static/media/he_analysis.png": "/static/media/he_analysis.11d705f8a545430c30cf.png",
-    "static/media/resume.pdf": "/static/media/resume.402e489b086e78613e2d.pdf",
+    "static/media/resume.pdf": "/static/media/resume.1262b245dd7e555436b0.pdf",
     "static/media/orb_weaver.png": "/static/media/orb_weaver.b9e1b04272acd0837b6f.png",
     "static/media/spotify_karaoke_algorithm_table.png": "/static/media/spotify_karaoke_algorithm_table.cd21b275ca0ccb566478.png",
     "static/media/title_screen.png": "/static/media/title_screen.debc46e00bfcdcb05a4a.png",
@@ -106,9 +106,9 @@
     "static/media/jason7.png": "/static/media/jason7.dd22e04ea864d93a9c4a.png",
     "static/media/jason2.png": "/static/media/jason2.ae179753b10523a14853.png",
     "index.html": "/index.html",
-    "main.17cd2877.js.map": "/static/js/main.17cd2877.js.map"
+    "main.cdd29d62.js.map": "/static/js/main.cdd29d62.js.map"
   },
   "entrypoints": [
-    "static/js/main.17cd2877.js"
+    "static/js/main.cdd29d62.js"
   ]
 }
