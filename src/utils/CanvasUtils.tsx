@@ -69,7 +69,7 @@ class Circle {
         if (pCol.a <= 0 && !this.destroyed) this.destroyed = true;
 
         if (this.progress < 1) {
-            this.progress += 0.01
+            this.progress += 0.015
             this.r = this.easeOut(this.progress, 4) * this.maxR;
         }
         //  else if (this.progress >= 1 && this.progress < 3) {

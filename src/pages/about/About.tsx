@@ -137,7 +137,7 @@ function About() {
         const aboutContainerResizeObserver = new ResizeObserver((size) => {
             let rect = size[0].contentRect;
             if (!aboutRef.current) return;
-            if (rect.height > aboutRef.current.clientHeight) {
+            if (rect.height > (aboutRef.current.clientHeight + 20)) {
                 setOverflow(false);
             } else {
                 setOverflow(true);
