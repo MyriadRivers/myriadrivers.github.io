@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/static/js/main.5ee0870f.js",
+    "main.js": "/static/js/main.73dead75.js",
     "static/media/ux_research_environmental_justice.pdf": "/static/media/ux_research_environmental_justice.b91c20bf975ff5f4b33d.pdf",
     "static/media/troov_final_presentation.pdf": "/static/media/troov_final_presentation.282fd0fb3f83ee442021.pdf",
     "static/media/troov_ux_research.pdf": "/static/media/troov_ux_research.da85eafd4a1fc215d728.pdf",
     "static/media/timeline.gif": "/static/media/timeline.3876e6f0ce10380bf7f0.gif",
-    "static/media/SFPro-Regular.svg": "/static/media/SFPro-Regular.b9f8c756c198280ee021ef55e45156c2.svg",
+    "static/media/SFPro-Regular.svg": "/static/media/SFPro-Regular.9c36b2c14bc9c32991d18151e67a17e6.svg",
     "static/media/set_urgent.gif": "/static/media/set_urgent.72de35b08e0ee23a7188.gif",
     "static/media/matching_phase.gif": "/static/media/matching_phase.446a7b11170d43d1dd17.gif",
     "static/media/spotify_karaoke_demo.mp4": "/static/media/spotify_karaoke_demo.6dd7fa96b5b1c6a6450d.mp4",
@@ -18,7 +18,7 @@
     "static/media/after_troov.gif": "/static/media/after_troov.c419ba14a0ce290de1ff.gif",
     "static/media/affinity_map.png": "/static/media/affinity_map.e1bbfccb474cb90e4ed6.png",
     "static/media/ideation.png": "/static/media/ideation.1d47a31f71dea33c949c.png",
-    "static/media/FreeSans.svg": "/static/media/FreeSans.f8107fdf9b96be71f078e1fa497b5592.svg",
+    "static/media/FreeSans.svg": "/static/media/FreeSans.e0e05b141b369afe439aa7b24724a182.svg",
     "static/media/troov_history.gif": "/static/media/troov_history.7149c4fd5bc90b7ec889.gif",
     "static/media/storyboard.png": "/static/media/storyboard.3d04de8b655583dc546d.png",
     "static/media/sketches.png": "/static/media/sketches.666e7f3328112afb4e35.png",
@@ -54,7 +54,7 @@
     "static/media/gameplay.png": "/static/media/gameplay.f5a5d2d7ba8a79bd7b2c.png",
     "static/media/orb_weaver_main.png": "/static/media/orb_weaver_main.772595941b767e648d16.png",
     "static/media/website_main.png": "/static/media/website_main.24f7c1ec685fe4a149e9.png",
-    "static/media/Average-Regular.svg": "/static/media/Average-Regular.4c3aec078cbd682799552802365bb0d6.svg",
+    "static/media/Average-Regular.svg": "/static/media/Average-Regular.e5daf5ecc7e75689844861d7bddd71d6.svg",
     "static/media/troov_main.png": "/static/media/troov_main.0c70bd5443fe86933461.png",
     "static/media/FreeSans.woff2": "/static/media/FreeSans.fc3da81ac98c1768159c.woff2",
     "static/media/heuristic_evaluation.png": "/static/media/heuristic_evaluation.1cbaf30dd75e3a6fd67b.png",
@@ -63,7 +63,7 @@
     "static/media/competitive_analysis.png": "/static/media/competitive_analysis.11407f5da74e17bf35f1.png",
     "static/media/light.svg": "/static/media/light.6089085b57a1a33592d2466b42db65b4.svg",
     "static/media/regular.svg": "/static/media/regular.8077fe8ae52c1b0287d244d7d2d2bca8.svg",
-    "static/media/resume.pdf": "/static/media/resume.bcf172ac7f185c395902.pdf",
+    "static/media/resume.pdf": "/static/media/resume.1795a533811c2c592cf5.pdf",
     "static/media/he_analysis.png": "/static/media/he_analysis.11d705f8a545430c30cf.png",
     "static/media/orb_weaver.png": "/static/media/orb_weaver.b9e1b04272acd0837b6f.png",
     "static/media/spotify_karaoke_algorithm_table.png": "/static/media/spotify_karaoke_algorithm_table.cd21b275ca0ccb566478.png",
@@ -106,9 +106,9 @@
     "static/media/jason7.png": "/static/media/jason7.dd22e04ea864d93a9c4a.png",
     "static/media/jason2.png": "/static/media/jason2.ae179753b10523a14853.png",
     "index.html": "/index.html",
-    "main.5ee0870f.js.map": "/static/js/main.5ee0870f.js.map"
+    "main.73dead75.js.map": "/static/js/main.73dead75.js.map"
   },
   "entrypoints": [
-    "static/js/main.5ee0870f.js"
+    "static/js/main.73dead75.js"
   ]
 }
