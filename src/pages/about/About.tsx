@@ -17,7 +17,7 @@ import Link from "../../components/Link";
 const jasonImages = [jason, jason3, jason4, jason5];
 
 const StyledAbout = styled.div<{ $overflow: boolean, $topPadding: number }>`
-    height: 100%;
+    height: calc(100% - 120px);
     /* width: 100%; */
 
     display: flex;
@@ -162,7 +162,7 @@ function About() {
         <div className={"aboutTextContainer"} ref={aboutContainerRef}>
             <div className={"aboutText"} ref={aboutRef}>
                 <div className={"aboutHeader"}>
-                    Hey, I'm Jason!
+                    Wèi! I'm Jason!
                 </div>
                 <div>
                     {/* <p>
@@ -173,8 +173,9 @@ function About() {
                         Ever since I was a kid, I've been told that I had too many interests. That I'm 三心二意: of three hearts and two minds.
                     </p>
                     <p>  
-                        But I don't believe in silos. I am a lifelong learner—whether that's in user research, software engineering, or interactive technology.
-                        Even if I'm just working on one part, I take the needs of the entire stack—from the user, to the engineer, to the designer—into consideration.
+                        But I don't believe in silos. I am a lifelong learner—whether that's in user research, software engineering, or interactive technology—I'm always willing to dive deep and develop a new skill.
+                        My cross-curricular passion gives me the vision and breadth to understand the full stack, the big picture—it lets me work well across teams and people—even as 
+                        I focus on my individual part.
                     </p>
                     <p>
                         I love honing new skills and practices that help me create what I want—new research methods, new coding frameworks, new crafts. In my free time,

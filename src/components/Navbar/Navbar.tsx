@@ -21,6 +21,10 @@ const StyledNavbar = styled.div<{ $open: boolean }>`
     mix-blend-mode: multiply;
     z-index: 20;
 
+    @media ${breakpoints.laptop} {
+       gap: 20px;
+    }
+
     @media ${breakpoints.mobile} {
         align-items: start;
         background: none;

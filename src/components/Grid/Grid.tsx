@@ -50,7 +50,7 @@ const StyledGrid = styled.div<{ $tagsHeight: number }>`
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
-        /* gap: 40px; */
+        gap: 40px;
         /* overflow: auto; */
         /* padding: 0px 20px;  */
 
@@ -70,7 +70,7 @@ const StyledGrid = styled.div<{ $tagsHeight: number }>`
     width: 100%;
 `
 
-function Grid({ tiles }: { tiles: Array<{ title: string, url: To, image: string, tags: Array<ProjectTag> }> }) {
+function Grid({ tiles }: { tiles: Array<{ title: string, description: string, url: To, image: string, tags: Array<ProjectTag> }> }) {
     const [allTags, setAllTags] = useState<Array<ProjectTag>>([]);
     const [activeTags, setActiveTags] = useState<Array<ProjectTag>>([]);
 
@@ -127,7 +127,7 @@ function Grid({ tiles }: { tiles: Array<{ title: string, url: To, image: string,
                 (activeTags.length === 0 || activeTags.every(el => tile.tags.includes(el))) &&
                 // UNION
                 // (activeTags.length === 0 || activeTags.some(el => tile.tags.includes(el))) &&
-                <Tile title={tile.title} url={tile.url} image={tile.image} tags={tile.tags} key={index}></Tile>
+                <Tile title={tile.title} description={tile.description} url={tile.url} image={tile.image} tags={tile.tags} key={index}></Tile>
             ))}
         </div>
         <div className={"bottomSpace"}>&nbsp;</div>

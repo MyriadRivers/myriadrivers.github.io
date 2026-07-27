@@ -1,9 +1,9 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 import GlobalStyle from './styles/globalStyles';
 import styled, { ThemeProvider as ThemeProviderSC } from 'styled-components'
 import { ThemeProvider } from '@mui/material';
-import { mono, monoMUI, river } from './styles/themes';
+import { mono, monoMUI } from './styles/themes';
 
 import Navbar from './components/Navbar/Navbar';
 import { navRoutes } from './routes';
@@ -38,26 +38,27 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
   margin: auto;
 
   .websiteTitleContainer {
-    /* mix-blend-mode: multiply;  */
+    mix-blend-mode: multiply; 
     box-shadow: 8px 0px 0 ${props => props.theme.alt}, -8px 0px 0 ${props => props.theme.alt};
 
     /* @media ${breakpoints.mobile} {
       mix-blend-mode: normal;
     } */
 
-    background: ${props => props.theme.alt};
-    -webkit-backdrop-filter: blur(5px) opacity(70%);
-    backdrop-filter: blur(5px) opacity(70%);
+    /* background: ${props => props.theme.alt}; */
+    /* -webkit-backdrop-filter: blur(5px) opacity(70%); */
+    /* backdrop-filter: blur(5px) opacity(70%); */
 
     transform: translate3d(0, 0, 0);
     will-change: transform;
 
     /* mask: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%); */
     
-    position: fixed;
+    position: sticky;
     top: 30px;
-    left: 50%;
-    transform:  translateX(-50%);
+    margin: auto;
+    /* left: 50%;
+    transform:  translateX(-50%); */
     width: calc(100% - 2 * 60px);
     @media ${breakpoints.laptop} {
       width: calc(100% - 2 * 40px);
@@ -79,18 +80,18 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
   }
 
   .centerContainer {
-    /* background: pink; */
+    /* background: pink;  */
     height: 100%;
 
     padding: 
-    ${props => `calc(${props.$contentTop}px + 30px + 20px)`} 
+    ${props => `calc(30px)`} 
     ${props => `calc(60px - ${props.$scrollBarWidth}px)`} 
     30px
     60px;
 
     @media ${breakpoints.laptop} {
       padding: 
-      ${props => `calc(${props.$contentTop}px + 30px + 20px)`} 
+      ${props => `calc(30px)`} 
       ${props => `calc(40px - ${props.$scrollBarWidth}px)`} 
       30px
       40px;
@@ -98,7 +99,7 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
 
     @media ${breakpoints.mobile} {
       padding: 
-      ${props => `calc(${props.$contentTop}px + 30px + 20px)`} 
+      ${props => `calc(30px)`} 
       ${props => `calc(20px - ${props.$scrollBarWidth}px)`} 
       30px
       20px;
@@ -106,6 +107,17 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
   }
 
   .outletContainer {
+    /* background: pink; */
+    position: fixed;
+    width: calc(100% - 2 * 60px);
+    @media ${breakpoints.laptop} {
+      width: calc(100% - 2 * 40px);
+    }
+    @media ${breakpoints.mobile} {
+      width: calc(100% - 2 * 20px);
+    }
+    
+    overflow: auto;
     height: 100%;
     margin: auto;
 
@@ -114,13 +126,39 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
     flex-direction: column;
     /* gap: 20px; */
   }
+
+  .fadeContainer {
+    /* position: fixed;
+    top: 10%;
+    height: 90%;
+    margin: auto;
+    width: 100%;
+    overflow: auto; */
+    /* background: pink; */
+  }
 `
 
 function App() {
   const headerRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
+  const outletContainerRef = useRef<HTMLDivElement | null>(null);
+  const location = useLocation();
   const [contentTopPadding, setContentTopPadding] = useState<number>(0);
   const [scrollBarWidth, setScrollBarWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const resetScrollPosition = () => {
+      window.scrollTo(0, 0);
+
+      if (outletContainerRef.current) {
+        outletContainerRef.current.scrollTop = 0;
+        outletContainerRef.current.scrollLeft = 0;
+      }
+    };
+
+    const frame = window.requestAnimationFrame(resetScrollPosition);
+    return () => window.cancelAnimationFrame(frame);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (!headerRef.current || !contentRef.current) return;
@@ -154,11 +192,13 @@ function App() {
                 <Navbar links={navRoutes.map(route => (route.path))} />
               </div>
             </div>
-            <div className={"centerContainer"} ref={contentRef}>
-              <div className="outletContainer">
-                <Outlet />
+            {/* <div className="fadeContainer"> */}
+              <div className={"centerContainer"} ref={contentRef}>
+                <div className="outletContainer" ref={outletContainerRef}>
+                  <Outlet />
+                </div>
               </div>
-            </div>
+            {/* </div> */}
           </StyledApp>
         </Canvas>
       </ThemeProviderSC >

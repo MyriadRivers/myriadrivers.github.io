@@ -100,8 +100,6 @@ function ProjectPage({ tags, content }: { tags: Array<ProjectTag>, content: Proj
     useEffect(() => {
         window.scroll({ top: 0, left: 0, behavior: "instant" } as unknown as ScrollToOptions);
 
-        setScrollRef(contentsRef.current);
-
         if (!sidebarContainerRef.current) return;
         const sidebarResizeObserver = new ResizeObserver((size) => {
             let rect = size[0].contentRect;

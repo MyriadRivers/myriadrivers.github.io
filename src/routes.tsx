@@ -19,9 +19,9 @@ import voicemailImg from "./assets/images/voicemail.png";
 import auditoryInterfaceImg from "./assets/images/auditory_interface.png";
 import websiteImg from "./assets/images/website.png"
 
-import Fan from "./pages/projects/Fan/fan"
-import Lantern from "./pages/projects/Lantern/lantern"
-import Collage from "./pages/projects/Collage/collage"
+import Fan from "./pages/projects/Fan/Fan"
+import Lantern from "./pages/projects/Lantern/Lantern"
+import Collage from "./pages/projects/Collage/Collage"
 import SpotifyKaraoke from "./pages/projects/SpotifyKaraoke/SpotifyKaraoke"
 import VideoSonification from "./pages/projects/VideoSonification/VideoSonification"
 import SewSustainable from "./pages/projects/SewSustainable/SewSustainable"
@@ -65,6 +65,7 @@ const navRoutes = [
 const projects = [
     {
         title: "Interactive Fan Dance",
+        description: "Community-designed instrument bridging cultural dance and technology.",
         url: "fan",
         image: fanImg,
         tags: [ProjectTag.uiux, ProjectTag.interactiveArt],
@@ -72,6 +73,7 @@ const projects = [
     },
     {
         title: "SHADĒNG",
+        description: "Modular lantern inspired by traditional papermaking and cutting.",
         url: "lantern",
         image: lanternImg,
         tags: [ProjectTag.interactiveArt],
@@ -79,6 +81,7 @@ const projects = [
     },
     {
         title: "CLIO & MNEMOSYNE",
+        description: "Interactive collage transforming memories into music through touch.",
         url: "collage",
         image: collageImg,
         tags: [ProjectTag.interactiveArt],
@@ -86,6 +89,7 @@ const projects = [
     },
     {
         title: "Meetup App Safety",
+        description: "UX research & design reimagining safety on a dating app.",
         url: "troov",
         image: troovImg,
         tags: [ProjectTag.uiux],
@@ -93,6 +97,7 @@ const projects = [
     },
     {
         title: "Environmental Justice Dashboard",
+        description: "UX research & design empowering communities to combat pollution.",
         url: "dashboard",
         image: dashboardImg,
         tags: [ProjectTag.uiux],
@@ -100,6 +105,7 @@ const projects = [
     },
     {
         title: "Spotify Karaoke",
+        description: "Full-stack app generating animated karaoke lyrics from Spotify.",
         url: "spotify_karaoke",
         image: spotifyKaraokeImg,
         tags: [ProjectTag.engineering],
@@ -107,6 +113,7 @@ const projects = [
     },
     {
         title: "Personal Website",
+        description: "The design motivations behind my personal portfolio.",
         url: "website",
         image: websiteImg,
         tags: [ProjectTag.engineering, ProjectTag.interactiveArt],
@@ -135,6 +142,7 @@ const projects = [
     // },
     {
         title: "Orb Weaver",
+        description: "Web app animating and generating music based off a spider's web.",
         url: "orb_weaver",
         image: orbWeaverImg,
         tags: [ProjectTag.engineering, ProjectTag.interactiveArt],
@@ -149,6 +157,7 @@ const projects = [
     // },
     {
         title: "Voicemail",
+        description: "Generative phone audio performance through simple interactions.",
         url: "voicemail",
         image: voicemailImg,
         tags: [ProjectTag.interactiveArt],

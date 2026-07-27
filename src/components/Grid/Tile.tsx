@@ -58,6 +58,31 @@ const StyledTile = styled.div<{ $cropped: boolean }>`
         pointer-events: none;
     }
 
+    .tilePreviewShadow {
+        position: absolute;
+        color: ${props => props.theme.alt};
+        margin: 3px;
+        width: calc(100% - 6px);
+        height: calc(100% - 6px);
+        background: rgba(0, 0, 0, 0.75);
+        visibility: hidden;
+    }
+
+    .tileContents:hover .tilePreviewShadow {
+        visibility: visible;
+    }
+
+    .tilePreview {
+        color: ${props => props.theme.alt};
+        margin-left: 20px;
+        visibility: hidden;
+        text-align: right;
+    }
+
+    .tileContents:hover .tilePreview {
+        visibility: visible;
+    }
+
     .tileLabel {
         position: absolute;
         right: 20px;
@@ -86,7 +111,7 @@ const StyledTile = styled.div<{ $cropped: boolean }>`
     }
 `
 
-function Tile({ title, url, image, tags, cropped }: { title: string, url: To, image: string, tags: Array<ProjectTag>, cropped?: boolean }) {
+function Tile({ title, description, url, image, tags, cropped }: { title: string, description: string, url: To, image: string, tags: Array<ProjectTag>, cropped?: boolean }) {
     return (
         <StyledTile $cropped={cropped ?? false}>
             <Link to={url} className={"tileContents"}>
@@ -95,15 +120,20 @@ function Tile({ title, url, image, tags, cropped }: { title: string, url: To, im
                     <img src={image} className={"tileImage"} alt={title}></img>
                 </div> */}
                 {/* {title} */}
-            </Link>
-            <div className={"tileLabel"}>
-                <div className="tileTitle">{title}</div>
-                <div className={"tileTags"}>
-                    {tags.map((tag, index) => (
-                        <Tag name={tag} key={index} />
-                    ))}
+                <div className={"tilePreviewShadow"} />
+                <div className={"tileLabel"}>
+                    <div className={"tilePreview"}>
+                        {description}
+                    </div>
+                    <div className="tileTitle">{title}</div>
+                    <div className={"tileTags"}>
+                        {tags.map((tag, index) => (
+                            <Tag name={tag} key={index} />
+                        ))}
+                    </div>
                 </div>
-            </div>
+            </Link>
+            
         </StyledTile>);
 }
 

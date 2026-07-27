@@ -4,15 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import ActionVerb from "../../components/ActionVerb";
 
 const StyledHome = styled.div`
-    /* background-color: black; */
-    height: 100%;
+    /* background-color: pink; */
+    height: calc(100% - 120px);
     /* width: 100%; */
 
     display: flex;
     flex-direction: row;
 
     overflow: auto;
-
     gap: 40px;
     
     @media ${breakpoints.mobile} {
