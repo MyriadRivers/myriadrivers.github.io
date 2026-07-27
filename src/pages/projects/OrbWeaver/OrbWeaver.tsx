@@ -20,7 +20,7 @@ const links: Array<{ text: string, url: string }> = [
     { text: "GitHub", url: "https://github.com/MyriadRivers/orb-weaver" },
 ];
 const tags: Array<ProjectTag> = [
-    ProjectTag.engineering, ProjectTag.fun
+    ProjectTag.engineering, ProjectTag.interactiveArt
 ];
 const media: ReactNode = <Image src={mainImage} mainImage={true} />;
 const sections: Array<Section> = [

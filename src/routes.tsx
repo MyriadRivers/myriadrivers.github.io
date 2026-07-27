@@ -2,6 +2,9 @@ import Projects from "./pages/projects/Projects"
 import About from "./pages/about/About"
 import Home from "./pages/home/Home"
 
+import fanImg from "./assets/images/fan.png"
+import lanternImg from "./assets/images/lantern.png"
+import collageImg from "./assets/images/collage.png"
 import troovImg from "./assets/images/troov.png"
 import dashboardImg from "./assets/images/dashboard.png"
 import spotifyKaraokeImg from "./assets/images/spotify_karaoke.png"
@@ -16,6 +19,9 @@ import voicemailImg from "./assets/images/voicemail.png";
 import auditoryInterfaceImg from "./assets/images/auditory_interface.png";
 import websiteImg from "./assets/images/website.png"
 
+import Fan from "./pages/projects/Fan/fan"
+import Lantern from "./pages/projects/Lantern/lantern"
+import Collage from "./pages/projects/Collage/collage"
 import SpotifyKaraoke from "./pages/projects/SpotifyKaraoke/SpotifyKaraoke"
 import VideoSonification from "./pages/projects/VideoSonification/VideoSonification"
 import SewSustainable from "./pages/projects/SewSustainable/SewSustainable"
@@ -58,6 +64,27 @@ const navRoutes = [
 
 const projects = [
     {
+        title: "Interactive Fan Dance",
+        url: "fan",
+        image: fanImg,
+        tags: [ProjectTag.uiux, ProjectTag.interactiveArt],
+        content: Fan
+    },
+    {
+        title: "SHADĒNG",
+        url: "lantern",
+        image: lanternImg,
+        tags: [ProjectTag.interactiveArt],
+        content: Lantern
+    },
+    {
+        title: "CLIO & MNEMOSYNE",
+        url: "collage",
+        image: collageImg,
+        tags: [ProjectTag.interactiveArt],
+        content: Collage
+    },
+    {
         title: "Meetup App Safety",
         url: "troov",
         image: troovImg,
@@ -82,7 +109,7 @@ const projects = [
         title: "Personal Website",
         url: "website",
         image: websiteImg,
-        tags: [ProjectTag.engineering, ProjectTag.fun],
+        tags: [ProjectTag.engineering, ProjectTag.interactiveArt],
         content: Website
     },
     // {
@@ -110,7 +137,7 @@ const projects = [
         title: "Orb Weaver",
         url: "orb_weaver",
         image: orbWeaverImg,
-        tags: [ProjectTag.engineering, ProjectTag.fun],
+        tags: [ProjectTag.engineering, ProjectTag.interactiveArt],
         content: OrbWeaver
     },
     // {
@@ -124,7 +151,7 @@ const projects = [
         title: "Voicemail",
         url: "voicemail",
         image: voicemailImg,
-        tags: [ProjectTag.fun],
+        tags: [ProjectTag.interactiveArt],
         content: Voicemail
     },
     // {
@@ -134,20 +161,20 @@ const projects = [
     //     tags: [ProjectTag.uiux, ProjectTag.engineering],
     //     content: AuditoryInterface
     // },
-    {
-        title: "Nyan Cat (Remix)",
-        url: "nyan_cat",
-        image: nyanCatImg,
-        tags: [ProjectTag.fun],
-        content: NyanCat
-    },
-    {
-        title: "Sync or Sink",
-        url: "sync_or_sink",
-        image: syncOrSinkImg,
-        tags: [ProjectTag.fun],
-        content: SyncOrSink
-    },
+    // {
+    //     title: "Nyan Cat (Remix)",
+    //     url: "nyan_cat",
+    //     image: nyanCatImg,
+    //     tags: [ProjectTag.fun],
+    //     content: NyanCat
+    // },
+    // {
+    //     title: "Sync or Sink",
+    //     url: "sync_or_sink",
+    //     image: syncOrSinkImg,
+    //     tags: [ProjectTag.fun],
+    //     content: SyncOrSink
+    // },
 ]
 
 export { type ProjectInfo, navRoutes, projects };

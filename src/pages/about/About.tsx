@@ -14,7 +14,7 @@ import LinkList from "../../components/LinkList";
 import resumePath from "../../assets/files/resume.pdf";
 import Link from "../../components/Link";
 
-const jasonImages = [jason, jason2, jason3, jason4, jason5, jason6, jason7, jason8];
+const jasonImages = [jason, jason3, jason4, jason5];
 
 const StyledAbout = styled.div<{ $overflow: boolean, $topPadding: number }>`
     height: 100%;
@@ -36,9 +36,9 @@ const StyledAbout = styled.div<{ $overflow: boolean, $topPadding: number }>`
 
     .aboutTextContainer {
         /* background: green; */
-        width: 40%;
+        width: 50%;
 
-        margin: 0px 0px 0px calc(60% + 20px);
+        margin: 0px 0px 0px calc(50% + 20px);
         @media ${breakpoints.mobile} {
             width: 100%;
             margin: 0px;
@@ -76,10 +76,10 @@ const StyledAbout = styled.div<{ $overflow: boolean, $topPadding: number }>`
         /* transform: translateY(-50%); */
 
         height: ${props => `calc(100% - ${props.$topPadding}px - 30px)`};
-        width: min(calc(60% - 60px), 1500px * 0.6 - 60px);
+        width: min(calc(50% - 60px), 1500px * 0.6 - 60px);
 
         @media ${breakpoints.laptop} {
-            width: calc(60% - 40px);     
+            width: calc(50% - 40px);     
         }
 
         @media ${breakpoints.mobile} {
@@ -165,20 +165,20 @@ function About() {
                     Hey, I'm Jason!
                 </div>
                 <div>
-                    <p>
+                    {/* <p>
                         I'm a current master's student in <Link url={"https://mshci.gatech.edu"}>Human-Computer Interaction at Georgia Tech</Link>,
                         where I also studied Computer Science and Music Technology in my undergrad.
+                    </p> */}
+                    <p>
+                        Ever since I was a kid, I've been told that I had too many interests. That I'm 三心二意: of three hearts and two minds.
+                    </p>
+                    <p>  
+                        But I don't believe in silos. I am a lifelong learner—whether that's in user research, software engineering, or interactive technology.
+                        Even if I'm just working on one part, I take the needs of the entire stack—from the user, to the engineer, to the designer—into consideration.
                     </p>
                     <p>
-                        Ever since I was a kid, I've been told that I had too many interests. That I'm 三心二意—of three hearts and two desires.
-                        But I don't believe in silos. I'm always learning, always trying to understand more—whether thats user needs, how other teams operate,
-                        or how to hone my practices.
-                        Even if I'm just working on one part, I take the needs of the entire stack—from the user, to the engineer—into consideration.
-                    </p>
-                    <p>
-                        I love learning new crafts and practices that help me create what I want, whether that's how to code in a new language,
-                        how to fabricate a circuit board, how to use a research method, or how to work with a new material. In my free time,
-                        I'm making music, crafting stuff, or looking for bugs outside!
+                        I love honing new skills and practices that help me create what I want—new research methods, new coding frameworks, new crafts. In my free time,
+                        I'm making music, altering clothes, and looking for bugs outside!
                     </p>
                 </div>
                 <LinkList links={links} />

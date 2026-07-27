@@ -20,7 +20,7 @@ const links: Array<{ text: string, url: string }> = [
     { text: "play the demo!", url: "https://amarantgames.itch.io/sync-or-sink-dreamhack-demo" }
 ];
 const tags: Array<ProjectTag> = [
-    ProjectTag.fun
+    ProjectTag.interactiveArt
 ];
 const media: ReactNode = <Image src={mainImage} mainImage={true} />;
 const sections: Array<Section> = [
