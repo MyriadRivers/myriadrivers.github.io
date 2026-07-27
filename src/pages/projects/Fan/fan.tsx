@@ -5,6 +5,8 @@ import Image from "../../../components/Image";
 import demoVideo from "./fan_main.mp4"
 import workshop from "./workshop.png"
 import sensors from "./sensors.png"
+import sketch from "./sketch.png"
+import nime from "./nime.png"
 
 import { ReactNode } from "react";
 import Link from "../../../components/Link";
@@ -117,9 +119,11 @@ const sections: Array<Section> = [
             <>
                 <p>
                     Research, approved by our Institutional Review Board's ethics committee, 
-                    involved observations of the practices and performances of our partner dance groups;
-                    1–2 hour one-on-one interviews with 20 dancers, exploring their identity, relationship with dance, 
-                    and expectations and hopes for technology; and finally a participatory design workshop exploring fan concepts, 
+                    involved <b>observations</b> of the practices and performances of our partner dance groups;
+                    1–2 hour one-on-one <b>interviews</b> with 20 dancers, exploring their identity, relationship with dance, 
+                    and expectations and hopes for technology; a <b>focus group</b> with dance choreographers; 
+                    repeated <b>validation</b> sessions with dancers throughout the design process; 
+                    and finally a participatory design <b>workshop</b> exploring fan concepts, 
                     choreography, and interaction with 10 dancers.
                 </p>
                 <p>
@@ -143,12 +147,13 @@ const sections: Array<Section> = [
                 <p>
                     Music design took inspiration from nature, which was a commonly occurring theme in both Chinese and Vietnamese dances. Dancer's are already used to the fan making sounds to accentuate their music through SFX, as the fan opens loudly, so we pushed this metaphor further through sound effects inspired by water. 
                 </p>
+                <Image src={sketch} caption={"Form exploration, sketches, and technical prototyping of function and aesthetics of fan."} />
                 <Image src={sensors} caption={"The custom printed guard is sensor embedded for wireless communication with a laptop."} />
             </>
     },
     {
         shortTitle: "Results",
-        title: "Dancers were very excited to dance with the resulting fan.",
+        title: "Dancers were very excited to use the resulting fan.",
         summary: "Dancers loved playing with the final fan. We also published the result in an international conference, NIME 2026.",
         contents:
             <>
@@ -157,11 +162,13 @@ const sections: Array<Section> = [
                     the highest metrics—they loved experimenting with the fan. 
                 </p>
                 <p>
-                    We published the results of our research phase in the international conference for New Interfaces for Musical Expression 2026, in London. 
+                    We published the results of our research phase in the international conference for New Interfaces for Musical Expression 2026 in London, 
+                    which can seen <Link url={"https://nime.org/proc/nime2026_40/index.html"}>here</Link>.
                 </p>
                 <p>
                     Future work would continue collaboration with the dancers and explore more advanced methods of music interaction, such as applying effects to the backing track or generating synthesized melodies.
                 </p>
+                <Image src={nime} caption={"Presenting the results of our research at NIME 2026 in London."} />
             </>
     },
 ]

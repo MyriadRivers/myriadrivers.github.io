@@ -149,6 +149,7 @@ const sections: Array<Section> = [
                     From the research, we isolated where current dating apps were failing to serve users, 
                     isolating Troov's niche for potential safety features. 
                 </p>
+                <Image src={competitiveAnalysis} caption={"Analysis and comparison of safety features across similar apps on the market."} />
             </>
     },
     {
