@@ -46,10 +46,13 @@ const sections: Array<Section> = [
                 <ol>
                     <li><b>No colors as affordances:</b> explore other visual signifiers, create a distinct look, and prioritize accessibility.
                     </li>
-                    <li><b>No bevels:</b> stray away from overused design canons while still maintaining aesthetics and usability.</li>
+                    <li><b>No bevels, etc.:</b> stray away from overused design canons and fads while still maintaining aesthetics and usability.</li>
                     <li><b>Code everything:</b> it's one thing to design, but another if that's infeasible to implement. I own the process—anything I draw out, I ought to be able to make.
                         Keep not just the users but also the engineers in mind.</li>
                 </ol>
+                <p>
+                    Much of the generative media on my site is aleatoric. Refresh the page and click around and you might see or hear different things!
+                </p>
             </>
     },
     // {

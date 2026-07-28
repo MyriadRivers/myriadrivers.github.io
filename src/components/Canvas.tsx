@@ -29,7 +29,7 @@ import trichoptera from "../assets/images/doodles/trichoptera.png";
 import plecoptera from "../assets/images/doodles/plecoptera.png";
 import zygentoma from "../assets/images/doodles/zygentoma.png";
 import { BaseContext, Panner3D, PolySynth, Reverb, Synth, Volume } from "tone";
-import { Circle, Doodle, fuzz, parseRGBA, Point, randBrightness, randEnds, randPastel, similarRGBA } from "../utils/CanvasUtils";
+import { Circle, Diamond, Doodle, fuzz, parseRGBA, Point, randBrightness, randEnds, randPastel, similarRGBA, AnimatedShape } from "../utils/CanvasUtils";
 import { numToScale, octave, Scale } from "../utils/musicUtils";
 
 const MAX_DOODLES = 5;
@@ -120,13 +120,13 @@ function Canvas({ children }: { children: ReactNode }) {
   const gainRef = useRef<Volume | null>(null);
   const reverbRef = useRef<Reverb | null>(null);
 
-  const firstCircles = useRef<boolean>(false);
+  const firstShapes = useRef<boolean>(false);
 
   const mouseHeldDown = useRef<boolean>(false);
   const prevMousePos = useRef<Point>({ x: 0, y: 0 });
 
   const frame = useRef<number>(0);
-  const circles = useRef<Array<Circle>>([]);
+  const shapes = useRef<Array<AnimatedShape>>([]);
 
   const doodleIdx = useRef<Array<number>>([]);
   const doodles = useRef<Array<Doodle>>([]);
@@ -139,23 +139,36 @@ function Canvas({ children }: { children: ReactNode }) {
   const [audible, setAudible] = useState<boolean>(true);
 
   const paletteRef = useRef<{ r: number, g: number, b: number, a: number } | null>(null);
+  const shapeRef = useRef<string | null>(null);
 
-  const randCircle = (ctx: CanvasRenderingContext2D, event: MouseEvent, mute: boolean = false): Circle => {
+  const randShape = (ctx: CanvasRenderingContext2D, event: MouseEvent, mute: boolean = false): AnimatedShape => {
     const maxPossibleR = ctx.canvas.width / 7;
     const maxR = Math.floor(Math.random() * (maxPossibleR - 25)) + 25;
-    const newCircle: Circle = new Circle(
-      event.x,
-      event.y,
-      maxR,
-      // randColor()
-      paletteRef.current ? similarRGBA(paletteRef.current.r, paletteRef.current.g, paletteRef.current.b, paletteRef.current.a, 0.1) : randPastel()
-    );
+    let newShape: AnimatedShape;
+    if (shapeRef.current == "circle") {
+      newShape = new Circle(
+        event.x,
+        event.y,
+        maxR,
+        // randColor()
+        paletteRef.current ? similarRGBA(paletteRef.current.r, paletteRef.current.g, paletteRef.current.b, paletteRef.current.a, 0.1) : randPastel()
+      );
+    } else {
+      newShape = new Diamond(
+        event.x,
+        event.y,
+        maxR,
+        // randColor()
+        paletteRef.current ? similarRGBA(paletteRef.current.r, paletteRef.current.g, paletteRef.current.b, paletteRef.current.a, 0.1) : randPastel()
+      );
+    }
+
     // if (circles.current.length > MAX_CIRCLES) {
     //   // circles.current[0].destroy = true;
     // }
-    circles.current.push(newCircle);
-    if (!mute) makeNote(newCircle, event);
-    return newCircle;
+    shapes.current.push(newShape);
+    if (!mute) makeNote(newShape, event);
+    return newShape;
   }
 
   // RENDER LOOP
@@ -173,8 +186,8 @@ function Canvas({ children }: { children: ReactNode }) {
     //   }
     //   i++;
     // }
-    for (let i = 0; i < circles.current.length; i++) {
-      circles.current[i].render(ctx);
+    for (let i = 0; i < shapes.current.length; i++) {
+      shapes.current[i].render(ctx);
     }
     for (let i = 0; i < doodles.current.length; i++) {
       doodles.current[i].render(ctx);
@@ -184,14 +197,14 @@ function Canvas({ children }: { children: ReactNode }) {
     requestAnimationFrame(() => draw(ctx));
   }
 
-  const makeNote = (c: Circle, event: MouseEvent) => {
+  const makeNote = (s: AnimatedShape, event: MouseEvent) => {
     // Play a note
     if (!PolyRef.current || !Panner3DRef.current || !canvasRef.current) return;
-    const maxPossibleR = canvasRef.current.width / 7;
+    const maxPossibleD = canvasRef.current.width / 7;
     const xPan = (event.x - (canvasRef.current.width / 2)) / (canvasRef.current.width / 2);
     const yPan = (event.y - (canvasRef.current.height / 2)) / (canvasRef.current.height / 2);
-    const note = octave(numToScale(Math.random(), Scale.PENTATONIC, 2), 1);
-    const duration = ((c.maxR / maxPossibleR) / 2) + 0.01
+    const note = octave(numToScale(Math.random(), Scale.PENTATONIC, 2), Math.random() > 0.5 ? 1 : 0);
+    const duration = ((s.maxD / maxPossibleD) / 2) + 0.01
     // Panner3DRef.current.setPosition(xPan, yPan, 0);
     PolyRef.current.triggerAttackRelease(note, duration);
   }
@@ -215,11 +228,23 @@ function Canvas({ children }: { children: ReactNode }) {
       // window.addEventListener("resize", resizeListener)
 
       gainRef.current = new Volume().toDestination();
-      reverbRef.current = new Reverb(0.5).connect(gainRef.current);
+      reverbRef.current = new Reverb(1.5).connect(gainRef.current);
       Panner3DRef.current = new Panner3D().connect(reverbRef.current);
-      PolyRef.current = new PolySynth(Synth, { oscillator: { type: "sine" }, envelope: { attack: 0.05, release: 0.1 } }).connect(Panner3DRef.current);
+
+      // ALEATORIC VISUALS AND AUDIO
 
       Math.random() > 0.5 ? paletteRef.current = parseRGBA(randPastel()) : paletteRef.current = null;
+      let oscType: "sine" | "triangle";
+
+      if (Math.random() > 0.5) {
+        shapeRef.current = "circle";
+        oscType = "sine";
+      } else {
+        shapeRef.current = "square";
+        oscType = "triangle";
+      }
+
+      PolyRef.current = new PolySynth(Synth, { oscillator: { type: oscType }, envelope: { attack: 0.05, release: 0.1 } }).connect(Panner3DRef.current);
     }
   }, [])
 
@@ -296,27 +321,27 @@ function Canvas({ children }: { children: ReactNode }) {
         firstClick.current = true;
       }
 
-      randCircle(ctxRef.current, e);
+      randShape(ctxRef.current, e);
     }
   }
 
   const mouseMoveHandler = (e: MouseEvent) => {
     // TODO: Redo this only happen in non-mobile in the actual middle of the div, on page load.
     // Draw some circles on the first page to fill in the empty space on the left
-    if (ctxRef.current && canvasRef.current && !firstCircles.current) {
+    if (ctxRef.current && canvasRef.current && !firstShapes.current) {
       const w = canvasRef.current.width;
       const h = canvasRef.current.height;
 
       for (let i = 0; i < 3; i++) {
-        let autoCircle = new MouseEvent("click", {
+        let autoShape = new MouseEvent("click", {
           bubbles: true,
           cancelable: true,
           clientX: fuzz((w / 4) + (i % 2 === 0 ? i : i * (w / 10)), 0.1),
           clientY: fuzz((h * 2 / 5) + (i * (h / 7)), 0.05)
         })
-        randCircle(ctxRef.current, autoCircle, true);
+        randShape(ctxRef.current, autoShape, true);
       }
-      firstCircles.current = true;
+      firstShapes.current = true;
     }
     if (mouseHeldDown.current && ctxRef.current) {
       const currPos = { x: e.x, y: e.y };
@@ -326,7 +351,7 @@ function Canvas({ children }: { children: ReactNode }) {
       );
 
       if (dist > Math.min(ctxRef.current.canvas.width / 10, ctxRef.current.canvas.height / 10)) {
-        randCircle(ctxRef.current, e);
+        randShape(ctxRef.current, e);
         prevMousePos.current = currPos;
       }
     }
@@ -340,7 +365,7 @@ function Canvas({ children }: { children: ReactNode }) {
     if (ctxRef.current && canvasRef.current) {
       ctxRef.current.fillStyle = "white";
       ctxRef.current.fillRect(0, 0, canvasRef.current.width, canvasRef.current.height)
-      circles.current = [];
+      shapes.current = [];
     }
   }
 

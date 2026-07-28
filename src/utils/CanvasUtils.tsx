@@ -5,15 +5,23 @@
 //     color: string;
 // }
 
-
-class Doodle {
+abstract class Shape {
     x: number;
     y: number;
+
+    constructor(x: number, y: number) {
+        this.x = x;
+        this.y = y;
+    }
+
+    abstract render(ctx: CanvasRenderingContext2D): void;
+}
+
+class Doodle extends Shape {
     src: string;
 
     constructor(x: number, y: number, src: string) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
         this.src = src;
     }
 
@@ -25,42 +33,60 @@ class Doodle {
     }
 }
 
-class Circle {
-    x: number;
-    y: number;
-    r: number;
-    maxR: number;
+abstract class AnimatedShape extends Shape {
+    d: number;
+    maxD: number;
     color: string;
     progress: number;
 
+    constructor(x: number, y: number, maxD: number, color: string) {
+        super(x, y);
+        this.d = 0;
+        this.maxD = maxD;
+        this.color = color;
+        this.progress = 0;
+    }
+
+}
+
+class Square extends AnimatedShape {
+    constructor(x: number, y: number, maxW: number, color: string) {
+        super(x, y, maxW, color);
+    }
+
+    render(ctx: CanvasRenderingContext2D) {
+        // ctx.rotate((45 * Math.PI / 180));
+
+        ctx.beginPath();
+        ctx.fillStyle = this.color;
+        ctx.rect(this.x - this.d / 2, this.y - this.d / 2, this.d, this.d);
+        ctx.fill();
+
+        // ctx.rotate((-45 * Math.PI / 180));
+
+        if (this.progress < 1) {
+            this.progress += 0.015
+            this.d = easeOut(this.progress, 4) * this.maxD;
+        }
+    }
+}
+
+class Circle extends AnimatedShape {
     destroy: boolean;
     destroyProgress: number;
     destroyed: boolean;
 
     constructor(x: number, y: number, maxR: number, color: string) {
-        this.x = x;
-        this.y = y;
-        this.r = 0;
-        this.maxR = maxR;
-        this.color = color;
-        this.progress = 0;
+        super(x, y, maxR, color);
         this.destroy = false;
         this.destroyProgress = 0;
         this.destroyed = false;
     }
 
-    // grow() {
-    //   if (this.r < this.maxR) this.r += 1;
-    // }
-
-    easeOut(t: number, exp: number) {
-        return 1 - Math.pow((1 - t), exp);
-    }
-
     render(ctx: CanvasRenderingContext2D) {
         ctx.beginPath();
         ctx.fillStyle = this.color;
-        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.d, 0, Math.PI * 2);
         ctx.fill();
 
         const pCol = parseRGBA(this.color);
@@ -70,7 +96,7 @@ class Circle {
 
         if (this.progress < 1) {
             this.progress += 0.015
-            this.r = this.easeOut(this.progress, 4) * this.maxR;
+            this.d = easeOut(this.progress, 4) * this.maxD;
         }
         //  else if (this.progress >= 1 && this.progress < 3) {
         //     this.progress += 0.01;
@@ -102,6 +128,10 @@ class Circle {
 interface Point {
     x: number;
     y: number;
+}
+
+const easeOut = (t: number, exp: number) => {
+    return 1 - Math.pow((1 - t), exp);
 }
 
 const toColor = (r: number, g: number, b: number, a: number) => {
@@ -183,4 +213,4 @@ function parseRGBA(color: string): { r: number; g: number; b: number; a: number 
     return null; // Return null if the format doesn't match
 }
 
-export { Circle, Doodle, type Point, randColor, randPastel, randEnds, fuzz, similarRGBA, parseRGBA, randBrightness }
+export { AnimatedShape, Square as Diamond, Circle, Doodle, type Point, randColor, randPastel, randEnds, fuzz, similarRGBA, parseRGBA, randBrightness }

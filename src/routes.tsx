@@ -89,7 +89,7 @@ const projects = [
     },
     {
         title: "Meetup App Safety",
-        description: "UX research & design reimagining safety on a dating app.",
+        description: "UX research & design reimagining what safety means on a dating app.",
         url: "troov",
         image: troovImg,
         tags: [ProjectTag.uiux],
@@ -97,7 +97,7 @@ const projects = [
     },
     {
         title: "Environmental Justice Dashboard",
-        description: "UX research & design empowering communities to combat pollution.",
+        description: "UX research & design of a dashboard empowering communities against pollution.",
         url: "dashboard",
         image: dashboardImg,
         tags: [ProjectTag.uiux],
@@ -105,7 +105,7 @@ const projects = [
     },
     {
         title: "Spotify Karaoke",
-        description: "Full-stack app generating animated karaoke lyrics from Spotify.",
+        description: "Full-stack app generating and animating karaoke tracks—deployed on the cloud.",
         url: "spotify_karaoke",
         image: spotifyKaraokeImg,
         tags: [ProjectTag.engineering],
@@ -113,7 +113,7 @@ const projects = [
     },
     {
         title: "Personal Website",
-        description: "The design motivations behind my personal portfolio.",
+        description: "Design motivations behind my personal portfolio.",
         url: "website",
         image: websiteImg,
         tags: [ProjectTag.engineering, ProjectTag.interactiveArt],
@@ -142,7 +142,7 @@ const projects = [
     // },
     {
         title: "Orb Weaver",
-        description: "Web app animating and generating music based off a spider's web.",
+        description: "Web app algorithmically animating and generating music based off a spider's web.",
         url: "orb_weaver",
         image: orbWeaverImg,
         tags: [ProjectTag.engineering, ProjectTag.interactiveArt],
