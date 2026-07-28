@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/static/js/main.8a8ab381.js",
+    "main.js": "/static/js/main.4aa35e7a.js",
     "static/media/ux_research_environmental_justice.pdf": "/static/media/ux_research_environmental_justice.b91c20bf975ff5f4b33d.pdf",
     "static/media/collage.mp4": "/static/media/collage.2574b33bebe7b9517830.mp4",
     "static/media/troov_final_presentation.pdf": "/static/media/troov_final_presentation.282fd0fb3f83ee442021.pdf",
     "static/media/fan_slides.pdf": "/static/media/fan_slides.49d9f8b9a28f18a1a468.pdf",
     "static/media/papermaking.png": "/static/media/papermaking.15033b4d807c92ea6889.png",
     "static/media/timeline.gif": "/static/media/timeline.3876e6f0ce10380bf7f0.gif",
-    "static/media/SFPro-Regular.svg": "/static/media/SFPro-Regular.9c36b2c14bc9c32991d18151e67a17e6.svg",
+    "static/media/SFPro-Regular.svg": "/static/media/SFPro-Regular.b9f8c756c198280ee021ef55e45156c2.svg",
     "static/media/swaps.png": "/static/media/swaps.e55b7e5eeacb67cee27c.png",
     "static/media/spotify_karaoke_demo.mp4": "/static/media/spotify_karaoke_demo.6dd7fa96b5b1c6a6450d.mp4",
     "static/media/arduino.png": "/static/media/arduino.4aecbe29ffe2f9af2670.png",
@@ -21,7 +21,7 @@
     "static/media/lantern_main.png": "/static/media/lantern_main.65ff3bfee18c565f8d93.png",
     "static/media/troov_main.png": "/static/media/troov_main.aa69b4cf4a7854ef36dc.png",
     "static/media/sketch.png": "/static/media/sketch.d908ccf174ade3e5e675.png",
-    "static/media/FreeSans.svg": "/static/media/FreeSans.e0e05b141b369afe439aa7b24724a182.svg",
+    "static/media/FreeSans.svg": "/static/media/FreeSans.f8107fdf9b96be71f078e1fa497b5592.svg",
     "static/media/dashboard.png": "/static/media/dashboard.48535ad261d098b2d16f.png",
     "static/media/storyboard.png": "/static/media/storyboard.3d04de8b655583dc546d.png",
     "static/media/collage_main.png": "/static/media/collage_main.e6af50779bf8e24956ee.png",
@@ -54,7 +54,7 @@
     "static/media/orb_weaver_main.png": "/static/media/orb_weaver_main.772595941b767e648d16.png",
     "static/media/sensors.png": "/static/media/sensors.7b4275231dbf298bc7a8.png",
     "static/media/website_main.png": "/static/media/website_main.24f7c1ec685fe4a149e9.png",
-    "static/media/Average-Regular.svg": "/static/media/Average-Regular.e5daf5ecc7e75689844861d7bddd71d6.svg",
+    "static/media/Average-Regular.svg": "/static/media/Average-Regular.4c3aec078cbd682799552802365bb0d6.svg",
     "static/media/FreeSans.woff2": "/static/media/FreeSans.fc3da81ac98c1768159c.woff2",
     "static/media/max_patch.png": "/static/media/max_patch.7ef08d9a74dd09f343d6.png",
     "static/media/competitive_analysis.png": "/static/media/competitive_analysis.11407f5da74e17bf35f1.png",
@@ -84,17 +84,21 @@
     "static/media/woff2.woff2": "/static/media/woff2.4c683be53be193bfc940.woff2",
     "static/media/regular.woff": "/static/media/regular.64af96d062ad411b59ec.woff",
     "static/media/light.woff": "/static/media/light.88e5cd958add16cfb196.woff",
+    "static/media/jason11.png": "/static/media/jason11.e521335975bb49538766.png",
     "static/media/regular.woff2": "/static/media/regular.a6aca98544ec497a38ce.woff2",
     "static/media/light.woff2": "/static/media/light.1a2dd5f8da1c722d42ce.woff2",
     "static/media/river.png": "/static/media/river.2c67a030a15fe1ffc10b.png",
+    "static/media/jason9.png": "/static/media/jason9.b480860949f37e68b2ad.png",
     "static/media/jason.png": "/static/media/jason.821ec1a14538632b650a.png",
-    "static/media/jason4.png": "/static/media/jason4.6baee266f91ef46471d9.png",
+    "static/media/jason10.png": "/static/media/jason10.0b79399c50e30c217ad6.png",
+    "static/media/jason4.png": "/static/media/jason4.04a832cead618834f8be.png",
+    "static/media/jason12.png": "/static/media/jason12.f72d8351b7fe96b9111f.png",
     "static/media/jason5.png": "/static/media/jason5.ca772528b6dfba53bd3a.png",
     "static/media/jason3.png": "/static/media/jason3.4bb54663254b69ba2202.png",
     "index.html": "/index.html",
-    "main.8a8ab381.js.map": "/static/js/main.8a8ab381.js.map"
+    "main.4aa35e7a.js.map": "/static/js/main.4aa35e7a.js.map"
   },
   "entrypoints": [
-    "static/js/main.8a8ab381.js"
+    "static/js/main.4aa35e7a.js"
   ]
 }
