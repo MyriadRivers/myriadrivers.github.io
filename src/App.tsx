@@ -82,6 +82,8 @@ const StyledApp = styled.div<{ $contentTop: number, $scrollBarWidth: number }>`
   .centerContainer {
     /* background: pink;  */
     height: 100%;
+    display: flex;
+    justify-content: center;
 
     padding: 
     ${props => `calc(30px)`} 
@@ -193,11 +195,11 @@ function App() {
               </div>
             </div>
             {/* <div className="fadeContainer"> */}
-              <div className={"centerContainer"} ref={contentRef}>
-                <div className="outletContainer" ref={outletContainerRef}>
-                  <Outlet />
-                </div>
+            <div className={"centerContainer"} ref={contentRef}>
+              <div className="outletContainer" ref={outletContainerRef}>
+                <Outlet />
               </div>
+            </div>
             {/* </div> */}
           </StyledApp>
         </Canvas>

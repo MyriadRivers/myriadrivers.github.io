@@ -7,6 +7,11 @@ import jason5 from "../../assets/images/jason5.png"
 import jason6 from "../../assets/images/jason6.png"
 import jason7 from "../../assets/images/jason7.png"
 import jason8 from "../../assets/images/jason8.png"
+import jason9 from "../../assets/images/jason9.png"
+import jason10 from "../../assets/images/jason10.png"
+import jason11 from "../../assets/images/jason11.png"
+import jason12 from "../../assets/images/jason12.png"
+
 import breakpoints from "../../styles/breakpoints";
 import { useEffect, useRef, useState } from "react";
 import LinkList from "../../components/LinkList";
@@ -14,7 +19,7 @@ import LinkList from "../../components/LinkList";
 import resumePath from "../../assets/files/resume.pdf";
 import Link from "../../components/Link";
 
-const jasonImages = [jason, jason3, jason4, jason5];
+const jasonImages = [jason, jason3, jason4, jason5, jason9, jason10, jason11, jason12];
 
 const StyledAbout = styled.div<{ $overflow: boolean, $topPadding: number }>`
     height: calc(100% - 120px);
@@ -172,9 +177,9 @@ function About() {
                     <p>
                         Ever since I was a kid, I've been told that I had too many interests. That I'm 三心二意: of three hearts and two minds.
                     </p>
-                    <p>  
+                    <p>
                         But I don't believe in silos. I am a lifelong learner—whether that's in user research, software engineering, or interactive technology—I'm always willing to dive deep and develop a new skill.
-                        My cross-curricular passion gives me the vision and breadth to understand the full stack, the big picture—it lets me work well across teams and people—even as 
+                        My cross-curricular passion gives me the vision and breadth to understand the full stack, the big picture—it lets me work well across teams and people—even as
                         I focus on my individual part.
                     </p>
                     <p>

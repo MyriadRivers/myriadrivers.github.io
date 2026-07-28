@@ -21,12 +21,19 @@ import myriapoda from "../assets/images/doodles/myriapoda.png";
 import neuroptera from "../assets/images/doodles/neuroptera.png";
 import odonata from "../assets/images/doodles/odonata.png";
 import orthoptera from "../assets/images/doodles/orthoptera.png";
+import psocodea from "../assets/images/doodles/psocodea.png";
+import megaloptera from "../assets/images/doodles/megaloptera.png";
+import ephemeroptera from "../assets/images/doodles/ephemeroptera.png";
+import phasmatodea from "../assets/images/doodles/phasmatodea.png";
+import trichoptera from "../assets/images/doodles/trichoptera.png";
+import plecoptera from "../assets/images/doodles/plecoptera.png";
+import zygentoma from "../assets/images/doodles/zygentoma.png";
 import { BaseContext, Panner3D, PolySynth, Reverb, Synth, Volume } from "tone";
 import { Circle, Doodle, fuzz, parseRGBA, Point, randBrightness, randEnds, randPastel, similarRGBA } from "../utils/CanvasUtils";
 import { numToScale, octave, Scale } from "../utils/musicUtils";
 
 const MAX_DOODLES = 5;
-const doodleList = [aranea, blattodea, coleoptera, dermaptera, diptera, hemiptera, hymenoptera, lepidoptera_imago, lepidoptera_larva, mantodea, myriapoda, neuroptera, odonata, orthoptera];
+const doodleList = [aranea, blattodea, coleoptera, dermaptera, diptera, hemiptera, hymenoptera, lepidoptera_imago, lepidoptera_larva, mantodea, myriapoda, neuroptera, odonata, orthoptera, psocodea, megaloptera, ephemeroptera, phasmatodea, trichoptera, plecoptera, zygentoma];
 
 const StyledCanvas = styled.div`
   /* background: pink; */
