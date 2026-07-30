@@ -92,13 +92,34 @@ function ProjectPage({ tags, content }: { tags: Array<ProjectTag>, content: Proj
     const contentsRef = useRef<HTMLDivElement | null>(null);
 
     const pageTopOffset = useRef<number>(0);
-    const [scrollRef, setScrollRef] = useState<HTMLDivElement | null>(null);
 
     const sidebarContainerRef = useRef<HTMLDivElement | null>(null);
     const [contentLeftPadding, setContentLeftPadding] = useState<number>(0);
 
+    const setActiveHeader = () => {
+        const scrollContainer = document.querySelector('.outletContainer') as HTMLElement | null;
+        if (!scrollContainer) return;
+
+        const scrollPosition = scrollContainer.scrollTop + 20;
+
+        for (let i = 0; i < headingRefs.current.length; i++) {
+            const headingRef = headingRefs.current[i];
+            if (!headingRef) continue;
+
+            const headingTop = headingRef.getBoundingClientRect().top - scrollContainer.getBoundingClientRect().top + scrollContainer.scrollTop;
+            if (scrollPosition >= headingTop) {
+                setActiveHeading(i);
+            }
+        }
+    }
+
     useEffect(() => {
-        window.scroll({ top: 0, left: 0, behavior: "instant" } as unknown as ScrollToOptions);
+        const scrollContainer = document.querySelector('.outletContainer') as HTMLElement | null;
+        if (scrollContainer) {
+            scrollContainer.scrollTo({ top: 0, left: 0 });
+        } else {
+            window.scrollTo({ top: 0, left: 0 });
+        }
 
         if (!sidebarContainerRef.current) return;
         const sidebarResizeObserver = new ResizeObserver((size) => {
@@ -108,21 +129,27 @@ function ProjectPage({ tags, content }: { tags: Array<ProjectTag>, content: Proj
         sidebarResizeObserver.observe(sidebarContainerRef.current);
         setContentLeftPadding(sidebarContainerRef.current.clientWidth);
 
-        window.addEventListener("scroll", setActiveHeader);
-    }, [])
-
-    const setActiveHeader = () => {
-        // if (!headingRefs.current || !pageTopOffset) return;
-        for (let i = 0; i < headingRefs.current.length; i++) {
-            let headingRef = headingRefs.current[i];
-            let offsetTop = headingRef ? headingRef.offsetTop : 0;
-            if (window.scrollY >= offsetTop - pageTopOffset.current) { setActiveHeading(i) };
+        if (scrollContainer) {
+            scrollContainer.addEventListener("scroll", setActiveHeader);
+        } else {
+            window.addEventListener("scroll", setActiveHeader);
         }
-    }
+
+        setActiveHeader();
+
+        return () => {
+            if (scrollContainer) {
+                scrollContainer.removeEventListener("scroll", setActiveHeader);
+            } else {
+                window.removeEventListener("scroll", setActiveHeader);
+            }
+            sidebarResizeObserver.disconnect();
+        };
+    }, [])
 
     return (<StyledPage $paddingLeft={contentLeftPadding}>
         <div className={"sidebarContainer"} ref={sidebarContainerRef}>
-            <Sidebar headings={headings} activeHeading={activeHeading} pageTop={pageTopOffset.current} scrollRef={scrollRef} headingRefs={headingRefs.current} />
+            <Sidebar headings={headings} activeHeading={activeHeading} pageTop={pageTopOffset.current} scrollRef={null} headingRefs={headingRefs.current} />
         </div>
         <div className={"projectContents"} ref={contentsRef}>
             {content.sections.map((section, index) => {

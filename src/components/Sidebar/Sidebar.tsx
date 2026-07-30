@@ -33,9 +33,14 @@ function Sidebar({ headings, activeHeading, pageTop, scrollRef, headingRefs }:
     { headings: Array<string>, activeHeading: number, pageTop: number | null, scrollRef: HTMLDivElement | null, headingRefs: Array<HTMLDivElement | null> }) {
 
     const scrollTo = (element: HTMLElement | null) => {
-        if (element && pageTop) {
-            window.scroll({ top: element.offsetTop - pageTop });
-        }
+        const scrollContainer = document.querySelector('.outletContainer') as HTMLElement | null;
+        if (!element || !scrollContainer) return;
+
+        const containerRect = scrollContainer.getBoundingClientRect();
+        const elementTop = element.getBoundingClientRect().top - containerRect.top + scrollContainer.scrollTop;
+        const targetTop = Math.max(0, elementTop - (pageTop ?? 20));
+
+        scrollContainer.scrollTo({ top: targetTop, behavior: 'smooth' });
     }
 
     return (<StyledSidebar>
